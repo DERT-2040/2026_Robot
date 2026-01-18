@@ -1,0 +1,34 @@
+{
+  "NetworkTables": {
+    "transitory": {
+      "Simulink Tunable Params": {
+        "open": true
+      },
+      "limelight": {
+        "open": true
+      }
+    },
+    "types": {
+      "/FMSInfo": "FMSInfo",
+      "/SmartDashboard/ALARM PANIC": "Alerts",
+      "/SmartDashboard/Auto Modes": "String Chooser"
+    }
+  },
+  "NetworkTables Info": {
+    "Clients": {
+      "open": true
+    },
+    "Connections": {
+      "open": true
+    },
+    "Server": {
+      "open": true
+    },
+    "visible": true
+  },
+  "NetworkTables Settings": {
+    "mode": "Client (NT4)",
+    "serverTeam": "2040",
+    "visible": false
+  }
+}
