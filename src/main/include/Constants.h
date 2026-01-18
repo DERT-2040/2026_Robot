@@ -25,15 +25,16 @@ namespace Constants
     
     namespace SwerveInfo
     {
+    // Define the CAN bus network into which the Swerve CANcoders are connected
         static ctre::phoenix6::CANBus CANcoder_CANBus = Constants::CANBuses::CANivoreBus;
 
-    //Steer Encoder Ports
+    // Define the Swerve Steer Encoder CAN IDs
         static constexpr int k_FrontLeft_Steer_Encoder_ID = 1;
         static constexpr int k_FrontRight_Steer_Encoder_ID = 2;
         static constexpr int k_BackLeft_Steer_Encoder_ID = 3;
         static constexpr int k_BackRight_Steer_Encoder_ID = 4;
     
-    //Wheel Offset Keys
+    // Wheel Offset Keys
         static constexpr std::string_view k_FrontLeft_Wheel_Offset_Key = "FrontLeftWheelOffset";
         static constexpr std::string_view k_FrontRight_Wheel_Offset_Key = "FrontRightWheelOffset";
         static constexpr std::string_view k_BackLeft_Wheel_Offset_Key = "BackLeftWheelOffset";
@@ -123,8 +124,11 @@ namespace Constants
 
     namespace IMU
     {
-        static constexpr int k_Pigeon2_Device_ID = 5;
+    // Define the CAN bus network into which the IMU is connected
         static ctre::phoenix6::CANBus IMU_CANBus = Constants::CANBuses::CANivoreBus;
+
+    // Define the IMU CAN ID
+        static constexpr int k_Pigeon2_Device_ID = 5;
     };
 
 
