@@ -1,6 +1,7 @@
 #pragma once
 //std
 #include <string>
+#include <memory>
 
 //FRC
 //#include <frc/AddressableLED.h>
@@ -19,14 +20,13 @@ namespace Constants
 {
     namespace CANBuses
     {
-        static dlib::CANBus CANivoreBus("uno");
-        static dlib::CANBus RoboRioBus("rio");
+        static std::shared_ptr<ctre::phoenix6::CANBus> CANivoreBus = std::make_shared<ctre::phoenix6::CANBus>("uno");
     };
     
     namespace SwerveInfo
     {
     // Define the CAN bus network into which the Swerve CANcoders are connected
-        static ctre::phoenix6::CANBus CANcoder_CANBus = Constants::CANBuses::CANivoreBus;
+        static std::shared_ptr<ctre::phoenix6::CANBus> CANcoder_CANBus = Constants::CANBuses::CANivoreBus;
 
     // Define the Swerve Steer Encoder CAN IDs
         static constexpr int k_FrontLeft_Steer_Encoder_ID = 1;
@@ -46,7 +46,7 @@ namespace Constants
         namespace Drive
         {
             static TalonFXMotorCreateInfo defaultDriveCreateInfo = TalonFXMotorCreateInfo::getDefaultCreateInfo()
-                .SetCanbus(Constants::CANBuses::CANivoreBus)
+                .SetCanbus(*Constants::CANBuses::CANivoreBus)
                 .SetIsReversed(true)
                 .SetSupplyCurrentLimit(80)
                 .SetOpenLoopRampPeriod(0)
@@ -86,7 +86,7 @@ namespace Constants
         namespace Steer
         {
             static TalonFXMotorCreateInfo defaultSteerCreateInfo = TalonFXMotorCreateInfo::getDefaultCreateInfo()
-                .SetCanbus(Constants::CANBuses::CANivoreBus)
+                .SetCanbus(*Constants::CANBuses::CANivoreBus)
                 .SetIsReversed(false)
                 .SetSupplyCurrentLimit(60)
                 .SetOpenLoopRampPeriod(0)
@@ -125,7 +125,7 @@ namespace Constants
     namespace IMU
     {
     // Define the CAN bus network into which the IMU is connected
-        static ctre::phoenix6::CANBus IMU_CANBus = Constants::CANBuses::CANivoreBus;
+        static std::shared_ptr<ctre::phoenix6::CANBus> IMU_CANBus = Constants::CANBuses::CANivoreBus;
 
     // Define the IMU CAN ID
         static constexpr int k_Pigeon2_Device_ID = 5;

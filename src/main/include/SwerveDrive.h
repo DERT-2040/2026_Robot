@@ -54,9 +54,9 @@ private:
   
 
   //Steer Absolute Encoders
-    ctre::phoenix6::hardware::CANcoder m_FrontLeft_Steer_Encoder{SwerveInfo::k_FrontLeft_Steer_Encoder_ID, Constants::SwerveInfo::CANcoder_CANBus};
-    ctre::phoenix6::hardware::CANcoder m_FrontRight_Steer_Encoder{SwerveInfo::k_FrontRight_Steer_Encoder_ID, Constants::SwerveInfo::CANcoder_CANBus};
-    ctre::phoenix6::hardware::CANcoder m_BackLeft_Steer_Encoder{SwerveInfo::k_BackLeft_Steer_Encoder_ID, Constants::SwerveInfo::CANcoder_CANBus};
-    ctre::phoenix6::hardware::CANcoder m_BackRight_Steer_Encoder{SwerveInfo::k_BackRight_Steer_Encoder_ID, Constants::SwerveInfo::CANcoder_CANBus};
+    ctre::phoenix6::hardware::CANcoder m_FrontLeft_Steer_Encoder{SwerveInfo::k_FrontLeft_Steer_Encoder_ID, *Constants::SwerveInfo::CANcoder_CANBus};
+    ctre::phoenix6::hardware::CANcoder m_FrontRight_Steer_Encoder{SwerveInfo::k_FrontRight_Steer_Encoder_ID, *Constants::SwerveInfo::CANcoder_CANBus};
+    ctre::phoenix6::hardware::CANcoder m_BackLeft_Steer_Encoder{SwerveInfo::k_BackLeft_Steer_Encoder_ID, *Constants::SwerveInfo::CANcoder_CANBus};
+    ctre::phoenix6::hardware::CANcoder m_BackRight_Steer_Encoder{SwerveInfo::k_BackRight_Steer_Encoder_ID, *Constants::SwerveInfo::CANcoder_CANBus};
 };
 

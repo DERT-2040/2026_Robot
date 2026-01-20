@@ -24,6 +24,6 @@ private:
     /**
      * Pigeon 2 IMU from CRTE
     */
-    ctre::phoenix6::hardware::Pigeon2 m_Pigeon2{kIMU::k_Pigeon2_Device_ID, kIMU::IMU_CANBus};
+    ctre::phoenix6::hardware::Pigeon2 m_Pigeon2{kIMU::k_Pigeon2_Device_ID, *kIMU::IMU_CANBus};
 
 };
