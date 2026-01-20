@@ -12,7 +12,7 @@
 #include <ctre/phoenix6/Pigeon2.hpp>
 #include <frc/Alert.h>
 
-namespace LimelightNameSpace = Constants::Limelight;
+namespace nsLimelight = Constants::Limelight;
 
 class Limelight : public dlib::Component {
     public: 

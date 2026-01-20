@@ -10,7 +10,7 @@
 #include "Robot_Control_ert_rtw/Robot_Control.h"
 #include "Odometry_ert_rtw/Odometry.h"
 
-namespace kIMU = Constants::IMU;
+namespace nsIMU = Constants::IMU;
 
 class IMU : public dlib::HighFrequencyComponent
 {
@@ -24,6 +24,6 @@ private:
     /**
      * Pigeon 2 IMU from CRTE
     */
-    ctre::phoenix6::hardware::Pigeon2 m_Pigeon2{kIMU::k_Pigeon2_Device_ID, *kIMU::IMU_CANBus};
+    ctre::phoenix6::hardware::Pigeon2 m_Pigeon2{nsIMU::k_Pigeon2_Device_ID, *nsIMU::IMU_CANBus};
 
 };

@@ -37,10 +37,10 @@ void SwerveDrive::PostStepCallback()
   }
   else if(Robot_Control_Y.Reset_Wheel_Offsets)
   { //Recal Wheels
-    frc::Preferences::SetDouble(SwerveInfo::k_FrontLeft_Wheel_Offset_Key, Odometry_U.FrontLeft_Steer_Rev);
-    frc::Preferences::SetDouble(SwerveInfo::k_FrontRight_Wheel_Offset_Key, Odometry_U.FrontRight_Steer_Rev);
-    frc::Preferences::SetDouble(SwerveInfo::k_BackLeft_Wheel_Offset_Key, Odometry_U.BackLeft_Steer_Rev);
-    frc::Preferences::SetDouble(SwerveInfo::k_BackRight_Wheel_Offset_Key, Odometry_U.BackRight_Steer_Rev);
+    frc::Preferences::SetDouble(nsSwerveInfo::k_FrontLeft_Wheel_Offset_Key,  Odometry_U.FrontLeft_Steer_Rev);
+    frc::Preferences::SetDouble(nsSwerveInfo::k_FrontRight_Wheel_Offset_Key, Odometry_U.FrontRight_Steer_Rev);
+    frc::Preferences::SetDouble(nsSwerveInfo::k_BackLeft_Wheel_Offset_Key,   Odometry_U.BackLeft_Steer_Rev);
+    frc::Preferences::SetDouble(nsSwerveInfo::k_BackRight_Wheel_Offset_Key,  Odometry_U.BackRight_Steer_Rev);
     SwerveDrive::Set_Wheel_Offset();
   }
 
@@ -53,32 +53,32 @@ void SwerveDrive::PostStepCallback()
 
 void SwerveDrive::Initalize_Wheel_Offset() 
 {
-  if(!frc::Preferences::ContainsKey(SwerveInfo::k_FrontLeft_Wheel_Offset_Key))
-    frc::Preferences::SetDouble(SwerveInfo::k_FrontLeft_Wheel_Offset_Key, 0.0);
-  if(!frc::Preferences::ContainsKey(SwerveInfo::k_FrontRight_Wheel_Offset_Key))
-    frc::Preferences::SetDouble(SwerveInfo::k_FrontRight_Wheel_Offset_Key, 0.0);
-  if(!frc::Preferences::ContainsKey(SwerveInfo::k_BackLeft_Wheel_Offset_Key))
-    frc::Preferences::SetDouble(SwerveInfo::k_BackLeft_Wheel_Offset_Key, 0.0);
-  if(!frc::Preferences::ContainsKey(SwerveInfo::k_BackRight_Wheel_Offset_Key))
-    frc::Preferences::SetDouble(SwerveInfo::k_BackRight_Wheel_Offset_Key, 0.0);
+  if(!frc::Preferences::ContainsKey(nsSwerveInfo::k_FrontLeft_Wheel_Offset_Key))
+    frc::Preferences::SetDouble(nsSwerveInfo::k_FrontLeft_Wheel_Offset_Key, 0.0);
+  if(!frc::Preferences::ContainsKey(nsSwerveInfo::k_FrontRight_Wheel_Offset_Key))
+    frc::Preferences::SetDouble(nsSwerveInfo::k_FrontRight_Wheel_Offset_Key, 0.0);
+  if(!frc::Preferences::ContainsKey(nsSwerveInfo::k_BackLeft_Wheel_Offset_Key))
+    frc::Preferences::SetDouble(nsSwerveInfo::k_BackLeft_Wheel_Offset_Key, 0.0);
+  if(!frc::Preferences::ContainsKey(nsSwerveInfo::k_BackRight_Wheel_Offset_Key))
+    frc::Preferences::SetDouble(nsSwerveInfo::k_BackRight_Wheel_Offset_Key, 0.0);
   SwerveDrive::Set_Wheel_Offset();
 }
 
 void SwerveDrive::Set_Wheel_Offset() 
 {
-  Odometry_U.BackLeft_Turn_Offset = frc::Preferences::GetDouble(SwerveInfo::k_BackLeft_Wheel_Offset_Key, 0.0);
-  Odometry_U.BackRight_Turn_Offset = frc::Preferences::GetDouble(SwerveInfo::k_BackRight_Wheel_Offset_Key, 0.0);
-  Odometry_U.FrontLeft_Turn_Offset = frc::Preferences::GetDouble(SwerveInfo::k_FrontLeft_Wheel_Offset_Key, 0.0);
-  Odometry_U.FrontRight_Turn_Offset = frc::Preferences::GetDouble(SwerveInfo::k_FrontRight_Wheel_Offset_Key, 0.0);
+  Odometry_U.BackLeft_Turn_Offset   = frc::Preferences::GetDouble(nsSwerveInfo::k_BackLeft_Wheel_Offset_Key, 0.0);
+  Odometry_U.BackRight_Turn_Offset  = frc::Preferences::GetDouble(nsSwerveInfo::k_BackRight_Wheel_Offset_Key, 0.0);
+  Odometry_U.FrontLeft_Turn_Offset  = frc::Preferences::GetDouble(nsSwerveInfo::k_FrontLeft_Wheel_Offset_Key, 0.0);
+  Odometry_U.FrontRight_Turn_Offset = frc::Preferences::GetDouble(nsSwerveInfo::k_FrontRight_Wheel_Offset_Key, 0.0);
 }
 
 void SwerveDrive::HighFrequencyPreStepCallback()
 {
   swerveDriveMotors.SendPositionValuesToSL();
-  Odometry_U.FrontLeft_Steer_Rev = m_FrontLeft_Steer_Encoder.GetPosition().GetValue().value();
+  Odometry_U.FrontLeft_Steer_Rev  = m_FrontLeft_Steer_Encoder.GetPosition().GetValue().value();
   Odometry_U.FrontRight_Steer_Rev = m_FrontRight_Steer_Encoder.GetPosition().GetValue().value();
-  Odometry_U.BackLeft_Steer_Rev = m_BackLeft_Steer_Encoder.GetPosition().GetValue().value();
-  Odometry_U.BackRight_Steer_Rev = m_BackRight_Steer_Encoder.GetPosition().GetValue().value();
+  Odometry_U.BackLeft_Steer_Rev   = m_BackLeft_Steer_Encoder.GetPosition().GetValue().value();
+  Odometry_U.BackRight_Steer_Rev  = m_BackRight_Steer_Encoder.GetPosition().GetValue().value();
 }
 
 void SwerveDrive::HighFrequencyPostStepCallback() {}

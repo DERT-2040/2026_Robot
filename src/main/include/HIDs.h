@@ -8,7 +8,7 @@
 #include <frc/Joystick.h>
 #include <frc/GenericHID.h>
 
-namespace HID = Constants::HID;
+namespace nsHID = Constants::HID;
 
 class HIDs : public dlib::Component
 {
@@ -37,15 +37,15 @@ private:
      *    9: Left Joystick
      *    10: Right Joystick
      */
-    frc::GenericHID m_Gamepad{HID::k_Gamepad_Port};
+    frc::GenericHID m_Gamepad{nsHID::k_Gamepad_Port};
 
     /**
      * Joystick that is on the index of k_Drive_Joystick_Port
      */
-    frc::Joystick m_Left_Joystick{HID::k_Right_Joystick_Port};
+    frc::Joystick m_Left_Joystick{nsHID::k_Right_Joystick_Port};
 
     /**
      * Joystick that is on the index of k_Steer_Joystick_Port
      */
-    frc::Joystick m_Right_Joystick{HID::k_Left_Joystick_Port};
+    frc::Joystick m_Right_Joystick{nsHID::k_Left_Joystick_Port};
 };

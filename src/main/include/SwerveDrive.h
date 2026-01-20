@@ -15,9 +15,9 @@
 //etc
 #include <frc/smartdashboard/SmartDashboard.h>
 
-namespace Drive = Constants::SwerveMotorsCreateInfo::Drive;
-namespace Steer = Constants::SwerveMotorsCreateInfo::Steer;
-namespace SwerveInfo = Constants::SwerveInfo;
+namespace nsDrive = Constants::SwerveMotorsCreateInfo::Drive;
+namespace nsSteer = Constants::SwerveMotorsCreateInfo::Steer;
+namespace nsSwerveInfo = Constants::SwerveInfo;
 
 class SwerveDrive : public dlib::HighFrequencyComponent
 {
@@ -31,16 +31,16 @@ public:
   dlib::TalonFXMotorGroup swerveDriveMotors
   {
     {
-      Drive::frontLeft, Drive::frontRight,
-      Drive::backLeft, Drive::backRight,
+      nsDrive::frontLeft, nsDrive::frontRight,
+      nsDrive::backLeft, nsDrive::backRight,
     }
   };
   
   dlib::TalonFXMotorGroup swerveSteerMotors
   {
     {
-      Steer::frontLeft, Steer::frontRight,
-      Steer::backLeft, Steer::backRight
+      nsSteer::frontLeft, nsSteer::frontRight,
+      nsSteer::backLeft, nsSteer::backRight
     }
   };
 
@@ -51,12 +51,10 @@ private:
   /** Sets the simulink variables for wheel offsets to what is in the robot preferences */
   void Set_Wheel_Offset();
 
-  
-
-  //Steer Absolute Encoders
-    ctre::phoenix6::hardware::CANcoder m_FrontLeft_Steer_Encoder{SwerveInfo::k_FrontLeft_Steer_Encoder_ID, *Constants::SwerveInfo::CANcoder_CANBus};
-    ctre::phoenix6::hardware::CANcoder m_FrontRight_Steer_Encoder{SwerveInfo::k_FrontRight_Steer_Encoder_ID, *Constants::SwerveInfo::CANcoder_CANBus};
-    ctre::phoenix6::hardware::CANcoder m_BackLeft_Steer_Encoder{SwerveInfo::k_BackLeft_Steer_Encoder_ID, *Constants::SwerveInfo::CANcoder_CANBus};
-    ctre::phoenix6::hardware::CANcoder m_BackRight_Steer_Encoder{SwerveInfo::k_BackRight_Steer_Encoder_ID, *Constants::SwerveInfo::CANcoder_CANBus};
+    //Steer Absolute Encoders
+    ctre::phoenix6::hardware::CANcoder m_FrontLeft_Steer_Encoder{nsSwerveInfo::k_FrontLeft_Steer_Encoder_ID, *nsSwerveInfo::CANcoder_CANBus};
+    ctre::phoenix6::hardware::CANcoder m_FrontRight_Steer_Encoder{nsSwerveInfo::k_FrontRight_Steer_Encoder_ID, *nsSwerveInfo::CANcoder_CANBus};
+    ctre::phoenix6::hardware::CANcoder m_BackLeft_Steer_Encoder{nsSwerveInfo::k_BackLeft_Steer_Encoder_ID, *nsSwerveInfo::CANcoder_CANBus};
+    ctre::phoenix6::hardware::CANcoder m_BackRight_Steer_Encoder{nsSwerveInfo::k_BackRight_Steer_Encoder_ID, *nsSwerveInfo::CANcoder_CANBus};
 };
 
