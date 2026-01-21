@@ -3,16 +3,16 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.032,
-        "y": 5.516
+        "x": 1.755838888888889,
+        "y": 5.798744444444444
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.9933833333333335,
-        "y": 6.0764611111111115
+        "x": 1.9897055555555556,
+        "y": 6.334688888888889
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Shoot after Depot"
     },
     {
       "anchor": {
@@ -25,7 +25,7 @@
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Trench Ready Pt"
     }
   ],
   "rotationTargets": [],
@@ -48,7 +48,7 @@
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -54.23885913344478
+    "rotation": -24.015102164117778
   },
   "useDefaultConstraints": true
 }
