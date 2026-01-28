@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.202888888888889,
+        "y": 2.6025666666666654
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.5694999999999997,
+        "y": 2.9143888888888885
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 1.254,
+        "y": 3.7426666666666666
+      },
+      "prevControl": {
+        "x": 1.4982940909807,
+        "y": 3.689559255583905
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 179.10482628978895
+  },
+  "reversed": false,
+  "folder": "Human Strat",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 28.855661219716552
+  },
+  "useDefaultConstraints": true
+}

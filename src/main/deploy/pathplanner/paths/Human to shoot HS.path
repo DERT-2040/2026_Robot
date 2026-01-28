@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 0.16262222222222233,
+        "y": 0.6634222222222217
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 1.1626222222222227,
+        "y": 0.6634222222222217
+      },
+      "isLocked": false,
+      "linkedName": "Fuel from Human"
+    },
+    {
+      "anchor": {
+        "x": 3.056722222222222,
+        "y": 2.3199777777777775
+      },
+      "prevControl": {
+        "x": 2.715666666666667,
+        "y": 2.0763666666666656
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 43.53119928561416
+  },
+  "reversed": false,
+  "folder": "Human Strat",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -1.1934894239820215
+  },
+  "useDefaultConstraints": true
+}
