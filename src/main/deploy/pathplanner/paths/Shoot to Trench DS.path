@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.755838888888889,
-        "y": 5.798744444444444
+        "x": 2.019,
+        "y": 4.951
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.9897055555555556,
-        "y": 6.334688888888889
+        "x": 2.252866666666667,
+        "y": 5.486944444444444
       },
       "isLocked": false,
       "linkedName": "Shoot after Depot"
@@ -45,10 +45,10 @@
     "rotation": -90.58293843458186
   },
   "reversed": false,
-  "folder": null,
+  "folder": "Old DS",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -24.015102164117778
+    "rotation": -26.172814017585022
   },
   "useDefaultConstraints": true
 }

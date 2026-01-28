@@ -3,29 +3,45 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.47444444444561285,
-        "y": 5.974144444444444
+        "x": 2.019,
+        "y": 4.951
       },
       "prevControl": null,
       "nextControl": {
-        "x": 0.986027777777778,
-        "y": 5.9497833333333325
+        "x": 2.413588888888889,
+        "y": 4.746344444444444
       },
       "isLocked": false,
-      "linkedName": "Depot"
+      "linkedName": "Shoot after Depot"
     },
     {
       "anchor": {
-        "x": 1.755838888888889,
-        "y": 5.798744444444444
+        "x": 2.53606369019905,
+        "y": 4.178953629594202
       },
       "prevControl": {
-        "x": 0.7424166666666667,
-        "y": 5.896188888888889
+        "x": 2.5761627075431486,
+        "y": 4.425716813250189
+      },
+      "nextControl": {
+        "x": 2.47272480131016,
+        "y": 3.789175851816423
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 1.6096722222222222,
+        "y": 3.635477777777778
+      },
+      "prevControl": {
+        "x": 2.1797222222222223,
+        "y": 3.7329222222222214
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Shoot after Depot"
+      "linkedName": null
     }
   ],
   "rotationTargets": [],
@@ -42,13 +58,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -24.015102164117778
+    "rotation": 178.37885408634645
   },
   "reversed": false,
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": -26.172814017585022
   },
   "useDefaultConstraints": true
 }
