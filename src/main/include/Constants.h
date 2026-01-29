@@ -132,7 +132,6 @@ namespace Constants
     };
 
 
-
     namespace Limelight
     {
         static const LimeLightCameraCreateInfo CameraOneCreateInfo
@@ -156,5 +155,48 @@ namespace Constants
             0.0              // Yaw (degrees)
         };
     };
+
+    namespace ShooterCreateInfo
+    {
+        static TalonFXMotorCreateInfo defaultShooterCreateInfo = TalonFXMotorCreateInfo::getDefaultCreateInfo()
+                .SetCanbus(*Constants::CANBuses::CANivoreBus)
+                .SetIsReversed(false)
+                .SetSupplyCurrentLimit(60)
+                .SetOpenLoopRampPeriod(0)
+                .SetEnableFOC(true)
+                .SetMotorType(TalonFXMotorType::KrakenX60);
+        static const TalonFXMotorCreateInfo Left = defaultShooterCreateInfo
+                .SetCanID(10)
+                .SetDutyCycleCallback(&Robot_Control_Y.Left_Shooter_DutyCycle)
+                .SetVelocityCallback(&Robot_Control_U.Left_Shooter_Motor_Speed)
+                .SetDisplayName("Left Shooter Motor");
+        static const TalonFXMotorCreateInfo Center = defaultShooterCreateInfo
+                .SetCanID(11)
+                .SetDutyCycleCallback(&Robot_Control_Y.Center_Shooter_DutyCycle)
+                .SetVelocityCallback(&Robot_Control_U.Center_Shooter_Motor_Speed)
+                .SetDisplayName("Center Shooter Motor");
+        static const TalonFXMotorCreateInfo Right = defaultShooterCreateInfo
+                .SetCanID(12)
+                .SetDutyCycleCallback(&Robot_Control_Y.Right_Shooter_DutyCycle)
+                .SetVelocityCallback(&Robot_Control_U.Right_Shooter_Motor_Speed)
+                .SetDisplayName("Right Shooter Motor");
+    }
+
+    namespace FeederCreateInfo
+    {
+        static TalonFXMotorCreateInfo defaultFeederCreateInfo = TalonFXMotorCreateInfo::getDefaultCreateInfo()
+                .SetCanbus(*Constants::CANBuses::CANivoreBus)
+                .SetIsReversed(false)
+                .SetSupplyCurrentLimit(60)
+                .SetOpenLoopRampPeriod(0)
+                .SetEnableFOC(true)
+                .SetMotorType(TalonFXMotorType::KrakenX60);
+        static const TalonFXMotorCreateInfo Feeder = defaultFeederCreateInfo
+                .SetCanID(13)
+                .SetDutyCycleCallback(&Robot_Control_Y.Feeder_DutyCycle)
+                .SetVelocityCallback(&Robot_Control_U.Feeder_Motor_Speed)
+                .SetDisplayName("Feeder Motor");
+    }
+    
 
 };
