@@ -21,6 +21,7 @@ namespace Constants
     namespace CANBuses
     {
         static std::shared_ptr<ctre::phoenix6::CANBus> CANivoreBus = std::make_shared<ctre::phoenix6::CANBus>("uno");
+        static std::shared_ptr<ctre::phoenix6::CANBus> RioBus = std::make_shared<ctre::phoenix6::CANBus>("rio");
     };
     
     namespace SwerveInfo
@@ -159,7 +160,7 @@ namespace Constants
     namespace ShooterCreateInfo
     {
         static TalonFXMotorCreateInfo defaultShooterCreateInfo = TalonFXMotorCreateInfo::getDefaultCreateInfo()
-                .SetCanbus(*Constants::CANBuses::CANivoreBus)
+                .SetCanbus(*Constants::CANBuses::RioBus)
                 .SetIsReversed(false)
                 .SetSupplyCurrentLimit(60)
                 .SetOpenLoopRampPeriod(0)
@@ -185,17 +186,33 @@ namespace Constants
     namespace FeederCreateInfo
     {
         static TalonFXMotorCreateInfo defaultFeederCreateInfo = TalonFXMotorCreateInfo::getDefaultCreateInfo()
-                .SetCanbus(*Constants::CANBuses::CANivoreBus)
+                .SetCanbus(*Constants::CANBuses::RioBus)
                 .SetIsReversed(false)
                 .SetSupplyCurrentLimit(60)
                 .SetOpenLoopRampPeriod(0)
                 .SetEnableFOC(true)
-                .SetMotorType(TalonFXMotorType::KrakenX60);
+                .SetMotorType(TalonFXMotorType::KrakenX44);
         static const TalonFXMotorCreateInfo Feeder = defaultFeederCreateInfo
                 .SetCanID(13)
                 .SetDutyCycleCallback(&Robot_Control_Y.Feeder_DutyCycle)
                 .SetVelocityCallback(&Robot_Control_U.Feeder_Motor_Speed)
                 .SetDisplayName("Feeder Motor");
+    }
+     
+    namespace TransferCreateInfo
+    {
+        static TalonFXMotorCreateInfo defaultTransferCreateInfo = TalonFXMotorCreateInfo::getDefaultCreateInfo()
+                .SetCanbus(*Constants::CANBuses::RioBus)
+                .SetIsReversed(false)
+                .SetSupplyCurrentLimit(60)
+                .SetOpenLoopRampPeriod(0)
+                .SetEnableFOC(true)
+                .SetMotorType(TalonFXMotorType::KrakenX44);
+        static const TalonFXMotorCreateInfo Transfer = defaultTransferCreateInfo
+                .SetCanID(14)
+                .SetDutyCycleCallback(&Robot_Control_Y.Transfer_DutyCycle)
+                .SetVelocityCallback(&Robot_Control_U.Transfer_Motor_Speed)
+                .SetDisplayName("Transfer Motor");
     }
     
 

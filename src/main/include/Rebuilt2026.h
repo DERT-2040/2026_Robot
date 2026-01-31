@@ -8,6 +8,7 @@
 
 namespace nsShooter = Constants::ShooterCreateInfo;
 namespace nsFeeder = Constants::FeederCreateInfo;
+namespace nsTransfer = Constants::TransferCreateInfo;
 
 class Rebuilt2026 : public dlib::Component
 {
@@ -26,6 +27,13 @@ public:
   {
     {
       nsFeeder::Feeder
+    }
+  };
+   
+  dlib::TalonFXMotorGroup TransferMotors
+  {
+    {
+      nsTransfer::Transfer
     }
   };
   

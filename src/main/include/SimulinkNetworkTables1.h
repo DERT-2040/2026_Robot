@@ -181,6 +181,7 @@ private:
         nt::NetworkTableEntry I__Odom_Position_X__Entry;
         nt::NetworkTableEntry I__Odom_Position_Y__Entry;
         nt::NetworkTableEntry I__Right_Shooter_Motor_Speed__Entry;
+        nt::NetworkTableEntry I__Transfer_Motor_Speed__Entry;
         nt::NetworkTableEntry I__Vision_Current_Pipeline__Entry;
         nt::NetworkTableEntry I__Vision_Num_Tags_Detected__Entry;
         nt::NetworkTableEntry I__Vision_RobotPoseFieldSpace_X__Entry;
@@ -210,6 +211,7 @@ private:
         nt::NetworkTableEntry O__Reset_Wheel_Offsets__Entry;
         nt::NetworkTableEntry O__Right_Shooter_DutyCycle__Entry;
         nt::NetworkTableEntry O__Swerve_Motors_Disabled__Entry;
+        nt::NetworkTableEntry O__Transfer_DutyCycle__Entry;
         nt::NetworkTableEntry O__Vision_Desired_Pipeline__Entry;
  
         // Test Points

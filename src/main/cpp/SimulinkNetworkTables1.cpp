@@ -429,6 +429,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     I__Odom_Position_X__Entry = NTtable_Inport->GetEntry("Odom_Position_X");
     I__Odom_Position_Y__Entry = NTtable_Inport->GetEntry("Odom_Position_Y");
     I__Right_Shooter_Motor_Speed__Entry = NTtable_Inport->GetEntry("Right_Shooter_Motor_Speed");
+    I__Transfer_Motor_Speed__Entry = NTtable_Inport->GetEntry("Transfer_Motor_Speed");
     I__Vision_Current_Pipeline__Entry = NTtable_Inport->GetEntry("Vision_Current_Pipeline");
     I__Vision_Num_Tags_Detected__Entry = NTtable_Inport->GetEntry("Vision_Num_Tags_Detected");
     I__Vision_RobotPoseFieldSpace_X__Entry = NTtable_Inport->GetEntry("Vision_RobotPoseFieldSpace_X");
@@ -459,6 +460,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     O__Reset_Wheel_Offsets__Entry = NTtable_Outport->GetEntry("Reset_Wheel_Offsets");
     O__Right_Shooter_DutyCycle__Entry = NTtable_Outport->GetEntry("Right_Shooter_DutyCycle");
     O__Swerve_Motors_Disabled__Entry = NTtable_Outport->GetEntry("Swerve_Motors_Disabled");
+    O__Transfer_DutyCycle__Entry = NTtable_Outport->GetEntry("Transfer_DutyCycle");
     O__Vision_Desired_Pipeline__Entry = NTtable_Outport->GetEntry("Vision_Desired_Pipeline");
  
 // Test Points
@@ -711,6 +713,7 @@ void SimulinkNetworkTables1::PostStepCallback()
     I__Odom_Position_X__Entry.SetDouble(Robot_Control_U.Odom_Position_X);
     I__Odom_Position_Y__Entry.SetDouble(Robot_Control_U.Odom_Position_Y);
     I__Right_Shooter_Motor_Speed__Entry.SetDouble(Robot_Control_U.Right_Shooter_Motor_Speed);
+    I__Transfer_Motor_Speed__Entry.SetDouble(Robot_Control_U.Transfer_Motor_Speed);
     I__Vision_Current_Pipeline__Entry.SetDouble(Robot_Control_U.Vision_Current_Pipeline);
     I__Vision_Num_Tags_Detected__Entry.SetDouble(Robot_Control_U.Vision_Num_Tags_Detected);
     I__Vision_RobotPoseFieldSpace_X__Entry.SetDouble(Robot_Control_U.Vision_RobotPoseFieldSpace_X);
@@ -740,6 +743,7 @@ void SimulinkNetworkTables1::PostStepCallback()
     O__Reset_Wheel_Offsets__Entry.SetDouble(Robot_Control_Y.Reset_Wheel_Offsets);
     O__Right_Shooter_DutyCycle__Entry.SetDouble(Robot_Control_Y.Right_Shooter_DutyCycle);
     O__Swerve_Motors_Disabled__Entry.SetDouble(Robot_Control_Y.Swerve_Motors_Disabled);
+    O__Transfer_DutyCycle__Entry.SetDouble(Robot_Control_Y.Transfer_DutyCycle);
     O__Vision_Desired_Pipeline__Entry.SetDouble(Robot_Control_Y.Vision_Desired_Pipeline);
     // Test Points
     T__Active_GameState__Entry.SetDouble(Robot_Control_B.Active_GameState);

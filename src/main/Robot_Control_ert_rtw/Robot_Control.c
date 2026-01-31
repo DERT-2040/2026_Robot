@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.433
+ * Model version                  : 2.434
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Jan 28 20:23:43 2026
+ * C/C++ source code generated on : Fri Jan 30 19:30:48 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -1904,8 +1904,8 @@ void Robot_Control_step(void)
     /* Product: '<S85>/Product3' incorporates:
      *  Constant: '<S35>/KalmanGainL'
      */
-    Robot_Control_B.Product3[0] = (0.0951249219725039 * rtb_Subtract_e) +
-      (-2.0601714451538746E-17 * rtb_Sin4);
+    Robot_Control_B.Product3[0] = (0.095124921972503981 * rtb_Subtract_e) +
+      (-2.0399807945617859E-17 * rtb_Sin4);
 
     /* Sum: '<S87>/Add1' incorporates:
      *  Product: '<S87>/Product'
@@ -1915,8 +1915,8 @@ void Robot_Control_step(void)
     /* Product: '<S85>/Product3' incorporates:
      *  Constant: '<S35>/KalmanGainL'
      */
-    Robot_Control_B.Product3[1] = (1.304610855474728E-16 * rtb_Subtract_e) +
-      (0.095124921972504 * rtb_Sin4);
+    Robot_Control_B.Product3[1] = (6.97190078400883E-17 * rtb_Subtract_e) +
+      (0.095124921972504231 * rtb_Sin4);
 
     /* Sum: '<S87>/Add1' incorporates:
      *  Product: '<S87>/Product'
@@ -1926,10 +1926,10 @@ void Robot_Control_step(void)
     /* Product: '<S87>/Product2' incorporates:
      *  Constant: '<S35>/KalmanGainM'
      */
-    Robot_Control_B.Product2[0] = (0.09512492197250387 * rtb_Add_h5) +
-      (5.9896845167210271E-17 * rtb_Sin4);
-    Robot_Control_B.Product2[1] = (5.9896845167210271E-17 * rtb_Add_h5) +
-      (0.095124921972503981 * rtb_Sin4);
+    Robot_Control_B.Product2[0] = (0.095124921972503981 * rtb_Add_h5) +
+      (3.0129175944891204E-17 * rtb_Sin4);
+    Robot_Control_B.Product2[1] = (3.0129175944891204E-17 * rtb_Add_h5) +
+      (0.095124921972504245 * rtb_Sin4);
   } else {
     if (Robot_Control_DW.MeasurementUpdate_MODE) {
       /* Disable for Product: '<S85>/Product3' incorporates:
@@ -4561,6 +4561,11 @@ void Robot_Control_step(void)
    *  Inport: '<Root>/Feeder_Motor_Speed'
    */
   Robot_Control_Y.Feeder_DutyCycle = Robot_Control_U.Feeder_Motor_Speed;
+
+  /* Outport: '<Root>/Transfer_DutyCycle' incorporates:
+   *  Inport: '<Root>/Transfer_Motor_Speed'
+   */
+  Robot_Control_Y.Transfer_DutyCycle = Robot_Control_U.Transfer_Motor_Speed;
 
   /* Update for UnitDelay: '<S31>/Delay Input1' incorporates:
    *  Inport: '<Root>/Joystick_Left_B11'

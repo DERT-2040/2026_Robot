@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.433
+ * Model version                  : 2.434
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Jan 28 20:23:43 2026
+ * C/C++ source code generated on : Fri Jan 30 19:30:48 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -311,6 +311,7 @@ typedef struct {
   real_T Right_Shooter_Motor_Speed;    /* '<Root>/Right_Shooter_Motor_Speed' */
   real_T Center_Shooter_Motor_Speed;   /* '<Root>/Center_Shooter_Motor_Speed' */
   real_T Feeder_Motor_Speed;           /* '<Root>/Feeder_Motor_Speed' */
+  real_T Transfer_Motor_Speed;         /* '<Root>/Transfer_Motor_Speed' */
 } ExtU_Robot_Control_T;
 
 /* External outputs (root outports fed by signals with default storage) */
@@ -332,6 +333,7 @@ typedef struct {
   real_T Right_Shooter_DutyCycle;      /* '<Root>/Right_Shooter_DutyCycle' */
   real_T Center_Shooter_DutyCycle;     /* '<Root>/Center_Shooter_DutyCycle' */
   real_T Feeder_DutyCycle;             /* '<Root>/Feeder_DutyCycle' */
+  real_T Transfer_DutyCycle;           /* '<Root>/Transfer_DutyCycle' */
 } ExtY_Robot_Control_T;
 
 /* Real-time Model Data Structure */
