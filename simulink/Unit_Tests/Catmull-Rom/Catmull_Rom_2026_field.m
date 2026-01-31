@@ -1,18 +1,11 @@
-%% Define Data
-D2R = pi/180;
+% Create figure and first subplot
+figure(1), clf
+subplot(2,1,1)
+hold on
 
 % Field Size 317 in. x 691 in.
 field_width = 317.69 * 0.0254;
 field_length = 691.22 * 0.0254;
-
-% [x, y, velocity, angle]
-
-
-%% Run simulation
-
-% Create figure
-figure(1), clf
-hold on
 
 % Field
 plot([0 0]*0.0254,[0 317.69]*0.0254,'k','LineWidth',3)
