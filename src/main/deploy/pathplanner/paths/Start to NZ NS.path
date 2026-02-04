@@ -1,0 +1,95 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.506,
+        "y": 7.259
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 3.9868196021690383,
+        "y": 7.433842479574726
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 2.642,
+        "y": 6.876
+      },
+      "prevControl": {
+        "x": 1.9316984857088326,
+        "y": 6.766724903150931
+      },
+      "nextControl": {
+        "x": 2.889093032068752,
+        "y": 6.914013596292257
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 4.883,
+        "y": 7.56
+      },
+      "prevControl": {
+        "x": 3.835116222871151,
+        "y": 7.56
+      },
+      "nextControl": {
+        "x": 5.930883777128849,
+        "y": 7.56
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 7.713,
+        "y": 5.303
+      },
+      "prevControl": {
+        "x": 6.679688697612622,
+        "y": 9.187560724481528
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "In NZ NS"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 1.0,
+      "rotationDegrees": 12.264773727892441
+    },
+    {
+      "waypointRelativePos": 2.0,
+      "rotationDegrees": 0.0
+    }
+  ],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -89.41971908168603
+  },
+  "reversed": false,
+  "folder": "NS",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -61.811683781464055
+  },
+  "useDefaultConstraints": true
+}
