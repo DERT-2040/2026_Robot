@@ -5,16 +5,16 @@ Catmull_Rom_2026_field
 Auto_Paths_2026
 
 % Create additional subplots
-subplot(2,2,3)
+subplot(2,4,4)
 hold on
-subplot(2,2,4)
+subplot(2,4,8)
 hold on
 
 % Spline tuning parameter
 Spline_Tension = 0.5;
 
 % Define which paths to run
-test_cases = [1:16];  % normal cases
+test_cases = [1:12];  % normal cases
 
 % Plot all of the paths
 for m = 1:length(test_cases)
@@ -45,29 +45,29 @@ for m = 1:length(test_cases)
     plot_Field_Angle(:) = out.Sim_Field_Angle.signals.values;
     plot_Distance(:) = out.Sim_Distance.signals.values;
 
-    subplot(2,1,1)
+    subplot(1,4,1:3)
     plot(plot_X,plot_Y)
 
-    subplot(2,2,3)
+    subplot(2,4,4)
     plot(plot_Distance,plot_Velocity)
 
-    subplot(2,2,4)
+    subplot(2,4,8)
     plot(plot_Distance,plot_Field_Angle)
 
 end
 
-subplot(2,1,1)
+subplot(1,4,1:3)
 axis equal
 grid on
 xlabel('X (m)')
 ylabel('Y (m)')
 
-subplot(2,2,3)
+subplot(2,4,4)
 grid on
 xlabel('Distance Traveled')
 ylabel('Velocity (m/s)')
 
-subplot(2,2,4)
+subplot(2,4,8)
 grid on
 xlabel('Distance Traveled')
 ylabel('Field Angle (deg)')
