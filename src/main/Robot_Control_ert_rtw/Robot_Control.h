@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.432
+ * Model version                  : 2.434
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Jan  3 07:03:36 2026
+ * C/C++ source code generated on : Fri Jan 30 19:30:48 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -307,6 +307,11 @@ typedef struct {
   real_T Vision_c1_Object_Area_pct;    /* '<Root>/Vision_c1_Object_Area_pct' */
   real_T Vision_c1_Object_Hor_deg;     /* '<Root>/Vision_c1_Object_Hor_deg' */
   real_T Vision_c1_Object_Ver_deg;     /* '<Root>/Vision_c1_Object_Ver_deg' */
+  real_T Left_Shooter_Motor_Speed;     /* '<Root>/Left_Shooter_Motor_Speed' */
+  real_T Right_Shooter_Motor_Speed;    /* '<Root>/Right_Shooter_Motor_Speed' */
+  real_T Center_Shooter_Motor_Speed;   /* '<Root>/Center_Shooter_Motor_Speed' */
+  real_T Feeder_Motor_Speed;           /* '<Root>/Feeder_Motor_Speed' */
+  real_T Transfer_Motor_Speed;         /* '<Root>/Transfer_Motor_Speed' */
 } ExtU_Robot_Control_T;
 
 /* External outputs (root outports fed by signals with default storage) */
@@ -324,6 +329,11 @@ typedef struct {
   boolean_T Disable_Wheels;            /* '<Root>/Disable_Wheels' */
   boolean_T Swerve_Motors_Disabled;    /* '<Root>/Swerve_Motors_Disabled' */
   uint8_T Vision_Desired_Pipeline;     /* '<Root>/Vision_Desired_Pipeline' */
+  real_T Left_Shooter_DutyCycle;       /* '<Root>/Left_Shooter_DutyCycle' */
+  real_T Right_Shooter_DutyCycle;      /* '<Root>/Right_Shooter_DutyCycle' */
+  real_T Center_Shooter_DutyCycle;     /* '<Root>/Center_Shooter_DutyCycle' */
+  real_T Feeder_DutyCycle;             /* '<Root>/Feeder_DutyCycle' */
+  real_T Transfer_DutyCycle;           /* '<Root>/Transfer_DutyCycle' */
 } ExtY_Robot_Control_T;
 
 /* Real-time Model Data Structure */

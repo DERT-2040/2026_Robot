@@ -32,7 +32,7 @@ public:
   {
     {
       nsDrive::frontLeft, nsDrive::frontRight,
-      nsDrive::backLeft, nsDrive::backRight,
+      nsDrive::backLeft, nsDrive::backRight
     }
   };
   

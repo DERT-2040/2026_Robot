@@ -357,8 +357,10 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     I__BR_Steer_Module_Angle__Entry = NTtable_Inport->GetEntry("BR_Steer_Module_Angle");
     I__BackLeft_Drive_Motor_Speed__Entry = NTtable_Inport->GetEntry("BackLeft_Drive_Motor_Speed");
     I__BackRight_Drive_Motor_Speed__Entry = NTtable_Inport->GetEntry("BackRight_Drive_Motor_Speed");
+    I__Center_Shooter_Motor_Speed__Entry = NTtable_Inport->GetEntry("Center_Shooter_Motor_Speed");
     I__FL_Steer_Module_Angle__Entry = NTtable_Inport->GetEntry("FL_Steer_Module_Angle");
     I__FR_Steer_Module_Angle__Entry = NTtable_Inport->GetEntry("FR_Steer_Module_Angle");
+    I__Feeder_Motor_Speed__Entry = NTtable_Inport->GetEntry("Feeder_Motor_Speed");
     I__FrontLeft_Drive_Motor_Speed__Entry = NTtable_Inport->GetEntry("FrontLeft_Drive_Motor_Speed");
     I__FrontRight_Drive_Motor_Speed__Entry = NTtable_Inport->GetEntry("FrontRight_Drive_Motor_Speed");
     I__GameState__Entry = NTtable_Inport->GetEntry("GameState");
@@ -420,11 +422,14 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     I__Joystick_Right_X__Entry = NTtable_Inport->GetEntry("Joystick_Right_X");
     I__Joystick_Right_Y__Entry = NTtable_Inport->GetEntry("Joystick_Right_Y");
     I__Joystick_Right_Z__Entry = NTtable_Inport->GetEntry("Joystick_Right_Z");
+    I__Left_Shooter_Motor_Speed__Entry = NTtable_Inport->GetEntry("Left_Shooter_Motor_Speed");
     I__MatchTime__Entry = NTtable_Inport->GetEntry("MatchTime");
     I__Odom_Delta_X__Entry = NTtable_Inport->GetEntry("Odom_Delta_X");
     I__Odom_Delta_Y__Entry = NTtable_Inport->GetEntry("Odom_Delta_Y");
     I__Odom_Position_X__Entry = NTtable_Inport->GetEntry("Odom_Position_X");
     I__Odom_Position_Y__Entry = NTtable_Inport->GetEntry("Odom_Position_Y");
+    I__Right_Shooter_Motor_Speed__Entry = NTtable_Inport->GetEntry("Right_Shooter_Motor_Speed");
+    I__Transfer_Motor_Speed__Entry = NTtable_Inport->GetEntry("Transfer_Motor_Speed");
     I__Vision_Current_Pipeline__Entry = NTtable_Inport->GetEntry("Vision_Current_Pipeline");
     I__Vision_Num_Tags_Detected__Entry = NTtable_Inport->GetEntry("Vision_Num_Tags_Detected");
     I__Vision_RobotPoseFieldSpace_X__Entry = NTtable_Inport->GetEntry("Vision_RobotPoseFieldSpace_X");
@@ -443,14 +448,19 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     O__BackLeft_Steer_DutyCycle__Entry = NTtable_Outport->GetEntry("BackLeft_Steer_DutyCycle");
     O__BackRight_Drive_DutyCycle__Entry = NTtable_Outport->GetEntry("BackRight_Drive_DutyCycle");
     O__BackRight_Steer_DutyCycle__Entry = NTtable_Outport->GetEntry("BackRight_Steer_DutyCycle");
+    O__Center_Shooter_DutyCycle__Entry = NTtable_Outport->GetEntry("Center_Shooter_DutyCycle");
     O__Disable_Wheels__Entry = NTtable_Outport->GetEntry("Disable_Wheels");
     O__Enable_Wheels__Entry = NTtable_Outport->GetEntry("Enable_Wheels");
+    O__Feeder_DutyCycle__Entry = NTtable_Outport->GetEntry("Feeder_DutyCycle");
     O__FrontLeft_Drive_DutyCycle__Entry = NTtable_Outport->GetEntry("FrontLeft_Drive_DutyCycle");
     O__FrontLeft_Steer_DutyCycle__Entry = NTtable_Outport->GetEntry("FrontLeft_Steer_DutyCycle");
     O__FrontRight_Drive_DutyCycle__Entry = NTtable_Outport->GetEntry("FrontRight_Drive_DutyCycle");
     O__FrontRight_Steer_DutyCycle__Entry = NTtable_Outport->GetEntry("FrontRight_Steer_DutyCycle");
+    O__Left_Shooter_DutyCycle__Entry = NTtable_Outport->GetEntry("Left_Shooter_DutyCycle");
     O__Reset_Wheel_Offsets__Entry = NTtable_Outport->GetEntry("Reset_Wheel_Offsets");
+    O__Right_Shooter_DutyCycle__Entry = NTtable_Outport->GetEntry("Right_Shooter_DutyCycle");
     O__Swerve_Motors_Disabled__Entry = NTtable_Outport->GetEntry("Swerve_Motors_Disabled");
+    O__Transfer_DutyCycle__Entry = NTtable_Outport->GetEntry("Transfer_DutyCycle");
     O__Vision_Desired_Pipeline__Entry = NTtable_Outport->GetEntry("Vision_Desired_Pipeline");
  
 // Test Points
@@ -631,8 +641,10 @@ void SimulinkNetworkTables1::PostStepCallback()
     I__BR_Steer_Module_Angle__Entry.SetDouble(Robot_Control_U.BR_Steer_Module_Angle);
     I__BackLeft_Drive_Motor_Speed__Entry.SetDouble(Robot_Control_U.BackLeft_Drive_Motor_Speed);
     I__BackRight_Drive_Motor_Speed__Entry.SetDouble(Robot_Control_U.BackRight_Drive_Motor_Speed);
+    I__Center_Shooter_Motor_Speed__Entry.SetDouble(Robot_Control_U.Center_Shooter_Motor_Speed);
     I__FL_Steer_Module_Angle__Entry.SetDouble(Robot_Control_U.FL_Steer_Module_Angle);
     I__FR_Steer_Module_Angle__Entry.SetDouble(Robot_Control_U.FR_Steer_Module_Angle);
+    I__Feeder_Motor_Speed__Entry.SetDouble(Robot_Control_U.Feeder_Motor_Speed);
     I__FrontLeft_Drive_Motor_Speed__Entry.SetDouble(Robot_Control_U.FrontLeft_Drive_Motor_Speed);
     I__FrontRight_Drive_Motor_Speed__Entry.SetDouble(Robot_Control_U.FrontRight_Drive_Motor_Speed);
     I__GameState__Entry.SetDouble(Robot_Control_U.GameState);
@@ -694,11 +706,14 @@ void SimulinkNetworkTables1::PostStepCallback()
     I__Joystick_Right_X__Entry.SetDouble(Robot_Control_U.Joystick_Right_X);
     I__Joystick_Right_Y__Entry.SetDouble(Robot_Control_U.Joystick_Right_Y);
     I__Joystick_Right_Z__Entry.SetDouble(Robot_Control_U.Joystick_Right_Z);
+    I__Left_Shooter_Motor_Speed__Entry.SetDouble(Robot_Control_U.Left_Shooter_Motor_Speed);
     I__MatchTime__Entry.SetDouble(Robot_Control_U.MatchTime);
     I__Odom_Delta_X__Entry.SetDouble(Robot_Control_U.Odom_Delta_X);
     I__Odom_Delta_Y__Entry.SetDouble(Robot_Control_U.Odom_Delta_Y);
     I__Odom_Position_X__Entry.SetDouble(Robot_Control_U.Odom_Position_X);
     I__Odom_Position_Y__Entry.SetDouble(Robot_Control_U.Odom_Position_Y);
+    I__Right_Shooter_Motor_Speed__Entry.SetDouble(Robot_Control_U.Right_Shooter_Motor_Speed);
+    I__Transfer_Motor_Speed__Entry.SetDouble(Robot_Control_U.Transfer_Motor_Speed);
     I__Vision_Current_Pipeline__Entry.SetDouble(Robot_Control_U.Vision_Current_Pipeline);
     I__Vision_Num_Tags_Detected__Entry.SetDouble(Robot_Control_U.Vision_Num_Tags_Detected);
     I__Vision_RobotPoseFieldSpace_X__Entry.SetDouble(Robot_Control_U.Vision_RobotPoseFieldSpace_X);
@@ -716,14 +731,19 @@ void SimulinkNetworkTables1::PostStepCallback()
     O__BackLeft_Steer_DutyCycle__Entry.SetDouble(Robot_Control_Y.BackLeft_Steer_DutyCycle);
     O__BackRight_Drive_DutyCycle__Entry.SetDouble(Robot_Control_Y.BackRight_Drive_DutyCycle);
     O__BackRight_Steer_DutyCycle__Entry.SetDouble(Robot_Control_Y.BackRight_Steer_DutyCycle);
+    O__Center_Shooter_DutyCycle__Entry.SetDouble(Robot_Control_Y.Center_Shooter_DutyCycle);
     O__Disable_Wheels__Entry.SetDouble(Robot_Control_Y.Disable_Wheels);
     O__Enable_Wheels__Entry.SetDouble(Robot_Control_Y.Enable_Wheels);
+    O__Feeder_DutyCycle__Entry.SetDouble(Robot_Control_Y.Feeder_DutyCycle);
     O__FrontLeft_Drive_DutyCycle__Entry.SetDouble(Robot_Control_Y.FrontLeft_Drive_DutyCycle);
     O__FrontLeft_Steer_DutyCycle__Entry.SetDouble(Robot_Control_Y.FrontLeft_Steer_DutyCycle);
     O__FrontRight_Drive_DutyCycle__Entry.SetDouble(Robot_Control_Y.FrontRight_Drive_DutyCycle);
     O__FrontRight_Steer_DutyCycle__Entry.SetDouble(Robot_Control_Y.FrontRight_Steer_DutyCycle);
+    O__Left_Shooter_DutyCycle__Entry.SetDouble(Robot_Control_Y.Left_Shooter_DutyCycle);
     O__Reset_Wheel_Offsets__Entry.SetDouble(Robot_Control_Y.Reset_Wheel_Offsets);
+    O__Right_Shooter_DutyCycle__Entry.SetDouble(Robot_Control_Y.Right_Shooter_DutyCycle);
     O__Swerve_Motors_Disabled__Entry.SetDouble(Robot_Control_Y.Swerve_Motors_Disabled);
+    O__Transfer_DutyCycle__Entry.SetDouble(Robot_Control_Y.Transfer_DutyCycle);
     O__Vision_Desired_Pipeline__Entry.SetDouble(Robot_Control_Y.Vision_Desired_Pipeline);
     // Test Points
     T__Active_GameState__Entry.SetDouble(Robot_Control_B.Active_GameState);

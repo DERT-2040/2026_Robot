@@ -109,8 +109,10 @@ private:
         nt::NetworkTableEntry I__BR_Steer_Module_Angle__Entry;
         nt::NetworkTableEntry I__BackLeft_Drive_Motor_Speed__Entry;
         nt::NetworkTableEntry I__BackRight_Drive_Motor_Speed__Entry;
+        nt::NetworkTableEntry I__Center_Shooter_Motor_Speed__Entry;
         nt::NetworkTableEntry I__FL_Steer_Module_Angle__Entry;
         nt::NetworkTableEntry I__FR_Steer_Module_Angle__Entry;
+        nt::NetworkTableEntry I__Feeder_Motor_Speed__Entry;
         nt::NetworkTableEntry I__FrontLeft_Drive_Motor_Speed__Entry;
         nt::NetworkTableEntry I__FrontRight_Drive_Motor_Speed__Entry;
         nt::NetworkTableEntry I__GameState__Entry;
@@ -172,11 +174,14 @@ private:
         nt::NetworkTableEntry I__Joystick_Right_X__Entry;
         nt::NetworkTableEntry I__Joystick_Right_Y__Entry;
         nt::NetworkTableEntry I__Joystick_Right_Z__Entry;
+        nt::NetworkTableEntry I__Left_Shooter_Motor_Speed__Entry;
         nt::NetworkTableEntry I__MatchTime__Entry;
         nt::NetworkTableEntry I__Odom_Delta_X__Entry;
         nt::NetworkTableEntry I__Odom_Delta_Y__Entry;
         nt::NetworkTableEntry I__Odom_Position_X__Entry;
         nt::NetworkTableEntry I__Odom_Position_Y__Entry;
+        nt::NetworkTableEntry I__Right_Shooter_Motor_Speed__Entry;
+        nt::NetworkTableEntry I__Transfer_Motor_Speed__Entry;
         nt::NetworkTableEntry I__Vision_Current_Pipeline__Entry;
         nt::NetworkTableEntry I__Vision_Num_Tags_Detected__Entry;
         nt::NetworkTableEntry I__Vision_RobotPoseFieldSpace_X__Entry;
@@ -194,14 +199,19 @@ private:
         nt::NetworkTableEntry O__BackLeft_Steer_DutyCycle__Entry;
         nt::NetworkTableEntry O__BackRight_Drive_DutyCycle__Entry;
         nt::NetworkTableEntry O__BackRight_Steer_DutyCycle__Entry;
+        nt::NetworkTableEntry O__Center_Shooter_DutyCycle__Entry;
         nt::NetworkTableEntry O__Disable_Wheels__Entry;
         nt::NetworkTableEntry O__Enable_Wheels__Entry;
+        nt::NetworkTableEntry O__Feeder_DutyCycle__Entry;
         nt::NetworkTableEntry O__FrontLeft_Drive_DutyCycle__Entry;
         nt::NetworkTableEntry O__FrontLeft_Steer_DutyCycle__Entry;
         nt::NetworkTableEntry O__FrontRight_Drive_DutyCycle__Entry;
         nt::NetworkTableEntry O__FrontRight_Steer_DutyCycle__Entry;
+        nt::NetworkTableEntry O__Left_Shooter_DutyCycle__Entry;
         nt::NetworkTableEntry O__Reset_Wheel_Offsets__Entry;
+        nt::NetworkTableEntry O__Right_Shooter_DutyCycle__Entry;
         nt::NetworkTableEntry O__Swerve_Motors_Disabled__Entry;
+        nt::NetworkTableEntry O__Transfer_DutyCycle__Entry;
         nt::NetworkTableEntry O__Vision_Desired_Pipeline__Entry;
  
         // Test Points

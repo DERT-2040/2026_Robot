@@ -14,6 +14,7 @@
 #include "include/SimulinkNetworkTables2.h"
 #include "include/Limelight.h"
 #include "include/FMSInfo.h"
+#include "include/Rebuilt2026.h"
 
 //frc
 #include <frc/TimedRobot.h>
@@ -77,6 +78,9 @@ private:
 
   /** Component Object for all Swerve Drive objects such as sensors and motors*/
   SwerveDrive m_SwerveDrive;
+
+  /* Component Object for all Rebuilt 2026 Season objects such as sensors and motors*/
+  Rebuilt2026 m_Rebuilt2026;
     
   /** Component for all Tunable Parameters created by simulink */
   SimulinkNetworkTables1 m_SimulinkNetworkTables1;
