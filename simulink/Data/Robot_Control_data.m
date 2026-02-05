@@ -23,6 +23,10 @@ TEST_Swerve_Mode_Steering = 0;
 % Pipeline for Test Mode
 TEST_Pipeline = uint8(0);
 
+% Hood servo position for Test Mode
+TEST_HoodServo_Enable = false;
+TEST_HoodServo_Position = 0.5;
+
 %% Kalman Filter
 KF_Enable = 1;
 KF_Odom_Covariance = 0.001*eye(2);

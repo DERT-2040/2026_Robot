@@ -214,6 +214,12 @@ namespace Constants
                 .SetVelocityCallback(&Robot_Control_U.Transfer_Motor_Speed)
                 .SetDisplayName("Transfer Motor");
     }
+
+    namespace HoodServo
+    {
+        static constexpr int Hood_Servo_PWM_Left_ID = 0;
+        static constexpr int Hood_Servo_PWM_Right_ID = 1;
+    }
     
 
 };

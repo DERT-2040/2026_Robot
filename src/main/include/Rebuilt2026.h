@@ -6,13 +6,19 @@
 #include "DertLib/include/TalonFXMotorGroup.h"
 #include "Constants.h"
 
+//FRC
+#include <frc/Servo.h>
+
 namespace nsShooter = Constants::ShooterCreateInfo;
 namespace nsFeeder = Constants::FeederCreateInfo;
 namespace nsTransfer = Constants::TransferCreateInfo;
+namespace nsHood = Constants::HoodServo;
 
 class Rebuilt2026 : public dlib::Component
 {
 public:
+	Rebuilt2026();
+	void HoodServoSetPulseWidth();
 	void PreStepCallback() override;
 	void PostStepCallback() override;
 
@@ -38,5 +44,9 @@ public:
   };
   
 private:
+  // Servos for hood linear actuator  
+  frc::Servo HoodServo_Left{nsHood::Hood_Servo_PWM_Left_ID};
+  frc::Servo HoodServo_Right{nsHood::Hood_Servo_PWM_Right_ID};
+
 };
 

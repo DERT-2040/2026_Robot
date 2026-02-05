@@ -251,6 +251,10 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     NTinst.AddListener(P__Steering_Twist_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Twist_Gain = event.GetValueEventData()->value.GetDouble();});
     P__Steering_Twist_Gain__Entry.SetDouble(-0.5);
  
+    P__TEST_HoodServo_Position__Entry = NTtable_Tune->GetEntry("TEST_HoodServo_Position");
+    NTinst.AddListener(P__TEST_HoodServo_Position__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_HoodServo_Position = event.GetValueEventData()->value.GetDouble();});
+    P__TEST_HoodServo_Position__Entry.SetDouble(0.5);
+ 
     P__TEST_Pipeline__Entry = NTtable_Tune->GetEntry("TEST_Pipeline");
     NTinst.AddListener(P__TEST_Pipeline__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Pipeline = event.GetValueEventData()->value.GetDouble();});
     P__TEST_Pipeline__Entry.SetDouble(0);
@@ -456,6 +460,8 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     O__FrontLeft_Steer_DutyCycle__Entry = NTtable_Outport->GetEntry("FrontLeft_Steer_DutyCycle");
     O__FrontRight_Drive_DutyCycle__Entry = NTtable_Outport->GetEntry("FrontRight_Drive_DutyCycle");
     O__FrontRight_Steer_DutyCycle__Entry = NTtable_Outport->GetEntry("FrontRight_Steer_DutyCycle");
+    O__HoodServo_Enable__Entry = NTtable_Outport->GetEntry("HoodServo_Enable");
+    O__HoodServo_Position__Entry = NTtable_Outport->GetEntry("HoodServo_Position");
     O__Left_Shooter_DutyCycle__Entry = NTtable_Outport->GetEntry("Left_Shooter_DutyCycle");
     O__Reset_Wheel_Offsets__Entry = NTtable_Outport->GetEntry("Reset_Wheel_Offsets");
     O__Right_Shooter_DutyCycle__Entry = NTtable_Outport->GetEntry("Right_Shooter_DutyCycle");
@@ -610,6 +616,7 @@ void SimulinkNetworkTables1::PostStepCallback()
     P__Steering_Relative_Cmd_Rate_Limit_Inc__Entry.SetDouble(Steering_Relative_Cmd_Rate_Limit_Inc);
     P__Steering_Relative_Gain__Entry.SetDouble(Steering_Relative_Gain);
     P__Steering_Twist_Gain__Entry.SetDouble(Steering_Twist_Gain);
+    P__TEST_HoodServo_Position__Entry.SetDouble(TEST_HoodServo_Position);
     P__TEST_Pipeline__Entry.SetDouble(TEST_Pipeline);
     P__TEST_Swerve_Mode_Override_Flag__Entry.SetDouble(TEST_Swerve_Mode_Override_Flag);
     P__TEST_Swerve_Mode_Steering__Entry.SetDouble(TEST_Swerve_Mode_Steering);
@@ -739,6 +746,8 @@ void SimulinkNetworkTables1::PostStepCallback()
     O__FrontLeft_Steer_DutyCycle__Entry.SetDouble(Robot_Control_Y.FrontLeft_Steer_DutyCycle);
     O__FrontRight_Drive_DutyCycle__Entry.SetDouble(Robot_Control_Y.FrontRight_Drive_DutyCycle);
     O__FrontRight_Steer_DutyCycle__Entry.SetDouble(Robot_Control_Y.FrontRight_Steer_DutyCycle);
+    O__HoodServo_Enable__Entry.SetDouble(Robot_Control_Y.HoodServo_Enable);
+    O__HoodServo_Position__Entry.SetDouble(Robot_Control_Y.HoodServo_Position);
     O__Left_Shooter_DutyCycle__Entry.SetDouble(Robot_Control_Y.Left_Shooter_DutyCycle);
     O__Reset_Wheel_Offsets__Entry.SetDouble(Robot_Control_Y.Reset_Wheel_Offsets);
     O__Right_Shooter_DutyCycle__Entry.SetDouble(Robot_Control_Y.Right_Shooter_DutyCycle);

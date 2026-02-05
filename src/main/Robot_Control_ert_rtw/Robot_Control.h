@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.434
+ * Model version                  : 2.435
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Jan 30 19:30:48 2026
+ * C/C++ source code generated on : Wed Feb  4 22:34:28 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -334,6 +334,8 @@ typedef struct {
   real_T Center_Shooter_DutyCycle;     /* '<Root>/Center_Shooter_DutyCycle' */
   real_T Feeder_DutyCycle;             /* '<Root>/Feeder_DutyCycle' */
   real_T Transfer_DutyCycle;           /* '<Root>/Transfer_DutyCycle' */
+  real_T HoodServo_Position;           /* '<Root>/HoodServo_Position' */
+  boolean_T HoodServo_Enable;          /* '<Root>/HoodServo_Enable' */
 } ExtY_Robot_Control_T;
 
 /* Real-time Model Data Structure */
@@ -655,6 +657,9 @@ extern real_T Steering_Relative_Gain;  /* Variable: Steering_Relative_Gain
                                         */
 extern real_T Steering_Twist_Gain;     /* Variable: Steering_Twist_Gain
                                         * Referenced by: '<S303>/Constant1'
+                                        */
+extern real_T TEST_HoodServo_Position; /* Variable: TEST_HoodServo_Position
+                                        * Referenced by: '<Root>/Constant'
                                         */
 extern real_T TEST_Swerve_Mode_Override_Flag;
                                      /* Variable: TEST_Swerve_Mode_Override_Flag

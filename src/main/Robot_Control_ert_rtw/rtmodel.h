@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.434
+ * Model version                  : 2.435
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Jan 30 19:30:48 2026
+ * C/C++ source code generated on : Wed Feb  4 22:34:28 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7

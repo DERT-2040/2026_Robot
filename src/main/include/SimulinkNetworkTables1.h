@@ -77,6 +77,7 @@ private:
         nt::NetworkTableEntry P__Steering_Relative_Cmd_Rate_Limit_Inc__Entry;
         nt::NetworkTableEntry P__Steering_Relative_Gain__Entry;
         nt::NetworkTableEntry P__Steering_Twist_Gain__Entry;
+        nt::NetworkTableEntry P__TEST_HoodServo_Position__Entry;
         nt::NetworkTableEntry P__TEST_Pipeline__Entry;
         nt::NetworkTableEntry P__TEST_Swerve_Mode_Override_Flag__Entry;
         nt::NetworkTableEntry P__TEST_Swerve_Mode_Steering__Entry;
@@ -207,6 +208,8 @@ private:
         nt::NetworkTableEntry O__FrontLeft_Steer_DutyCycle__Entry;
         nt::NetworkTableEntry O__FrontRight_Drive_DutyCycle__Entry;
         nt::NetworkTableEntry O__FrontRight_Steer_DutyCycle__Entry;
+        nt::NetworkTableEntry O__HoodServo_Enable__Entry;
+        nt::NetworkTableEntry O__HoodServo_Position__Entry;
         nt::NetworkTableEntry O__Left_Shooter_DutyCycle__Entry;
         nt::NetworkTableEntry O__Reset_Wheel_Offsets__Entry;
         nt::NetworkTableEntry O__Right_Shooter_DutyCycle__Entry;
