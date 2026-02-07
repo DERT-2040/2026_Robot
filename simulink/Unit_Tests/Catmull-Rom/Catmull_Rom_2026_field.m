@@ -1,3 +1,5 @@
+
+
 % Create figure and first subplot
 figure(1), clf
 subplot(1,4,1:3)
@@ -51,7 +53,17 @@ plot([650.12 650.12-27]*0.0254,[158.84-75.93-21 158.84-75.93-21]*0.0254, 'r', 'L
 plot([0 0]*0.0254,[0 49.32]*0.0254, 'b', 'LineWidth', 3)
 plot([650.12 650.12]*0.0254,[316.69 316.69-49.32]*0.0254, 'r', 'LineWidth', 3)
 
+%Robot
+[Robot_Plot] = RobotRotation(1,1,0); 
 
+
+plot([Robot_Plot(1,1) Robot_Plot(1,2) ],[Robot_Plot(2,1) Robot_Plot(2,2)], 'k', 'LineWidth', 1,'LineStyle',':')
+plot (Robot_Plot(1,5),Robot_Plot(2,5),'o')
+plot (Robot_Plot(1,6),Robot_Plot(2,6),'o')
+
+plot([Robot_Plot(1,2) Robot_Plot(1,3) ],[Robot_Plot(2,2) Robot_Plot(2,3)], 'k', 'LineWidth', 1,'LineStyle',':')
+plot([Robot_Plot(1,1) Robot_Plot(1,4) ],[Robot_Plot(2,1) Robot_Plot(2,4)], 'k', 'LineWidth', 1,'LineStyle',':')
+plot([Robot_Plot(1,3) Robot_Plot(1,4) ],[Robot_Plot(2,3) Robot_Plot(2,4)], 'k', 'LineWidth', 1,'LineStyle',':')
 
 axis([-20*0.0254, (297.7*2+95.9+20)*0.0254, -20*0.0254, (317.5+20)*0.0254])
 
