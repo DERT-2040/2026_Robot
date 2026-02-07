@@ -30,15 +30,19 @@ private:
  
         // Inports
         nt::NetworkTableEntry I__BackLeft_Drive_Motor_Rev__Entry;
+        nt::NetworkTableEntry I__BackLeft_Drive_Motor_Speed__Entry;
         nt::NetworkTableEntry I__BackLeft_Steer_Rev__Entry;
         nt::NetworkTableEntry I__BackLeft_Turn_Offset__Entry;
         nt::NetworkTableEntry I__BackRight_Drive_Motor_Rev__Entry;
+        nt::NetworkTableEntry I__BackRight_Drive_Motor_Speed__Entry;
         nt::NetworkTableEntry I__BackRight_Steer_Rev__Entry;
         nt::NetworkTableEntry I__BackRight_Turn_Offset__Entry;
         nt::NetworkTableEntry I__FrontLeft_Drive_Motor_Rev__Entry;
+        nt::NetworkTableEntry I__FrontLeft_Drive_Motor_Speed__Entry;
         nt::NetworkTableEntry I__FrontLeft_Steer_Rev__Entry;
         nt::NetworkTableEntry I__FrontLeft_Turn_Offset__Entry;
         nt::NetworkTableEntry I__FrontRight_Drive_Motor_Rev__Entry;
+        nt::NetworkTableEntry I__FrontRight_Drive_Motor_Speed__Entry;
         nt::NetworkTableEntry I__FrontRight_Steer_Rev__Entry;
         nt::NetworkTableEntry I__FrontRight_Turn_Offset__Entry;
         nt::NetworkTableEntry I__Gyro_Angle__Entry;
@@ -55,6 +59,8 @@ private:
         nt::NetworkTableEntry O__Odom_Delta_Y__Entry;
         nt::NetworkTableEntry O__Odom_Position_X__Entry;
         nt::NetworkTableEntry O__Odom_Position_Y__Entry;
+        nt::NetworkTableEntry O__Robot_Velocity_X__Entry;
+        nt::NetworkTableEntry O__Robot_Velocity_Y__Entry;
  
         // Test Points
         nt::NetworkTableEntry T__BL_Steer_Module_Angle__Entry;

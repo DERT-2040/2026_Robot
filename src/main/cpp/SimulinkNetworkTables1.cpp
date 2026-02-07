@@ -433,6 +433,8 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     I__Odom_Position_X__Entry = NTtable_Inport->GetEntry("Odom_Position_X");
     I__Odom_Position_Y__Entry = NTtable_Inport->GetEntry("Odom_Position_Y");
     I__Right_Shooter_Motor_Speed__Entry = NTtable_Inport->GetEntry("Right_Shooter_Motor_Speed");
+    I__Robot_Velocity_X__Entry = NTtable_Inport->GetEntry("Robot_Velocity_X");
+    I__Robot_Velocity_Y__Entry = NTtable_Inport->GetEntry("Robot_Velocity_Y");
     I__Transfer_Motor_Speed__Entry = NTtable_Inport->GetEntry("Transfer_Motor_Speed");
     I__Vision_Current_Pipeline__Entry = NTtable_Inport->GetEntry("Vision_Current_Pipeline");
     I__Vision_Num_Tags_Detected__Entry = NTtable_Inport->GetEntry("Vision_Num_Tags_Detected");
@@ -549,6 +551,8 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__Vision_c1_Object_Corr_Yaw_deg__Entry = NTtable_TPoint->GetEntry("Vision_c1_Object_Corr_Yaw_deg");
     T__Winch_Cmd__Entry = NTtable_TPoint->GetEntry("Winch_Cmd");
     T__loop_counter_robot_control__Entry = NTtable_TPoint->GetEntry("loop_counter_robot_control");
+    T__temporary1__Entry = NTtable_TPoint->GetEntry("temporary1");
+    T__temporary2__Entry = NTtable_TPoint->GetEntry("temporary2");
 }
  
 void SimulinkNetworkTables1::PreStepCallback() {}
@@ -720,6 +724,8 @@ void SimulinkNetworkTables1::PostStepCallback()
     I__Odom_Position_X__Entry.SetDouble(Robot_Control_U.Odom_Position_X);
     I__Odom_Position_Y__Entry.SetDouble(Robot_Control_U.Odom_Position_Y);
     I__Right_Shooter_Motor_Speed__Entry.SetDouble(Robot_Control_U.Right_Shooter_Motor_Speed);
+    I__Robot_Velocity_X__Entry.SetDouble(Robot_Control_U.Robot_Velocity_X);
+    I__Robot_Velocity_Y__Entry.SetDouble(Robot_Control_U.Robot_Velocity_Y);
     I__Transfer_Motor_Speed__Entry.SetDouble(Robot_Control_U.Transfer_Motor_Speed);
     I__Vision_Current_Pipeline__Entry.SetDouble(Robot_Control_U.Vision_Current_Pipeline);
     I__Vision_Num_Tags_Detected__Entry.SetDouble(Robot_Control_U.Vision_Num_Tags_Detected);
@@ -834,6 +840,8 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__Vision_c1_Object_Corr_Yaw_deg__Entry.SetDouble(Robot_Control_B.Vision_c1_Object_Corr_Yaw_deg);
     T__Winch_Cmd__Entry.SetDouble(Robot_Control_B.Winch_Cmd);
     T__loop_counter_robot_control__Entry.SetDouble(Robot_Control_B.loop_counter_robot_control);
+    T__temporary1__Entry.SetDouble(Robot_Control_B.temporary1);
+    T__temporary2__Entry.SetDouble(Robot_Control_B.temporary2);
 }
 // Why are you reading to the bottom of an autogen file?
 // Get a life...

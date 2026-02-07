@@ -53,15 +53,19 @@ SimulinkNetworkTables2::SimulinkNetworkTables2()
  
 // Inports
     I__BackLeft_Drive_Motor_Rev__Entry = NTtable_Inport->GetEntry("BackLeft_Drive_Motor_Rev");
+    I__BackLeft_Drive_Motor_Speed__Entry = NTtable_Inport->GetEntry("BackLeft_Drive_Motor_Speed");
     I__BackLeft_Steer_Rev__Entry = NTtable_Inport->GetEntry("BackLeft_Steer_Rev");
     I__BackLeft_Turn_Offset__Entry = NTtable_Inport->GetEntry("BackLeft_Turn_Offset");
     I__BackRight_Drive_Motor_Rev__Entry = NTtable_Inport->GetEntry("BackRight_Drive_Motor_Rev");
+    I__BackRight_Drive_Motor_Speed__Entry = NTtable_Inport->GetEntry("BackRight_Drive_Motor_Speed");
     I__BackRight_Steer_Rev__Entry = NTtable_Inport->GetEntry("BackRight_Steer_Rev");
     I__BackRight_Turn_Offset__Entry = NTtable_Inport->GetEntry("BackRight_Turn_Offset");
     I__FrontLeft_Drive_Motor_Rev__Entry = NTtable_Inport->GetEntry("FrontLeft_Drive_Motor_Rev");
+    I__FrontLeft_Drive_Motor_Speed__Entry = NTtable_Inport->GetEntry("FrontLeft_Drive_Motor_Speed");
     I__FrontLeft_Steer_Rev__Entry = NTtable_Inport->GetEntry("FrontLeft_Steer_Rev");
     I__FrontLeft_Turn_Offset__Entry = NTtable_Inport->GetEntry("FrontLeft_Turn_Offset");
     I__FrontRight_Drive_Motor_Rev__Entry = NTtable_Inport->GetEntry("FrontRight_Drive_Motor_Rev");
+    I__FrontRight_Drive_Motor_Speed__Entry = NTtable_Inport->GetEntry("FrontRight_Drive_Motor_Speed");
     I__FrontRight_Steer_Rev__Entry = NTtable_Inport->GetEntry("FrontRight_Steer_Rev");
     I__FrontRight_Turn_Offset__Entry = NTtable_Inport->GetEntry("FrontRight_Turn_Offset");
     I__Gyro_Angle__Entry = NTtable_Inport->GetEntry("Gyro_Angle");
@@ -79,6 +83,8 @@ SimulinkNetworkTables2::SimulinkNetworkTables2()
     O__Odom_Delta_Y__Entry = NTtable_Outport->GetEntry("Odom_Delta_Y");
     O__Odom_Position_X__Entry = NTtable_Outport->GetEntry("Odom_Position_X");
     O__Odom_Position_Y__Entry = NTtable_Outport->GetEntry("Odom_Position_Y");
+    O__Robot_Velocity_X__Entry = NTtable_Outport->GetEntry("Robot_Velocity_X");
+    O__Robot_Velocity_Y__Entry = NTtable_Outport->GetEntry("Robot_Velocity_Y");
  
 // Test Points
     T__BL_Steer_Module_Angle__Entry = NTtable_TPoint->GetEntry("BL_Steer_Module_Angle");
@@ -114,15 +120,19 @@ void SimulinkNetworkTables2::PostStepCallback()
     P__Odometry_X_Y_TEAR__Entry.SetDouble(Odometry_X_Y_TEAR);
     // Inports
     I__BackLeft_Drive_Motor_Rev__Entry.SetDouble(Odometry_U.BackLeft_Drive_Motor_Rev);
+    I__BackLeft_Drive_Motor_Speed__Entry.SetDouble(Odometry_U.BackLeft_Drive_Motor_Speed);
     I__BackLeft_Steer_Rev__Entry.SetDouble(Odometry_U.BackLeft_Steer_Rev);
     I__BackLeft_Turn_Offset__Entry.SetDouble(Odometry_U.BackLeft_Turn_Offset);
     I__BackRight_Drive_Motor_Rev__Entry.SetDouble(Odometry_U.BackRight_Drive_Motor_Rev);
+    I__BackRight_Drive_Motor_Speed__Entry.SetDouble(Odometry_U.BackRight_Drive_Motor_Speed);
     I__BackRight_Steer_Rev__Entry.SetDouble(Odometry_U.BackRight_Steer_Rev);
     I__BackRight_Turn_Offset__Entry.SetDouble(Odometry_U.BackRight_Turn_Offset);
     I__FrontLeft_Drive_Motor_Rev__Entry.SetDouble(Odometry_U.FrontLeft_Drive_Motor_Rev);
+    I__FrontLeft_Drive_Motor_Speed__Entry.SetDouble(Odometry_U.FrontLeft_Drive_Motor_Speed);
     I__FrontLeft_Steer_Rev__Entry.SetDouble(Odometry_U.FrontLeft_Steer_Rev);
     I__FrontLeft_Turn_Offset__Entry.SetDouble(Odometry_U.FrontLeft_Turn_Offset);
     I__FrontRight_Drive_Motor_Rev__Entry.SetDouble(Odometry_U.FrontRight_Drive_Motor_Rev);
+    I__FrontRight_Drive_Motor_Speed__Entry.SetDouble(Odometry_U.FrontRight_Drive_Motor_Speed);
     I__FrontRight_Steer_Rev__Entry.SetDouble(Odometry_U.FrontRight_Steer_Rev);
     I__FrontRight_Turn_Offset__Entry.SetDouble(Odometry_U.FrontRight_Turn_Offset);
     I__Gyro_Angle__Entry.SetDouble(Odometry_U.Gyro_Angle);
@@ -139,6 +149,8 @@ void SimulinkNetworkTables2::PostStepCallback()
     O__Odom_Delta_Y__Entry.SetDouble(Odometry_Y.Odom_Delta_Y);
     O__Odom_Position_X__Entry.SetDouble(Odometry_Y.Odom_Position_X);
     O__Odom_Position_Y__Entry.SetDouble(Odometry_Y.Odom_Position_Y);
+    O__Robot_Velocity_X__Entry.SetDouble(Odometry_Y.Robot_Velocity_X);
+    O__Robot_Velocity_Y__Entry.SetDouble(Odometry_Y.Robot_Velocity_Y);
     // Test Points
     T__BL_Steer_Module_Angle__Entry.SetDouble(Odometry_B.BL_Steer_Module_Angle);
     T__BR_Steer_Module_Angle__Entry.SetDouble(Odometry_B.BR_Steer_Module_Angle);

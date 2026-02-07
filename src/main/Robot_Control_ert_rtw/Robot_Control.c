@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.435
+ * Model version                  : 2.437
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Feb  4 22:34:28 2026
+ * C/C++ source code generated on : Sat Feb  7 16:15:51 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -4517,6 +4517,16 @@ void Robot_Control_step(void)
    *  Constant: '<Root>/Constant'
    */
   Robot_Control_Y.HoodServo_Position = TEST_HoodServo_Position;
+
+  /* SignalConversion: '<Root>/Signal Copy' incorporates:
+   *  Inport: '<Root>/Robot_Velocity_X'
+   */
+  Robot_Control_B.temporary1 = Robot_Control_U.Robot_Velocity_X;
+
+  /* SignalConversion: '<Root>/Signal Copy1' incorporates:
+   *  Inport: '<Root>/Robot_Velocity_Y'
+   */
+  Robot_Control_B.temporary2 = Robot_Control_U.Robot_Velocity_Y;
 
   /* Outport: '<Root>/Left_Shooter_DutyCycle' incorporates:
    *  Inport: '<Root>/Left_Shooter_Motor_Speed'

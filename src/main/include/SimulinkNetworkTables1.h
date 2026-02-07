@@ -182,6 +182,8 @@ private:
         nt::NetworkTableEntry I__Odom_Position_X__Entry;
         nt::NetworkTableEntry I__Odom_Position_Y__Entry;
         nt::NetworkTableEntry I__Right_Shooter_Motor_Speed__Entry;
+        nt::NetworkTableEntry I__Robot_Velocity_X__Entry;
+        nt::NetworkTableEntry I__Robot_Velocity_Y__Entry;
         nt::NetworkTableEntry I__Transfer_Motor_Speed__Entry;
         nt::NetworkTableEntry I__Vision_Current_Pipeline__Entry;
         nt::NetworkTableEntry I__Vision_Num_Tags_Detected__Entry;
@@ -297,4 +299,6 @@ private:
         nt::NetworkTableEntry T__Vision_c1_Object_Corr_Yaw_deg__Entry;
         nt::NetworkTableEntry T__Winch_Cmd__Entry;
         nt::NetworkTableEntry T__loop_counter_robot_control__Entry;
+        nt::NetworkTableEntry T__temporary1__Entry;
+        nt::NetworkTableEntry T__temporary2__Entry;
 };

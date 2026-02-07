@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.435
+ * Model version                  : 2.437
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Feb  4 22:34:28 2026
+ * C/C++ source code generated on : Sat Feb  7 16:15:51 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -81,6 +81,8 @@ typedef struct {
   real_T BL_Desired_Wheel_Speed;       /* '<S275>/Product2' */
   real_T loop_counter_robot_control;   /* '<S1>/Sum' */
   real_T Steer_Joystick_X;             /* '<S4>/Signal Copy4' */
+  real_T temporary1;                   /* '<Root>/Signal Copy' */
+  real_T temporary2;                   /* '<Root>/Signal Copy1' */
   real_T Relative_Error_Angle;         /* '<S301>/Switch4' */
   real_T Steering_Abs_Gyro_Latch;      /* '<S303>/Switch8' */
   real_T Steering_Abs_Gyro;            /* '<S303>/Switch2' */
@@ -312,6 +314,8 @@ typedef struct {
   real_T Center_Shooter_Motor_Speed;   /* '<Root>/Center_Shooter_Motor_Speed' */
   real_T Feeder_Motor_Speed;           /* '<Root>/Feeder_Motor_Speed' */
   real_T Transfer_Motor_Speed;         /* '<Root>/Transfer_Motor_Speed' */
+  real_T Robot_Velocity_X;             /* '<Root>/Robot_Velocity_X' */
+  real_T Robot_Velocity_Y;             /* '<Root>/Robot_Velocity_Y' */
 } ExtU_Robot_Control_T;
 
 /* External outputs (root outports fed by signals with default storage) */

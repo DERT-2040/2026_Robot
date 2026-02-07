@@ -68,6 +68,13 @@ void Robot::Odometry_to_Robot_Control_Transfer()
   Robot_Control_U.Odom_Delta_X          = Odometry_Y.Odom_Delta_X;
   Robot_Control_U.Odom_Delta_Y          = Odometry_Y.Odom_Delta_Y;
   Robot_Control_U.Auto_Start_Position   = Odometry_Y.Auto_Start_Position;
+  Robot_Control_U.Robot_Velocity_X      = Odometry_Y.Robot_Velocity_X;
+  Robot_Control_U.Robot_Velocity_Y      = Odometry_Y.Robot_Velocity_Y;
+  // These are common inputs to Odometry and Robot Control
+  Robot_Control_U.FrontLeft_Drive_Motor_Speed  = Odometry_U.FrontLeft_Drive_Motor_Speed;
+  Robot_Control_U.FrontRight_Drive_Motor_Speed = Odometry_U.FrontRight_Drive_Motor_Speed;
+  Robot_Control_U.BackLeft_Drive_Motor_Speed   = Odometry_U.BackLeft_Drive_Motor_Speed;
+  Robot_Control_U.BackRight_Drive_Motor_Speed  = Odometry_U.BackRight_Drive_Motor_Speed;  
 }
 
 #ifndef RUNNING_FRC_TESTS

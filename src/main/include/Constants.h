@@ -57,28 +57,28 @@ namespace Constants
             static const TalonFXMotorCreateInfo frontLeft = defaultDriveCreateInfo
                 .SetCanID(1)
                 .SetDutyCycleCallback(&Robot_Control_Y.FrontLeft_Drive_DutyCycle)
-                .SetVelocityCallback(&Robot_Control_U.FrontLeft_Drive_Motor_Speed)
+                .SetVelocityCallback(&Odometry_U.FrontLeft_Drive_Motor_Speed)
                 .SetPositionCallback(&Odometry_U.FrontLeft_Drive_Motor_Rev)
                 .SetDisplayName("Front Left Drive Motor");
             
             static const TalonFXMotorCreateInfo frontRight = defaultDriveCreateInfo
                 .SetCanID(2)
                 .SetDutyCycleCallback(&Robot_Control_Y.FrontRight_Drive_DutyCycle)
-                .SetVelocityCallback(&Robot_Control_U.FrontRight_Drive_Motor_Speed)
+                .SetVelocityCallback(&Odometry_U.FrontRight_Drive_Motor_Speed)
                 .SetPositionCallback(&Odometry_U.FrontRight_Drive_Motor_Rev)
                 .SetDisplayName("Front Right Drive Motor");
 
             static const TalonFXMotorCreateInfo backLeft = defaultDriveCreateInfo
                 .SetCanID(3)
                 .SetDutyCycleCallback(&Robot_Control_Y.BackLeft_Drive_DutyCycle)
-                .SetVelocityCallback(&Robot_Control_U.BackLeft_Drive_Motor_Speed)
+                .SetVelocityCallback(&Odometry_U.BackLeft_Drive_Motor_Speed)
                 .SetPositionCallback(&Odometry_U.BackLeft_Drive_Motor_Rev)
                 .SetDisplayName("Back Left Drive Motor");
 
             static const TalonFXMotorCreateInfo backRight = defaultDriveCreateInfo
                 .SetCanID(4)
                 .SetDutyCycleCallback(&Robot_Control_Y.BackRight_Drive_DutyCycle)
-                .SetVelocityCallback(&Robot_Control_U.BackRight_Drive_Motor_Speed)
+                .SetVelocityCallback(&Odometry_U.BackRight_Drive_Motor_Speed)
                 .SetPositionCallback(&Odometry_U.BackRight_Drive_Motor_Rev)  
                 .SetDisplayName("Back Right Drive Motor");
 
