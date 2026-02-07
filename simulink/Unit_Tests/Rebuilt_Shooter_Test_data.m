@@ -1,0 +1,8 @@
+Feeder_Target = 2000;
+Transfer_Minimum_Factor = 0.8;
+Transfer_Target = 2000;
+BlueAllianceZoneX = 182.11*0.0254;
+RedAllianceZoneX = (651.22-182.11)*0.0254;
+Robot_Velocity_Maximum_Shooter = 1;
+Heading_Max_Error_Shoot = 5;
+Shooter_Motor_Max_Error_Shoot = 100;
