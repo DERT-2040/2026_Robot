@@ -13,8 +13,11 @@ hold on
 % Spline tuning parameter
 Spline_Tension = 0.5;
 
+% Enable or Disable plotting the robot rectangle at the Poses
+plot_robot_rectangle = 1;  % 0 = off, 1 = on
+
 % Define which paths to run
-test_cases = [1:12];  % normal cases
+test_cases = 3; %[1:12];  % normal cases
 
 % Plot all of the paths
 for m = 1:length(test_cases)
@@ -47,6 +50,16 @@ for m = 1:length(test_cases)
 
     subplot(1,4,1:3)
     plot(plot_X,plot_Y)
+
+    % add the robot to the plot
+    if plot_robot_rectangle == 1
+        for p = 1:Spline_Num_Poses
+            Robot_Translated = RobotRotation(Spline_Ref_Poses(p,1),Spline_Ref_Poses(p,2),Spline_Ref_Poses(p,4));  % run the function at the selected pose
+            plot([Robot_Translated(1,1:4),Robot_Translated(1,1)],[Robot_Translated(2,1:4),Robot_Translated(2,1)],'b-')  % outside boundary
+            plot(Robot_Translated(1,5:6),Robot_Translated(2,5:6),'o')  % center and front points
+            text(sum(Robot_Translated(1,5:6))/2,sum(Robot_Translated(2,5:6))/2,num2str(p))  % add point number to the plot
+        end
+    end
 
     subplot(2,4,4)
     plot(plot_Distance,plot_Velocity)
