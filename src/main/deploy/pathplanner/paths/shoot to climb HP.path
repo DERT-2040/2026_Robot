@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 2.4038444444444447,
+        "y": 2.3492111111111114
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.7741333333333333,
+        "y": 3.5867555555555555
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 1.5950555555555557,
+        "y": 3.7718999999999996
+      },
+      "prevControl": {
+        "x": 2.774133295990289,
+        "y": 3.9570446822605154
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 179.54886145321274
+  },
+  "reversed": false,
+  "folder": "HP Strat ",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 23.355564859285792
+  },
+  "useDefaultConstraints": true
+}

@@ -7,57 +7,47 @@ field_length = 651.22 * 0.0254;
 
 % [x, y, velocity, angle]
 
-% Blue NZ 
+% Depot strat DP Start to DP 
 % Start Location: Depot Side
     % Setup Notes:
-% Finish Location: Climb
-Path_Blue_Left_NZ = [
-    3.506,  7.259,  1,  19.983  *D2R;
-    2.642,  6.876,  1,  8.746   *D2R;
-    4.883,  7.560,  1,  0.000   *D2R;
-    7.713,  5.303,  1, -75.104  *D2R;
-    7.713,  3.503,  1, -75.104  *D2R;
-    4.576,  2.702,  1,  0.000   *D2R;
-    2.111,  2.942,  1,  108.853 *D2R;
-    1.615,  3.882,  1, -173.059 *D2R;
+% Finish Location: Depot
+Path_Blue_Left_DP = [
+    3.75, 5.97, 1, 178.94 *D2R;
+    0.71, 5.97, 1, 180.00 *D2R;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
     0,0,0,0;
     0,0,0,0];
 
-Path_Red_Left_NZ = MirrorPath(Path_Blue_Left_NZ, field_width, field_length);
-
-Path_Blue_Right_NZ = MirrorPathSameSide(Path_Blue_Left_NZ, field_width);
-Path_Red_Right_NZ  = MirrorPathSameSide(Path_Red_Left_NZ,  field_width);
-
-
-% Blue Depot 
+% Blue Depot strat DP to Shoot
 % Start Location: Depot Side
     % Setup Notes:
-% Finish Location: Climb
+% Finish Location: shooting position
 Path_Blue_Left_Depot = [
-    3.75,  5.97,  1,  178.94 *D2R;
-    2.06,  5.97,  1,  180.00 *D2R;
-    %2.06,  5.97,  1,  174.33 *D2R;
-    0.47,  5.97,  1,  177.98 *D2R;
-    0.72,  5.97,  1,  116.57 *D2R;
-    2.02,  4.95,  1, -125.96 *D2R;
-    %2.02,  4.94,  1,  -27.41 *D2R;
-    2.54,  4.18,  1,  -99.22 *D2R;
-    1.61,  3.64,  1, -170.30 *D2R;
+    0.71, 5.97, 1, 116.57 *D2R;
+    2.02, 4.95, 1, -125.96 *D2R;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
     0,0,0,0;
     0,0,0,0;
     0,0,0,0];
 
-Path_Red_Left_Depot = MirrorPath(Path_Blue_Left_Depot, field_width, field_length);
-
-% Blue Human Player 
-% Start Location: Human Player Side
+% Blue Depot strat shoot to climb
+% Start Location: Depot side
     % Setup Notes:
 % Finish Location: Climb
 Path_Blue_Right_HS = [
-    3.80,  0.63,  1,  178.79 *D2R;
-    0.16,  0.66,  1, -141.20 *D2R;
-    3.06,  2.32,  1,   35.54 *D2R;
-    1.64,  3.74,  1,  167.74 *D2R;
+    2.02, 4.95, 1, -27.41 *D2R;
+    2.54, 4.18, 1, -99.23 *D2R;
+    1.61, 3.64, 1, -170.30 *D2R;
+    0,0,0,0;
     0,0,0,0;
     0,0,0,0;
     0,0,0,0;
@@ -65,44 +55,152 @@ Path_Blue_Right_HS = [
     0,0,0,0;
     0,0,0,0];
 
-Path_Red_Right_HS = MirrorPath(Path_Blue_Right_HS, field_width, field_length);
-
-
-% Blue Middle Human Player
-% Start Location: Middle
+% Blue HP start start to HP
+% Start Location: human side
     % Setup Notes:
-% Finish Location: Climb
+% Finish Location: HP
 Path_Blue_Center_HS = [
-    2.34,  4.03,  1,  000.00 *D2R;
-    1.34,  2.03,  1,   90.00 *D2R;
-    0.57,  0.66,  1,  180.00 *D2R;
-    2.25,  2.44,  1,  180.00 *D2R;
-    1.63,  3.81,  1,  180.00 *D2R;
+    3.51, 0.62, 1, 0.00 *D2R;
+    0.49, 0.73, 1, 0.00 *D2R;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
     0,0,0,0;
     0,0,0,0;
     0,0,0,0;
     0,0,0,0;
     0,0,0,0];
 
-Path_Red_Center_HS = MirrorPath(Path_Blue_Center_HS, field_width, field_length);
-
-% Blue Middle Depot
-% Start Location: Middle
+% Blue HP strat Hp to shoot
+% Start Location: HP
     % Setup Notes:
-% Finish Location: Climb
+% Finish Location: shoot
 Path_Blue_Center_Depot = [
-    2.34,  4.03,  1,  000.00 *D2R;
-    1.85,  5.96,  1, -177.61 *D2R;
-    0.62,  5.96,  1,  000.00 *D2R;
-    2.12,  5.60,  1,  006.68 *D2R;
-    1.59,  3.75,  1, -148.02 *D2R;
+    0.49, 0.73, 1, 0.00 *D2R;
+    2.27, 2.32, 1, 13.04 *D2R;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
     0,0,0,0;
     0,0,0,0;
     0,0,0,0;
     0,0,0,0;
     0,0,0,0];
 
-Path_Red_Center_Depot = MirrorPath(Path_Blue_Center_Depot, field_width, field_length);
+
+% Blue HP strat shoot to climb
+% Start Location: Shoot 
+    % Setup Notes:
+% Finish Location: climb
+Path_Blue_Center_Depot = [
+    2.27, 2.32, 1, 73.34 *D2R;
+    1.60, 3.77, 1, -171.08 *D2R;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0];
+
+% Blue DP to Neutral zone strat
+% Start Location: Left side
+    % Setup Notes:
+% Finish Location: NZ
+Path_Blue_Center_Depot = [
+    2.48, 7.11, 1, 10.10 *D2R;
+    5.54, 7.31, 1, -12.04 *D2R;
+    7.77, 5.77, 1, -89.38 *D2R;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0];
+
+% Blue DP to Neutral zone strat
+% Start Location: NZ 
+    % Setup Notes:
+% Finish Location: shoot 
+Path_Blue_Center_Depot = [
+    7.77, 5.77, 1, -104.35 *D2R;
+    7.09, 3,09, 1, -125.46 *D2R;
+    4.37, 2.19, 1, -170.00 *D2R;
+    2.67, 2.68, 1, 88.85 *D2R;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0];
+
+% Blue DP to Neutral zone strat
+% Start Location: shoot
+    % Setup Notes:
+% Finish Location: climb 
+Path_Blue_Center_Depot = [
+    2.67, 2.68, 1, 88.85 *D2R;
+    1.61, 3.77, 1, 131.52 *D2R;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0];
+
+% Blue HP to NZ  Strat
+% Start Location: start Right
+    % Setup Notes:
+% Finish Location: NZ 
+Path_Blue_Center_Depot = [
+    3.05, 0.88, 1, 0.00 *D2R;
+    6.27, 0.68, 1, 16.54 *D2R;
+    7.81, 3.38, 1, 99.81 *D2R;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0];
+
+% Blue HP to NZ  Strat
+% Start Location: NZ
+    % Setup Notes:
+% Finish Location: Shoot left side 
+Path_Blue_Center_Depot = [
+    7.81, 3.38, 1, 102.72 *D2R;
+    4.93, 7.55, 1, 176.79 *D2R;
+    2.80, 6.34, 1, -112.93 *D2R;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0];
+
+% Blue HP to NZ  Strat
+% Start Location: shoot
+    % Setup Notes:
+% Finish Location: climb 
+Path_Blue_Center_Depot = [
+    2.80, 6.34, 1, -112.93 *D2R;
+    1.57, 3.79, 1, 0.00 *D2R;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0;
+    0,0,0,0];
+
+% Path_Red_Center_Depot = MirrorPath(Path_Blue_Center_Depot, field_width, field_length);
 
 % concatenate all of the paths into one multi-dimensional matrix
 All_Paths_Ref_Poses = cat(3, ...

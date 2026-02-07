@@ -4,6 +4,11 @@
   "holonomicMode": true,
   "pathFolders": [
     "Depot Strat",
+    "HP Strat ",
+    "Middle Strat DP",
+    "Middle Strat HP",
+    "NZ strat HP",
+    "DP to NZ",
     "Old DS"
   ],
   "autoFolders": [],

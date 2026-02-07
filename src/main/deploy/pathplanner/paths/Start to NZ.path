@@ -1,0 +1,70 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.046977777777778,
+        "y": 0.8777999999999986
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 4.046977777777778,
+        "y": 0.8777999999999986
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 6.272388888888889,
+        "y": 0.6829111111111104
+      },
+      "prevControl": {
+        "x": 5.335163888888889,
+        "y": 0.4045854166666658
+      },
+      "nextControl": {
+        "x": 7.209613888888889,
+        "y": 0.9612368055555549
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 7.8120111111111115,
+        "y": 3.382122222222222
+      },
+      "prevControl": {
+        "x": 8.123833333333334,
+        "y": 1.5793999999999992
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 91.10170611520647
+  },
+  "reversed": false,
+  "folder": "NZ strat HP",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "useDefaultConstraints": true
+}
