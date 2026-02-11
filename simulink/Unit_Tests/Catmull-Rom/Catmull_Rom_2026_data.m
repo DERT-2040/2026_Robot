@@ -17,7 +17,7 @@ Spline_Tension = 0.5;
 plot_robot_rectangle = 1;  % 0 = off, 1 = on
 
 % Define which paths to run
-test_cases = 3; %[1:12];  % normal cases
+test_cases = [1:13]; %[1:11];  % normal cases
 
 % Plot all of the paths
 for m = 1:length(test_cases)
