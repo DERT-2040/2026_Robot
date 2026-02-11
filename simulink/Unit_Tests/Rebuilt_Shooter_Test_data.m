@@ -1,10 +1,16 @@
-Feeder_Target = 2000;
+Target_Feeder_Speed = 2000;
 Transfer_Minimum_Factor = 0.8;
-Transfer_Target = 2000;
+
+Target_Transfer_Speed = 2000;
+
 BlueAllianceZoneX = 182.11*0.0254;
 RedAllianceZoneX = (651.22-182.11)*0.0254;
+
 Robot_Velocity_Maximum_Shooter = 1;
+
 Heading_Max_Error_Shoot = 5;
+
 Shooter_Motor_Max_Error_Shoot = 100;
+
 Hood_Servo_Rate_Limit_Inc = 32/50*0.02;   % no load 32 mm/sec, total stroke 50 mm
 Hood_Servo_Rate_Limit_Dec = -Hood_Servo_Rate_Limit_Inc;
