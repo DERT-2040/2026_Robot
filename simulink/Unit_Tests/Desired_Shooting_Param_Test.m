@@ -37,6 +37,13 @@ Hood_Angle_2 = 70 * 0.01745329;
 Hood_Angle_3 = 55 * 0.01745329;
 Hood_Angle_4 = 45 * 0.01745329;
 
+% Allowed Gyro Error (Degrees converted to Radians)
+Gyro_Err_Arr_0 = 10  * 0.01745329;
+Gyro_Err_Arr_1 = 5   * 0.01745329;
+Gyro_Err_Arr_2 = 3   * 0.01745329;
+Gyro_Err_Arr_3 = 1   * 0.01745329;
+Gyro_Err_Arr_4 = 0.5 * 0.01745329;
+
 
 %% Set Input Parameters
 isBlueAllianceTest = true;
