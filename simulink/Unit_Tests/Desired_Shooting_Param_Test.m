@@ -47,10 +47,10 @@ Gyro_Err_Arr_4 = 0.5 * 0.01745329;
 
 %% Set Input Parameters
 isBlueAllianceTest = true;
-Robot_X_Test  = 1; % [0:~] acceptable
-Robot_Xv_Test = 1; % [0:~] acceptable
-Robot_Y_Test  = 7; % [0:~] acceptable
-Robot_Yv_Test = 0; % [0:~] acceptable
+Robot_X_Test  = 4; % [0:~] acceptable
+Robot_Y_Test  = 5; % [0:~] acceptable
+Robot_Xv_Test = -1; % [0:~] acceptable
+Robot_Yv_Test = 1; % [0:~] acceptable
 
 for iterations = 10:10
     %% Run Simulation
@@ -65,5 +65,6 @@ end
 Robot_Translated = RobotRotation(Robot_X_Test,Robot_Y_Test,out.Gyro_Angle_Test);
 plot([Robot_Translated(1,1:4),Robot_Translated(1,1)],[Robot_Translated(2,1:4),Robot_Translated(2,1)],'b-')  % outside boundary
 plot(Robot_Translated(1,5:6),Robot_Translated(2,5:6),'o')  % center and front points
+plot(Robot_Translated(1,5)+[0 Robot_Xv_Test],Robot_Translated(2,5)+[0 Robot_Yv_Test],'-')
 plot(Blue_Hub_X,Blue_Hub_Y,"o","LineWidth",5)
 
