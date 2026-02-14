@@ -59,12 +59,12 @@ Shooter_Spd_2 = 350;
 Shooter_Spd_3 = 350;
 Shooter_Spd_4 = 350;
 
-% Desired Hood Angle (Degrees converted to Radians)
-Hood_Angle_0 = 77 * 0.01745329;
-Hood_Angle_1 = 75 * 0.01745329;
-Hood_Angle_2 = 70 * 0.01745329;
-Hood_Angle_3 = 55 * 0.01745329;
-Hood_Angle_4 = 45 * 0.01745329;
+% Desired Hood Position
+Hood_Position_0 = 0.8;
+Hood_Position_1 = 0.6;
+Hood_Position_2 = 0.4;
+Hood_Position_3 = 0.3;
+Hood_Position_4 = 0.2;
 
 % Allowed Gyro Error (Degrees converted to Radians)
 Gyro_Err_Arr_0 = 10  * 0.01745329;
