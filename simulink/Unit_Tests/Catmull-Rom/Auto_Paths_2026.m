@@ -52,8 +52,8 @@ Path_3 = [
 % Start Location: Left Ramp Start
 % Finish Location: Human
 Path_4 = [
-    3.51, 0.62, 1, 0.00 *D2R;
-    0.49, 0.73, 1, 0.00 *D2R;
+    3.51, 0.62, 1, 180.00 *D2R;
+   0.75, 0.73, 1, 180 *D2R;
     0,0,0,0;
     0,0,0,0;
     0,0,0,0;
@@ -64,11 +64,11 @@ Path_4 = [
     0,0,0,0];
 
 % Start Location: Human
-% Finish Location: Right Shoot
+% Finish Location: Right Shoot 
 Path_5 = [
-    0.49, 0.73, 1, 0.00 *D2R;
+    0.75, 0.73, 1, 180 *D2R;
+    1.83, 1.87, 1, 45.00 *D2R;
     2.80, 2.68, 1, 50 *D2R;
-    0,0,0,0;
     0,0,0,0;
     0,0,0,0;
     0,0,0,0;
@@ -110,7 +110,7 @@ Path_7 = [
 % Finish Location: Right Shoot
 Path_8 = [
     7.5, 4.77, 1, -90 *D2R;
-    7.09, 3.15, 1, -125.46 *D2R;
+    7.09, 3.15, 1, -22 *D2R;
     5.26, 2.4,  1, 45   *D2R;
     3.78, 2.4,  .5, 45 *D2R;
     2.80, 2.68, .5, 50 *D2R;
@@ -135,9 +135,10 @@ Path_9 = [
     0,0,0,0];
 
 % Start Location: Right Neutral 
-% Finish Location: Left Shoot
+% Finish Location: Left Shoot 
 Path_10 = [
     7.5, 3.38, 1, 90 *D2R;
+    7.00, 5.00, 1, 22 *D2R;
     5.43, 5.55, 1, -45 *D2R;
     3.78, 5.56, 1, -45 *D2R;
     2.80, 5.35, 1, -50 *D2R;
@@ -146,7 +147,7 @@ Path_10 = [
     0,0,0,0;
     0,0,0,0;
     0,0,0,0;
-    0,0,0,0];
+    ];
 
 % Start Location: Left Shoot
 % Finish Location: Climb Middle
