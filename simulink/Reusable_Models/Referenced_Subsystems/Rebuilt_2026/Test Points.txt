@@ -1,0 +1,52 @@
+Test Points
+-----------
+
+Parameter Subsystem
+----
+Target_X
+Target_Y
+Desired_Shot_Distance
+Desired_Target_X
+Desired_Target_Y
+Desired_Shooter_Motor_Speed_Calc
+Desired_Hood_Pos_Calc
+Allowed_Shoot_Gyro_Error_Calc
+Desired_Gyro_Angle_Calc
+
+
+Shooter Controls Subsystem
+----
+Desired_Shooter_Motor_Speed
+Desired_Hood_Pos
+Allowed_Shoot_Gyro_Error
+Desired_Gyro_Angle
+
+Shooter_Motor_DC
+Transfer_Motor_DC
+Feeder_Motor_DC
+
+Shooter Active
+Desired_Transfer_Speed
+Desired_Feeder_Speed
+
+Ready_to_Score
+Ready_to_Pass
+
+Is_Outside_Alliance_Zone
+
+Can_Pass_Red
+Can_Pass_Blue
+
+Allow_Score_In_Alliance_Zone
+
+CanShootRed
+CanShootBlue
+
+IsRedActive
+IsBlueActive
+
+Measured_Shooter_Speed_Max
+
+
+
+
