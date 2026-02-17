@@ -50,12 +50,12 @@ Hood_Position_2 = 0.4;
 Hood_Position_3 = 0.3;
 Hood_Position_4 = 0.2;
 
-% Allowed Gyro Error
-Gyro_Err_Arr_0 = 10;
-Gyro_Err_Arr_1 = 5;
-Gyro_Err_Arr_2 = 3;
-Gyro_Err_Arr_3 = 1;
-Gyro_Err_Arr_4 = 0.5;
+% Allowed Gyro Error (Radians)
+Gyro_Err_Arr_0 = deg2rad(10);
+Gyro_Err_Arr_1 = deg2rad(5);
+Gyro_Err_Arr_2 = deg2rad(3);
+Gyro_Err_Arr_3 = deg2rad(1);
+Gyro_Err_Arr_4 = deg2rad(0.5);
 
 % Control Parameters to Calculate Duty Cycle
 Feeder_Motor_DC_Gain = 1/7000;
