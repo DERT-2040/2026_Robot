@@ -168,18 +168,18 @@ namespace Constants
                 .SetMotorType(TalonFXMotorType::KrakenX60);
         static const TalonFXMotorCreateInfo Left = defaultShooterCreateInfo
                 .SetCanID(10)
-                .SetDutyCycleCallback(&Robot_Control_Y.Left_Shooter_DutyCycle)
-                .SetVelocityCallback(&Robot_Control_U.Left_Shooter_Motor_Speed)
+                .SetDutyCycleCallback(&Robot_Control_Y.Shooter_Motor_DC_Left)
+                .SetVelocityCallback(&Robot_Control_U.Measured_Shooter_Speed_Left)
                 .SetDisplayName("Left Shooter Motor");
         static const TalonFXMotorCreateInfo Center = defaultShooterCreateInfo
                 .SetCanID(11)
-                .SetDutyCycleCallback(&Robot_Control_Y.Center_Shooter_DutyCycle)
-                .SetVelocityCallback(&Robot_Control_U.Center_Shooter_Motor_Speed)
+                .SetDutyCycleCallback(&Robot_Control_Y.Shooter_Motor_DC_Center)
+                .SetVelocityCallback(&Robot_Control_U.Measured_Shooter_Speed_Center)
                 .SetDisplayName("Center Shooter Motor");
         static const TalonFXMotorCreateInfo Right = defaultShooterCreateInfo
                 .SetCanID(12)
-                .SetDutyCycleCallback(&Robot_Control_Y.Right_Shooter_DutyCycle)
-                .SetVelocityCallback(&Robot_Control_U.Right_Shooter_Motor_Speed)
+                .SetDutyCycleCallback(&Robot_Control_Y.Shooter_Motor_DC_Right)
+                .SetVelocityCallback(&Robot_Control_U.Measured_Shooter_Speed_Right)
                 .SetDisplayName("Right Shooter Motor");
     }
 
@@ -194,8 +194,8 @@ namespace Constants
                 .SetMotorType(TalonFXMotorType::KrakenX44);
         static const TalonFXMotorCreateInfo Feeder = defaultFeederCreateInfo
                 .SetCanID(13)
-                .SetDutyCycleCallback(&Robot_Control_Y.Feeder_DutyCycle)
-                .SetVelocityCallback(&Robot_Control_U.Feeder_Motor_Speed)
+                .SetDutyCycleCallback(&Robot_Control_Y.Feeder_Motor_DC)
+                .SetVelocityCallback(&Robot_Control_U.Measured_Feeder_Speed)
                 .SetDisplayName("Feeder Motor");
     }
      
@@ -210,8 +210,8 @@ namespace Constants
                 .SetMotorType(TalonFXMotorType::KrakenX44);
         static const TalonFXMotorCreateInfo Transfer = defaultTransferCreateInfo
                 .SetCanID(14)
-                .SetDutyCycleCallback(&Robot_Control_Y.Transfer_DutyCycle)
-                .SetVelocityCallback(&Robot_Control_U.Transfer_Motor_Speed)
+                .SetDutyCycleCallback(&Robot_Control_Y.Transfer_Motor_DC)
+                .SetVelocityCallback(&Robot_Control_U.Measured_Transfer_Speed)
                 .SetDisplayName("Transfer Motor");
     }
 

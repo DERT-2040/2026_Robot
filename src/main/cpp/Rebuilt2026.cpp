@@ -42,9 +42,9 @@ void Rebuilt2026::PostStepCallback()
     TransferMotors.FetchMotorCommandsFromSL();
 
     // Only set the servo positions if enabled from Simulink
-    if(Robot_Control_Y.HoodServo_Enable)  // boolean from Simulink
+    if(Robot_Control_Y.Desired_Hood_Enable)  // boolean from Simulink
     {
-        HoodServo_Left.Set(Robot_Control_Y.HoodServo_Position);
-        HoodServo_Right.Set(Robot_Control_Y.HoodServo_Position);
+        HoodServo_Left.Set(Robot_Control_Y.Desired_Hood_Pos);
+        HoodServo_Right.Set(Robot_Control_Y.Desired_Hood_Pos);
     }
 }

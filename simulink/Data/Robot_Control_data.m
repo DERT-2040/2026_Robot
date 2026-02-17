@@ -23,10 +23,6 @@ TEST_Swerve_Mode_Steering = 0;
 % Pipeline for Test Mode
 TEST_Pipeline = uint8(0);
 
-% Hood servo position for Test Mode
-TEST_HoodServo_Enable = false;
-TEST_HoodServo_Position = 0.5;
-
 %% Kalman Filter
 KF_Enable = 1;
 KF_Odom_Covariance = 0.001*eye(2);
@@ -36,6 +32,6 @@ KF_Vision_Covariance = 0.1*eye(2);
 Common_data  % common to Robot_Controls and Odometry
 Swerve_Drive
 Spline_Path_Following
-Vision_Data
-
+Vision_data
+Rebuilt_data
 
