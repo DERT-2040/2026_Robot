@@ -18,4 +18,5 @@ public:
 private:
 	bool hasIntChanged(int current, int& previous);
 	int previous = -1; 
+	std::string gameData;
 };
