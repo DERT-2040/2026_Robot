@@ -295,9 +295,9 @@ private:
         nt::NetworkTableEntry T__Button_Enable_Wheels__Entry;
         nt::NetworkTableEntry T__Button_Reset_Wheel_Offsets__Entry;
         nt::NetworkTableEntry T__Desired_Feeder_Speed__Entry;
-        nt::NetworkTableEntry T__Desired_Gyro_Angle__Entry;
         nt::NetworkTableEntry T__Desired_Hood_Pos_Calc__Entry;
         nt::NetworkTableEntry T__Desired_Hood_Pos_Shoot__Entry;
+        nt::NetworkTableEntry T__Desired_Shoot_Gyro_Angle_rad__Entry;
         nt::NetworkTableEntry T__Desired_Shooter_Motor_Speed_Cal__Entry;
         nt::NetworkTableEntry T__Desired_Shooter_Speed__Entry;
         nt::NetworkTableEntry T__Desired_Shot_Distance__Entry;

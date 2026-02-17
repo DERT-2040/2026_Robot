@@ -727,9 +727,9 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__Button_Enable_Wheels__Entry = NTtable_TPoint->GetEntry("Button_Enable_Wheels");
     T__Button_Reset_Wheel_Offsets__Entry = NTtable_TPoint->GetEntry("Button_Reset_Wheel_Offsets");
     T__Desired_Feeder_Speed__Entry = NTtable_TPoint->GetEntry("Desired_Feeder_Speed");
-    T__Desired_Gyro_Angle__Entry = NTtable_TPoint->GetEntry("Desired_Gyro_Angle");
     T__Desired_Hood_Pos_Calc__Entry = NTtable_TPoint->GetEntry("Desired_Hood_Pos_Calc");
     T__Desired_Hood_Pos_Shoot__Entry = NTtable_TPoint->GetEntry("Desired_Hood_Pos_Shoot");
+    T__Desired_Shoot_Gyro_Angle_rad__Entry = NTtable_TPoint->GetEntry("Desired_Shoot_Gyro_Angle_rad");
     T__Desired_Shooter_Motor_Speed_Cal__Entry = NTtable_TPoint->GetEntry("Desired_Shooter_Motor_Speed_Cal");
     T__Desired_Shooter_Speed__Entry = NTtable_TPoint->GetEntry("Desired_Shooter_Speed");
     T__Desired_Shot_Distance__Entry = NTtable_TPoint->GetEntry("Desired_Shot_Distance");
@@ -1092,9 +1092,9 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__Button_Enable_Wheels__Entry.SetDouble(Robot_Control_B.Button_Enable_Wheels);
     T__Button_Reset_Wheel_Offsets__Entry.SetDouble(Robot_Control_B.Button_Reset_Wheel_Offsets);
     T__Desired_Feeder_Speed__Entry.SetDouble(Robot_Control_B.Desired_Feeder_Speed);
-    T__Desired_Gyro_Angle__Entry.SetDouble(Robot_Control_B.Desired_Gyro_Angle);
     T__Desired_Hood_Pos_Calc__Entry.SetDouble(Robot_Control_B.Desired_Hood_Pos_Calc);
     T__Desired_Hood_Pos_Shoot__Entry.SetDouble(Robot_Control_B.Desired_Hood_Pos_Shoot);
+    T__Desired_Shoot_Gyro_Angle_rad__Entry.SetDouble(Robot_Control_B.Desired_Shoot_Gyro_Angle_rad);
     T__Desired_Shooter_Motor_Speed_Cal__Entry.SetDouble(Robot_Control_B.Desired_Shooter_Motor_Speed_Cal);
     T__Desired_Shooter_Speed__Entry.SetDouble(Robot_Control_B.Desired_Shooter_Speed);
     T__Desired_Shot_Distance__Entry.SetDouble(Robot_Control_B.Desired_Shot_Distance);
