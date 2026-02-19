@@ -31,14 +31,14 @@ void Rebuilt2026::HoodServoSetPulseWidth()
 void Rebuilt2026::PreStepCallback()
 {
 	ShooterMotors.SendVelocityValuesToSL();
-    FeederMotors.SendVelocityValuesToSL();
+    // FeederMotors.SendVelocityValuesToSL(); //TODO: Uncomment
     TransferMotors.SendVelocityValuesToSL();
 }
 
 void Rebuilt2026::PostStepCallback()
 {
 	ShooterMotors.FetchMotorCommandsFromSL();
-    FeederMotors.FetchMotorCommandsFromSL();
+    // FeederMotors.FetchMotorCommandsFromSL(); //TODO: Uncomment
     TransferMotors.FetchMotorCommandsFromSL();
 
     // Only set the servo positions if enabled from Simulink

@@ -160,7 +160,7 @@ namespace Constants
     namespace ShooterCreateInfo
     {
         static TalonFXMotorCreateInfo defaultShooterCreateInfo = TalonFXMotorCreateInfo::getDefaultCreateInfo()
-                .SetCanbus(*Constants::CANBuses::RioBus)
+                .SetCanbus(*Constants::CANBuses::CANivoreBus)
                 .SetIsReversed(false)
                 .SetSupplyCurrentLimit(60)
                 .SetOpenLoopRampPeriod(0)
@@ -168,16 +168,19 @@ namespace Constants
                 .SetMotorType(TalonFXMotorType::KrakenX60);
         static const TalonFXMotorCreateInfo Left = defaultShooterCreateInfo
                 .SetCanID(10)
+                .SetIsReversed(true)                
                 .SetDutyCycleCallback(&Robot_Control_Y.Shooter_Motor_DC_Left)
                 .SetVelocityCallback(&Robot_Control_U.Measured_Shooter_Speed_Left)
                 .SetDisplayName("Left Shooter Motor");
         static const TalonFXMotorCreateInfo Center = defaultShooterCreateInfo
                 .SetCanID(11)
+                .SetIsReversed(true)                
                 .SetDutyCycleCallback(&Robot_Control_Y.Shooter_Motor_DC_Center)
                 .SetVelocityCallback(&Robot_Control_U.Measured_Shooter_Speed_Center)
                 .SetDisplayName("Center Shooter Motor");
         static const TalonFXMotorCreateInfo Right = defaultShooterCreateInfo
                 .SetCanID(12)
+                .SetIsReversed(false)                
                 .SetDutyCycleCallback(&Robot_Control_Y.Shooter_Motor_DC_Right)
                 .SetVelocityCallback(&Robot_Control_U.Measured_Shooter_Speed_Right)
                 .SetDisplayName("Right Shooter Motor");
@@ -186,7 +189,7 @@ namespace Constants
     namespace FeederCreateInfo
     {
         static TalonFXMotorCreateInfo defaultFeederCreateInfo = TalonFXMotorCreateInfo::getDefaultCreateInfo()
-                .SetCanbus(*Constants::CANBuses::RioBus)
+                .SetCanbus(*Constants::CANBuses::CANivoreBus)
                 .SetIsReversed(false)
                 .SetSupplyCurrentLimit(60)
                 .SetOpenLoopRampPeriod(0)
@@ -202,7 +205,7 @@ namespace Constants
     namespace TransferCreateInfo
     {
         static TalonFXMotorCreateInfo defaultTransferCreateInfo = TalonFXMotorCreateInfo::getDefaultCreateInfo()
-                .SetCanbus(*Constants::CANBuses::RioBus)
+                .SetCanbus(*Constants::CANBuses::CANivoreBus)
                 .SetIsReversed(false)
                 .SetSupplyCurrentLimit(60)
                 .SetOpenLoopRampPeriod(0)
