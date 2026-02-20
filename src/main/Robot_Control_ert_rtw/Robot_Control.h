@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.446
+ * Model version                  : 2.447
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Tue Feb 17 08:34:07 2026
+ * C/C++ source code generated on : Thu Feb 19 21:03:26 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -81,12 +81,12 @@ typedef struct {
   real_T FR_Desired_Wheel_Speed;       /* '<S316>/Product1' */
   real_T BL_Desired_Module_Angle;      /* '<S331>/Switch' */
   real_T BL_Desired_Wheel_Speed;       /* '<S316>/Product2' */
-  real_T Transfer_Motor_PID_DC;        /* '<S126>/Saturation2' */
+  real_T Transfer_Motor_PID_DC;        /* '<S92>/Switch2' */
   real_T Feeder_Motor_PID_DC;          /* '<S11>/Product' */
   real_T Desired_Hood_Pos_Shoot;       /* '<S86>/Merge2' */
   real_T Estimated_Hood_Pos;           /* '<S82>/Sum' */
   real_T Desired_Shooter_Speed;        /* '<S86>/Merge1' */
-  real_T Shooter_Motor_PID_DC;         /* '<S121>/Saturation2' */
+  real_T Shooter_Motor_PID_DC;         /* '<S89>/Switch2' */
   real_T Allowed_Shoot_Gyro_Error;     /* '<S86>/Merge3' */
   real_T loop_counter_robot_control;   /* '<S1>/Sum' */
   real_T Steer_Joystick_X;             /* '<S5>/Signal Copy4' */

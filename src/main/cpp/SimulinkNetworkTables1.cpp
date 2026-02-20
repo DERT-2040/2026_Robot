@@ -101,7 +101,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Feeder_Motor_Gain_FF__Entry = NTtable_Tune->GetEntry("Feeder_Motor_Gain_FF");
     NTinst.AddListener(P__Feeder_Motor_Gain_FF__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Feeder_Motor_Gain_FF = event.GetValueEventData()->value.GetDouble();});
-    P__Feeder_Motor_Gain_FF__Entry.SetDouble(0.00014286);
+    P__Feeder_Motor_Gain_FF__Entry.SetDouble(0.00012732);
  
     P__Field_Translation_Control_Gain__Entry = NTtable_Tune->GetEntry("Field_Translation_Control_Gain");
     NTinst.AddListener(P__Field_Translation_Control_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Field_Translation_Control_Gain = event.GetValueEventData()->value.GetDouble();});
@@ -161,7 +161,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Hood_Servo_Pos_Min__Entry = NTtable_Tune->GetEntry("Hood_Servo_Pos_Min");
     NTinst.AddListener(P__Hood_Servo_Pos_Min__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Hood_Servo_Pos_Min = event.GetValueEventData()->value.GetDouble();});
-    P__Hood_Servo_Pos_Min__Entry.SetDouble(0.2);
+    P__Hood_Servo_Pos_Min__Entry.SetDouble(0.05);
  
     P__Hood_Servo_Rate_Limit_Dec__Entry = NTtable_Tune->GetEntry("Hood_Servo_Rate_Limit_Dec");
     NTinst.AddListener(P__Hood_Servo_Rate_Limit_Dec__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Hood_Servo_Rate_Limit_Dec = event.GetValueEventData()->value.GetDouble();});
@@ -221,15 +221,15 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Shooter_Motor_Gain_FF__Entry = NTtable_Tune->GetEntry("Shooter_Motor_Gain_FF");
     NTinst.AddListener(P__Shooter_Motor_Gain_FF__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_Motor_Gain_FF = event.GetValueEventData()->value.GetDouble();});
-    P__Shooter_Motor_Gain_FF__Entry.SetDouble(0.00014286);
+    P__Shooter_Motor_Gain_FF__Entry.SetDouble(0.00016534);
  
     P__Shooter_Motor_Gain_I__Entry = NTtable_Tune->GetEntry("Shooter_Motor_Gain_I");
     NTinst.AddListener(P__Shooter_Motor_Gain_I__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_Motor_Gain_I = event.GetValueEventData()->value.GetDouble();});
-    P__Shooter_Motor_Gain_I__Entry.SetDouble(0);
+    P__Shooter_Motor_Gain_I__Entry.SetDouble(2e-05);
  
     P__Shooter_Motor_Gain_P__Entry = NTtable_Tune->GetEntry("Shooter_Motor_Gain_P");
     NTinst.AddListener(P__Shooter_Motor_Gain_P__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_Motor_Gain_P = event.GetValueEventData()->value.GetDouble();});
-    P__Shooter_Motor_Gain_P__Entry.SetDouble(0);
+    P__Shooter_Motor_Gain_P__Entry.SetDouble(0.0005);
  
     P__Shooter_Motor_Max_Error_Shoot__Entry = NTtable_Tune->GetEntry("Shooter_Motor_Max_Error_Shoot");
     NTinst.AddListener(P__Shooter_Motor_Max_Error_Shoot__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_Motor_Max_Error_Shoot = event.GetValueEventData()->value.GetDouble();});
@@ -501,15 +501,15 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Transfer_Motor_Gain_FF__Entry = NTtable_Tune->GetEntry("Transfer_Motor_Gain_FF");
     NTinst.AddListener(P__Transfer_Motor_Gain_FF__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Transfer_Motor_Gain_FF = event.GetValueEventData()->value.GetDouble();});
-    P__Transfer_Motor_Gain_FF__Entry.SetDouble(0.00014286);
+    P__Transfer_Motor_Gain_FF__Entry.SetDouble(0.00012732);
  
     P__Transfer_Motor_Gain_I__Entry = NTtable_Tune->GetEntry("Transfer_Motor_Gain_I");
     NTinst.AddListener(P__Transfer_Motor_Gain_I__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Transfer_Motor_Gain_I = event.GetValueEventData()->value.GetDouble();});
-    P__Transfer_Motor_Gain_I__Entry.SetDouble(0);
+    P__Transfer_Motor_Gain_I__Entry.SetDouble(2e-05);
  
     P__Transfer_Motor_Gain_P__Entry = NTtable_Tune->GetEntry("Transfer_Motor_Gain_P");
     NTinst.AddListener(P__Transfer_Motor_Gain_P__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Transfer_Motor_Gain_P = event.GetValueEventData()->value.GetDouble();});
-    P__Transfer_Motor_Gain_P__Entry.SetDouble(0);
+    P__Transfer_Motor_Gain_P__Entry.SetDouble(0.0001);
  
     P__Translation_Speed_Approach_Zero_Error_Thresh__Entry = NTtable_Tune->GetEntry("Translation_Speed_Approach_Zero_Error_Thresh");
     NTinst.AddListener(P__Translation_Speed_Approach_Zero_Error_Thresh__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Translation_Speed_Approach_Zero_Error_Thresh = event.GetValueEventData()->value.GetDouble();});

@@ -67,7 +67,7 @@ Gyro_Err_Arr_3 = deg2rad(1);
 Gyro_Err_Arr_4 = deg2rad(0.5);
 
 % Control Parameters to Calculate Duty Cycle
-Feeder_Motor_Gain_FF = 1/7000;
+Feeder_Motor_Gain_FF = 1/7854;
 
 Transfer_Motor_Gain_FF = 1/7854;
 Transfer_Motor_Gain_P = 0.0001;

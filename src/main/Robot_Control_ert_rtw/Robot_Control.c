@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.446
+ * Model version                  : 2.447
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Tue Feb 17 08:34:07 2026
+ * C/C++ source code generated on : Thu Feb 19 21:03:26 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -176,7 +176,7 @@ real_T Drive_Motor_Control_Sign_Change_Deadband = 7000.0;
                             *   '<S244>/Constant'
                             *   '<S265>/Constant'
                             */
-real_T Feeder_Motor_Gain_FF = 0.00014286;/* Variable: Feeder_Motor_Gain_FF
+real_T Feeder_Motor_Gain_FF = 0.00012732;/* Variable: Feeder_Motor_Gain_FF
                                           * Referenced by: '<S11>/Constant'
                                           */
 real_T Field_Translation_Control_Gain = 10.0;
@@ -222,7 +222,7 @@ real_T Hood_Position_4 = 0.2;          /* Variable: Hood_Position_4
 real_T Hood_Servo_Pos_Max = 1.0;       /* Variable: Hood_Servo_Pos_Max
                                         * Referenced by: '<S9>/Saturation'
                                         */
-real_T Hood_Servo_Pos_Min = 0.2;       /* Variable: Hood_Servo_Pos_Min
+real_T Hood_Servo_Pos_Min = 0.05;      /* Variable: Hood_Servo_Pos_Min
                                         * Referenced by: '<S9>/Saturation'
                                         */
 real_T Hood_Servo_Rate_Limit_Dec = -0.0128;/* Variable: Hood_Servo_Rate_Limit_Dec
@@ -277,13 +277,13 @@ real_T Shooter_Error_Integral_Enable = 300.0;
 real_T Shooter_Motor_Gain_D = 0.0;     /* Variable: Shooter_Motor_Gain_D
                                         * Referenced by: '<S121>/Constant3'
                                         */
-real_T Shooter_Motor_Gain_FF = 0.00014286;/* Variable: Shooter_Motor_Gain_FF
+real_T Shooter_Motor_Gain_FF = 0.00016534;/* Variable: Shooter_Motor_Gain_FF
                                            * Referenced by: '<S121>/Gain'
                                            */
-real_T Shooter_Motor_Gain_I = 0.0;     /* Variable: Shooter_Motor_Gain_I
+real_T Shooter_Motor_Gain_I = 2.0E-5;  /* Variable: Shooter_Motor_Gain_I
                                         * Referenced by: '<S121>/Gain2'
                                         */
-real_T Shooter_Motor_Gain_P = 0.0;     /* Variable: Shooter_Motor_Gain_P
+real_T Shooter_Motor_Gain_P = 0.0005;  /* Variable: Shooter_Motor_Gain_P
                                         * Referenced by: '<S121>/Gain1'
                                         */
 real_T Shooter_Motor_Max_Error_Shoot = 100.0;
@@ -551,13 +551,13 @@ real_T Transfer_Minimum_Factor = 0.8;  /* Variable: Transfer_Minimum_Factor
 real_T Transfer_Motor_Gain_D = 0.0;    /* Variable: Transfer_Motor_Gain_D
                                         * Referenced by: '<S126>/Constant3'
                                         */
-real_T Transfer_Motor_Gain_FF = 0.00014286;/* Variable: Transfer_Motor_Gain_FF
+real_T Transfer_Motor_Gain_FF = 0.00012732;/* Variable: Transfer_Motor_Gain_FF
                                             * Referenced by: '<S126>/Gain'
                                             */
-real_T Transfer_Motor_Gain_I = 0.0;    /* Variable: Transfer_Motor_Gain_I
+real_T Transfer_Motor_Gain_I = 2.0E-5; /* Variable: Transfer_Motor_Gain_I
                                         * Referenced by: '<S126>/Gain2'
                                         */
-real_T Transfer_Motor_Gain_P = 0.0;    /* Variable: Transfer_Motor_Gain_P
+real_T Transfer_Motor_Gain_P = 0.0001; /* Variable: Transfer_Motor_Gain_P
                                         * Referenced by: '<S126>/Gain1'
                                         */
 real_T Translation_Speed_Approach_Zero_Error_Thresh = 0.2;
@@ -2609,12 +2609,13 @@ void Robot_Control_step(void)
    *  UnitDelay generated from: '<S11>/Unit Delay'
    *  UnitDelay: '<S1>/Unit Delay'
    */
-  rtb_Compare_a = (((fabs(Robot_Control_DW.UnitDelay_1_DSTATE -
-    Robot_Control_U.Gyro_Angle_Field_rad) <= Robot_Control_DW.UnitDelay_4_DSTATE)
-                    && (fabs(Robot_Control_DW.UnitDelay_2_DSTATE -
-    Robot_Control_B.Measured_Shooter_Speed_Max) <= Shooter_Motor_Max_Error_Shoot))
-                   && (fabs(Robot_Control_DW.UnitDelay_3_DSTATE -
-    Robot_Control_B.Estimated_Hood_Pos) <= Hood_Pos_Max_Error_Shoot));
+  rtb_AND1_c = (((fabs(Robot_Control_DW.UnitDelay_1_DSTATE -
+                       Robot_Control_U.Gyro_Angle_Field_rad) <=
+                  Robot_Control_DW.UnitDelay_4_DSTATE) && (fabs
+    (Robot_Control_DW.UnitDelay_2_DSTATE -
+     Robot_Control_B.Measured_Shooter_Speed_Max) <=
+    Shooter_Motor_Max_Error_Shoot)) && (fabs(Robot_Control_DW.UnitDelay_3_DSTATE
+    - Robot_Control_B.Estimated_Hood_Pos) <= Hood_Pos_Max_Error_Shoot));
 
   /* Logic: '<S88>/AND2' incorporates:
    *  Constant: '<S88>/Constant'
@@ -2627,11 +2628,11 @@ void Robot_Control_step(void)
   Robot_Control_B.Ready_to_Score =
     (((Robot_Control_B.Allow_Score_In_Alliance_Zone) && (rt_hypotd_snf
        (Robot_Control_U.Robot_Velocity_X, Robot_Control_U.Robot_Velocity_Y) <=
-       Robot_Velocity_Maximum_Shooter)) && rtb_Compare_a);
+       Robot_Velocity_Maximum_Shooter)) && rtb_AND1_c);
 
   /* Logic: '<S88>/AND3' */
   Robot_Control_B.Ready_to_Pass = ((Robot_Control_B.Is_Outside_Alliance_Zone) &&
-    rtb_Compare_a);
+    rtb_AND1_c);
 
   /* Chart: '<S11>/Shooter_Transfer_Feeder Chart' */
   if (Robot_Control_DW.is_active_c2_Robot_Control == 0U) {
@@ -3685,10 +3686,10 @@ void Robot_Control_step(void)
   /* RelationalOperator: '<S340>/Compare' incorporates:
    *  Constant: '<S340>/Constant'
    */
-  rtb_Compare_a = (rtb_Switch2_p2 == 0.0);
+  rtb_AND1_c = (rtb_Switch2_p2 == 0.0);
 
   /* Switch: '<S336>/Switch1' */
-  if (rtb_Compare_a) {
+  if (rtb_AND1_c) {
     /* Switch: '<S336>/Switch1' incorporates:
      *  Constant: '<S336>/Constant'
      */
@@ -3706,10 +3707,10 @@ void Robot_Control_step(void)
   /* RelationalOperator: '<S325>/Compare' incorporates:
    *  Constant: '<S325>/Constant'
    */
-  rtb_AND1_c = (rtb_Switch2_p2 == 0.0);
+  rtb_Is_Absolute_Translation_g = (rtb_Switch2_p2 == 0.0);
 
   /* Switch: '<S321>/Switch1' */
-  if (rtb_AND1_c) {
+  if (rtb_Is_Absolute_Translation_g) {
     /* Switch: '<S321>/Switch1' incorporates:
      *  Constant: '<S321>/Constant'
      */
@@ -3727,10 +3728,10 @@ void Robot_Control_step(void)
   /* RelationalOperator: '<S330>/Compare' incorporates:
    *  Constant: '<S330>/Constant'
    */
-  rtb_Is_Absolute_Translation_g = (rtb_Init_g == 0.0);
+  rtb_Is_Absolute_Steering = (rtb_Init_g == 0.0);
 
   /* Switch: '<S326>/Switch1' */
-  if (rtb_Is_Absolute_Translation_g) {
+  if (rtb_Is_Absolute_Steering) {
     /* Switch: '<S326>/Switch1' incorporates:
      *  Constant: '<S326>/Constant'
      */
@@ -3748,10 +3749,10 @@ void Robot_Control_step(void)
   /* RelationalOperator: '<S335>/Compare' incorporates:
    *  Constant: '<S335>/Constant'
    */
-  rtb_Is_Absolute_Steering = (rtb_Optimized_Module_Angle_p == 0.0);
+  rtb_Compare_a = (rtb_Optimized_Module_Angle_p == 0.0);
 
   /* Switch: '<S331>/Switch1' */
-  if (rtb_Is_Absolute_Steering) {
+  if (rtb_Compare_a) {
     /* Switch: '<S331>/Switch1' incorporates:
      *  Constant: '<S331>/Constant'
      */
@@ -3782,7 +3783,7 @@ void Robot_Control_step(void)
     Robot_Control_B.BR_Desired_Wheel_Speed_in * rtb_Switch2_p2;
 
   /* Switch: '<S336>/Switch' */
-  if (!rtb_Compare_a) {
+  if (!rtb_AND1_c) {
     /* Switch: '<S336>/Switch' incorporates:
      *  Fcn: '<S337>/x->theta'
      */
@@ -4034,7 +4035,7 @@ void Robot_Control_step(void)
   /* End of Saturate: '<S260>/Saturation2' */
 
   /* Switch: '<S321>/Switch' */
-  if (!rtb_AND1_c) {
+  if (!rtb_Is_Absolute_Translation_g) {
     /* Switch: '<S321>/Switch' incorporates:
      *  Fcn: '<S322>/x->theta'
      */
@@ -4402,7 +4403,7 @@ void Robot_Control_step(void)
   /* End of Saturate: '<S200>/Saturation2' */
 
   /* Switch: '<S326>/Switch' */
-  if (!rtb_Is_Absolute_Translation_g) {
+  if (!rtb_Is_Absolute_Steering) {
     /* Switch: '<S326>/Switch' incorporates:
      *  Fcn: '<S327>/x->theta'
      */
@@ -4770,7 +4771,7 @@ void Robot_Control_step(void)
   /* End of Saturate: '<S221>/Saturation2' */
 
   /* Switch: '<S331>/Switch' */
-  if (!rtb_Is_Absolute_Steering) {
+  if (!rtb_Compare_a) {
     /* Switch: '<S331>/Switch' incorporates:
      *  Fcn: '<S332>/x->theta'
      */
@@ -5313,8 +5314,7 @@ void Robot_Control_step(void)
    *  Constant: '<S125>/Constant'
    *  RelationalOperator: '<S125>/Compare'
    */
-  rtb_Is_Absolute_Translation_g = !(Robot_Control_B.Desired_Transfer_Speed ==
-    0.0);
+  rtb_Is_Absolute_Steering = !(Robot_Control_B.Desired_Transfer_Speed == 0.0);
 
   /* Switch: '<S92>/Switch1' incorporates:
    *  Abs: '<S92>/Abs'
@@ -5326,11 +5326,11 @@ void Robot_Control_step(void)
    *  UnitDelay: '<S92>/Unit Delay'
    */
   if ((fabs(rtb_Integral_d) < Transfer_Error_Integral_Enable) &&
-      rtb_Is_Absolute_Translation_g) {
-    rtb_Compare_a = true;
+      rtb_Is_Absolute_Steering) {
+    rtb_AND1_c = true;
   } else {
-    rtb_Compare_a = (rtb_Is_Absolute_Translation_g &&
-                     (Robot_Control_DW.UnitDelay_DSTATE_ki));
+    rtb_AND1_c = (rtb_Is_Absolute_Steering &&
+                  (Robot_Control_DW.UnitDelay_DSTATE_ki));
   }
 
   /* End of Switch: '<S92>/Switch1' */
@@ -5338,7 +5338,7 @@ void Robot_Control_step(void)
   /* Switch: '<S126>/Switch' incorporates:
    *  Constant: '<S126>/Constant4'
    */
-  if (rtb_Compare_a) {
+  if (rtb_AND1_c) {
     /* Sum: '<S126>/Sum2' incorporates:
      *  Gain: '<S126>/Gain2'
      *  Sum: '<S126>/Sum'
@@ -5391,22 +5391,34 @@ void Robot_Control_step(void)
 
   /* End of Switch: '<S126>/Switch' */
 
-  /* Sum: '<S126>/Add1' */
-  rtb_Add_bn = rtb_Switch2_p2 + rtb_Integral_d;
+  /* Switch: '<S92>/Switch2' incorporates:
+   *  Logic: '<S92>/Logical Operator1'
+   */
+  if (rtb_Is_Absolute_Steering) {
+    /* Sum: '<S126>/Add1' */
+    rtb_Add_bn = rtb_Switch2_p2 + rtb_Integral_d;
 
-  /* Saturate: '<S126>/Saturation2' */
-  if (rtb_Add_bn > 1.0) {
     /* Saturate: '<S126>/Saturation2' */
-    Robot_Control_B.Transfer_Motor_PID_DC = 1.0;
-  } else if (rtb_Add_bn < -1.0) {
-    /* Saturate: '<S126>/Saturation2' */
-    Robot_Control_B.Transfer_Motor_PID_DC = -1.0;
+    if (rtb_Add_bn > 1.0) {
+      /* Switch: '<S92>/Switch2' */
+      Robot_Control_B.Transfer_Motor_PID_DC = 1.0;
+    } else if (rtb_Add_bn < -1.0) {
+      /* Switch: '<S92>/Switch2' */
+      Robot_Control_B.Transfer_Motor_PID_DC = -1.0;
+    } else {
+      /* Switch: '<S92>/Switch2' */
+      Robot_Control_B.Transfer_Motor_PID_DC = rtb_Add_bn;
+    }
+
+    /* End of Saturate: '<S126>/Saturation2' */
   } else {
-    /* Saturate: '<S126>/Saturation2' */
-    Robot_Control_B.Transfer_Motor_PID_DC = rtb_Add_bn;
+    /* Switch: '<S92>/Switch2' incorporates:
+     *  Constant: '<S92>/Constant3'
+     */
+    Robot_Control_B.Transfer_Motor_PID_DC = 0.0;
   }
 
-  /* End of Saturate: '<S126>/Saturation2' */
+  /* End of Switch: '<S92>/Switch2' */
 
   /* Product: '<S11>/Product' incorporates:
    *  Constant: '<S11>/Constant'
@@ -5504,6 +5516,12 @@ void Robot_Control_step(void)
   /* Sum: '<S82>/Sum' */
   Robot_Control_B.Estimated_Hood_Pos = rtb_Switch2_p2 + rtb_Init_g;
 
+  /* Logic: '<S89>/Logical Operator1' incorporates:
+   *  Constant: '<S120>/Constant'
+   *  RelationalOperator: '<S120>/Compare'
+   */
+  rtb_Is_Absolute_Steering = !(Robot_Control_B.Desired_Shooter_Speed == 0.0);
+
   /* Sum: '<S121>/Sum' incorporates:
    *  Sum: '<S89>/Subtract'
    */
@@ -5554,12 +5572,6 @@ void Robot_Control_step(void)
   rtb_Add_bn += (Shooter_Motor_Gain_FF * Robot_Control_B.Desired_Shooter_Speed)
     + (Shooter_Motor_Gain_P * rtb_Error_d);
 
-  /* Logic: '<S89>/Logical Operator1' incorporates:
-   *  Constant: '<S120>/Constant'
-   *  RelationalOperator: '<S120>/Compare'
-   */
-  rtb_Is_Absolute_Translation_g = !(Robot_Control_B.Desired_Shooter_Speed == 0.0);
-
   /* Switch: '<S89>/Switch1' incorporates:
    *  Abs: '<S89>/Abs'
    *  Constant: '<S89>/Constant1'
@@ -5570,11 +5582,11 @@ void Robot_Control_step(void)
    *  UnitDelay: '<S89>/Unit Delay'
    */
   if ((fabs(rtb_Error_d) < Shooter_Error_Integral_Enable) &&
-      rtb_Is_Absolute_Translation_g) {
-    rtb_AND1_c = true;
+      rtb_Is_Absolute_Steering) {
+    rtb_Is_Absolute_Translation_g = true;
   } else {
-    rtb_AND1_c = (rtb_Is_Absolute_Translation_g &&
-                  (Robot_Control_DW.UnitDelay_DSTATE_db));
+    rtb_Is_Absolute_Translation_g = (rtb_Is_Absolute_Steering &&
+      (Robot_Control_DW.UnitDelay_DSTATE_db));
   }
 
   /* End of Switch: '<S89>/Switch1' */
@@ -5582,7 +5594,7 @@ void Robot_Control_step(void)
   /* Switch: '<S121>/Switch' incorporates:
    *  Constant: '<S121>/Constant4'
    */
-  if (rtb_AND1_c) {
+  if (rtb_Is_Absolute_Translation_g) {
     /* Sum: '<S121>/Sum2' incorporates:
      *  Gain: '<S121>/Gain2'
      *  Sum: '<S121>/Sum'
@@ -5637,22 +5649,34 @@ void Robot_Control_step(void)
 
   /* End of Switch: '<S121>/Switch' */
 
-  /* Sum: '<S121>/Add1' */
-  rtb_Add_bn += rtb_Error_d;
+  /* Switch: '<S89>/Switch2' incorporates:
+   *  Logic: '<S89>/Logical Operator1'
+   */
+  if (rtb_Is_Absolute_Steering) {
+    /* Sum: '<S121>/Add1' */
+    rtb_Add_bn += rtb_Error_d;
 
-  /* Saturate: '<S121>/Saturation2' */
-  if (rtb_Add_bn > 1.0) {
     /* Saturate: '<S121>/Saturation2' */
-    Robot_Control_B.Shooter_Motor_PID_DC = 1.0;
-  } else if (rtb_Add_bn < -1.0) {
-    /* Saturate: '<S121>/Saturation2' */
-    Robot_Control_B.Shooter_Motor_PID_DC = -1.0;
+    if (rtb_Add_bn > 1.0) {
+      /* Switch: '<S89>/Switch2' */
+      Robot_Control_B.Shooter_Motor_PID_DC = 1.0;
+    } else if (rtb_Add_bn < -1.0) {
+      /* Switch: '<S89>/Switch2' */
+      Robot_Control_B.Shooter_Motor_PID_DC = -1.0;
+    } else {
+      /* Switch: '<S89>/Switch2' */
+      Robot_Control_B.Shooter_Motor_PID_DC = rtb_Add_bn;
+    }
+
+    /* End of Saturate: '<S121>/Saturation2' */
   } else {
-    /* Saturate: '<S121>/Saturation2' */
-    Robot_Control_B.Shooter_Motor_PID_DC = rtb_Add_bn;
+    /* Switch: '<S89>/Switch2' incorporates:
+     *  Constant: '<S89>/Constant3'
+     */
+    Robot_Control_B.Shooter_Motor_PID_DC = 0.0;
   }
 
-  /* End of Saturate: '<S121>/Saturation2' */
+  /* End of Switch: '<S89>/Switch2' */
 
   /* Switch: '<S9>/Switch2' incorporates:
    *  Constant: '<S9>/Constant'
@@ -5989,7 +6013,7 @@ void Robot_Control_step(void)
   Robot_Control_DW.UnitDelay_DSTATE_kz = rtb_Integral_d;
 
   /* Update for UnitDelay: '<S92>/Unit Delay' */
-  Robot_Control_DW.UnitDelay_DSTATE_ki = rtb_Compare_a;
+  Robot_Control_DW.UnitDelay_DSTATE_ki = rtb_AND1_c;
 
   /* Update for UnitDelay: '<S84>/FixPt Unit Delay2' incorporates:
    *  Constant: '<S84>/FixPt Constant'
@@ -6011,7 +6035,7 @@ void Robot_Control_step(void)
   Robot_Control_DW.UnitDelay_DSTATE_di = rtb_Error_d;
 
   /* Update for UnitDelay: '<S89>/Unit Delay' */
-  Robot_Control_DW.UnitDelay_DSTATE_db = rtb_AND1_c;
+  Robot_Control_DW.UnitDelay_DSTATE_db = rtb_Is_Absolute_Translation_g;
 }
 
 /* Model initialize function */
