@@ -69,20 +69,21 @@ Gyro_Err_Arr_4 = deg2rad(0.5);
 % Control Parameters to Calculate Duty Cycle
 Feeder_Motor_Gain_FF = 1/7000;
 
-Transfer_Motor_Gain_FF = 1/7000;
-Transfer_Motor_Gain_P = 0;
-Transfer_Motor_Gain_I = 0;
+Transfer_Motor_Gain_FF = 1/7854;
+Transfer_Motor_Gain_P = 0.0001;
+Transfer_Motor_Gain_I = 0.001*0.02;
 Transfer_Motor_Gain_D = 0;
 Transfer_Error_Integral_Enable = 300;
 
-Shooter_Motor_Gain_FF = 1/7000;
-Shooter_Motor_Gain_P = 0;
-Shooter_Motor_Gain_I = 0;
+Shooter_Motor_Gain_FF = 1/6048;
+Shooter_Motor_Gain_P = 0.0005;
+Shooter_Motor_Gain_I = 0.001*0.02;
 Shooter_Motor_Gain_D = 0;
 Shooter_Error_Integral_Enable = 300;
 
 % Hood Position Servo Properties
-Hood_Servo_Pos_Min = 0.2;
+Hood_Servo_Pos_Min = 0.05;
 Hood_Servo_Pos_Max = 1;
 Hood_Servo_Rate_Limit_Inc = 32/50*0.02;   % no load 32 mm/sec, total stroke 50 mm
 Hood_Servo_Rate_Limit_Dec = -Hood_Servo_Rate_Limit_Inc;
+
