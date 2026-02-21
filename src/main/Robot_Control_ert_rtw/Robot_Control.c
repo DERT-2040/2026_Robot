@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.447
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Feb 19 21:03:26 2026
+ * C/C++ source code generated on : Sat Feb 21 00:05:40 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -3772,7 +3772,7 @@ void Robot_Control_step(void)
    *  Constant: '<S316>/Constant'
    *  MinMax: '<S316>/Max'
    */
-  rtb_Switch2_p2 = 5.1198378053698752 / fmax(fmax(fmax(fmax(5.1198378053698752,
+  rtb_Switch2_p2 = 5.3893029530209224 / fmax(fmax(fmax(fmax(5.3893029530209224,
     Robot_Control_B.FL_Desired_Wheel_Speed_in),
     Robot_Control_B.FR_Desired_Wheel_Speed_in),
     Robot_Control_B.BL_Desired_Wheel_Speed_in),
@@ -3916,7 +3916,7 @@ void Robot_Control_step(void)
    *  Constant: '<S264>/Constant'
    *  Switch: '<S261>/Speed_Switch'
    */
-  rtb_Init_g = rtb_Add_bn * 1210.9758620668042;
+  rtb_Init_g = rtb_Add_bn * 1150.4270689634639;
 
   /* Signum: '<S259>/Sign' */
   if (rtIsNaN(rtb_Init_g)) {
@@ -4172,7 +4172,7 @@ void Robot_Control_step(void)
    *  Constant: '<S201>/Constant'
    *  Switch: '<S198>/Speed_Switch'
    */
-  rtb_Init_g = rtb_Add_bn * 1210.9758620668042;
+  rtb_Init_g = rtb_Add_bn * 1150.4270689634639;
 
   /* Signum: '<S196>/Sign' */
   if (rtIsNaN(rtb_Init_g)) {
@@ -4540,7 +4540,7 @@ void Robot_Control_step(void)
    *  Constant: '<S222>/Constant'
    *  Switch: '<S219>/Speed_Switch'
    */
-  rtb_Init_g = rtb_Add_bn * 1210.9758620668042;
+  rtb_Init_g = rtb_Add_bn * 1150.4270689634639;
 
   /* Signum: '<S217>/Sign' */
   if (rtIsNaN(rtb_Init_g)) {
@@ -4909,7 +4909,7 @@ void Robot_Control_step(void)
    *  Constant: '<S243>/Constant'
    *  Switch: '<S240>/Speed_Switch'
    */
-  rtb_Switch2_p2 = rtb_Add_bn * 1210.9758620668042;
+  rtb_Switch2_p2 = rtb_Add_bn * 1150.4270689634639;
 
   /* Signum: '<S238>/Sign' */
   if (rtIsNaN(rtb_Switch2_p2)) {

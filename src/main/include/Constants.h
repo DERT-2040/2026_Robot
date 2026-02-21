@@ -132,15 +132,14 @@ namespace Constants
         static constexpr int k_Pigeon2_Device_ID = 5;
     };
 
-
     namespace Limelight
     {
         static const LimeLightCameraCreateInfo CameraOneCreateInfo
         {
             "limelight-one", // Limelight Name
-            10.0/39.37008,   // Forward offset (meters)
-            0.0/39.37008,    // Side offset (meters)
-            10.0/39.37008,   // Height offset (meters)
+            2.50/39.37008,   // X+ (Forward): Towards the front of the robot (in meters).
+            -2.875/39.37008, // Y+ (Right): Towards the right side of the robot (in meters).
+            19.90/39.37008,  // Z+ (Up): Towards the top of the robot (in meters).
             0.0,             // Roll (degrees)
             0.0,             // Pitch (degrees)
             0.0              // Yaw (degrees)
@@ -148,11 +147,11 @@ namespace Constants
         static const LimeLightCameraCreateInfo CameraTwoCreateInfo
         {
             "limelight-two", // Limelight Name
-            0.5,             // Forward offset (meters)
-            0.0,             // Side offset (meters)
-            0.5,             // Height offset (meters)
+            0.00/39.37008,   // X+ (Forward): Towards the front of the robot (in meters).
+            0.00/39.37008,   // Y+ (Right): Towards the right side of the robot (in meters).
+            0.00/39.37008,   // Z+ (Up): Towards the top of the robot (in meters).
             0.0,             // Roll (degrees)
-            30.0,            // Pitch (degrees)
+            0.0,             // Pitch (degrees)
             0.0              // Yaw (degrees)
         };
     };
