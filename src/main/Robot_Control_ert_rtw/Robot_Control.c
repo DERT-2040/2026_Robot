@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.451
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Feb 21 20:10:41 2026
+ * C/C++ source code generated on : Sat Feb 21 20:52:27 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -335,10 +335,10 @@ real_T Rebuilt_Shooter_Motor_Gain_I = 2.0E-5;/* Variable: Rebuilt_Shooter_Motor_
 real_T Rebuilt_Shooter_Motor_Gain_P = 0.0005;/* Variable: Rebuilt_Shooter_Motor_Gain_P
                                               * Referenced by: '<S125>/Gain1'
                                               */
-real_T Rebuilt_Target_Feeder_Speed = 2000.0;/* Variable: Rebuilt_Target_Feeder_Speed
+real_T Rebuilt_Target_Feeder_Speed = 3360.0;/* Variable: Rebuilt_Target_Feeder_Speed
                                              * Referenced by: '<S11>/Shooter_Transfer_Feeder Chart'
                                              */
-real_T Rebuilt_Target_Transfer_Speed = 5000.0;
+real_T Rebuilt_Target_Transfer_Speed = 4000.0;
                                       /* Variable: Rebuilt_Target_Transfer_Speed
                                        * Referenced by: '<S11>/Shooter_Transfer_Feeder Chart'
                                        */

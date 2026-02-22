@@ -321,11 +321,11 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Target_Feeder_Speed__Entry = NTtable_Tune->GetEntry("Rebuilt_Target_Feeder_Speed");
     NTinst.AddListener(P__Rebuilt_Target_Feeder_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Target_Feeder_Speed = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Target_Feeder_Speed__Entry.SetDouble(2000);
+    P__Rebuilt_Target_Feeder_Speed__Entry.SetDouble(3360);
  
     P__Rebuilt_Target_Transfer_Speed__Entry = NTtable_Tune->GetEntry("Rebuilt_Target_Transfer_Speed");
     NTinst.AddListener(P__Rebuilt_Target_Transfer_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Target_Transfer_Speed = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Target_Transfer_Speed__Entry.SetDouble(5000);
+    P__Rebuilt_Target_Transfer_Speed__Entry.SetDouble(4000);
  
     P__Rebuilt_Transfer_Error_Integral_Enable__Entry = NTtable_Tune->GetEntry("Rebuilt_Transfer_Error_Integral_Enable");
     NTinst.AddListener(P__Rebuilt_Transfer_Error_Integral_Enable__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Transfer_Error_Integral_Enable = event.GetValueEventData()->value.GetDouble();});
