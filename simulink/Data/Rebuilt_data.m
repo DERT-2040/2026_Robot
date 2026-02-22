@@ -1,89 +1,138 @@
 %% Output Overrides
-TEST_Output_Override_Flag = 1;
+TEST_Output_Override_Flag = 0;
 TEST_Transfer_Motor_DC_OV = 0;
 TEST_Feeder_Motor_DC_OV = 0;
 TEST_Shooter_Motor_DC_Left_OV = 0;
 TEST_Shooter_Motor_DC_Center_OV = 0;
 TEST_Shooter_Motor_DC_Right_OV = 0;
 TEST_Desired_Hood_Enable_OV = 0;
-TEST_Desired_Hood_Pos_OV = 0.5;
-
+TEST_Desired_Hood_Pos_OV = 0.05;
 
 %% Field Element Position Data
-BlueAllianceZoneX = 182.11*0.0254;
-RedAllianceZoneX = (651.22-182.11)*0.0254;
-Blue_Hub_X = 182.11*0.0254;             % Meters
-Blue_Hub_Y = 158.84*0.0254;             % Meters
-Red_Hub_X =  (651.22-182.11)*0.0254;    % Meters
-Red_Hub_Y =  158.84*0.0254;             % Meters
+Field_BlueAllianceZoneX = 182.11*0.0254;            % Meters
+Field_RedAllianceZoneX = (651.22-182.11)*0.0254;    % Meters
+Field_Blue_Hub_X = 182.11*0.0254;             % Meters
+Field_Blue_Hub_Y = 158.84*0.0254;             % Meters
+Field_Red_Hub_X =  (651.22-182.11)*0.0254;    % Meters
+Field_Red_Hub_Y =  158.84*0.0254;             % Meters
 
 %% Shooting Control Data
 % Targets
-Target_Feeder_Speed = 2000;
-Transfer_Minimum_Factor = 0.8;
-Target_Transfer_Speed = 2000;
+Rebuilt_Target_Feeder_Speed = 2000;     % rpm
+Rebuilt_Transfer_Minimum_Factor = 0.8;
+Rebuilt_Target_Transfer_Speed = 5000;   % rpm
 
 % Condition Checks
-Robot_Velocity_Maximum_Shooter = 1;
-Shooter_Motor_Max_Error_Shoot = 100;
-Hood_Pos_Max_Error_Shoot = 0.03;
+Rebuilt_Shoot_Robot_Velocity_Max = 1;   % meter/second
+Rebuilt_Shoot_Motor_Max_Error = 100;    % rpm
+Rebuilt_Shoot_Hood_Pos_Max_Error = 0.03;    % pwm position
 
 % Iteration error target threshold
-Shot_Target_Error_Thresh = 0.1;         % Meters
+Rebuilt_Shoot_Target_Error_Thresh = 0.1;    % Meters
+
+Rebuilt_Desired_Gyro_Shoot_Offset_deg = 2;  % Degrees
 
 % Distance (m)
-Dist_Arr_0 = 0;
-Dist_Arr_1 = 2.5;
-Dist_Arr_2 = 5;
-Dist_Arr_3 = 7.5;
-Dist_Arr_4 = 10;
+Rebuilt_Shoot_Dist_0 = 1.370;
+Rebuilt_Shoot_Dist_1 = 2.120;
+Rebuilt_Shoot_Dist_2 = 3.115;
+Rebuilt_Shoot_Dist_3 = 3.692;
+Rebuilt_Shoot_Dist_4 = 4.353;
+Rebuilt_Shoot_Dist_5 = 4.884;
+Rebuilt_Shoot_Dist_6 = 5.6;
+Rebuilt_Shoot_Dist_7 = 6.5;
 
-% Time of Flight (s)
-TOF_Arr_0 = 2;
-TOF_Arr_1 = 3;
-TOF_Arr_2 = 3.5;
-TOF_Arr_3 = 3.8;
-TOF_Arr_4 = 4;
+% Desired_Shooter_Motor_Speed (rpm)
+Rebuilt_Shoot_Shooter_Spd_0 = 2500;
+Rebuilt_Shoot_Shooter_Spd_1 = 3000;
+Rebuilt_Shoot_Shooter_Spd_2 = 3100;
+Rebuilt_Shoot_Shooter_Spd_3 = 3200;
+Rebuilt_Shoot_Shooter_Spd_4 = 3300;
+Rebuilt_Shoot_Shooter_Spd_5 = 3700;
+Rebuilt_Shoot_Shooter_Spd_6 = 4300;
+Rebuilt_Shoot_Shooter_Spd_7 = 5000;
 
-% Desired_Shooter_Motor_Speed (rpm?)
-Shooter_Spd_0 = 3000;
-Shooter_Spd_1 = 3200;
-Shooter_Spd_2 = 3500;
-Shooter_Spd_3 = 3500;
-Shooter_Spd_4 = 3500;
+% Desired Hood Position (pwm)
+Rebuilt_Shoot_Hood_Pos_0 = 0.05;
+Rebuilt_Shoot_Hood_Pos_1 = 0.05;
+Rebuilt_Shoot_Hood_Pos_2 = 0.35;
+Rebuilt_Shoot_Hood_Pos_3 = 0.4;
+Rebuilt_Shoot_Hood_Pos_4 = 0.45;
+Rebuilt_Shoot_Hood_Pos_5 = 0.5;
+Rebuilt_Shoot_Hood_Pos_6 = 0.65;
+Rebuilt_Shoot_Hood_Pos_7 = 1.0;
 
-% Desired Hood Position
-Hood_Position_0 = 0.8;
-Hood_Position_1 = 0.6;
-Hood_Position_2 = 0.4;
-Hood_Position_3 = 0.3;
-Hood_Position_4 = 0.2;
+% Time of Flight (sec)
+Rebuilt_Shoot_TOF_0 = 0;
+Rebuilt_Shoot_TOF_1 = 0;
+Rebuilt_Shoot_TOF_2 = 0;
+Rebuilt_Shoot_TOF_3 = 0;
+Rebuilt_Shoot_TOF_4 = 0;
+Rebuilt_Shoot_TOF_5 = 0;
+Rebuilt_Shoot_TOF_6 = 0;
+Rebuilt_Shoot_TOF_7 = 0;
 
-% Allowed Gyro Error (Radians)
-Gyro_Err_Arr_0 = deg2rad(10);
-Gyro_Err_Arr_1 = deg2rad(5);
-Gyro_Err_Arr_2 = deg2rad(3);
-Gyro_Err_Arr_3 = deg2rad(1);
-Gyro_Err_Arr_4 = deg2rad(0.5);
+% Allowed Gyro Error (degrees ... convert to radians in model)
+Rebuilt_Shoot_Gyro_Err_0 = 7;
+Rebuilt_Shoot_Gyro_Err_1 = 6;
+Rebuilt_Shoot_Gyro_Err_2 = 5;
+Rebuilt_Shoot_Gyro_Err_3 = 4;
+Rebuilt_Shoot_Gyro_Err_4 = 3;
+Rebuilt_Shoot_Gyro_Err_5 = 2;
+Rebuilt_Shoot_Gyro_Err_6 = 2;
+Rebuilt_Shoot_Gyro_Err_7 = 2;
+
+% PLOT TABLES
+    plot_dist     = [Rebuilt_Shoot_Dist_0 Rebuilt_Shoot_Dist_1 Rebuilt_Shoot_Dist_2 Rebuilt_Shoot_Dist_3 Rebuilt_Shoot_Dist_4 Rebuilt_Shoot_Dist_5 Rebuilt_Shoot_Dist_6 Rebuilt_Shoot_Dist_7];
+    plot_shooter  = [Rebuilt_Shoot_Shooter_Spd_0 Rebuilt_Shoot_Shooter_Spd_1 Rebuilt_Shoot_Shooter_Spd_2 Rebuilt_Shoot_Shooter_Spd_3 Rebuilt_Shoot_Shooter_Spd_4 Rebuilt_Shoot_Shooter_Spd_5 Rebuilt_Shoot_Shooter_Spd_6 Rebuilt_Shoot_Shooter_Spd_7];
+    plot_hood     = [Rebuilt_Shoot_Hood_Pos_0 Rebuilt_Shoot_Hood_Pos_1 Rebuilt_Shoot_Hood_Pos_2 Rebuilt_Shoot_Hood_Pos_3 Rebuilt_Shoot_Hood_Pos_4 Rebuilt_Shoot_Hood_Pos_5 Rebuilt_Shoot_Hood_Pos_6 Rebuilt_Shoot_Hood_Pos_7];
+    plot_tof      = [Rebuilt_Shoot_TOF_0 Rebuilt_Shoot_TOF_1 Rebuilt_Shoot_TOF_2 Rebuilt_Shoot_TOF_3 Rebuilt_Shoot_TOF_4 Rebuilt_Shoot_TOF_5 Rebuilt_Shoot_TOF_6 Rebuilt_Shoot_TOF_7];
+    plot_gyro_err = [Rebuilt_Shoot_Gyro_Err_0 Rebuilt_Shoot_Gyro_Err_1 Rebuilt_Shoot_Gyro_Err_2 Rebuilt_Shoot_Gyro_Err_3 Rebuilt_Shoot_Gyro_Err_4 Rebuilt_Shoot_Gyro_Err_5 Rebuilt_Shoot_Gyro_Err_6 Rebuilt_Shoot_Gyro_Err_7];
+    
+    figure(1)
+    subplot(2,2,1)
+    plot(plot_dist,plot_shooter,'-o')
+    xlabel('Shot Distance (m)')
+    ylabel('Shooter Speed (rpm)')
+    grid on
+    
+    subplot(2,2,2)
+    plot(plot_dist,plot_hood,'-o')
+    xlabel('Shot Distance (m)')
+    ylabel('Hood Position (pwm)')
+    grid on
+    
+    subplot(2,2,3)
+    plot(plot_dist,plot_tof,'-o')
+    xlabel('Shot Distance (m)')
+    ylabel('Time of Flight (sec)')
+    grid on
+    
+    subplot(2,2,4)
+    plot(plot_dist,plot_gyro_err,'-o')
+    xlabel('Shot Distance (m)')
+    ylabel('Allowed Gyro Error (deg)')
+    grid on
+    
+    % need to clear from workspace so not included in code generation
+    clear plot_dist plot_shooter plot_hood plot_tof plot_gyro_err
 
 % Control Parameters to Calculate Duty Cycle
-Feeder_Motor_Gain_FF = 1/7854;
+Rebuilt_Feeder_Motor_Gain_FF = 1/7854;
 
-Transfer_Motor_Gain_FF = 1/7854;
-Transfer_Motor_Gain_P = 0.0001;
-Transfer_Motor_Gain_I = 0.001*0.02;
-Transfer_Motor_Gain_D = 0;
-Transfer_Error_Integral_Enable = 300;
+Rebuilt_Transfer_Motor_Gain_FF = 1/7854;
+Rebuilt_Transfer_Motor_Gain_P = 0.0001;
+Rebuilt_Transfer_Motor_Gain_I = 0.001*0.02;
+Rebuilt_Transfer_Error_Integral_Enable = 300;
 
-Shooter_Motor_Gain_FF = 1/6048;
-Shooter_Motor_Gain_P = 0.0005;
-Shooter_Motor_Gain_I = 0.001*0.02;
-Shooter_Motor_Gain_D = 0;
-Shooter_Error_Integral_Enable = 300;
+Rebuilt_Shooter_Motor_Gain_FF = 1/6048;
+Rebuilt_Shooter_Motor_Gain_P = 0.0005;
+Rebuilt_Shooter_Motor_Gain_I = 0.001*0.02;
+Rebuilt_Shooter_Error_Integral_Enable = 300;
 
 % Hood Position Servo Properties
-Hood_Servo_Pos_Min = 0.05;
-Hood_Servo_Pos_Max = 1;
-Hood_Servo_Rate_Limit_Inc = 32/50*0.02;   % no load 32 mm/sec, total stroke 50 mm
-Hood_Servo_Rate_Limit_Dec = -Hood_Servo_Rate_Limit_Inc;
+Rebuilt_Hood_Servo_Pos_Min = 0.05;
+Rebuilt_Hood_Servo_Pos_Max = 1;
+Rebuilt_Hood_Servo_Rate_Limit_Inc = 32/50*0.02;   % no load 32 mm/sec, total stroke 50 mm
+Rebuilt_Hood_Servo_Rate_Limit_Dec = -Rebuilt_Hood_Servo_Rate_Limit_Inc;
 

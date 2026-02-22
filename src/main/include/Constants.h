@@ -141,7 +141,7 @@ namespace Constants
             -2.875/39.37008, // Y+ (Right): Towards the right side of the robot (in meters).
             19.90/39.37008,  // Z+ (Up): Towards the top of the robot (in meters).
             0.0,             // Roll (degrees)
-            0.0,             // Pitch (degrees)
+            33,              // Pitch (degrees)
             0.0              // Yaw (degrees)
         };
         static const LimeLightCameraCreateInfo CameraTwoCreateInfo
