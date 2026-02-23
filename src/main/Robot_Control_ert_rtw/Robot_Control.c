@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.451
+ * Model version                  : 2.452
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Feb 21 20:52:27 2026
+ * C/C++ source code generated on : Sun Feb 22 18:22:25 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -164,10 +164,10 @@ real_T KF_Enable = 1.0;                /* Variable: KF_Enable
                                         *   '<S7>/Constant1'
                                         *   '<S7>/Constant2'
                                         */
-real_T Rebuilt_Desired_Gyro_Shoot_Offset_deg = 2.0;
-                              /* Variable: Rebuilt_Desired_Gyro_Shoot_Offset_deg
-                               * Referenced by: '<S96>/Constant'
-                               */
+real_T Rebuilt_Des_Gyro_Shoot_Offset = -1.0;
+                                      /* Variable: Rebuilt_Des_Gyro_Shoot_Offset
+                                       * Referenced by: '<S96>/Constant'
+                                       */
 real_T Rebuilt_Feeder_Motor_Gain_FF = 0.00012732;/* Variable: Rebuilt_Feeder_Motor_Gain_FF
                                                   * Referenced by: '<S11>/Constant'
                                                   */
@@ -209,34 +209,34 @@ real_T Rebuilt_Shoot_Dist_6 = 5.6;     /* Variable: Rebuilt_Shoot_Dist_6
 real_T Rebuilt_Shoot_Dist_7 = 6.5;     /* Variable: Rebuilt_Shoot_Dist_7
                                         * Referenced by: '<S102>/Constant1'
                                         */
-real_T Rebuilt_Shoot_Gyro_Err_0 = 7.0; /* Variable: Rebuilt_Shoot_Gyro_Err_0
+real_T Rebuilt_Shoot_Gyro_Err_0 = 5.0; /* Variable: Rebuilt_Shoot_Gyro_Err_0
                                         * Referenced by: '<S98>/Constant5'
                                         */
-real_T Rebuilt_Shoot_Gyro_Err_1 = 6.0; /* Variable: Rebuilt_Shoot_Gyro_Err_1
+real_T Rebuilt_Shoot_Gyro_Err_1 = 5.0; /* Variable: Rebuilt_Shoot_Gyro_Err_1
                                         * Referenced by: '<S98>/Constant6'
                                         */
 real_T Rebuilt_Shoot_Gyro_Err_2 = 5.0; /* Variable: Rebuilt_Shoot_Gyro_Err_2
                                         * Referenced by: '<S98>/Constant7'
                                         */
-real_T Rebuilt_Shoot_Gyro_Err_3 = 4.0; /* Variable: Rebuilt_Shoot_Gyro_Err_3
+real_T Rebuilt_Shoot_Gyro_Err_3 = 5.0; /* Variable: Rebuilt_Shoot_Gyro_Err_3
                                         * Referenced by: '<S98>/Constant8'
                                         */
-real_T Rebuilt_Shoot_Gyro_Err_4 = 3.0; /* Variable: Rebuilt_Shoot_Gyro_Err_4
+real_T Rebuilt_Shoot_Gyro_Err_4 = 5.0; /* Variable: Rebuilt_Shoot_Gyro_Err_4
                                         * Referenced by: '<S98>/Constant9'
                                         */
-real_T Rebuilt_Shoot_Gyro_Err_5 = 2.0; /* Variable: Rebuilt_Shoot_Gyro_Err_5
+real_T Rebuilt_Shoot_Gyro_Err_5 = 5.0; /* Variable: Rebuilt_Shoot_Gyro_Err_5
                                         * Referenced by: '<S98>/Constant10'
                                         */
-real_T Rebuilt_Shoot_Gyro_Err_6 = 2.0; /* Variable: Rebuilt_Shoot_Gyro_Err_6
+real_T Rebuilt_Shoot_Gyro_Err_6 = 5.0; /* Variable: Rebuilt_Shoot_Gyro_Err_6
                                         * Referenced by: '<S98>/Constant2'
                                         */
-real_T Rebuilt_Shoot_Gyro_Err_7 = 2.0; /* Variable: Rebuilt_Shoot_Gyro_Err_7
+real_T Rebuilt_Shoot_Gyro_Err_7 = 5.0; /* Variable: Rebuilt_Shoot_Gyro_Err_7
                                         * Referenced by: '<S98>/Constant1'
                                         */
 real_T Rebuilt_Shoot_Hood_Pos_0 = 0.05;/* Variable: Rebuilt_Shoot_Hood_Pos_0
                                         * Referenced by: '<S99>/Constant5'
                                         */
-real_T Rebuilt_Shoot_Hood_Pos_1 = 0.05;/* Variable: Rebuilt_Shoot_Hood_Pos_1
+real_T Rebuilt_Shoot_Hood_Pos_1 = 0.2; /* Variable: Rebuilt_Shoot_Hood_Pos_1
                                         * Referenced by: '<S99>/Constant6'
                                         */
 real_T Rebuilt_Shoot_Hood_Pos_2 = 0.35;/* Variable: Rebuilt_Shoot_Hood_Pos_2
@@ -251,10 +251,10 @@ real_T Rebuilt_Shoot_Hood_Pos_4 = 0.45;/* Variable: Rebuilt_Shoot_Hood_Pos_4
 real_T Rebuilt_Shoot_Hood_Pos_5 = 0.5; /* Variable: Rebuilt_Shoot_Hood_Pos_5
                                         * Referenced by: '<S99>/Constant10'
                                         */
-real_T Rebuilt_Shoot_Hood_Pos_6 = 0.65;/* Variable: Rebuilt_Shoot_Hood_Pos_6
+real_T Rebuilt_Shoot_Hood_Pos_6 = 0.58;/* Variable: Rebuilt_Shoot_Hood_Pos_6
                                         * Referenced by: '<S99>/Constant2'
                                         */
-real_T Rebuilt_Shoot_Hood_Pos_7 = 1.0; /* Variable: Rebuilt_Shoot_Hood_Pos_7
+real_T Rebuilt_Shoot_Hood_Pos_7 = 0.62;/* Variable: Rebuilt_Shoot_Hood_Pos_7
                                         * Referenced by: '<S99>/Constant1'
                                         */
 real_T Rebuilt_Shoot_Hood_Pos_Max_Error = 0.03;
@@ -272,7 +272,7 @@ real_T Rebuilt_Shoot_Robot_Velocity_Max = 1.0;
 real_T Rebuilt_Shoot_Shooter_Spd_0 = 2500.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_0
                                              * Referenced by: '<S100>/Constant5'
                                              */
-real_T Rebuilt_Shoot_Shooter_Spd_1 = 3000.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_1
+real_T Rebuilt_Shoot_Shooter_Spd_1 = 2800.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_1
                                              * Referenced by: '<S100>/Constant6'
                                              */
 real_T Rebuilt_Shoot_Shooter_Spd_2 = 3100.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_2
@@ -281,40 +281,40 @@ real_T Rebuilt_Shoot_Shooter_Spd_2 = 3100.0;/* Variable: Rebuilt_Shoot_Shooter_S
 real_T Rebuilt_Shoot_Shooter_Spd_3 = 3200.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_3
                                              * Referenced by: '<S100>/Constant8'
                                              */
-real_T Rebuilt_Shoot_Shooter_Spd_4 = 3300.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_4
+real_T Rebuilt_Shoot_Shooter_Spd_4 = 3400.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_4
                                              * Referenced by: '<S100>/Constant9'
                                              */
-real_T Rebuilt_Shoot_Shooter_Spd_5 = 3700.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_5
+real_T Rebuilt_Shoot_Shooter_Spd_5 = 3550.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_5
                                              * Referenced by: '<S100>/Constant10'
                                              */
-real_T Rebuilt_Shoot_Shooter_Spd_6 = 4300.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_6
+real_T Rebuilt_Shoot_Shooter_Spd_6 = 3800.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_6
                                              * Referenced by: '<S100>/Constant2'
                                              */
-real_T Rebuilt_Shoot_Shooter_Spd_7 = 5000.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_7
+real_T Rebuilt_Shoot_Shooter_Spd_7 = 4000.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_7
                                              * Referenced by: '<S100>/Constant1'
                                              */
-real_T Rebuilt_Shoot_TOF_0 = 0.0;      /* Variable: Rebuilt_Shoot_TOF_0
+real_T Rebuilt_Shoot_TOF_0 = 0.943;    /* Variable: Rebuilt_Shoot_TOF_0
                                         * Referenced by: '<S105>/Constant'
                                         */
-real_T Rebuilt_Shoot_TOF_1 = 0.0;      /* Variable: Rebuilt_Shoot_TOF_1
+real_T Rebuilt_Shoot_TOF_1 = 1.092;    /* Variable: Rebuilt_Shoot_TOF_1
                                         * Referenced by: '<S105>/Constant1'
                                         */
-real_T Rebuilt_Shoot_TOF_2 = 0.0;      /* Variable: Rebuilt_Shoot_TOF_2
+real_T Rebuilt_Shoot_TOF_2 = 1.167;    /* Variable: Rebuilt_Shoot_TOF_2
                                         * Referenced by: '<S105>/Constant2'
                                         */
-real_T Rebuilt_Shoot_TOF_3 = 0.0;      /* Variable: Rebuilt_Shoot_TOF_3
+real_T Rebuilt_Shoot_TOF_3 = 1.185;    /* Variable: Rebuilt_Shoot_TOF_3
                                         * Referenced by: '<S105>/Constant3'
                                         */
-real_T Rebuilt_Shoot_TOF_4 = 0.0;      /* Variable: Rebuilt_Shoot_TOF_4
+real_T Rebuilt_Shoot_TOF_4 = 1.25;     /* Variable: Rebuilt_Shoot_TOF_4
                                         * Referenced by: '<S105>/Constant4'
                                         */
-real_T Rebuilt_Shoot_TOF_5 = 0.0;      /* Variable: Rebuilt_Shoot_TOF_5
+real_T Rebuilt_Shoot_TOF_5 = 1.337;    /* Variable: Rebuilt_Shoot_TOF_5
                                         * Referenced by: '<S105>/Constant11'
                                         */
-real_T Rebuilt_Shoot_TOF_6 = 0.0;      /* Variable: Rebuilt_Shoot_TOF_6
+real_T Rebuilt_Shoot_TOF_6 = 1.337;    /* Variable: Rebuilt_Shoot_TOF_6
                                         * Referenced by: '<S105>/Constant6'
                                         */
-real_T Rebuilt_Shoot_TOF_7 = 0.0;      /* Variable: Rebuilt_Shoot_TOF_7
+real_T Rebuilt_Shoot_TOF_7 = 1.337;    /* Variable: Rebuilt_Shoot_TOF_7
                                         * Referenced by: '<S105>/Constant5'
                                         */
 real_T Rebuilt_Shoot_Target_Error_Thresh = 0.1;
@@ -2504,8 +2504,8 @@ void Robot_Control_step(void)
     /* Outputs for IfAction SubSystem: '<S87>/If Action Subsystem' incorporates:
      *  ActionPort: '<S111>/Action Port'
      */
-    Robot_Control_IfActionSubsystem(&Robot_Control_B.Rebuilt_IsBlueActive,
-      &Robot_Control_B.Rebuilt_IsRedActive);
+    Robot_Control_IfActionSubsystem(&Robot_Control_B.RB_IsBlueActive,
+      &Robot_Control_B.RB_IsRedActive);
 
     /* End of Outputs for SubSystem: '<S87>/If Action Subsystem' */
   } else if (rtb_Merge1 <= 35.0) {
@@ -2513,8 +2513,7 @@ void Robot_Control_step(void)
      *  ActionPort: '<S112>/Action Port'
      */
     Robot_Contro_IfActionSubsystem1(Robot_Control_U.IsBlueInactiveFirst,
-      &Robot_Control_B.Rebuilt_IsBlueActive,
-      &Robot_Control_B.Rebuilt_IsRedActive);
+      &Robot_Control_B.RB_IsBlueActive, &Robot_Control_B.RB_IsRedActive);
 
     /* End of Outputs for SubSystem: '<S87>/If Action Subsystem1' */
   } else if (rtb_Merge1 <= 60.0) {
@@ -2522,8 +2521,7 @@ void Robot_Control_step(void)
      *  ActionPort: '<S113>/Action Port'
      */
     Robot_Contro_IfActionSubsystem2(Robot_Control_U.IsBlueInactiveFirst,
-      &Robot_Control_B.Rebuilt_IsBlueActive,
-      &Robot_Control_B.Rebuilt_IsRedActive);
+      &Robot_Control_B.RB_IsBlueActive, &Robot_Control_B.RB_IsRedActive);
 
     /* End of Outputs for SubSystem: '<S87>/If Action Subsystem2' */
   } else if (rtb_Merge1 <= 85.0) {
@@ -2531,8 +2529,7 @@ void Robot_Control_step(void)
      *  ActionPort: '<S114>/Action Port'
      */
     Robot_Contro_IfActionSubsystem1(Robot_Control_U.IsBlueInactiveFirst,
-      &Robot_Control_B.Rebuilt_IsBlueActive,
-      &Robot_Control_B.Rebuilt_IsRedActive);
+      &Robot_Control_B.RB_IsBlueActive, &Robot_Control_B.RB_IsRedActive);
 
     /* End of Outputs for SubSystem: '<S87>/If Action Subsystem3' */
   } else if (rtb_Merge1 <= 110.0) {
@@ -2540,16 +2537,15 @@ void Robot_Control_step(void)
      *  ActionPort: '<S115>/Action Port'
      */
     Robot_Contro_IfActionSubsystem2(Robot_Control_U.IsBlueInactiveFirst,
-      &Robot_Control_B.Rebuilt_IsBlueActive,
-      &Robot_Control_B.Rebuilt_IsRedActive);
+      &Robot_Control_B.RB_IsBlueActive, &Robot_Control_B.RB_IsRedActive);
 
     /* End of Outputs for SubSystem: '<S87>/If Action Subsystem4' */
   } else {
     /* Outputs for IfAction SubSystem: '<S87>/If Action Subsystem5' incorporates:
      *  ActionPort: '<S116>/Action Port'
      */
-    Robot_Control_IfActionSubsystem(&Robot_Control_B.Rebuilt_IsBlueActive,
-      &Robot_Control_B.Rebuilt_IsRedActive);
+    Robot_Control_IfActionSubsystem(&Robot_Control_B.RB_IsBlueActive,
+      &Robot_Control_B.RB_IsRedActive);
 
     /* End of Outputs for SubSystem: '<S87>/If Action Subsystem5' */
   }
@@ -2569,9 +2565,8 @@ void Robot_Control_step(void)
      *  Logic: '<S120>/AND'
      *  RelationalOperator: '<S120>/Less Than'
      */
-    Robot_Control_B.Rebuilt_Logic_Allow_Score_In_Al =
-      ((Robot_Control_B.Rebuilt_IsBlueActive) && (Robot_Control_B.KF_Position_X <
-        Field_BlueAllianceZoneX));
+    Robot_Control_B.RB_Logic_Score_In_Zone = ((Robot_Control_B.RB_IsBlueActive) &&
+      (Robot_Control_B.KF_Position_X < Field_BlueAllianceZoneX));
 
     /* End of Outputs for SubSystem: '<S118>/Blue' */
 
@@ -2595,9 +2590,8 @@ void Robot_Control_step(void)
      *  Logic: '<S121>/AND'
      *  RelationalOperator: '<S121>/GreaterThan'
      */
-    Robot_Control_B.Rebuilt_Logic_Allow_Score_In_Al =
-      ((Robot_Control_B.Rebuilt_IsRedActive) && (Robot_Control_B.KF_Position_X >
-        Field_RedAllianceZoneX));
+    Robot_Control_B.RB_Logic_Score_In_Zone = ((Robot_Control_B.RB_IsRedActive) &&
+      (Robot_Control_B.KF_Position_X > Field_RedAllianceZoneX));
 
     /* End of Outputs for SubSystem: '<S118>/Red' */
 
@@ -2622,7 +2616,7 @@ void Robot_Control_step(void)
    *  Inport: '<Root>/Robot_Velocity_Y'
    *  Math: '<S89>/Hypot'
    */
-  Robot_Control_B.Rebuilt_Logic_Velocity = (rt_hypotd_snf
+  Robot_Control_B.RB_Logic_Velocity = (rt_hypotd_snf
     (Robot_Control_U.Robot_Velocity_X, Robot_Control_U.Robot_Velocity_Y) <=
     Rebuilt_Shoot_Robot_Velocity_Max);
 
@@ -2637,7 +2631,7 @@ void Robot_Control_step(void)
    *  Sum: '<S89>/Subtract'
    *  UnitDelay generated from: '<S11>/Unit Delay'
    */
-  Robot_Control_B.Rebuilt_Logic_Gyro_Angle = (fabs(rt_modd_snf
+  Robot_Control_B.RB_Logic_Gyro_Angle = (fabs(rt_modd_snf
     ((Robot_Control_DW.UnitDelay_1_DSTATE - Robot_Control_U.Gyro_Angle_Field_rad)
      + 3.1415926535897931, 6.2831853071795862) - 3.1415926535897931) <=
     Robot_Control_DW.UnitDelay_4_DSTATE);
@@ -2650,7 +2644,7 @@ void Robot_Control_step(void)
    *  Inport: '<Root>/Measured_Shooter_Speed_Left'
    *  Inport: '<Root>/Measured_Shooter_Speed_Right'
    */
-  Robot_Control_B.Rebuilt_Measured_Shooter_Speed_ = fmax(fmax(fabs
+  Robot_Control_B.RB_Meas_Shooter_Speed_Max = fmax(fmax(fabs
     (Robot_Control_U.Measured_Shooter_Speed_Left), fabs
     (Robot_Control_U.Measured_Shooter_Speed_Center)), fabs
     (Robot_Control_U.Measured_Shooter_Speed_Right));
@@ -2661,10 +2655,9 @@ void Robot_Control_step(void)
    *  Sum: '<S89>/Subtract1'
    *  UnitDelay generated from: '<S11>/Unit Delay'
    */
-  Robot_Control_B.Rebuilt_Logic_Shooter_Speed = (fabs
+  Robot_Control_B.RB_Logic_Shooter_Speed = (fabs
     (Robot_Control_DW.UnitDelay_2_DSTATE -
-     Robot_Control_B.Rebuilt_Measured_Shooter_Speed_) <=
-    Rebuilt_Shoot_Motor_Max_Error);
+     Robot_Control_B.RB_Meas_Shooter_Speed_Max) <= Rebuilt_Shoot_Motor_Max_Error);
 
   /* RelationalOperator: '<S89>/Relational Operator4' incorporates:
    *  Abs: '<S89>/Abs4'
@@ -2673,49 +2666,47 @@ void Robot_Control_step(void)
    *  UnitDelay generated from: '<S11>/Unit Delay'
    *  UnitDelay: '<S1>/Unit Delay'
    */
-  Robot_Control_B.Rebuilt_Logic_Hood_Pos = (fabs
-    (Robot_Control_DW.UnitDelay_3_DSTATE - Robot_Control_B.Estimated_Hood_Pos) <=
-    Rebuilt_Shoot_Hood_Pos_Max_Error);
+  Robot_Control_B.RB_Logic_Hood_Pos = (fabs(Robot_Control_DW.UnitDelay_3_DSTATE
+    - Robot_Control_B.Estimated_Hood_Pos) <= Rebuilt_Shoot_Hood_Pos_Max_Error);
 
   /* Logic: '<S89>/AND' */
-  rtb_AND1_c = (((Robot_Control_B.Rebuilt_Logic_Gyro_Angle) &&
-                 (Robot_Control_B.Rebuilt_Logic_Shooter_Speed)) &&
-                (Robot_Control_B.Rebuilt_Logic_Hood_Pos));
+  rtb_AND1_c = (((Robot_Control_B.RB_Logic_Gyro_Angle) &&
+                 (Robot_Control_B.RB_Logic_Shooter_Speed)) &&
+                (Robot_Control_B.RB_Logic_Hood_Pos));
 
   /* Logic: '<S89>/AND2' incorporates:
    *  Logic: '<S89>/AND1'
    */
-  Robot_Control_B.Rebuilt_Ready_to_Score =
-    (((Robot_Control_B.Rebuilt_Logic_Allow_Score_In_Al) &&
-      (Robot_Control_B.Rebuilt_Logic_Velocity)) && rtb_AND1_c);
+  Robot_Control_B.RB_Ready_to_Score = (((Robot_Control_B.RB_Logic_Score_In_Zone)
+    && (Robot_Control_B.RB_Logic_Velocity)) && rtb_AND1_c);
 
   /* SignalConversion: '<S89>/Signal Copy' */
-  Robot_Control_B.Rebuilt_Logic_Outside_Alliance_ =
+  Robot_Control_B.RB_Logic_Outside_Zone =
     Robot_Control_B.Is_Outside_Alliance_Zone;
 
   /* Logic: '<S89>/AND3' */
-  Robot_Control_B.Rebuilt_Ready_to_Pass =
-    ((Robot_Control_B.Rebuilt_Logic_Outside_Alliance_) && rtb_AND1_c);
+  Robot_Control_B.RB_Ready_to_Pass = ((Robot_Control_B.RB_Logic_Outside_Zone) &&
+    rtb_AND1_c);
 
   /* Chart: '<S11>/Shooter_Transfer_Feeder Chart' */
   if (Robot_Control_DW.is_active_c2_Robot_Control == 0U) {
     Robot_Control_DW.is_active_c2_Robot_Control = 1U;
     Robot_Control_DW.is_c2_Robot_Control = Robot_Control_IN_Not_Shooting;
-    Robot_Control_B.Rebuilt_Shooter_Active = false;
-    Robot_Control_B.Rebuilt_Desired_Transfer_Speed = 0.0;
-    Robot_Control_B.Rebuilt_Desired_Feeder_Speed = 0.0;
+    Robot_Control_B.RB_Shooter_Active = false;
+    Robot_Control_B.RB_Desired_Transfer_Speed = 0.0;
+    Robot_Control_B.RB_Desired_Feeder_Speed = 0.0;
 
     /* Switch: '<S3>/Switch2' */
     rtb_Merge1 = Robot_Control_B.Gyro_Angle_SPF;
   } else if (Robot_Control_DW.is_c2_Robot_Control ==
              Robot_Control_IN_Not_Shooting) {
-    Robot_Control_B.Rebuilt_Shooter_Active = false;
-    Robot_Control_B.Rebuilt_Desired_Feeder_Speed = 0.0;
+    Robot_Control_B.RB_Shooter_Active = false;
+    Robot_Control_B.RB_Desired_Feeder_Speed = 0.0;
     if ((rtb_Button_Spinup_Enable != 0) || (rtb_Button_Shoot_Enable != 0)) {
       Robot_Control_DW.is_c2_Robot_Control = Robot_Control_IN_Shooting;
-      Robot_Control_B.Rebuilt_Shooter_Active = true;
+      Robot_Control_B.RB_Shooter_Active = true;
       Robot_Control_DW.is_Shooting = Robot_Control_IN_Spinning_Up;
-      Robot_Control_B.Rebuilt_Desired_Transfer_Speed = 0.0;
+      Robot_Control_B.RB_Desired_Transfer_Speed = 0.0;
 
       /* Switch: '<S3>/Switch2' incorporates:
        *  Inport: '<Root>/Gyro_Angle_Field_rad'
@@ -2727,35 +2718,34 @@ void Robot_Control_step(void)
     }
   } else {
     /* case IN_Shooting: */
-    Robot_Control_B.Rebuilt_Shooter_Active = true;
+    Robot_Control_B.RB_Shooter_Active = true;
     if ((rtb_Button_Spinup_Enable == 0) && (rtb_Button_Shoot_Enable == 0)) {
       Robot_Control_DW.is_Shooting = Robot_Contro_IN_NO_ACTIVE_CHILD;
       Robot_Control_DW.is_c2_Robot_Control = Robot_Control_IN_Not_Shooting;
-      Robot_Control_B.Rebuilt_Shooter_Active = false;
-      Robot_Control_B.Rebuilt_Desired_Transfer_Speed = 0.0;
-      Robot_Control_B.Rebuilt_Desired_Feeder_Speed = 0.0;
+      Robot_Control_B.RB_Shooter_Active = false;
+      Robot_Control_B.RB_Desired_Transfer_Speed = 0.0;
+      Robot_Control_B.RB_Desired_Feeder_Speed = 0.0;
 
       /* Switch: '<S3>/Switch2' */
       rtb_Merge1 = Robot_Control_B.Gyro_Angle_SPF;
     } else {
       switch (Robot_Control_DW.is_Shooting) {
        case Robot_Control_IN_Feeder:
-        Robot_Control_B.Rebuilt_Desired_Feeder_Speed =
-          Rebuilt_Target_Feeder_Speed;
+        Robot_Control_B.RB_Desired_Feeder_Speed = Rebuilt_Target_Feeder_Speed;
         if (rtb_Button_Shoot_Enable == 0) {
           Robot_Control_DW.is_Shooting = Robot_Control_IN_Spinning_Up;
-          Robot_Control_B.Rebuilt_Desired_Transfer_Speed = 0.0;
-          Robot_Control_B.Rebuilt_Desired_Feeder_Speed = 0.0;
+          Robot_Control_B.RB_Desired_Transfer_Speed = 0.0;
+          Robot_Control_B.RB_Desired_Feeder_Speed = 0.0;
         }
         break;
 
        case Robot_Control_IN_Spinning_Up:
-        Robot_Control_B.Rebuilt_Desired_Feeder_Speed = 0.0;
+        Robot_Control_B.RB_Desired_Feeder_Speed = 0.0;
         if ((rtb_Button_Shoot_Enable != 0) &&
-            ((Robot_Control_B.Rebuilt_Ready_to_Score) ||
-             (Robot_Control_B.Rebuilt_Ready_to_Pass))) {
+            ((Robot_Control_B.RB_Ready_to_Score) ||
+             (Robot_Control_B.RB_Ready_to_Pass))) {
           Robot_Control_DW.is_Shooting = Robot_Control_IN_Transfer;
-          Robot_Control_B.Rebuilt_Desired_Transfer_Speed =
+          Robot_Control_B.RB_Desired_Transfer_Speed =
             Rebuilt_Target_Transfer_Speed;
         }
         break;
@@ -2763,15 +2753,14 @@ void Robot_Control_step(void)
        default:
         /* case IN_Transfer: */
         if (Robot_Control_U.Measured_Transfer_Speed >
-            (Robot_Control_B.Rebuilt_Desired_Transfer_Speed *
+            (Robot_Control_B.RB_Desired_Transfer_Speed *
              Rebuilt_Transfer_Minimum_Factor)) {
           Robot_Control_DW.is_Shooting = Robot_Control_IN_Feeder;
-          Robot_Control_B.Rebuilt_Desired_Feeder_Speed =
-            Rebuilt_Target_Feeder_Speed;
+          Robot_Control_B.RB_Desired_Feeder_Speed = Rebuilt_Target_Feeder_Speed;
         } else if (rtb_Button_Shoot_Enable == 0) {
           Robot_Control_DW.is_Shooting = Robot_Control_IN_Spinning_Up;
-          Robot_Control_B.Rebuilt_Desired_Transfer_Speed = 0.0;
-          Robot_Control_B.Rebuilt_Desired_Feeder_Speed = 0.0;
+          Robot_Control_B.RB_Desired_Transfer_Speed = 0.0;
+          Robot_Control_B.RB_Desired_Feeder_Speed = 0.0;
         }
         break;
       }
@@ -2809,7 +2798,7 @@ void Robot_Control_step(void)
   /* If: '<S86>/If' incorporates:
    *  Constant: '<S95>/Constant'
    */
-  if (Robot_Control_B.Rebuilt_Shooter_Active) {
+  if (Robot_Control_B.RB_Shooter_Active) {
     /* Outputs for IfAction SubSystem: '<S86>/Desired Shooting Parameters Math' incorporates:
      *  ActionPort: '<S93>/Action Port'
      */
@@ -2902,22 +2891,22 @@ void Robot_Control_step(void)
       /* Switch: '<S101>/Switch' incorporates:
        *  Constant: '<S101>/Constant'
        */
-      Robot_Control_B.Rebuilt_Shoot_Target_X = Field_Blue_Hub_X;
+      Robot_Control_B.RB_Shoot_Target_X = Field_Blue_Hub_X;
 
       /* Switch: '<S101>/Switch1' incorporates:
        *  Constant: '<S101>/Constant1'
        */
-      Robot_Control_B.Rebuilt_Shoot_Target_Y = Field_Blue_Hub_Y;
+      Robot_Control_B.RB_Shoot_Target_Y = Field_Blue_Hub_Y;
     } else {
       /* Switch: '<S101>/Switch' incorporates:
        *  Constant: '<S101>/Constant2'
        */
-      Robot_Control_B.Rebuilt_Shoot_Target_X = Field_Red_Hub_X;
+      Robot_Control_B.RB_Shoot_Target_X = Field_Red_Hub_X;
 
       /* Switch: '<S101>/Switch1' incorporates:
        *  Constant: '<S101>/Constant3'
        */
-      Robot_Control_B.Rebuilt_Shoot_Target_Y = Field_Red_Hub_Y;
+      Robot_Control_B.RB_Shoot_Target_Y = Field_Red_Hub_Y;
     }
 
     /* End of Switch: '<S101>/Switch' */
@@ -2972,8 +2961,8 @@ void Robot_Control_step(void)
         rtb_Sin4 = rtb_Add_h5;
         rtb_Switch1 = rtb_Subtract_c3;
       } else {
-        rtb_Sin4 = Robot_Control_B.Rebuilt_Shoot_Target_X;
-        rtb_Switch1 = Robot_Control_B.Rebuilt_Shoot_Target_Y;
+        rtb_Sin4 = Robot_Control_B.RB_Shoot_Target_X;
+        rtb_Switch1 = Robot_Control_B.RB_Shoot_Target_Y;
       }
 
       /* End of Switch: '<S106>/Switch' */
@@ -2982,7 +2971,7 @@ void Robot_Control_step(void)
        *  Sum: '<S104>/Subtract'
        *  Sum: '<S104>/Subtract1'
        */
-      Robot_Control_B.Rebuilt_Shoot_Desired_Shot_Dist = rt_hypotd_snf(rtb_Sin4 -
+      Robot_Control_B.RB_Desired_Shot_Distance = rt_hypotd_snf(rtb_Sin4 -
         Robot_Control_B.KF_Position_X, rtb_Switch1 -
         Robot_Control_B.KF_Position_Y);
 
@@ -2996,7 +2985,7 @@ void Robot_Control_step(void)
        *
        */
       LookUp_real_T_real_T( &(rtb_TOF), &rtb_TOF_g[0],
-                           Robot_Control_B.Rebuilt_Shoot_Desired_Shot_Dist,
+                           Robot_Control_B.RB_Desired_Shot_Distance,
                            &rtb_TmpSignalConversionAtLoo__0[0], 7U);
 
       /* Sum: '<S107>/Subtract' incorporates:
@@ -3011,7 +3000,7 @@ void Robot_Control_step(void)
        *  Product: '<S107>/Product'
        *  Sum: '<S107>/Subtract'
        */
-      Robot_Control_B.Rebuilt_Shoot_Desired_Target_X = (rtb_Subtract_c3 *
+      Robot_Control_B.RB_Desired_Target_X = (rtb_Subtract_c3 *
         (-Robot_Control_U.Robot_Velocity_X)) + rtb_Sin4;
 
       /* Sum: '<S107>/Add1' incorporates:
@@ -3019,17 +3008,17 @@ void Robot_Control_step(void)
        *  Inport: '<Root>/Robot_Velocity_Y'
        *  Product: '<S107>/Product1'
        */
-      Robot_Control_B.Rebuilt_Shoot_Desired_Target_Y = (rtb_Subtract_c3 *
+      Robot_Control_B.RB_Desired_Target_Y = (rtb_Subtract_c3 *
         (-Robot_Control_U.Robot_Velocity_Y)) + rtb_Switch1;
 
       /* Memory: '<S97>/Memory' */
       rtb_Compare_a = rtb_AND1_c;
 
       /* Update for Memory: '<S97>/Memory1' */
-      rtb_Add_h5 = Robot_Control_B.Rebuilt_Shoot_Desired_Target_X;
+      rtb_Add_h5 = Robot_Control_B.RB_Desired_Target_X;
 
       /* Update for Memory: '<S97>/Memory2' */
-      rtb_Subtract_c3 = Robot_Control_B.Rebuilt_Shoot_Desired_Target_Y;
+      rtb_Subtract_c3 = Robot_Control_B.RB_Desired_Target_Y;
 
       /* Update for Memory: '<S97>/Memory3' */
       rtb_Modulation_Drv = rtb_TOF;
@@ -3041,9 +3030,9 @@ void Robot_Control_step(void)
        *  Sum: '<S108>/Subtract'
        *  Sum: '<S108>/Subtract1'
        */
-      rtb_AND1_c = (rt_hypotd_snf(Robot_Control_B.Rebuilt_Shoot_Desired_Target_X
-        - rtb_Sin4, Robot_Control_B.Rebuilt_Shoot_Desired_Target_Y - rtb_Switch1)
-                    >= Rebuilt_Shoot_Target_Error_Thresh);
+      rtb_AND1_c = (rt_hypotd_snf(Robot_Control_B.RB_Desired_Target_X - rtb_Sin4,
+        Robot_Control_B.RB_Desired_Target_Y - rtb_Switch1) >=
+                    Rebuilt_Shoot_Target_Error_Thresh);
       rtb_Button_Spinup_Enable++;
     }
 
@@ -3058,9 +3047,9 @@ void Robot_Control_step(void)
      * Lookup Method: Linear_Endpoint
      *
      */
-    LookUp_real_T_real_T( &(Robot_Control_B.Rebuilt_Shoot_Desired_Hood_Pos),
+    LookUp_real_T_real_T( &(Robot_Control_B.RB_Desired_Hood_Pos),
                          &rtb_TmpSignalConversionAtLoo_o3[0],
-                         Robot_Control_B.Rebuilt_Shoot_Desired_Shot_Dist,
+                         Robot_Control_B.RB_Desired_Shot_Distance,
                          &rtb_TmpSignalConversionAtLook_o[0], 7U);
 
     /* S-Function (sfix_look1_dyn): '<S100>/Lookup Table Dynamic' */
@@ -3072,9 +3061,9 @@ void Robot_Control_step(void)
      * Lookup Method: Linear_Endpoint
      *
      */
-    LookUp_real_T_real_T( &(Robot_Control_B.Rebuilt_Shoot_Desired_Shooter_M),
+    LookUp_real_T_real_T( &(Robot_Control_B.RB_Desired_Shoot_Motor_Spd),
                          &rtb_TmpSignalConversionAtLook_f[0],
-                         Robot_Control_B.Rebuilt_Shoot_Desired_Shot_Dist,
+                         Robot_Control_B.RB_Desired_Shot_Distance,
                          &rtb_TmpSignalConversionAtLook_o[0], 7U);
 
     /* S-Function (sfix_look1_dyn): '<S98>/Lookup Table Dynamic' */
@@ -3086,52 +3075,49 @@ void Robot_Control_step(void)
      * Lookup Method: Linear_Endpoint
      *
      */
-    LookUp_real_T_real_T( &(Robot_Control_B.Rebuilt_Shoot_Allowed_Shoot_G_b),
+    LookUp_real_T_real_T( &(Robot_Control_B.RB_Allow_Shoot_Gyro_Err),
                          &rtb_TmpSignalConversionAtLoo_d0[0],
-                         Robot_Control_B.Rebuilt_Shoot_Desired_Shot_Dist,
+                         Robot_Control_B.RB_Desired_Shot_Distance,
                          &rtb_TmpSignalConversionAtLook_o[0], 7U);
 
     /* Merge: '<S86>/Merge3' incorporates:
      *  Gain: '<S110>/Gain1'
      */
-    Robot_Control_B.Rebuilt_Shoot_Allowed_Shoot_Gyr = 0.017453292519943295 *
-      Robot_Control_B.Rebuilt_Shoot_Allowed_Shoot_G_b;
+    Robot_Control_B.RB_Allow_Shoot_Gyro_Error = 0.017453292519943295 *
+      Robot_Control_B.RB_Allow_Shoot_Gyro_Err;
 
     /* Merge: '<S86>/Merge1' incorporates:
      *  SignalConversion generated from: '<S93>/Desired_Shooter_Speed'
      */
-    Robot_Control_B.Rebuilt_Shoot_Desired_Shooter_S =
-      Robot_Control_B.Rebuilt_Shoot_Desired_Shooter_M;
+    Robot_Control_B.RB_Desired_Shooter_Speed =
+      Robot_Control_B.RB_Desired_Shoot_Motor_Spd;
 
     /* Merge: '<S86>/Merge2' incorporates:
      *  SignalConversion generated from: '<S93>/Desired_Hood_Pos'
      */
-    Robot_Control_B.Rebuilt_Shoot_Desired_Hood_Pos_ =
-      Robot_Control_B.Rebuilt_Shoot_Desired_Hood_Pos;
+    Robot_Control_B.RB_Desired_Hood_Pos_Shoot =
+      Robot_Control_B.RB_Desired_Hood_Pos;
 
     /* Trigonometry: '<S96>/Tanh' incorporates:
      *  Sum: '<S96>/Subtract'
      *  Sum: '<S96>/Subtract1'
      */
-    Robot_Control_B.Rebuilt_Shoot_Desired_Gyro_Angl = rt_atan2d_snf
-      (Robot_Control_B.Rebuilt_Shoot_Desired_Target_Y -
-       Robot_Control_B.KF_Position_Y,
-       Robot_Control_B.Rebuilt_Shoot_Desired_Target_X -
-       Robot_Control_B.KF_Position_X);
+    Robot_Control_B.RB_Desired_Gyro_Angle_raw = rt_atan2d_snf
+      (Robot_Control_B.RB_Desired_Target_Y - Robot_Control_B.KF_Position_Y,
+       Robot_Control_B.RB_Desired_Target_X - Robot_Control_B.KF_Position_X);
 
     /* Merge: '<S86>/Merge' incorporates:
      *  Constant: '<S96>/Constant'
      *  Gain: '<S103>/Gain1'
      *  Sum: '<S96>/Add'
      */
-    Robot_Control_B.Rebuilt_Shoot_Desired_Shoot_Gyr = (0.017453292519943295 *
-      Rebuilt_Desired_Gyro_Shoot_Offset_deg) +
-      Robot_Control_B.Rebuilt_Shoot_Desired_Gyro_Angl;
+    Robot_Control_B.RB_Desired_Shoot_Gyro_Ang = (0.017453292519943295 *
+      Rebuilt_Des_Gyro_Shoot_Offset) + Robot_Control_B.RB_Desired_Gyro_Angle_raw;
 
     /* End of Outputs for SubSystem: '<S86>/Desired Shooting Parameters Math' */
 
     /* Switch: '<S3>/Switch1' */
-    rtb_Add_bn = Robot_Control_B.Rebuilt_Shoot_Desired_Shoot_Gyr;
+    rtb_Add_bn = Robot_Control_B.RB_Desired_Shoot_Gyro_Ang;
   } else {
     /* Outputs for IfAction SubSystem: '<S86>/Shooter Not Active' incorporates:
      *  ActionPort: '<S94>/Action Port'
@@ -3140,25 +3126,25 @@ void Robot_Control_step(void)
      *  Constant: '<S94>/Constant2'
      *  SignalConversion generated from: '<S94>/Desired_Gyro_Angle'
      */
-    Robot_Control_B.Rebuilt_Shoot_Desired_Shoot_Gyr = 0.0;
+    Robot_Control_B.RB_Desired_Shoot_Gyro_Ang = 0.0;
 
     /* Merge: '<S86>/Merge1' incorporates:
      *  Constant: '<S94>/Constant'
      *  SignalConversion generated from: '<S94>/Desired_Shooter_Speed'
      */
-    Robot_Control_B.Rebuilt_Shoot_Desired_Shooter_S = 0.0;
+    Robot_Control_B.RB_Desired_Shooter_Speed = 0.0;
 
     /* Merge: '<S86>/Merge3' incorporates:
      *  Constant: '<S94>/Constant1'
      *  SignalConversion generated from: '<S94>/Allowed_Shoot_Gyro_Error_rad'
      */
-    Robot_Control_B.Rebuilt_Shoot_Allowed_Shoot_Gyr = 0.0;
+    Robot_Control_B.RB_Allow_Shoot_Gyro_Error = 0.0;
 
     /* Merge: '<S86>/Merge2' incorporates:
      *  SignalConversion generated from: '<S94>/Desired_Hood_Pos_Previous'
      *  UnitDelay: '<S86>/Unit Delay'
      */
-    Robot_Control_B.Rebuilt_Shoot_Desired_Hood_Pos_ =
+    Robot_Control_B.RB_Desired_Hood_Pos_Shoot =
       Robot_Control_DW.UnitDelay_DSTATE_c;
 
     /* End of Outputs for SubSystem: '<S86>/Shooter Not Active' */
@@ -3711,7 +3697,7 @@ void Robot_Control_step(void)
   /* Switch: '<S286>/Switch' incorporates:
    *  Switch: '<S3>/Switch'
    */
-  if ((Robot_Control_B.Rebuilt_Shooter_Active) ||
+  if ((Robot_Control_B.RB_Shooter_Active) ||
       (Robot_Control_B.Is_Absolute_Steering_SPF)) {
     /* Switch: '<S286>/Switch' */
     Robot_Control_B.Steering_Localized_Cmd = rtb_Modulation_Drv;
@@ -5361,7 +5347,7 @@ void Robot_Control_step(void)
    *  Inport: '<Root>/Measured_Transfer_Speed'
    *  Sum: '<S92>/Subtract'
    */
-  rtb_Integral_d = Robot_Control_B.Rebuilt_Desired_Transfer_Speed -
+  rtb_Integral_d = Robot_Control_B.RB_Desired_Transfer_Speed -
     Robot_Control_U.Measured_Transfer_Speed;
 
   /* Sum: '<S132>/Sum1' incorporates:
@@ -5406,7 +5392,7 @@ void Robot_Control_step(void)
    *  Sum: '<S130>/Sum'
    */
   rtb_Switch2_p2 = ((Rebuilt_Transfer_Motor_Gain_FF *
-                     Robot_Control_B.Rebuilt_Desired_Transfer_Speed) +
+                     Robot_Control_B.RB_Desired_Transfer_Speed) +
                     (Rebuilt_Transfer_Motor_Gain_P * rtb_Integral_d)) +
     rtb_Add_bn;
 
@@ -5414,8 +5400,7 @@ void Robot_Control_step(void)
    *  Constant: '<S129>/Constant'
    *  RelationalOperator: '<S129>/Compare'
    */
-  rtb_Is_Absolute_Steering = !(Robot_Control_B.Rebuilt_Desired_Transfer_Speed ==
-    0.0);
+  rtb_Is_Absolute_Steering = !(Robot_Control_B.RB_Desired_Transfer_Speed == 0.0);
 
   /* Switch: '<S92>/Switch1' incorporates:
    *  Abs: '<S92>/Abs'
@@ -5502,13 +5487,13 @@ void Robot_Control_step(void)
     /* Saturate: '<S130>/Saturation2' */
     if (rtb_Add_bn > 1.0) {
       /* Switch: '<S92>/Switch2' */
-      Robot_Control_B.Rebuilt_Transfer_Motor_PID_DC = 1.0;
+      Robot_Control_B.RB_Transfer_Motor_PID_DC = 1.0;
     } else if (rtb_Add_bn < -1.0) {
       /* Switch: '<S92>/Switch2' */
-      Robot_Control_B.Rebuilt_Transfer_Motor_PID_DC = -1.0;
+      Robot_Control_B.RB_Transfer_Motor_PID_DC = -1.0;
     } else {
       /* Switch: '<S92>/Switch2' */
-      Robot_Control_B.Rebuilt_Transfer_Motor_PID_DC = rtb_Add_bn;
+      Robot_Control_B.RB_Transfer_Motor_PID_DC = rtb_Add_bn;
     }
 
     /* End of Saturate: '<S130>/Saturation2' */
@@ -5516,7 +5501,7 @@ void Robot_Control_step(void)
     /* Switch: '<S92>/Switch2' incorporates:
      *  Constant: '<S92>/Constant3'
      */
-    Robot_Control_B.Rebuilt_Transfer_Motor_PID_DC = 0.0;
+    Robot_Control_B.RB_Transfer_Motor_PID_DC = 0.0;
   }
 
   /* End of Switch: '<S92>/Switch2' */
@@ -5524,8 +5509,8 @@ void Robot_Control_step(void)
   /* Product: '<S11>/Product' incorporates:
    *  Constant: '<S11>/Constant'
    */
-  Robot_Control_B.Rebuilt_Feeder_Motor_PID_DC =
-    Robot_Control_B.Rebuilt_Desired_Feeder_Speed * Rebuilt_Feeder_Motor_Gain_FF;
+  Robot_Control_B.RB_Feeder_Motor_PID_DC =
+    Robot_Control_B.RB_Desired_Feeder_Speed * Rebuilt_Feeder_Motor_Gain_FF;
 
   /* Switch: '<S9>/Switch' incorporates:
    *  Constant: '<S9>/Constant'
@@ -5553,8 +5538,7 @@ void Robot_Control_step(void)
     rtb_Switch2_p2 = TEST_Desired_Hood_Pos_OV;
   } else {
     /* Outport: '<Root>/Transfer_Motor_DC' */
-    Robot_Control_Y.Transfer_Motor_DC =
-      Robot_Control_B.Rebuilt_Transfer_Motor_PID_DC;
+    Robot_Control_Y.Transfer_Motor_DC = Robot_Control_B.RB_Transfer_Motor_PID_DC;
 
     /* Outport: '<Root>/Desired_Hood_Enable' incorporates:
      *  Constant: '<S9>/Constant8'
@@ -5562,9 +5546,8 @@ void Robot_Control_step(void)
     Robot_Control_Y.Desired_Hood_Enable = true;
 
     /* Outport: '<Root>/Feeder_Motor_DC' */
-    Robot_Control_Y.Feeder_Motor_DC =
-      Robot_Control_B.Rebuilt_Feeder_Motor_PID_DC;
-    rtb_Switch2_p2 = Robot_Control_B.Rebuilt_Shoot_Desired_Hood_Pos_;
+    Robot_Control_Y.Feeder_Motor_DC = Robot_Control_B.RB_Feeder_Motor_PID_DC;
+    rtb_Switch2_p2 = Robot_Control_B.RB_Desired_Hood_Pos_Shoot;
   }
 
   /* End of Switch: '<S9>/Switch' */
@@ -5623,14 +5606,13 @@ void Robot_Control_step(void)
    *  Constant: '<S124>/Constant'
    *  RelationalOperator: '<S124>/Compare'
    */
-  rtb_Is_Absolute_Steering = !(Robot_Control_B.Rebuilt_Shoot_Desired_Shooter_S ==
-    0.0);
+  rtb_Is_Absolute_Steering = !(Robot_Control_B.RB_Desired_Shooter_Speed == 0.0);
 
   /* Sum: '<S125>/Sum' incorporates:
    *  Sum: '<S90>/Subtract'
    */
-  rtb_Error_d = Robot_Control_B.Rebuilt_Shoot_Desired_Shooter_S -
-    Robot_Control_B.Rebuilt_Measured_Shooter_Speed_;
+  rtb_Error_d = Robot_Control_B.RB_Desired_Shooter_Speed -
+    Robot_Control_B.RB_Meas_Shooter_Speed_Max;
 
   /* Sum: '<S127>/Sum1' incorporates:
    *  Constant: '<S125>/Constant2'
@@ -5674,7 +5656,7 @@ void Robot_Control_step(void)
    *  Sum: '<S125>/Sum'
    */
   rtb_Add_bn += (Rebuilt_Shooter_Motor_Gain_FF *
-                 Robot_Control_B.Rebuilt_Shoot_Desired_Shooter_S) +
+                 Robot_Control_B.RB_Desired_Shooter_Speed) +
     (Rebuilt_Shooter_Motor_Gain_P * rtb_Error_d);
 
   /* Switch: '<S90>/Switch1' incorporates:
@@ -5764,13 +5746,13 @@ void Robot_Control_step(void)
     /* Saturate: '<S125>/Saturation2' */
     if (rtb_Add_bn > 1.0) {
       /* Switch: '<S90>/Switch2' */
-      Robot_Control_B.Rebuilt_Shooter_Motor_PID_DC = 1.0;
+      Robot_Control_B.RB_Shooter_Motor_PID_DC = 1.0;
     } else if (rtb_Add_bn < -1.0) {
       /* Switch: '<S90>/Switch2' */
-      Robot_Control_B.Rebuilt_Shooter_Motor_PID_DC = -1.0;
+      Robot_Control_B.RB_Shooter_Motor_PID_DC = -1.0;
     } else {
       /* Switch: '<S90>/Switch2' */
-      Robot_Control_B.Rebuilt_Shooter_Motor_PID_DC = rtb_Add_bn;
+      Robot_Control_B.RB_Shooter_Motor_PID_DC = rtb_Add_bn;
     }
 
     /* End of Saturate: '<S125>/Saturation2' */
@@ -5778,7 +5760,7 @@ void Robot_Control_step(void)
     /* Switch: '<S90>/Switch2' incorporates:
      *  Constant: '<S90>/Constant3'
      */
-    Robot_Control_B.Rebuilt_Shooter_Motor_PID_DC = 0.0;
+    Robot_Control_B.RB_Shooter_Motor_PID_DC = 0.0;
   }
 
   /* End of Switch: '<S90>/Switch2' */
@@ -5806,15 +5788,15 @@ void Robot_Control_step(void)
   } else {
     /* Outport: '<Root>/Shooter_Motor_DC_Left' */
     Robot_Control_Y.Shooter_Motor_DC_Left =
-      Robot_Control_B.Rebuilt_Shooter_Motor_PID_DC;
+      Robot_Control_B.RB_Shooter_Motor_PID_DC;
 
     /* Outport: '<Root>/Shooter_Motor_DC_Center' */
     Robot_Control_Y.Shooter_Motor_DC_Center =
-      Robot_Control_B.Rebuilt_Shooter_Motor_PID_DC;
+      Robot_Control_B.RB_Shooter_Motor_PID_DC;
 
     /* Outport: '<Root>/Shooter_Motor_DC_Right' */
     Robot_Control_Y.Shooter_Motor_DC_Right =
-      Robot_Control_B.Rebuilt_Shooter_Motor_PID_DC;
+      Robot_Control_B.RB_Shooter_Motor_PID_DC;
   }
 
   /* End of Switch: '<S9>/Switch2' */
@@ -5942,23 +5924,22 @@ void Robot_Control_step(void)
 
   /* Update for UnitDelay generated from: '<S11>/Unit Delay' */
   Robot_Control_DW.UnitDelay_1_DSTATE =
-    Robot_Control_B.Rebuilt_Shoot_Desired_Shoot_Gyr;
+    Robot_Control_B.RB_Desired_Shoot_Gyro_Ang;
 
   /* Update for UnitDelay generated from: '<S11>/Unit Delay' */
   Robot_Control_DW.UnitDelay_4_DSTATE =
-    Robot_Control_B.Rebuilt_Shoot_Allowed_Shoot_Gyr;
+    Robot_Control_B.RB_Allow_Shoot_Gyro_Error;
 
   /* Update for UnitDelay generated from: '<S11>/Unit Delay' */
-  Robot_Control_DW.UnitDelay_2_DSTATE =
-    Robot_Control_B.Rebuilt_Shoot_Desired_Shooter_S;
+  Robot_Control_DW.UnitDelay_2_DSTATE = Robot_Control_B.RB_Desired_Shooter_Speed;
 
   /* Update for UnitDelay generated from: '<S11>/Unit Delay' */
   Robot_Control_DW.UnitDelay_3_DSTATE =
-    Robot_Control_B.Rebuilt_Shoot_Desired_Hood_Pos_;
+    Robot_Control_B.RB_Desired_Hood_Pos_Shoot;
 
   /* Update for UnitDelay: '<S86>/Unit Delay' */
   Robot_Control_DW.UnitDelay_DSTATE_c =
-    Robot_Control_B.Rebuilt_Shoot_Desired_Hood_Pos_;
+    Robot_Control_B.RB_Desired_Hood_Pos_Shoot;
 
   /* Update for UnitDelay: '<S317>/Unit Delay1' */
   Robot_Control_DW.UnitDelay1_DSTATE = rtb_Merge1;

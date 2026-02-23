@@ -103,9 +103,9 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     NTinst.AddListener(P__KF_Enable__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {KF_Enable = event.GetValueEventData()->value.GetDouble();});
     P__KF_Enable__Entry.SetDouble(1);
  
-    P__Rebuilt_Desired_Gyro_Shoot_Offset_deg__Entry = NTtable_Tune->GetEntry("Rebuilt_Desired_Gyro_Shoot_Offset_deg");
-    NTinst.AddListener(P__Rebuilt_Desired_Gyro_Shoot_Offset_deg__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Desired_Gyro_Shoot_Offset_deg = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Desired_Gyro_Shoot_Offset_deg__Entry.SetDouble(2);
+    P__Rebuilt_Des_Gyro_Shoot_Offset__Entry = NTtable_Tune->GetEntry("Rebuilt_Des_Gyro_Shoot_Offset");
+    NTinst.AddListener(P__Rebuilt_Des_Gyro_Shoot_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Des_Gyro_Shoot_Offset = event.GetValueEventData()->value.GetDouble();});
+    P__Rebuilt_Des_Gyro_Shoot_Offset__Entry.SetDouble(-1);
  
     P__Rebuilt_Feeder_Motor_Gain_FF__Entry = NTtable_Tune->GetEntry("Rebuilt_Feeder_Motor_Gain_FF");
     NTinst.AddListener(P__Rebuilt_Feeder_Motor_Gain_FF__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Feeder_Motor_Gain_FF = event.GetValueEventData()->value.GetDouble();});
@@ -161,11 +161,11 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Shoot_Gyro_Err_0__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Gyro_Err_0");
     NTinst.AddListener(P__Rebuilt_Shoot_Gyro_Err_0__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Gyro_Err_0 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Gyro_Err_0__Entry.SetDouble(7);
+    P__Rebuilt_Shoot_Gyro_Err_0__Entry.SetDouble(5);
  
     P__Rebuilt_Shoot_Gyro_Err_1__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Gyro_Err_1");
     NTinst.AddListener(P__Rebuilt_Shoot_Gyro_Err_1__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Gyro_Err_1 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Gyro_Err_1__Entry.SetDouble(6);
+    P__Rebuilt_Shoot_Gyro_Err_1__Entry.SetDouble(5);
  
     P__Rebuilt_Shoot_Gyro_Err_2__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Gyro_Err_2");
     NTinst.AddListener(P__Rebuilt_Shoot_Gyro_Err_2__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Gyro_Err_2 = event.GetValueEventData()->value.GetDouble();});
@@ -173,23 +173,23 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Shoot_Gyro_Err_3__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Gyro_Err_3");
     NTinst.AddListener(P__Rebuilt_Shoot_Gyro_Err_3__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Gyro_Err_3 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Gyro_Err_3__Entry.SetDouble(4);
+    P__Rebuilt_Shoot_Gyro_Err_3__Entry.SetDouble(5);
  
     P__Rebuilt_Shoot_Gyro_Err_4__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Gyro_Err_4");
     NTinst.AddListener(P__Rebuilt_Shoot_Gyro_Err_4__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Gyro_Err_4 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Gyro_Err_4__Entry.SetDouble(3);
+    P__Rebuilt_Shoot_Gyro_Err_4__Entry.SetDouble(5);
  
     P__Rebuilt_Shoot_Gyro_Err_5__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Gyro_Err_5");
     NTinst.AddListener(P__Rebuilt_Shoot_Gyro_Err_5__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Gyro_Err_5 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Gyro_Err_5__Entry.SetDouble(2);
+    P__Rebuilt_Shoot_Gyro_Err_5__Entry.SetDouble(5);
  
     P__Rebuilt_Shoot_Gyro_Err_6__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Gyro_Err_6");
     NTinst.AddListener(P__Rebuilt_Shoot_Gyro_Err_6__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Gyro_Err_6 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Gyro_Err_6__Entry.SetDouble(2);
+    P__Rebuilt_Shoot_Gyro_Err_6__Entry.SetDouble(5);
  
     P__Rebuilt_Shoot_Gyro_Err_7__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Gyro_Err_7");
     NTinst.AddListener(P__Rebuilt_Shoot_Gyro_Err_7__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Gyro_Err_7 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Gyro_Err_7__Entry.SetDouble(2);
+    P__Rebuilt_Shoot_Gyro_Err_7__Entry.SetDouble(5);
  
     P__Rebuilt_Shoot_Hood_Pos_0__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Hood_Pos_0");
     NTinst.AddListener(P__Rebuilt_Shoot_Hood_Pos_0__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Hood_Pos_0 = event.GetValueEventData()->value.GetDouble();});
@@ -197,7 +197,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Shoot_Hood_Pos_1__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Hood_Pos_1");
     NTinst.AddListener(P__Rebuilt_Shoot_Hood_Pos_1__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Hood_Pos_1 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Hood_Pos_1__Entry.SetDouble(0.05);
+    P__Rebuilt_Shoot_Hood_Pos_1__Entry.SetDouble(0.2);
  
     P__Rebuilt_Shoot_Hood_Pos_2__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Hood_Pos_2");
     NTinst.AddListener(P__Rebuilt_Shoot_Hood_Pos_2__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Hood_Pos_2 = event.GetValueEventData()->value.GetDouble();});
@@ -217,11 +217,11 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Shoot_Hood_Pos_6__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Hood_Pos_6");
     NTinst.AddListener(P__Rebuilt_Shoot_Hood_Pos_6__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Hood_Pos_6 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Hood_Pos_6__Entry.SetDouble(0.65);
+    P__Rebuilt_Shoot_Hood_Pos_6__Entry.SetDouble(0.58);
  
     P__Rebuilt_Shoot_Hood_Pos_7__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Hood_Pos_7");
     NTinst.AddListener(P__Rebuilt_Shoot_Hood_Pos_7__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Hood_Pos_7 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Hood_Pos_7__Entry.SetDouble(1);
+    P__Rebuilt_Shoot_Hood_Pos_7__Entry.SetDouble(0.62);
  
     P__Rebuilt_Shoot_Hood_Pos_Max_Error__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Hood_Pos_Max_Error");
     NTinst.AddListener(P__Rebuilt_Shoot_Hood_Pos_Max_Error__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Hood_Pos_Max_Error = event.GetValueEventData()->value.GetDouble();});
@@ -241,7 +241,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Shoot_Shooter_Spd_1__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Shooter_Spd_1");
     NTinst.AddListener(P__Rebuilt_Shoot_Shooter_Spd_1__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Shooter_Spd_1 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Shooter_Spd_1__Entry.SetDouble(3000);
+    P__Rebuilt_Shoot_Shooter_Spd_1__Entry.SetDouble(2800);
  
     P__Rebuilt_Shoot_Shooter_Spd_2__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Shooter_Spd_2");
     NTinst.AddListener(P__Rebuilt_Shoot_Shooter_Spd_2__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Shooter_Spd_2 = event.GetValueEventData()->value.GetDouble();});
@@ -253,51 +253,51 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Shoot_Shooter_Spd_4__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Shooter_Spd_4");
     NTinst.AddListener(P__Rebuilt_Shoot_Shooter_Spd_4__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Shooter_Spd_4 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Shooter_Spd_4__Entry.SetDouble(3300);
+    P__Rebuilt_Shoot_Shooter_Spd_4__Entry.SetDouble(3400);
  
     P__Rebuilt_Shoot_Shooter_Spd_5__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Shooter_Spd_5");
     NTinst.AddListener(P__Rebuilt_Shoot_Shooter_Spd_5__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Shooter_Spd_5 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Shooter_Spd_5__Entry.SetDouble(3700);
+    P__Rebuilt_Shoot_Shooter_Spd_5__Entry.SetDouble(3550);
  
     P__Rebuilt_Shoot_Shooter_Spd_6__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Shooter_Spd_6");
     NTinst.AddListener(P__Rebuilt_Shoot_Shooter_Spd_6__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Shooter_Spd_6 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Shooter_Spd_6__Entry.SetDouble(4300);
+    P__Rebuilt_Shoot_Shooter_Spd_6__Entry.SetDouble(3800);
  
     P__Rebuilt_Shoot_Shooter_Spd_7__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Shooter_Spd_7");
     NTinst.AddListener(P__Rebuilt_Shoot_Shooter_Spd_7__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Shooter_Spd_7 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Shooter_Spd_7__Entry.SetDouble(5000);
+    P__Rebuilt_Shoot_Shooter_Spd_7__Entry.SetDouble(4000);
  
     P__Rebuilt_Shoot_TOF_0__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_TOF_0");
     NTinst.AddListener(P__Rebuilt_Shoot_TOF_0__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_TOF_0 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_TOF_0__Entry.SetDouble(0);
+    P__Rebuilt_Shoot_TOF_0__Entry.SetDouble(0.943);
  
     P__Rebuilt_Shoot_TOF_1__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_TOF_1");
     NTinst.AddListener(P__Rebuilt_Shoot_TOF_1__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_TOF_1 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_TOF_1__Entry.SetDouble(0);
+    P__Rebuilt_Shoot_TOF_1__Entry.SetDouble(1.092);
  
     P__Rebuilt_Shoot_TOF_2__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_TOF_2");
     NTinst.AddListener(P__Rebuilt_Shoot_TOF_2__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_TOF_2 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_TOF_2__Entry.SetDouble(0);
+    P__Rebuilt_Shoot_TOF_2__Entry.SetDouble(1.167);
  
     P__Rebuilt_Shoot_TOF_3__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_TOF_3");
     NTinst.AddListener(P__Rebuilt_Shoot_TOF_3__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_TOF_3 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_TOF_3__Entry.SetDouble(0);
+    P__Rebuilt_Shoot_TOF_3__Entry.SetDouble(1.185);
  
     P__Rebuilt_Shoot_TOF_4__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_TOF_4");
     NTinst.AddListener(P__Rebuilt_Shoot_TOF_4__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_TOF_4 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_TOF_4__Entry.SetDouble(0);
+    P__Rebuilt_Shoot_TOF_4__Entry.SetDouble(1.25);
  
     P__Rebuilt_Shoot_TOF_5__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_TOF_5");
     NTinst.AddListener(P__Rebuilt_Shoot_TOF_5__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_TOF_5 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_TOF_5__Entry.SetDouble(0);
+    P__Rebuilt_Shoot_TOF_5__Entry.SetDouble(1.337);
  
     P__Rebuilt_Shoot_TOF_6__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_TOF_6");
     NTinst.AddListener(P__Rebuilt_Shoot_TOF_6__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_TOF_6 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_TOF_6__Entry.SetDouble(0);
+    P__Rebuilt_Shoot_TOF_6__Entry.SetDouble(1.337);
  
     P__Rebuilt_Shoot_TOF_7__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_TOF_7");
     NTinst.AddListener(P__Rebuilt_Shoot_TOF_7__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_TOF_7 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_TOF_7__Entry.SetDouble(0);
+    P__Rebuilt_Shoot_TOF_7__Entry.SetDouble(1.337);
  
     P__Rebuilt_Shoot_Target_Error_Thresh__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Target_Error_Thresh");
     NTinst.AddListener(P__Rebuilt_Shoot_Target_Error_Thresh__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Target_Error_Thresh = event.GetValueEventData()->value.GetDouble();});
@@ -769,6 +769,108 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     O__Vision_Desired_Pipeline__Entry = NTtable_Outport->GetEntry("Vision_Desired_Pipeline");
  
 // Test Points
+    T__Active_GameState__Entry = NTtable_TPoint->GetEntry("Active_GameState");
+    T__BL_Desired_Module_Angle__Entry = NTtable_TPoint->GetEntry("BL_Desired_Module_Angle");
+    T__BL_Desired_Wheel_Speed__Entry = NTtable_TPoint->GetEntry("BL_Desired_Wheel_Speed");
+    T__BL_Desired_Wheel_Speed_in__Entry = NTtable_TPoint->GetEntry("BL_Desired_Wheel_Speed_in");
+    T__BR_Desired_Module_Angle__Entry = NTtable_TPoint->GetEntry("BR_Desired_Module_Angle");
+    T__BR_Desired_Wheel_Speed__Entry = NTtable_TPoint->GetEntry("BR_Desired_Wheel_Speed");
+    T__BR_Desired_Wheel_Speed_in__Entry = NTtable_TPoint->GetEntry("BR_Desired_Wheel_Speed_in");
+    T__Button_Disable_Wheels__Entry = NTtable_TPoint->GetEntry("Button_Disable_Wheels");
+    T__Button_Enable_Wheels__Entry = NTtable_TPoint->GetEntry("Button_Enable_Wheels");
+    T__Button_Reset_Wheel_Offsets__Entry = NTtable_TPoint->GetEntry("Button_Reset_Wheel_Offsets");
+    T__Drive_Joystick_X__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_X");
+    T__Drive_Joystick_Y__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Y");
+    T__Drive_Joystick_Z__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Z");
+    T__Drive_Joystick_Z_Mode__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Z_Mode");
+    T__Estimated_Hood_Pos__Entry = NTtable_TPoint->GetEntry("Estimated_Hood_Pos");
+    T__FL_Desired_Module_Angle__Entry = NTtable_TPoint->GetEntry("FL_Desired_Module_Angle");
+    T__FL_Desired_Wheel_Speed__Entry = NTtable_TPoint->GetEntry("FL_Desired_Wheel_Speed");
+    T__FL_Desired_Wheel_Speed_in__Entry = NTtable_TPoint->GetEntry("FL_Desired_Wheel_Speed_in");
+    T__FR_Desired_Module_Angle__Entry = NTtable_TPoint->GetEntry("FR_Desired_Module_Angle");
+    T__FR_Desired_Wheel_Speed__Entry = NTtable_TPoint->GetEntry("FR_Desired_Wheel_Speed");
+    T__FR_Desired_Wheel_Speed_in__Entry = NTtable_TPoint->GetEntry("FR_Desired_Wheel_Speed_in");
+    T__Face_Away_Driver__Entry = NTtable_TPoint->GetEntry("Face_Away_Driver");
+    T__Face_Left_Driver__Entry = NTtable_TPoint->GetEntry("Face_Left_Driver");
+    T__Face_Right_Driver__Entry = NTtable_TPoint->GetEntry("Face_Right_Driver");
+    T__Face_Toward_Driver__Entry = NTtable_TPoint->GetEntry("Face_Toward_Driver");
+    T__Feeder_Motor_Speed_tp__Entry = NTtable_TPoint->GetEntry("Feeder_Motor_Speed_tp");
+    T__Gyro_Angle_SPF__Entry = NTtable_TPoint->GetEntry("Gyro_Angle_SPF");
+    T__Is_Absolute_Steering_SPF__Entry = NTtable_TPoint->GetEntry("Is_Absolute_Steering_SPF");
+    T__Is_Absolute_Translation_SPF__Entry = NTtable_TPoint->GetEntry("Is_Absolute_Translation_SPF");
+    T__Is_Boosting__Entry = NTtable_TPoint->GetEntry("Is_Boosting");
+    T__Is_Outside_Alliance_Zone__Entry = NTtable_TPoint->GetEntry("Is_Outside_Alliance_Zone");
+    T__KF_Position_X__Entry = NTtable_TPoint->GetEntry("KF_Position_X");
+    T__KF_Position_Y__Entry = NTtable_TPoint->GetEntry("KF_Position_Y");
+    T__RB_Allow_Shoot_Gyro_Err__Entry = NTtable_TPoint->GetEntry("RB_Allow_Shoot_Gyro_Err");
+    T__RB_Allow_Shoot_Gyro_Error__Entry = NTtable_TPoint->GetEntry("RB_Allow_Shoot_Gyro_Error");
+    T__RB_Desired_Feeder_Speed__Entry = NTtable_TPoint->GetEntry("RB_Desired_Feeder_Speed");
+    T__RB_Desired_Gyro_Angle_raw__Entry = NTtable_TPoint->GetEntry("RB_Desired_Gyro_Angle_raw");
+    T__RB_Desired_Hood_Pos__Entry = NTtable_TPoint->GetEntry("RB_Desired_Hood_Pos");
+    T__RB_Desired_Hood_Pos_Shoot__Entry = NTtable_TPoint->GetEntry("RB_Desired_Hood_Pos_Shoot");
+    T__RB_Desired_Shoot_Gyro_Ang__Entry = NTtable_TPoint->GetEntry("RB_Desired_Shoot_Gyro_Ang");
+    T__RB_Desired_Shoot_Motor_Spd__Entry = NTtable_TPoint->GetEntry("RB_Desired_Shoot_Motor_Spd");
+    T__RB_Desired_Shooter_Speed__Entry = NTtable_TPoint->GetEntry("RB_Desired_Shooter_Speed");
+    T__RB_Desired_Shot_Distance__Entry = NTtable_TPoint->GetEntry("RB_Desired_Shot_Distance");
+    T__RB_Desired_Target_X__Entry = NTtable_TPoint->GetEntry("RB_Desired_Target_X");
+    T__RB_Desired_Target_Y__Entry = NTtable_TPoint->GetEntry("RB_Desired_Target_Y");
+    T__RB_Desired_Transfer_Speed__Entry = NTtable_TPoint->GetEntry("RB_Desired_Transfer_Speed");
+    T__RB_Feeder_Motor_PID_DC__Entry = NTtable_TPoint->GetEntry("RB_Feeder_Motor_PID_DC");
+    T__RB_IsBlueActive__Entry = NTtable_TPoint->GetEntry("RB_IsBlueActive");
+    T__RB_IsRedActive__Entry = NTtable_TPoint->GetEntry("RB_IsRedActive");
+    T__RB_Logic_Gyro_Angle__Entry = NTtable_TPoint->GetEntry("RB_Logic_Gyro_Angle");
+    T__RB_Logic_Hood_Pos__Entry = NTtable_TPoint->GetEntry("RB_Logic_Hood_Pos");
+    T__RB_Logic_Outside_Zone__Entry = NTtable_TPoint->GetEntry("RB_Logic_Outside_Zone");
+    T__RB_Logic_Score_In_Zone__Entry = NTtable_TPoint->GetEntry("RB_Logic_Score_In_Zone");
+    T__RB_Logic_Shooter_Speed__Entry = NTtable_TPoint->GetEntry("RB_Logic_Shooter_Speed");
+    T__RB_Logic_Velocity__Entry = NTtable_TPoint->GetEntry("RB_Logic_Velocity");
+    T__RB_Meas_Shooter_Speed_Max__Entry = NTtable_TPoint->GetEntry("RB_Meas_Shooter_Speed_Max");
+    T__RB_Ready_to_Pass__Entry = NTtable_TPoint->GetEntry("RB_Ready_to_Pass");
+    T__RB_Ready_to_Score__Entry = NTtable_TPoint->GetEntry("RB_Ready_to_Score");
+    T__RB_Shoot_Target_X__Entry = NTtable_TPoint->GetEntry("RB_Shoot_Target_X");
+    T__RB_Shoot_Target_Y__Entry = NTtable_TPoint->GetEntry("RB_Shoot_Target_Y");
+    T__RB_Shooter_Active__Entry = NTtable_TPoint->GetEntry("RB_Shooter_Active");
+    T__RB_Shooter_Motor_PID_DC__Entry = NTtable_TPoint->GetEntry("RB_Shooter_Motor_PID_DC");
+    T__RB_Transfer_Motor_PID_DC__Entry = NTtable_TPoint->GetEntry("RB_Transfer_Motor_PID_DC");
+    T__Relative_Enable__Entry = NTtable_TPoint->GetEntry("Relative_Enable");
+    T__Relative_Error_Angle__Entry = NTtable_TPoint->GetEntry("Relative_Error_Angle");
+    T__Relative_Error_X__Entry = NTtable_TPoint->GetEntry("Relative_Error_X");
+    T__Relative_Error_Y__Entry = NTtable_TPoint->GetEntry("Relative_Error_Y");
+    T__Robot_Reached_Destination__Entry = NTtable_TPoint->GetEntry("Robot_Reached_Destination");
+    T__Spline_Enable__Entry = NTtable_TPoint->GetEntry("Spline_Enable");
+    T__Spline_Follow_Index__Entry = NTtable_TPoint->GetEntry("Spline_Follow_Index");
+    T__Spline_Num_Poses__Entry = NTtable_TPoint->GetEntry("Spline_Num_Poses");
+    T__Spline_Out_Of_Bounds__Entry = NTtable_TPoint->GetEntry("Spline_Out_Of_Bounds");
+    T__Spline_Target_X__Entry = NTtable_TPoint->GetEntry("Spline_Target_X");
+    T__Spline_Target_Y__Entry = NTtable_TPoint->GetEntry("Spline_Target_Y");
+    T__Steer_Joystick_X__Entry = NTtable_TPoint->GetEntry("Steer_Joystick_X");
+    T__Steer_Joystick_Y__Entry = NTtable_TPoint->GetEntry("Steer_Joystick_Y");
+    T__Steer_Joystick_Z__Entry = NTtable_TPoint->GetEntry("Steer_Joystick_Z");
+    T__Steering_Abs_Angle__Entry = NTtable_TPoint->GetEntry("Steering_Abs_Angle");
+    T__Steering_Abs_Angle_Active__Entry = NTtable_TPoint->GetEntry("Steering_Abs_Angle_Active");
+    T__Steering_Abs_Cmd__Entry = NTtable_TPoint->GetEntry("Steering_Abs_Cmd");
+    T__Steering_Abs_Cmd_SPF__Entry = NTtable_TPoint->GetEntry("Steering_Abs_Cmd_SPF");
+    T__Steering_Abs_Gyro__Entry = NTtable_TPoint->GetEntry("Steering_Abs_Gyro");
+    T__Steering_Abs_Gyro_Latch__Entry = NTtable_TPoint->GetEntry("Steering_Abs_Gyro_Latch");
+    T__Steering_Localized_Cmd__Entry = NTtable_TPoint->GetEntry("Steering_Localized_Cmd");
+    T__Steering_Localized_PID__Entry = NTtable_TPoint->GetEntry("Steering_Localized_PID");
+    T__Steering_Rel_Cmd__Entry = NTtable_TPoint->GetEntry("Steering_Rel_Cmd");
+    T__Steering_Rel_Cmd_SPF__Entry = NTtable_TPoint->GetEntry("Steering_Rel_Cmd_SPF");
+    T__Swerve_Drive_Integral_Enable__Entry = NTtable_TPoint->GetEntry("Swerve_Drive_Integral_Enable");
+    T__Test_Mode__Entry = NTtable_TPoint->GetEntry("Test_Mode");
+    T__Translation_Angle__Entry = NTtable_TPoint->GetEntry("Translation_Angle");
+    T__Translation_Angle_SPF__Entry = NTtable_TPoint->GetEntry("Translation_Angle_SPF");
+    T__Translation_Speed__Entry = NTtable_TPoint->GetEntry("Translation_Speed");
+    T__Translation_Speed_RL__Entry = NTtable_TPoint->GetEntry("Translation_Speed_RL");
+    T__Translation_Speed_SPF__Entry = NTtable_TPoint->GetEntry("Translation_Speed_SPF");
+    T__Translation_Steering_Cmd__Entry = NTtable_TPoint->GetEntry("Translation_Steering_Cmd");
+    T__Vision_c1_AprilTag_Corr_X_inch__Entry = NTtable_TPoint->GetEntry("Vision_c1_AprilTag_Corr_X_inch");
+    T__Vision_c1_AprilTag_Corr_Y_inch__Entry = NTtable_TPoint->GetEntry("Vision_c1_AprilTag_Corr_Y_inch");
+    T__Vision_c1_AprilTag_Corr_Yaw_deg__Entry = NTtable_TPoint->GetEntry("Vision_c1_AprilTag_Corr_Yaw_deg");
+    T__Vision_c1_Object_Corr_X_inch__Entry = NTtable_TPoint->GetEntry("Vision_c1_Object_Corr_X_inch");
+    T__Vision_c1_Object_Corr_Y_inch__Entry = NTtable_TPoint->GetEntry("Vision_c1_Object_Corr_Y_inch");
+    T__Vision_c1_Object_Corr_Yaw_deg__Entry = NTtable_TPoint->GetEntry("Vision_c1_Object_Corr_Yaw_deg");
+    T__loop_counter_robot_control__Entry = NTtable_TPoint->GetEntry("loop_counter_robot_control");
 }
  
 void SimulinkNetworkTables1::PreStepCallback() {}
@@ -799,7 +901,7 @@ void SimulinkNetworkTables1::PostStepCallback()
     P__Field_Translation_Control_Gain__Entry.SetDouble(Field_Translation_Control_Gain);
     P__Field_Translation_Speed_Max__Entry.SetDouble(Field_Translation_Speed_Max);
     P__KF_Enable__Entry.SetDouble(KF_Enable);
-    P__Rebuilt_Desired_Gyro_Shoot_Offset_deg__Entry.SetDouble(Rebuilt_Desired_Gyro_Shoot_Offset_deg);
+    P__Rebuilt_Des_Gyro_Shoot_Offset__Entry.SetDouble(Rebuilt_Des_Gyro_Shoot_Offset);
     P__Rebuilt_Feeder_Motor_Gain_FF__Entry.SetDouble(Rebuilt_Feeder_Motor_Gain_FF);
     P__Rebuilt_Hood_Servo_Pos_Max__Entry.SetDouble(Rebuilt_Hood_Servo_Pos_Max);
     P__Rebuilt_Hood_Servo_Pos_Min__Entry.SetDouble(Rebuilt_Hood_Servo_Pos_Min);
@@ -1052,6 +1154,108 @@ void SimulinkNetworkTables1::PostStepCallback()
     O__Transfer_Motor_DC__Entry.SetDouble(Robot_Control_Y.Transfer_Motor_DC);
     O__Vision_Desired_Pipeline__Entry.SetDouble(Robot_Control_Y.Vision_Desired_Pipeline);
     // Test Points
+    T__Active_GameState__Entry.SetDouble(Robot_Control_B.Active_GameState);
+    T__BL_Desired_Module_Angle__Entry.SetDouble(Robot_Control_B.BL_Desired_Module_Angle);
+    T__BL_Desired_Wheel_Speed__Entry.SetDouble(Robot_Control_B.BL_Desired_Wheel_Speed);
+    T__BL_Desired_Wheel_Speed_in__Entry.SetDouble(Robot_Control_B.BL_Desired_Wheel_Speed_in);
+    T__BR_Desired_Module_Angle__Entry.SetDouble(Robot_Control_B.BR_Desired_Module_Angle);
+    T__BR_Desired_Wheel_Speed__Entry.SetDouble(Robot_Control_B.BR_Desired_Wheel_Speed);
+    T__BR_Desired_Wheel_Speed_in__Entry.SetDouble(Robot_Control_B.BR_Desired_Wheel_Speed_in);
+    T__Button_Disable_Wheels__Entry.SetDouble(Robot_Control_B.Button_Disable_Wheels);
+    T__Button_Enable_Wheels__Entry.SetDouble(Robot_Control_B.Button_Enable_Wheels);
+    T__Button_Reset_Wheel_Offsets__Entry.SetDouble(Robot_Control_B.Button_Reset_Wheel_Offsets);
+    T__Drive_Joystick_X__Entry.SetDouble(Robot_Control_B.Drive_Joystick_X);
+    T__Drive_Joystick_Y__Entry.SetDouble(Robot_Control_B.Drive_Joystick_Y);
+    T__Drive_Joystick_Z__Entry.SetDouble(Robot_Control_B.Drive_Joystick_Z);
+    T__Drive_Joystick_Z_Mode__Entry.SetDouble(Robot_Control_B.Drive_Joystick_Z_Mode);
+    T__Estimated_Hood_Pos__Entry.SetDouble(Robot_Control_B.Estimated_Hood_Pos);
+    T__FL_Desired_Module_Angle__Entry.SetDouble(Robot_Control_B.FL_Desired_Module_Angle);
+    T__FL_Desired_Wheel_Speed__Entry.SetDouble(Robot_Control_B.FL_Desired_Wheel_Speed);
+    T__FL_Desired_Wheel_Speed_in__Entry.SetDouble(Robot_Control_B.FL_Desired_Wheel_Speed_in);
+    T__FR_Desired_Module_Angle__Entry.SetDouble(Robot_Control_B.FR_Desired_Module_Angle);
+    T__FR_Desired_Wheel_Speed__Entry.SetDouble(Robot_Control_B.FR_Desired_Wheel_Speed);
+    T__FR_Desired_Wheel_Speed_in__Entry.SetDouble(Robot_Control_B.FR_Desired_Wheel_Speed_in);
+    T__Face_Away_Driver__Entry.SetDouble(Robot_Control_B.Face_Away_Driver);
+    T__Face_Left_Driver__Entry.SetDouble(Robot_Control_B.Face_Left_Driver);
+    T__Face_Right_Driver__Entry.SetDouble(Robot_Control_B.Face_Right_Driver);
+    T__Face_Toward_Driver__Entry.SetDouble(Robot_Control_B.Face_Toward_Driver);
+    T__Feeder_Motor_Speed_tp__Entry.SetDouble(Robot_Control_B.Feeder_Motor_Speed_tp);
+    T__Gyro_Angle_SPF__Entry.SetDouble(Robot_Control_B.Gyro_Angle_SPF);
+    T__Is_Absolute_Steering_SPF__Entry.SetDouble(Robot_Control_B.Is_Absolute_Steering_SPF);
+    T__Is_Absolute_Translation_SPF__Entry.SetDouble(Robot_Control_B.Is_Absolute_Translation_SPF);
+    T__Is_Boosting__Entry.SetDouble(Robot_Control_B.Is_Boosting);
+    T__Is_Outside_Alliance_Zone__Entry.SetDouble(Robot_Control_B.Is_Outside_Alliance_Zone);
+    T__KF_Position_X__Entry.SetDouble(Robot_Control_B.KF_Position_X);
+    T__KF_Position_Y__Entry.SetDouble(Robot_Control_B.KF_Position_Y);
+    T__RB_Allow_Shoot_Gyro_Err__Entry.SetDouble(Robot_Control_B.RB_Allow_Shoot_Gyro_Err);
+    T__RB_Allow_Shoot_Gyro_Error__Entry.SetDouble(Robot_Control_B.RB_Allow_Shoot_Gyro_Error);
+    T__RB_Desired_Feeder_Speed__Entry.SetDouble(Robot_Control_B.RB_Desired_Feeder_Speed);
+    T__RB_Desired_Gyro_Angle_raw__Entry.SetDouble(Robot_Control_B.RB_Desired_Gyro_Angle_raw);
+    T__RB_Desired_Hood_Pos__Entry.SetDouble(Robot_Control_B.RB_Desired_Hood_Pos);
+    T__RB_Desired_Hood_Pos_Shoot__Entry.SetDouble(Robot_Control_B.RB_Desired_Hood_Pos_Shoot);
+    T__RB_Desired_Shoot_Gyro_Ang__Entry.SetDouble(Robot_Control_B.RB_Desired_Shoot_Gyro_Ang);
+    T__RB_Desired_Shoot_Motor_Spd__Entry.SetDouble(Robot_Control_B.RB_Desired_Shoot_Motor_Spd);
+    T__RB_Desired_Shooter_Speed__Entry.SetDouble(Robot_Control_B.RB_Desired_Shooter_Speed);
+    T__RB_Desired_Shot_Distance__Entry.SetDouble(Robot_Control_B.RB_Desired_Shot_Distance);
+    T__RB_Desired_Target_X__Entry.SetDouble(Robot_Control_B.RB_Desired_Target_X);
+    T__RB_Desired_Target_Y__Entry.SetDouble(Robot_Control_B.RB_Desired_Target_Y);
+    T__RB_Desired_Transfer_Speed__Entry.SetDouble(Robot_Control_B.RB_Desired_Transfer_Speed);
+    T__RB_Feeder_Motor_PID_DC__Entry.SetDouble(Robot_Control_B.RB_Feeder_Motor_PID_DC);
+    T__RB_IsBlueActive__Entry.SetDouble(Robot_Control_B.RB_IsBlueActive);
+    T__RB_IsRedActive__Entry.SetDouble(Robot_Control_B.RB_IsRedActive);
+    T__RB_Logic_Gyro_Angle__Entry.SetDouble(Robot_Control_B.RB_Logic_Gyro_Angle);
+    T__RB_Logic_Hood_Pos__Entry.SetDouble(Robot_Control_B.RB_Logic_Hood_Pos);
+    T__RB_Logic_Outside_Zone__Entry.SetDouble(Robot_Control_B.RB_Logic_Outside_Zone);
+    T__RB_Logic_Score_In_Zone__Entry.SetDouble(Robot_Control_B.RB_Logic_Score_In_Zone);
+    T__RB_Logic_Shooter_Speed__Entry.SetDouble(Robot_Control_B.RB_Logic_Shooter_Speed);
+    T__RB_Logic_Velocity__Entry.SetDouble(Robot_Control_B.RB_Logic_Velocity);
+    T__RB_Meas_Shooter_Speed_Max__Entry.SetDouble(Robot_Control_B.RB_Meas_Shooter_Speed_Max);
+    T__RB_Ready_to_Pass__Entry.SetDouble(Robot_Control_B.RB_Ready_to_Pass);
+    T__RB_Ready_to_Score__Entry.SetDouble(Robot_Control_B.RB_Ready_to_Score);
+    T__RB_Shoot_Target_X__Entry.SetDouble(Robot_Control_B.RB_Shoot_Target_X);
+    T__RB_Shoot_Target_Y__Entry.SetDouble(Robot_Control_B.RB_Shoot_Target_Y);
+    T__RB_Shooter_Active__Entry.SetDouble(Robot_Control_B.RB_Shooter_Active);
+    T__RB_Shooter_Motor_PID_DC__Entry.SetDouble(Robot_Control_B.RB_Shooter_Motor_PID_DC);
+    T__RB_Transfer_Motor_PID_DC__Entry.SetDouble(Robot_Control_B.RB_Transfer_Motor_PID_DC);
+    T__Relative_Enable__Entry.SetDouble(Robot_Control_B.Relative_Enable);
+    T__Relative_Error_Angle__Entry.SetDouble(Robot_Control_B.Relative_Error_Angle);
+    T__Relative_Error_X__Entry.SetDouble(Robot_Control_B.Relative_Error_X);
+    T__Relative_Error_Y__Entry.SetDouble(Robot_Control_B.Relative_Error_Y);
+    T__Robot_Reached_Destination__Entry.SetDouble(Robot_Control_B.Robot_Reached_Destination);
+    T__Spline_Enable__Entry.SetDouble(Robot_Control_B.Spline_Enable);
+    T__Spline_Follow_Index__Entry.SetDouble(Robot_Control_B.Spline_Follow_Index);
+    T__Spline_Num_Poses__Entry.SetDouble(Robot_Control_B.Spline_Num_Poses);
+    T__Spline_Out_Of_Bounds__Entry.SetDouble(Robot_Control_B.Spline_Out_Of_Bounds);
+    T__Spline_Target_X__Entry.SetDouble(Robot_Control_B.Spline_Target_X);
+    T__Spline_Target_Y__Entry.SetDouble(Robot_Control_B.Spline_Target_Y);
+    T__Steer_Joystick_X__Entry.SetDouble(Robot_Control_B.Steer_Joystick_X);
+    T__Steer_Joystick_Y__Entry.SetDouble(Robot_Control_B.Steer_Joystick_Y);
+    T__Steer_Joystick_Z__Entry.SetDouble(Robot_Control_B.Steer_Joystick_Z);
+    T__Steering_Abs_Angle__Entry.SetDouble(Robot_Control_B.Steering_Abs_Angle);
+    T__Steering_Abs_Angle_Active__Entry.SetDouble(Robot_Control_B.Steering_Abs_Angle_Active);
+    T__Steering_Abs_Cmd__Entry.SetDouble(Robot_Control_B.Steering_Abs_Cmd);
+    T__Steering_Abs_Cmd_SPF__Entry.SetDouble(Robot_Control_B.Steering_Abs_Cmd_SPF);
+    T__Steering_Abs_Gyro__Entry.SetDouble(Robot_Control_B.Steering_Abs_Gyro);
+    T__Steering_Abs_Gyro_Latch__Entry.SetDouble(Robot_Control_B.Steering_Abs_Gyro_Latch);
+    T__Steering_Localized_Cmd__Entry.SetDouble(Robot_Control_B.Steering_Localized_Cmd);
+    T__Steering_Localized_PID__Entry.SetDouble(Robot_Control_B.Steering_Localized_PID);
+    T__Steering_Rel_Cmd__Entry.SetDouble(Robot_Control_B.Steering_Rel_Cmd);
+    T__Steering_Rel_Cmd_SPF__Entry.SetDouble(Robot_Control_B.Steering_Rel_Cmd_SPF);
+    T__Swerve_Drive_Integral_Enable__Entry.SetDouble(Robot_Control_B.Swerve_Drive_Integral_Enable);
+    T__Test_Mode__Entry.SetDouble(Robot_Control_B.Test_Mode);
+    T__Translation_Angle__Entry.SetDouble(Robot_Control_B.Translation_Angle);
+    T__Translation_Angle_SPF__Entry.SetDouble(Robot_Control_B.Translation_Angle_SPF);
+    T__Translation_Speed__Entry.SetDouble(Robot_Control_B.Translation_Speed);
+    T__Translation_Speed_RL__Entry.SetDouble(Robot_Control_B.Translation_Speed_RL);
+    T__Translation_Speed_SPF__Entry.SetDouble(Robot_Control_B.Translation_Speed_SPF);
+    T__Translation_Steering_Cmd__Entry.SetDouble(Robot_Control_B.Translation_Steering_Cmd);
+    T__Vision_c1_AprilTag_Corr_X_inch__Entry.SetDouble(Robot_Control_B.Vision_c1_AprilTag_Corr_X_inch);
+    T__Vision_c1_AprilTag_Corr_Y_inch__Entry.SetDouble(Robot_Control_B.Vision_c1_AprilTag_Corr_Y_inch);
+    T__Vision_c1_AprilTag_Corr_Yaw_deg__Entry.SetDouble(Robot_Control_B.Vision_c1_AprilTag_Corr_Yaw_deg);
+    T__Vision_c1_Object_Corr_X_inch__Entry.SetDouble(Robot_Control_B.Vision_c1_Object_Corr_X_inch);
+    T__Vision_c1_Object_Corr_Y_inch__Entry.SetDouble(Robot_Control_B.Vision_c1_Object_Corr_Y_inch);
+    T__Vision_c1_Object_Corr_Yaw_deg__Entry.SetDouble(Robot_Control_B.Vision_c1_Object_Corr_Yaw_deg);
+    T__loop_counter_robot_control__Entry.SetDouble(Robot_Control_B.loop_counter_robot_control);
 }
 // Why are you reading to the bottom of an autogen file?
 // Get a life...

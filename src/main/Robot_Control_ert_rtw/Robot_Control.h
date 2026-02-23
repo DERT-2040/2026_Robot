@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.451
+ * Model version                  : 2.452
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Feb 21 20:52:27 2026
+ * C/C++ source code generated on : Sun Feb 22 18:22:25 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -62,9 +62,9 @@ typedef struct {
   real_T Translation_Speed_RL;         /* '<S293>/Sum' */
   real_T Translation_Angle_SPF;        /* '<S12>/Merge3' */
   real_T Gyro_Angle_SPF;               /* '<S12>/Merge8' */
-  real_T Rebuilt_Measured_Shooter_Speed_;/* '<S88>/Max' */
+  real_T RB_Meas_Shooter_Speed_Max;    /* '<S88>/Max' */
   real_T Translation_Steering_Cmd;     /* '<S287>/Switch' */
-  real_T Rebuilt_Shoot_Desired_Shoot_Gyr;/* '<S86>/Merge' */
+  real_T RB_Desired_Shoot_Gyro_Ang;    /* '<S86>/Merge' */
   real_T Steering_Abs_Cmd_SPF;         /* '<S12>/Merge' */
   real_T Steering_Localized_PID;       /* '<S314>/Saturation2' */
   real_T Steering_Rel_Cmd_SPF;         /* '<S12>/Merge1' */
@@ -81,13 +81,13 @@ typedef struct {
   real_T FR_Desired_Wheel_Speed;       /* '<S320>/Product1' */
   real_T BL_Desired_Module_Angle;      /* '<S335>/Switch' */
   real_T BL_Desired_Wheel_Speed;       /* '<S320>/Product2' */
-  real_T Rebuilt_Transfer_Motor_PID_DC;/* '<S92>/Switch2' */
-  real_T Rebuilt_Feeder_Motor_PID_DC;  /* '<S11>/Product' */
-  real_T Rebuilt_Shoot_Desired_Hood_Pos_;/* '<S86>/Merge2' */
+  real_T RB_Transfer_Motor_PID_DC;     /* '<S92>/Switch2' */
+  real_T RB_Feeder_Motor_PID_DC;       /* '<S11>/Product' */
+  real_T RB_Desired_Hood_Pos_Shoot;    /* '<S86>/Merge2' */
   real_T Estimated_Hood_Pos;           /* '<S82>/Sum' */
-  real_T Rebuilt_Shoot_Desired_Shooter_S;/* '<S86>/Merge1' */
-  real_T Rebuilt_Shooter_Motor_PID_DC; /* '<S90>/Switch2' */
-  real_T Rebuilt_Shoot_Allowed_Shoot_Gyr;/* '<S86>/Merge3' */
+  real_T RB_Desired_Shooter_Speed;     /* '<S86>/Merge1' */
+  real_T RB_Shooter_Motor_PID_DC;      /* '<S90>/Switch2' */
+  real_T RB_Allow_Shoot_Gyro_Error;    /* '<S86>/Merge3' */
   real_T loop_counter_robot_control;   /* '<S1>/Sum' */
   real_T Steer_Joystick_X;             /* '<S5>/Signal Copy4' */
   real_T Feeder_Motor_Speed_tp;        /* '<Root>/Signal Copy' */
@@ -100,19 +100,17 @@ typedef struct {
   real_T Spline_Follow_Index;          /* '<S140>/Merge4' */
   real_T Spline_Target_Y;              /* '<S137>/Selector6' */
   real_T Spline_Target_X;              /* '<S137>/Selector2' */
-  real_T Rebuilt_Desired_Feeder_Speed;
-                                     /* '<S11>/Shooter_Transfer_Feeder Chart' */
-  real_T Rebuilt_Desired_Transfer_Speed;
-                                     /* '<S11>/Shooter_Transfer_Feeder Chart' */
-  real_T Rebuilt_Shoot_Target_X;       /* '<S101>/Switch' */
-  real_T Rebuilt_Shoot_Target_Y;       /* '<S101>/Switch1' */
-  real_T Rebuilt_Shoot_Desired_Hood_Pos;/* '<S99>/Lookup Table Dynamic' */
-  real_T Rebuilt_Shoot_Desired_Shooter_M;/* '<S100>/Lookup Table Dynamic' */
-  real_T Rebuilt_Shoot_Allowed_Shoot_G_b;/* '<S98>/Lookup Table Dynamic' */
-  real_T Rebuilt_Shoot_Desired_Gyro_Angl;/* '<S96>/Tanh' */
-  real_T Rebuilt_Shoot_Desired_Shot_Dist;/* '<S104>/Hypot' */
-  real_T Rebuilt_Shoot_Desired_Target_X;/* '<S107>/Add' */
-  real_T Rebuilt_Shoot_Desired_Target_Y;/* '<S107>/Add1' */
+  real_T RB_Desired_Feeder_Speed;    /* '<S11>/Shooter_Transfer_Feeder Chart' */
+  real_T RB_Desired_Transfer_Speed;  /* '<S11>/Shooter_Transfer_Feeder Chart' */
+  real_T RB_Shoot_Target_X;            /* '<S101>/Switch' */
+  real_T RB_Shoot_Target_Y;            /* '<S101>/Switch1' */
+  real_T RB_Desired_Hood_Pos;          /* '<S99>/Lookup Table Dynamic' */
+  real_T RB_Desired_Shoot_Motor_Spd;   /* '<S100>/Lookup Table Dynamic' */
+  real_T RB_Allow_Shoot_Gyro_Err;      /* '<S98>/Lookup Table Dynamic' */
+  real_T RB_Desired_Gyro_Angle_raw;    /* '<S96>/Tanh' */
+  real_T RB_Desired_Shot_Distance;     /* '<S104>/Hypot' */
+  real_T RB_Desired_Target_X;          /* '<S107>/Add' */
+  real_T RB_Desired_Target_Y;          /* '<S107>/Add1' */
   real_T Product2[2];                  /* '<S80>/Product2' */
   real_T Product3[2];                  /* '<S78>/Product3' */
   uint8_T Active_GameState;            /* '<S10>/Chart' */
@@ -127,17 +125,17 @@ typedef struct {
   boolean_T Face_Away_Driver;          /* '<S18>/Compare' */
   boolean_T Spline_Enable;             /* '<S8>/Merge7' */
   boolean_T Is_Absolute_Translation_SPF;/* '<S12>/Merge4' */
-  boolean_T Rebuilt_IsBlueActive;      /* '<S87>/Merge' */
-  boolean_T Rebuilt_IsRedActive;       /* '<S87>/Merge1' */
-  boolean_T Rebuilt_Logic_Allow_Score_In_Al;/* '<S118>/Merge' */
-  boolean_T Rebuilt_Logic_Velocity;    /* '<S89>/GreaterThan' */
-  boolean_T Rebuilt_Logic_Gyro_Angle;  /* '<S89>/Relational Operator' */
-  boolean_T Rebuilt_Logic_Shooter_Speed;/* '<S89>/Relational Operator1' */
-  boolean_T Rebuilt_Logic_Hood_Pos;    /* '<S89>/Relational Operator4' */
-  boolean_T Rebuilt_Ready_to_Score;    /* '<S89>/AND2' */
+  boolean_T RB_IsBlueActive;           /* '<S87>/Merge' */
+  boolean_T RB_IsRedActive;            /* '<S87>/Merge1' */
+  boolean_T RB_Logic_Score_In_Zone;    /* '<S118>/Merge' */
+  boolean_T RB_Logic_Velocity;         /* '<S89>/GreaterThan' */
+  boolean_T RB_Logic_Gyro_Angle;       /* '<S89>/Relational Operator' */
+  boolean_T RB_Logic_Shooter_Speed;    /* '<S89>/Relational Operator1' */
+  boolean_T RB_Logic_Hood_Pos;         /* '<S89>/Relational Operator4' */
+  boolean_T RB_Ready_to_Score;         /* '<S89>/AND2' */
   boolean_T Is_Outside_Alliance_Zone;  /* '<S119>/Merge' */
-  boolean_T Rebuilt_Logic_Outside_Alliance_;/* '<S89>/Signal Copy' */
-  boolean_T Rebuilt_Ready_to_Pass;     /* '<S89>/AND3' */
+  boolean_T RB_Logic_Outside_Zone;     /* '<S89>/Signal Copy' */
+  boolean_T RB_Ready_to_Pass;          /* '<S89>/AND3' */
   boolean_T Is_Absolute_Steering_SPF;  /* '<S12>/Merge5' */
   boolean_T Swerve_Drive_Integral_Enable;/* '<S8>/Merge23' */
   boolean_T Robot_Reached_Destination; /* '<S12>/Merge7' */
@@ -145,7 +143,7 @@ typedef struct {
   boolean_T Relative_Enable;           /* '<S346>/Logical Operator1' */
   boolean_T Steering_Abs_Angle_Active; /* '<S348>/AND6' */
   boolean_T Spline_Out_Of_Bounds;      /* '<S140>/Merge1' */
-  boolean_T Rebuilt_Shooter_Active;  /* '<S11>/Shooter_Transfer_Feeder Chart' */
+  boolean_T RB_Shooter_Active;       /* '<S11>/Shooter_Transfer_Feeder Chart' */
 } B_Robot_Control_T;
 
 /* Block states (default storage) for system '<Root>' */
@@ -533,10 +531,10 @@ extern real_T KF_Enable;               /* Variable: KF_Enable
                                         *   '<S7>/Constant1'
                                         *   '<S7>/Constant2'
                                         */
-extern real_T Rebuilt_Desired_Gyro_Shoot_Offset_deg;
-                              /* Variable: Rebuilt_Desired_Gyro_Shoot_Offset_deg
-                               * Referenced by: '<S96>/Constant'
-                               */
+extern real_T Rebuilt_Des_Gyro_Shoot_Offset;
+                                      /* Variable: Rebuilt_Des_Gyro_Shoot_Offset
+                                       * Referenced by: '<S96>/Constant'
+                                       */
 extern real_T Rebuilt_Feeder_Motor_Gain_FF;/* Variable: Rebuilt_Feeder_Motor_Gain_FF
                                             * Referenced by: '<S11>/Constant'
                                             */

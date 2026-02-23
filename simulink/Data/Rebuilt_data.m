@@ -32,7 +32,7 @@ Rebuilt_Shoot_Hood_Pos_Max_Error = 0.03;    % pwm position
 % Iteration error target threshold
 Rebuilt_Shoot_Target_Error_Thresh = 0.1;    % Meters
 
-Rebuilt_Desired_Gyro_Shoot_Offset_deg = 2;  % Degrees
+Rebuilt_Des_Gyro_Shoot_Offset = -1;  % Degrees
 
 % Distance (m)
 Rebuilt_Shoot_Dist_0 = 1.370;
@@ -46,43 +46,43 @@ Rebuilt_Shoot_Dist_7 = 6.5;
 
 % Desired_Shooter_Motor_Speed (rpm)
 Rebuilt_Shoot_Shooter_Spd_0 = 2500;
-Rebuilt_Shoot_Shooter_Spd_1 = 3000;
+Rebuilt_Shoot_Shooter_Spd_1 = 2800;
 Rebuilt_Shoot_Shooter_Spd_2 = 3100;
 Rebuilt_Shoot_Shooter_Spd_3 = 3200;
-Rebuilt_Shoot_Shooter_Spd_4 = 3300;
-Rebuilt_Shoot_Shooter_Spd_5 = 3700;
-Rebuilt_Shoot_Shooter_Spd_6 = 4300;
-Rebuilt_Shoot_Shooter_Spd_7 = 5000;
+Rebuilt_Shoot_Shooter_Spd_4 = 3400;
+Rebuilt_Shoot_Shooter_Spd_5 = 3550;
+Rebuilt_Shoot_Shooter_Spd_6 = 3800;
+Rebuilt_Shoot_Shooter_Spd_7 = 4000;
 
 % Desired Hood Position (pwm)
 Rebuilt_Shoot_Hood_Pos_0 = 0.05;
-Rebuilt_Shoot_Hood_Pos_1 = 0.05;
+Rebuilt_Shoot_Hood_Pos_1 = 0.20;
 Rebuilt_Shoot_Hood_Pos_2 = 0.35;
 Rebuilt_Shoot_Hood_Pos_3 = 0.4;
 Rebuilt_Shoot_Hood_Pos_4 = 0.45;
 Rebuilt_Shoot_Hood_Pos_5 = 0.5;
-Rebuilt_Shoot_Hood_Pos_6 = 0.65;
-Rebuilt_Shoot_Hood_Pos_7 = 1.0;
+Rebuilt_Shoot_Hood_Pos_6 = 0.58;
+Rebuilt_Shoot_Hood_Pos_7 = 0.62;
 
 % Time of Flight (sec)
-Rebuilt_Shoot_TOF_0 = 0;
-Rebuilt_Shoot_TOF_1 = 0;
-Rebuilt_Shoot_TOF_2 = 0;
-Rebuilt_Shoot_TOF_3 = 0;
-Rebuilt_Shoot_TOF_4 = 0;
-Rebuilt_Shoot_TOF_5 = 0;
-Rebuilt_Shoot_TOF_6 = 0;
-Rebuilt_Shoot_TOF_7 = 0;
+Rebuilt_Shoot_TOF_0 = 0.943;
+Rebuilt_Shoot_TOF_1 = 1.092;
+Rebuilt_Shoot_TOF_2 = 1.167;
+Rebuilt_Shoot_TOF_3 = 1.185;
+Rebuilt_Shoot_TOF_4 = 1.250;
+Rebuilt_Shoot_TOF_5 = 1.337;
+Rebuilt_Shoot_TOF_6 = 1.337;
+Rebuilt_Shoot_TOF_7 = 1.337;
 
 % Allowed Gyro Error (degrees ... convert to radians in model)
-Rebuilt_Shoot_Gyro_Err_0 = 7;
-Rebuilt_Shoot_Gyro_Err_1 = 6;
+Rebuilt_Shoot_Gyro_Err_0 = 5;
+Rebuilt_Shoot_Gyro_Err_1 = 5;
 Rebuilt_Shoot_Gyro_Err_2 = 5;
-Rebuilt_Shoot_Gyro_Err_3 = 4;
-Rebuilt_Shoot_Gyro_Err_4 = 3;
-Rebuilt_Shoot_Gyro_Err_5 = 2;
-Rebuilt_Shoot_Gyro_Err_6 = 2;
-Rebuilt_Shoot_Gyro_Err_7 = 2;
+Rebuilt_Shoot_Gyro_Err_3 = 5;
+Rebuilt_Shoot_Gyro_Err_4 = 5;
+Rebuilt_Shoot_Gyro_Err_5 = 5;
+Rebuilt_Shoot_Gyro_Err_6 = 5;
+Rebuilt_Shoot_Gyro_Err_7 = 5;
 
 % PLOT TABLES
     plot_dist     = [Rebuilt_Shoot_Dist_0 Rebuilt_Shoot_Dist_1 Rebuilt_Shoot_Dist_2 Rebuilt_Shoot_Dist_3 Rebuilt_Shoot_Dist_4 Rebuilt_Shoot_Dist_5 Rebuilt_Shoot_Dist_6 Rebuilt_Shoot_Dist_7];
