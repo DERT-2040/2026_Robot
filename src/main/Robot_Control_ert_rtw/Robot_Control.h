@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.452
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sun Feb 22 18:22:25 2026
+ * C/C++ source code generated on : Mon Feb 23 18:39:09 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -62,8 +62,8 @@ typedef struct {
   real_T Translation_Speed_RL;         /* '<S293>/Sum' */
   real_T Translation_Angle_SPF;        /* '<S12>/Merge3' */
   real_T Gyro_Angle_SPF;               /* '<S12>/Merge8' */
-  real_T RB_Meas_Shooter_Speed_Max;    /* '<S88>/Max' */
   real_T Translation_Steering_Cmd;     /* '<S287>/Switch' */
+  real_T RB_Meas_Shooter_Speed_Max;    /* '<S88>/Max' */
   real_T RB_Desired_Shoot_Gyro_Ang;    /* '<S86>/Merge' */
   real_T Steering_Abs_Cmd_SPF;         /* '<S12>/Merge' */
   real_T Steering_Localized_PID;       /* '<S314>/Saturation2' */
@@ -1140,6 +1140,7 @@ extern RT_MODEL_Robot_Control_T *const Robot_Control_M;
  * Block '<S366>/FixPt Data Type Duplicate1' : Unused code path elimination
  * Block '<S1>/Data Type Conversion' : Eliminate redundant data type conversion
  * Block '<S1>/Data Type Conversion1' : Eliminate redundant data type conversion
+ * Block '<S3>/Signal Copy' : Eliminate redundant signal conversion block
  * Block '<S70>/Conversion' : Eliminate redundant data type conversion
  * Block '<S71>/Conversion' : Eliminate redundant data type conversion
  * Block '<S73>/Conversion' : Eliminate redundant data type conversion
