@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.434
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Feb  7 16:26:24 2026
+ * C/C++ source code generated on : Tue Feb 24 22:03:27 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -127,7 +127,7 @@ void Odometry_step(void)
    *  Store in Global RAM
    */
   rtb_rx = (Odometry_U.FrontLeft_Drive_Motor_Rev - Odometry_DW.UD_DSTATE) *
-    0.049546817471321378;
+    0.055075199210226709;
 
   /* Sum: '<S25>/Add1' incorporates:
    *  Constant: '<S25>/Constant3'
@@ -159,7 +159,7 @@ void Odometry_step(void)
    *  Store in Global RAM
    */
   rtb_rx_n = (Odometry_U.FrontRight_Drive_Motor_Rev - Odometry_DW.UD_DSTATE_i) *
-    0.049546817471321378;
+    0.055075199210226709;
 
   /* Sum: '<S26>/Add1' incorporates:
    *  Constant: '<S26>/Constant3'
@@ -190,7 +190,7 @@ void Odometry_step(void)
    *  Store in Global RAM
    */
   rtb_rx_g = (Odometry_U.BackLeft_Drive_Motor_Rev - Odometry_DW.UD_DSTATE_iy) *
-    0.049546817471321378;
+    0.055075199210226709;
 
   /* Sum: '<S27>/Add1' incorporates:
    *  Constant: '<S27>/Constant3'
@@ -222,7 +222,7 @@ void Odometry_step(void)
    *  Store in Global RAM
    */
   rtb_Subtract2 = (Odometry_U.BackRight_Drive_Motor_Rev -
-                   Odometry_DW.UD_DSTATE_f) * 0.049546817471321378;
+                   Odometry_DW.UD_DSTATE_f) * 0.055075199210226709;
 
   /* Fcn: '<S13>/r->x' incorporates:
    *  Fcn: '<S20>/r->x'
@@ -294,7 +294,7 @@ void Odometry_step(void)
    *  Inport: '<Root>/FrontLeft_Drive_Motor_Speed'
    */
   rtb_rx = (0.016666666666666666 * Odometry_U.FrontLeft_Drive_Motor_Speed) *
-    0.049546817471321378;
+    0.055075199210226709;
 
   /* Product: '<S4>/Product1' incorporates:
    *  Constant: '<S4>/Constant1'
@@ -303,7 +303,7 @@ void Odometry_step(void)
    */
   rtb_Subtract2 = (0.016666666666666666 *
                    Odometry_U.FrontRight_Drive_Motor_Speed) *
-    0.049546817471321378;
+    0.055075199210226709;
 
   /* Product: '<S4>/Product2' incorporates:
    *  Constant: '<S4>/Constant1'
@@ -311,7 +311,7 @@ void Odometry_step(void)
    *  Inport: '<Root>/BackLeft_Drive_Motor_Speed'
    */
   rtb_rx_n = (0.016666666666666666 * Odometry_U.BackLeft_Drive_Motor_Speed) *
-    0.049546817471321378;
+    0.055075199210226709;
 
   /* Product: '<S4>/Product3' incorporates:
    *  Constant: '<S4>/Constant1'
@@ -319,7 +319,7 @@ void Odometry_step(void)
    *  Inport: '<Root>/BackRight_Drive_Motor_Speed'
    */
   rtb_rx_g = (0.016666666666666666 * Odometry_U.BackRight_Drive_Motor_Speed) *
-    0.049546817471321378;
+    0.055075199210226709;
 
   /* SignalConversion generated from: '<S4>/Product7' incorporates:
    *  Fcn: '<S20>/r->x'

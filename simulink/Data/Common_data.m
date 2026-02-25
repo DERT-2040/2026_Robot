@@ -24,4 +24,4 @@ clear FrontBack LeftRight
 
 %% Wheel Gear Ratio
 gear_ratio = 6.12;  % L1 gear ratio = 8.14,  L3 gear ratio = 6.12
-wheel_diameter = 4.00*0.0254;
+wheel_diameter = 4.00*0.0254*1.056;  % the 1.056 fudge factor is for Colson wheels on hard surface tested in Feb 2026
