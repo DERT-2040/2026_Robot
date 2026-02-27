@@ -46,6 +46,19 @@ private:
         nt::NetworkTableEntry P__Rebuilt_Hood_Servo_Pos_Min__Entry;
         nt::NetworkTableEntry P__Rebuilt_Hood_Servo_Rate_Limit_Dec__Entry;
         nt::NetworkTableEntry P__Rebuilt_Hood_Servo_Rate_Limit_Inc__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Intake_Arm_Gain_D__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Intake_Arm_Gain_I__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Intake_Arm_Gain_P__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Intake_Arm_Integral_Enable__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Intake_Cycle_Angle_In__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Intake_Cycle_Angle_Out__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Intake_Des_Angle_In__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Intake_Des_Angle_Out__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Roller_Desired_Speed__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Roller_Error_Integral_Enable__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Roller_Motor_Gain_FF__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Roller_Motor_Gain_I__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Roller_Motor_Gain_P__Entry;
         nt::NetworkTableEntry P__Rebuilt_Shoot_Dist_0__Entry;
         nt::NetworkTableEntry P__Rebuilt_Shoot_Dist_1__Entry;
         nt::NetworkTableEntry P__Rebuilt_Shoot_Dist_2__Entry;
@@ -147,6 +160,8 @@ private:
         nt::NetworkTableEntry P__TEST_Desired_Hood_Enable_OV__Entry;
         nt::NetworkTableEntry P__TEST_Desired_Hood_Pos_OV__Entry;
         nt::NetworkTableEntry P__TEST_Feeder_Motor_DC_OV__Entry;
+        nt::NetworkTableEntry P__TEST_Intake_Arm_Motor_DC_OV__Entry;
+        nt::NetworkTableEntry P__TEST_Intake_Roller_Motor_DC_OV__Entry;
         nt::NetworkTableEntry P__TEST_Output_Override_Flag__Entry;
         nt::NetworkTableEntry P__TEST_Pipeline__Entry;
         nt::NetworkTableEntry P__TEST_Shooter_Motor_DC_Center_OV__Entry;
@@ -250,6 +265,8 @@ private:
         nt::NetworkTableEntry I__Joystick_Right_Z__Entry;
         nt::NetworkTableEntry I__MatchTime__Entry;
         nt::NetworkTableEntry I__Measured_Feeder_Speed__Entry;
+        nt::NetworkTableEntry I__Measured_Intake_Arm_Angle__Entry;
+        nt::NetworkTableEntry I__Measured_Intake_Roller_Speed__Entry;
         nt::NetworkTableEntry I__Measured_Shooter_Speed_Center__Entry;
         nt::NetworkTableEntry I__Measured_Shooter_Speed_Left__Entry;
         nt::NetworkTableEntry I__Measured_Shooter_Speed_Right__Entry;
@@ -286,6 +303,8 @@ private:
         nt::NetworkTableEntry O__FrontLeft_Steer_DutyCycle__Entry;
         nt::NetworkTableEntry O__FrontRight_Drive_DutyCycle__Entry;
         nt::NetworkTableEntry O__FrontRight_Steer_DutyCycle__Entry;
+        nt::NetworkTableEntry O__Intake_Arm_Motor_DC__Entry;
+        nt::NetworkTableEntry O__Intake_Roller_Motor_DC__Entry;
         nt::NetworkTableEntry O__Reset_Wheel_Offsets__Entry;
         nt::NetworkTableEntry O__Shooter_Motor_DC_Center__Entry;
         nt::NetworkTableEntry O__Shooter_Motor_DC_Left__Entry;
@@ -330,6 +349,7 @@ private:
         nt::NetworkTableEntry T__KF_Position_Y__Entry;
         nt::NetworkTableEntry T__RB_Allow_Shoot_Gyro_Err__Entry;
         nt::NetworkTableEntry T__RB_Allow_Shoot_Gyro_Error__Entry;
+        nt::NetworkTableEntry T__RB_Des_Intake_Arm_Angle__Entry;
         nt::NetworkTableEntry T__RB_Desired_Feeder_Speed__Entry;
         nt::NetworkTableEntry T__RB_Desired_Gyro_Angle_raw__Entry;
         nt::NetworkTableEntry T__RB_Desired_Hood_Pos__Entry;
@@ -342,6 +362,8 @@ private:
         nt::NetworkTableEntry T__RB_Desired_Target_Y__Entry;
         nt::NetworkTableEntry T__RB_Desired_Transfer_Speed__Entry;
         nt::NetworkTableEntry T__RB_Feeder_Motor_PID_DC__Entry;
+        nt::NetworkTableEntry T__RB_Intake_Arm_Motor_PID_DC__Entry;
+        nt::NetworkTableEntry T__RB_Intake_Roller_Motor_PID_DC__Entry;
         nt::NetworkTableEntry T__RB_IsBlueActive__Entry;
         nt::NetworkTableEntry T__RB_IsRedActive__Entry;
         nt::NetworkTableEntry T__RB_Logic_Gyro_Angle__Entry;

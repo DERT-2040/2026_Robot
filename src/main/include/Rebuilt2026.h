@@ -29,14 +29,12 @@ public:
     }
   };
 
-/*  
   dlib::TalonFXMotorGroup FeederMotors
   {
     {
       nsFeeder::Feeder
     }
-  }; 
-*/
+  };
    
   dlib::TalonFXMotorGroup TransferMotors
   {

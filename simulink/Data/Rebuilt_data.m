@@ -7,6 +7,8 @@ TEST_Shooter_Motor_DC_Center_OV = 0;
 TEST_Shooter_Motor_DC_Right_OV = 0;
 TEST_Desired_Hood_Enable_OV = 0;
 TEST_Desired_Hood_Pos_OV = 0.05;
+TEST_Intake_Arm_Motor_DC_OV = 0;
+TEST_Intake_Roller_Motor_DC_OV = 0;
 
 %% Field Element Position Data
 Field_BlueAllianceZoneX = 182.11*0.0254;            % Meters
@@ -137,4 +139,21 @@ Rebuilt_Hood_Servo_Pos_Min = 0.05;
 Rebuilt_Hood_Servo_Pos_Max = 1;
 Rebuilt_Hood_Servo_Rate_Limit_Inc = 32/50*0.02;   % no load 32 mm/sec, total stroke 50 mm
 Rebuilt_Hood_Servo_Rate_Limit_Dec = -Rebuilt_Hood_Servo_Rate_Limit_Inc;
+
+%% Intake
+Rebuilt_Intake_Des_Angle_In = 0;
+Rebuilt_Intake_Des_Angle_Out = 90;
+Rebuilt_Intake_Cycle_Angle_In = 20;
+Rebuilt_Intake_Cycle_Angle_Out = 70;
+
+Rebuilt_Intake_Arm_Gain_P = 0;
+Rebuilt_Intake_Arm_Gain_I = 0;
+Rebuilt_Intake_Arm_Gain_D = 0;
+Rebuilt_Intake_Arm_Integral_Enable = 0;
+
+Rebuilt_Roller_Desired_Speed = 0;
+Rebuilt_Roller_Motor_Gain_FF = 0;
+Rebuilt_Roller_Motor_Gain_P = 0;
+Rebuilt_Roller_Motor_Gain_I = 0;
+Rebuilt_Roller_Error_Integral_Enable = 0;
 
