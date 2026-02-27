@@ -55,3 +55,6 @@ Odometry_X_Y_TEAR = 0;
 Odometry_IC_X = 0;
 Odometry_IC_Y = 0;
 
+%Maximum Robot Velocity to be allowed to shoot
+
+RobotMaxVelocityShoot = 1;
