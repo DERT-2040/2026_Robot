@@ -17,9 +17,25 @@ Spline_Tension = 0.5;
 plot_robot_rectangle = 1;  % 0 = off, 1 = on
 
 % Define which paths to run
-test_cases = [1:13]; %[1:11];  % normal cases
-
+%test_cases = [1:13]; %[1:11];  % normal cases
+%test_cases=[7,8,5,14,6,12]%path 1 
+%Start at left trench>NNZ>shoot right>Depot>shoot right>climb right
+%test_cases =[9,10,15,2,11,13]%path 2 
+% Start at right trenc>NNZ>Shoot left>Human player>Shoot left>Climb left
 % Plot all of the paths
+%test_cases =[7,8,5,14,6,13] path 3
+%Start at left trench>NNZ>shoot right>Depot>shoot right>climb left
+%test_cases= [9,10,15,2,11,12] path 4
+% Start at right trenc>NNZ>Shoot left>Human player>Shoot left>Climb right
+%test_cases=[4,5,6,12]path5
+%start at right trench>depot>right shoot>climb right
+%test_cases =[4,5,6,13] path 6
+%start at right trench>depot>right shoot>climb left
+%test_cases=[1,2,11,12] %path7
+%start at left ramp>human player>left shoot>climb right
+%test_cases=[1,2,11,13] %path8
+%start at left ramp>human player>left shoot>climb left
+
 for m = 1:length(test_cases)
 
     k = test_cases(m);
