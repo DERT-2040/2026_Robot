@@ -27,7 +27,6 @@ private:
         nt::NetworkTableEntry P__Odometry_IC_Y__Entry;
         nt::NetworkTableEntry P__Odometry_Reset_IC__Entry;
         nt::NetworkTableEntry P__Odometry_X_Y_TEAR__Entry;
-        nt::NetworkTableEntry P__RobotMaxV_GyroReset__Entry;
  
         // Inports
         nt::NetworkTableEntry I__BackLeft_Drive_Motor_Rev__Entry;
@@ -48,8 +47,6 @@ private:
         nt::NetworkTableEntry I__FrontRight_Turn_Offset__Entry;
         nt::NetworkTableEntry I__Gyro_Angle__Entry;
         nt::NetworkTableEntry I__IsBlueAlliance__Entry;
-        nt::NetworkTableEntry I__Vision_Gyro_Angle__Entry;
-        nt::NetworkTableEntry I__Vision_Gyro_Angle_Status__Entry;
         // Outports
         nt::NetworkTableEntry O__Auto_Start_Position__Entry;
         nt::NetworkTableEntry O__BL_Steer_Module_Angle__Entry;

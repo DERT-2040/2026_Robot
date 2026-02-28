@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Odometry'.
  *
- * Model version                  : 2.436
+ * Model version                  : 2.434
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Feb 28 13:51:30 2026
+ * C/C++ source code generated on : Tue Feb 24 22:03:27 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -24,10 +24,10 @@
 
 extern const real_T rtCP_pooled_Bf9CpkNTNkgN[16];
 
-#define rtCP_Constant4_Value_f         rtCP_pooled_Bf9CpkNTNkgN  /* Expression: Rotation_Local_Inv
+#define rtCP_Constant4_Value           rtCP_pooled_Bf9CpkNTNkgN  /* Expression: Rotation_Local_Inv
                                                                   * Referenced by: '<S3>/Constant4'
                                                                   */
-#define rtCP_Constant4_Value_du        rtCP_pooled_Bf9CpkNTNkgN  /* Expression: Rotation_Local_Inv
+#define rtCP_Constant4_Value_d         rtCP_pooled_Bf9CpkNTNkgN  /* Expression: Rotation_Local_Inv
                                                                   * Referenced by: '<S4>/Constant4'
                                                                   */
 #endif                                 /* RTW_HEADER_Odometry_private_h_ */

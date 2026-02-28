@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.452
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Feb 28 13:50:34 2026
+ * C/C++ source code generated on : Tue Feb 24 22:02:20 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -798,13 +798,18 @@ void Robot_Control_step(void)
   int8_T rtPrevAction;
   uint8_T rtb_Button_Shoot_Enable;
   uint8_T rtb_Button_Spinup_Enable;
+  uint8_T rtb_Desired_Pipeline;
   uint8_T rtb_GameState;
   boolean_T guard1;
   boolean_T guard2;
   boolean_T rtb_AND1_c;
   boolean_T rtb_AND4;
+  boolean_T rtb_Compare_a;
+  boolean_T rtb_Disable_Wheels;
+  boolean_T rtb_Enable_Wheels;
   boolean_T rtb_Is_Absolute_Steering;
-  boolean_T rtb_LogicalOperator_c;
+  boolean_T rtb_Is_Absolute_Translation_g;
+  boolean_T rtb_Reset_Wheel_Offsets;
   boolean_T rtb_Swerve_Motors_Disabled;
 
   /* RelationalOperator: '<S24>/FixPt Relational Operator' incorporates:
@@ -1044,17 +1049,15 @@ void Robot_Control_step(void)
      */
     Robot_Control_B.Translation_Speed = 0.0;
 
-    /* Merge: '<S12>/Merge4' incorporates:
+    /* SignalConversion generated from: '<S4>/Is_Absolute_Translation' incorporates:
      *  Constant: '<S4>/Constant5'
-     *  SignalConversion generated from: '<S4>/Is_Absolute_Translation'
      */
-    Robot_Control_B.Is_Absolute_Translation_SPF = false;
+    rtb_Is_Absolute_Translation_g = false;
 
-    /* Merge: '<S12>/Merge5' incorporates:
+    /* SignalConversion generated from: '<S4>/Is_Absolute_Steering' incorporates:
      *  Constant: '<S4>/Constant6'
-     *  SignalConversion generated from: '<S4>/Is_Absolute_Steering'
      */
-    Robot_Control_B.Is_Absolute_Steering_SPF = false;
+    rtb_Is_Absolute_Steering = false;
 
     /* Merge: '<S8>/Merge7' incorporates:
      *  Constant: '<S4>/Constant7'
@@ -1074,29 +1077,25 @@ void Robot_Control_step(void)
      */
     Robot_Control_B.Test_Mode = false;
 
-    /* Outport: '<Root>/Enable_Wheels' incorporates:
+    /* SignalConversion generated from: '<S4>/Enable_Wheels' incorporates:
      *  Constant: '<S4>/Constant18'
-     *  SignalConversion generated from: '<S4>/Enable_Wheels'
      */
-    Robot_Control_Y.Enable_Wheels = false;
+    rtb_Enable_Wheels = false;
 
-    /* Outport: '<Root>/Reset_Wheel_Offsets' incorporates:
+    /* SignalConversion generated from: '<S4>/Reset_Wheel_Offsets' incorporates:
      *  Constant: '<S4>/Constant13'
-     *  SignalConversion generated from: '<S4>/Reset_Wheel_Offsets'
      */
-    Robot_Control_Y.Reset_Wheel_Offsets = false;
+    rtb_Reset_Wheel_Offsets = false;
 
-    /* Outport: '<Root>/Disable_Wheels' incorporates:
+    /* SignalConversion generated from: '<S4>/Disable_Wheels' incorporates:
      *  Constant: '<S4>/Constant14'
-     *  SignalConversion generated from: '<S4>/Disable_Wheels'
      */
-    Robot_Control_Y.Disable_Wheels = false;
+    rtb_Disable_Wheels = false;
 
-    /* Outport: '<Root>/Swerve_Motors_Disabled' incorporates:
+    /* SignalConversion generated from: '<S4>/Swerve_Motors_Disabled' incorporates:
      *  Constant: '<S4>/Constant12'
-     *  SignalConversion generated from: '<S4>/Swerve_Motors_Disabled'
      */
-    Robot_Control_Y.Swerve_Motors_Disabled = true;
+    rtb_Swerve_Motors_Disabled = true;
 
     /* Merge: '<S8>/Merge23' incorporates:
      *  Constant: '<S4>/Constant23'
@@ -1104,11 +1103,10 @@ void Robot_Control_step(void)
      */
     Robot_Control_B.Swerve_Drive_Integral_Enable = false;
 
-    /* Outport: '<Root>/Vision_Desired_Pipeline' incorporates:
+    /* SignalConversion generated from: '<S4>/Desired_Pipeline' incorporates:
      *  Constant: '<S4>/Constant25'
-     *  SignalConversion generated from: '<S4>/Desired_Pipeline'
      */
-    Robot_Control_Y.Vision_Desired_Pipeline = 0U;
+    rtb_Desired_Pipeline = 0U;
 
     /* SignalConversion generated from: '<S4>/Button_Spinup_Enable' incorporates:
      *  Constant: '<S4>/Constant11'
@@ -1127,11 +1125,10 @@ void Robot_Control_step(void)
     /* Outputs for IfAction SubSystem: '<S1>/Autonomous' incorporates:
      *  ActionPort: '<S2>/Action Port'
      */
-    /* Merge: '<S12>/Merge5' incorporates:
+    /* SignalConversion generated from: '<S2>/Is_Absolute_Steering' incorporates:
      *  Constant: '<S17>/Constant6'
-     *  SignalConversion generated from: '<S2>/Is_Absolute_Steering'
      */
-    Robot_Control_B.Is_Absolute_Steering_SPF = false;
+    rtb_Is_Absolute_Steering = false;
 
     /* Merge: '<S8>/Merge1' incorporates:
      *  Constant: '<S17>/Constant1'
@@ -1139,11 +1136,10 @@ void Robot_Control_step(void)
      */
     Robot_Control_B.Steering_Abs_Cmd = 0.0;
 
-    /* Merge: '<S12>/Merge4' incorporates:
+    /* SignalConversion generated from: '<S2>/Is_Absolute_Translation' incorporates:
      *  Constant: '<S17>/Constant5'
-     *  SignalConversion generated from: '<S2>/Is_Absolute_Translation'
      */
-    Robot_Control_B.Is_Absolute_Translation_SPF = false;
+    rtb_Is_Absolute_Translation_g = false;
 
     /* Merge: '<S8>/Merge2' incorporates:
      *  Constant: '<S17>/Constant2'
@@ -1187,35 +1183,30 @@ void Robot_Control_step(void)
      */
     Robot_Control_B.Test_Mode = false;
 
-    /* Outport: '<Root>/Enable_Wheels' incorporates:
+    /* SignalConversion generated from: '<S2>/Enable_Wheels' incorporates:
      *  Constant: '<S2>/Constant1'
-     *  SignalConversion generated from: '<S2>/Enable_Wheels'
      */
-    Robot_Control_Y.Enable_Wheels = false;
+    rtb_Enable_Wheels = false;
 
-    /* Outport: '<Root>/Reset_Wheel_Offsets' incorporates:
+    /* SignalConversion generated from: '<S2>/Reset_Wheel_Offsets' incorporates:
      *  Constant: '<S2>/Constant13'
-     *  SignalConversion generated from: '<S2>/Reset_Wheel_Offsets'
      */
-    Robot_Control_Y.Reset_Wheel_Offsets = false;
+    rtb_Reset_Wheel_Offsets = false;
 
-    /* Outport: '<Root>/Disable_Wheels' incorporates:
+    /* SignalConversion generated from: '<S2>/Disable_Wheels' incorporates:
      *  Constant: '<S2>/Constant14'
-     *  SignalConversion generated from: '<S2>/Disable_Wheels'
      */
-    Robot_Control_Y.Disable_Wheels = false;
+    rtb_Disable_Wheels = false;
 
-    /* Outport: '<Root>/Swerve_Motors_Disabled' incorporates:
+    /* SignalConversion generated from: '<S2>/Swerve_Motors_Disabled' incorporates:
      *  Constant: '<S2>/Constant4'
-     *  SignalConversion generated from: '<S2>/Swerve_Motors_Disabled'
      */
-    Robot_Control_Y.Swerve_Motors_Disabled = false;
+    rtb_Swerve_Motors_Disabled = false;
 
-    /* Outport: '<Root>/Vision_Desired_Pipeline' incorporates:
+    /* SignalConversion generated from: '<S2>/Desired_Pipeline' incorporates:
      *  Constant: '<S2>/Constant'
-     *  SignalConversion generated from: '<S2>/Desired_Pipeline'
      */
-    Robot_Control_Y.Vision_Desired_Pipeline = 0U;
+    rtb_Desired_Pipeline = 0U;
 
     /* SignalConversion generated from: '<S2>/Button_Spinup_Enable' incorporates:
      *  Constant: '<S2>/Constant11'
@@ -1356,7 +1347,7 @@ void Robot_Control_step(void)
     /* RelationalOperator: '<S350>/Compare' incorporates:
      *  Constant: '<S350>/Constant'
      */
-    rtb_Swerve_Motors_Disabled = (rtb_Add_h5 == 0.0);
+    rtb_Compare_a = (rtb_Add_h5 == 0.0);
 
     /* Logic: '<S348>/AND2' incorporates:
      *  RelationalOperator: '<S351>/FixPt Relational Operator'
@@ -1384,7 +1375,7 @@ void Robot_Control_step(void)
      *
      *  Store in Global RAM
      */
-    rtb_Is_Absolute_Steering = ((((((int32_T)Robot_Control_B.Face_Away_Driver) >
+    rtb_Enable_Wheels = ((((((int32_T)Robot_Control_B.Face_Away_Driver) >
       ((int32_T)Robot_Control_DW.DelayInput1_DSTATE_m)) || (((int32_T)
       Robot_Control_B.Face_Left_Driver) > ((int32_T)
       Robot_Control_DW.DelayInput1_DSTATE_k))) || (((int32_T)
@@ -1397,14 +1388,14 @@ void Robot_Control_step(void)
      *  Logic: '<S348>/AND3'
      *  UnitDelay: '<S348>/Unit Delay2'
      */
-    rtb_AND1_c = (rtb_Swerve_Motors_Disabled && (rtb_Is_Absolute_Steering ||
+    rtb_AND1_c = (rtb_Compare_a && (rtb_Enable_Wheels ||
       (Robot_Control_DW.UnitDelay2_DSTATE)));
 
     /* Logic: '<S348>/AND4' incorporates:
      *  Logic: '<S348>/AND8'
      *  UnitDelay: '<S348>/Unit Delay4'
      */
-    rtb_AND4 = ((rtb_Swerve_Motors_Disabled && (!rtb_Is_Absolute_Steering)) &&
+    rtb_AND4 = ((rtb_Compare_a && (!rtb_Enable_Wheels)) &&
                 (Robot_Control_DW.UnitDelay4_DSTATE));
 
     /* Logic: '<S348>/AND6' */
@@ -1422,9 +1413,8 @@ void Robot_Control_step(void)
      *
      *  Store in Global RAM
      */
-    if (((Robot_Control_B.Steering_Abs_Angle_Active) || (((int32_T)
-           rtb_Swerve_Motors_Disabled) > ((int32_T)
-           Robot_Control_DW.DelayInput1_DSTATE_j))) ||
+    if (((Robot_Control_B.Steering_Abs_Angle_Active) || (((int32_T)rtb_Compare_a)
+          > ((int32_T)Robot_Control_DW.DelayInput1_DSTATE_j))) ||
         (Robot_Control_B.Active_GameState != 2)) {
       /* Switch: '<S348>/Switch8' incorporates:
        *  Inport: '<Root>/Gyro_Angle_rad'
@@ -1518,17 +1508,13 @@ void Robot_Control_step(void)
 
     /* Switch: '<S347>/Switch1' incorporates:
      *  Constant: '<S347>/Constant5'
+     *  Constant: '<S347>/Constant8'
+     *  DataTypeConversion: '<S347>/Data Type Conversion1'
      */
     if (TEST_Swerve_Mode_Override_Flag != 0.0) {
-      /* Merge: '<S12>/Merge5' incorporates:
-       *  Constant: '<S347>/Constant8'
-       *  DataTypeConversion: '<S347>/Data Type Conversion1'
-       */
-      Robot_Control_B.Is_Absolute_Steering_SPF = (TEST_Swerve_Mode_Steering !=
-        0.0);
+      rtb_Is_Absolute_Steering = (TEST_Swerve_Mode_Steering != 0.0);
     } else {
-      /* Merge: '<S12>/Merge5' */
-      Robot_Control_B.Is_Absolute_Steering_SPF = rtb_Swerve_Motors_Disabled;
+      rtb_Is_Absolute_Steering = rtb_Compare_a;
     }
 
     /* End of Switch: '<S347>/Switch1' */
@@ -1543,7 +1529,7 @@ void Robot_Control_step(void)
     /* RelationalOperator: '<S360>/Compare' incorporates:
      *  Constant: '<S360>/Constant'
      */
-    rtb_Is_Absolute_Steering = (rtb_Init_o == 0.0);
+    rtb_Swerve_Motors_Disabled = (rtb_Init_o == 0.0);
 
     /* DeadZone: '<S349>/Dead Zone' */
     if (Robot_Control_B.Drive_Joystick_Z > Twist_Deadzone_pos) {
@@ -1560,23 +1546,18 @@ void Robot_Control_step(void)
      *  Constant: '<S361>/Constant'
      *  RelationalOperator: '<S361>/Compare'
      */
-    rtb_LogicalOperator_c = ((rtb_Sin4 != 0.0) && rtb_Is_Absolute_Steering);
+    rtb_Enable_Wheels = ((rtb_Sin4 != 0.0) && rtb_Swerve_Motors_Disabled);
 
     /* Switch: '<S347>/Switch' incorporates:
      *  Constant: '<S347>/Constant5'
+     *  Constant: '<S347>/Constant7'
+     *  DataTypeConversion: '<S347>/Data Type Conversion'
+     *  Logic: '<S349>/Logical Operator1'
      */
     if (TEST_Swerve_Mode_Override_Flag != 0.0) {
-      /* Merge: '<S12>/Merge4' incorporates:
-       *  Constant: '<S347>/Constant7'
-       *  DataTypeConversion: '<S347>/Data Type Conversion'
-       */
-      Robot_Control_B.Is_Absolute_Translation_SPF =
-        (TEST_Swerve_Mode_Translation != 0.0);
+      rtb_Is_Absolute_Translation_g = (TEST_Swerve_Mode_Translation != 0.0);
     } else {
-      /* Merge: '<S12>/Merge4' incorporates:
-       *  Logic: '<S349>/Logical Operator1'
-       */
-      Robot_Control_B.Is_Absolute_Translation_SPF = !rtb_LogicalOperator_c;
+      rtb_Is_Absolute_Translation_g = !rtb_Enable_Wheels;
     }
 
     /* End of Switch: '<S347>/Switch' */
@@ -1661,7 +1642,7 @@ void Robot_Control_step(void)
      *  Switch: '<S349>/Switch4'
      *  Switch: '<S349>/Switch9'
      */
-    if (rtb_LogicalOperator_c) {
+    if (rtb_Enable_Wheels) {
       /* Signum: '<S349>/Sign' */
       if (rtIsNaN(rtb_Sin4)) {
         rtb_Add_bn = (rtNaN);
@@ -1689,7 +1670,7 @@ void Robot_Control_step(void)
        */
       Robot_Control_B.Translation_Angle = (3.1415926535897931 * rtb_Add_bn) +
         rtb_Add_k;
-    } else if (rtb_Is_Absolute_Steering) {
+    } else if (rtb_Swerve_Motors_Disabled) {
       /* Switch: '<S349>/Switch6' incorporates:
        *  Inport: '<Root>/IsBlueAlliance'
        *  Switch: '<S349>/Switch4'
@@ -1769,13 +1750,13 @@ void Robot_Control_step(void)
      *  Logic: '<S349>/Logical Operator1'
      *  Switch: '<S349>/Switch2'
      */
-    if (rtb_LogicalOperator_c) {
+    if (rtb_Enable_Wheels) {
       /* Switch: '<S349>/Switch' incorporates:
        *  Gain: '<S349>/Gain'
        *  Merge: '<S8>/Merge4'
        */
       Robot_Control_B.Translation_Speed = Translation_Twist_Gain * rtb_Sin4;
-    } else if (rtb_Is_Absolute_Steering) {
+    } else if (rtb_Swerve_Motors_Disabled) {
       /* Merge: '<S8>/Merge4' incorporates:
        *  Constant: '<S14>/Constant7'
        *  Constant: '<S14>/Constant8'
@@ -1817,12 +1798,11 @@ void Robot_Control_step(void)
      */
     Robot_Control_B.Steering_Rel_Cmd = rtb_Add_h5;
 
-    /* Outport: '<Root>/Vision_Desired_Pipeline' incorporates:
+    /* Switch: '<S346>/Switch6' incorporates:
      *  Constant: '<S346>/Constant11'
-     *  Switch: '<S346>/Switch6'
      *  Switch: '<S346>/Switch7'
      */
-    Robot_Control_Y.Vision_Desired_Pipeline = TEST_Pipeline;
+    rtb_Desired_Pipeline = TEST_Pipeline;
 
     /* Merge: '<S8>/Merge23' incorporates:
      *  Constant: '<S14>/Constant'
@@ -1848,29 +1828,25 @@ void Robot_Control_step(void)
      */
     Robot_Control_B.Test_Mode = false;
 
-    /* Outport: '<Root>/Enable_Wheels' incorporates:
+    /* SignalConversion generated from: '<S14>/Enable_Wheels' incorporates:
      *  Constant: '<S14>/Constant6'
-     *  SignalConversion generated from: '<S14>/Enable_Wheels'
      */
-    Robot_Control_Y.Enable_Wheels = false;
+    rtb_Enable_Wheels = false;
 
-    /* Outport: '<Root>/Reset_Wheel_Offsets' incorporates:
+    /* SignalConversion generated from: '<S14>/Reset_Wheel_Offsets' incorporates:
      *  Constant: '<S14>/Constant13'
-     *  SignalConversion generated from: '<S14>/Reset_Wheel_Offsets'
      */
-    Robot_Control_Y.Reset_Wheel_Offsets = false;
+    rtb_Reset_Wheel_Offsets = false;
 
-    /* Outport: '<Root>/Disable_Wheels' incorporates:
+    /* SignalConversion generated from: '<S14>/Disable_Wheels' incorporates:
      *  Constant: '<S14>/Constant14'
-     *  SignalConversion generated from: '<S14>/Disable_Wheels'
      */
-    Robot_Control_Y.Disable_Wheels = false;
+    rtb_Disable_Wheels = false;
 
-    /* Outport: '<Root>/Swerve_Motors_Disabled' incorporates:
+    /* SignalConversion generated from: '<S14>/Swerve_Motors_Disabled' incorporates:
      *  Constant: '<S14>/Constant2'
-     *  SignalConversion generated from: '<S14>/Swerve_Motors_Disabled'
      */
-    Robot_Control_Y.Swerve_Motors_Disabled = false;
+    rtb_Swerve_Motors_Disabled = false;
 
     /* SignalConversion: '<S14>/Signal Copy' incorporates:
      *  Inport: '<Root>/Gamepad_LB'
@@ -1888,7 +1864,7 @@ void Robot_Control_step(void)
      *
      *  Store in Global RAM
      */
-    Robot_Control_DW.DelayInput1_DSTATE_j = rtb_Swerve_Motors_Disabled;
+    Robot_Control_DW.DelayInput1_DSTATE_j = rtb_Compare_a;
 
     /* Update for UnitDelay: '<S355>/Delay Input1' incorporates:
      *  Constant: '<S14>/Constant5'
@@ -1999,17 +1975,15 @@ void Robot_Control_step(void)
      */
     Robot_Control_B.Translation_Speed = 0.0;
 
-    /* Merge: '<S12>/Merge4' incorporates:
+    /* SignalConversion generated from: '<S15>/Is_Absolute_Translation' incorporates:
      *  Constant: '<S15>/Constant5'
-     *  SignalConversion generated from: '<S15>/Is_Absolute_Translation'
      */
-    Robot_Control_B.Is_Absolute_Translation_SPF = false;
+    rtb_Is_Absolute_Translation_g = false;
 
-    /* Merge: '<S12>/Merge5' incorporates:
+    /* SignalConversion generated from: '<S15>/Is_Absolute_Steering' incorporates:
      *  Constant: '<S15>/Constant6'
-     *  SignalConversion generated from: '<S15>/Is_Absolute_Steering'
      */
-    Robot_Control_B.Is_Absolute_Steering_SPF = false;
+    rtb_Is_Absolute_Steering = false;
 
     /* Merge: '<S8>/Merge7' incorporates:
      *  Constant: '<S15>/Constant7'
@@ -2043,11 +2017,6 @@ void Robot_Control_step(void)
 
     /* End of Switch: '<S15>/Switch' */
 
-    /* Outport: '<Root>/Swerve_Motors_Disabled' incorporates:
-     *  SignalConversion generated from: '<S15>/Swerve_Motors_Disabled'
-     */
-    Robot_Control_Y.Swerve_Motors_Disabled = rtb_Swerve_Motors_Disabled;
-
     /* Merge: '<S8>/Merge23' incorporates:
      *  Constant: '<S15>/Constant21'
      *  SignalConversion generated from: '<S15>/Swerve_Drive_Integral_Enable'
@@ -2064,27 +2033,19 @@ void Robot_Control_step(void)
      */
     rtb_Button_Shoot_Enable = 0U;
 
-    /* Outport: '<Root>/Vision_Desired_Pipeline' incorporates:
+    /* SignalConversion generated from: '<S15>/Desired_Pipeline' incorporates:
      *  Constant: '<S15>/Constant22'
-     *  SignalConversion generated from: '<S15>/Desired_Pipeline'
      */
-    Robot_Control_Y.Vision_Desired_Pipeline = TEST_Pipeline;
+    rtb_Desired_Pipeline = TEST_Pipeline;
 
-    /* Outport: '<Root>/Enable_Wheels' incorporates:
-     *  SignalConversion: '<S15>/Signal Copy'
-     */
-    Robot_Control_Y.Enable_Wheels = Robot_Control_B.Button_Enable_Wheels;
+    /* SignalConversion: '<S15>/Signal Copy' */
+    rtb_Enable_Wheels = Robot_Control_B.Button_Enable_Wheels;
 
-    /* Outport: '<Root>/Disable_Wheels' incorporates:
-     *  SignalConversion: '<S15>/Signal Copy2'
-     */
-    Robot_Control_Y.Disable_Wheels = Robot_Control_B.Button_Disable_Wheels;
+    /* SignalConversion: '<S15>/Signal Copy2' */
+    rtb_Disable_Wheels = Robot_Control_B.Button_Disable_Wheels;
 
-    /* Outport: '<Root>/Reset_Wheel_Offsets' incorporates:
-     *  SignalConversion: '<S15>/Signal Copy1'
-     */
-    Robot_Control_Y.Reset_Wheel_Offsets =
-      Robot_Control_B.Button_Reset_Wheel_Offsets;
+    /* SignalConversion: '<S15>/Signal Copy1' */
+    rtb_Reset_Wheel_Offsets = Robot_Control_B.Button_Reset_Wheel_Offsets;
 
     /* Update for UnitDelay: '<S15>/Unit Delay' */
     Robot_Control_DW.UnitDelay_DSTATE_ir = rtb_Swerve_Motors_Disabled;
@@ -2264,6 +2225,8 @@ void Robot_Control_step(void)
    *  Merge: '<S12>/Merge1'
    *  Merge: '<S12>/Merge2'
    *  Merge: '<S12>/Merge3'
+   *  Merge: '<S12>/Merge4'
+   *  Merge: '<S12>/Merge5'
    *  Merge: '<S12>/Merge7'
    *  Merge: '<S12>/Merge8'
    *  SignalConversion generated from: '<S134>/Robot_Reached_Destination'
@@ -2297,6 +2260,8 @@ void Robot_Control_step(void)
   Robot_Control_B.Steering_Rel_Cmd_SPF = Robot_Control_B.Steering_Rel_Cmd;
   Robot_Control_B.Translation_Speed_SPF = Robot_Control_B.Translation_Speed;
   Robot_Control_B.Translation_Angle_SPF = Robot_Control_B.Translation_Angle;
+  Robot_Control_B.Is_Absolute_Translation_SPF = rtb_Is_Absolute_Translation_g;
+  Robot_Control_B.Is_Absolute_Steering_SPF = rtb_Is_Absolute_Steering;
   Robot_Control_B.Gyro_Angle_SPF = Robot_Control_U.Gyro_Angle_rad;
 
   /* End of If: '<S12>/If' */
@@ -2367,7 +2332,7 @@ void Robot_Control_step(void)
   /* RelationalOperator: '<S291>/Compare' incorporates:
    *  Constant: '<S291>/Constant'
    */
-  rtb_Swerve_Motors_Disabled = (rtb_Sin4 == 0.0);
+  rtb_Compare_a = (rtb_Sin4 == 0.0);
 
   /* RelationalOperator: '<S292>/Compare' incorporates:
    *  Constant: '<S292>/Constant'
@@ -2386,7 +2351,7 @@ void Robot_Control_step(void)
    *  Switch: '<S284>/Switch1'
    *  UnaryMinus: '<S284>/Unary Minus'
    */
-  if (rtb_Swerve_Motors_Disabled) {
+  if (rtb_Compare_a) {
     /* SignalConversion generated from: '<S284>/Lookup Table Dynamic' incorporates:
      *  Constant: '<S284>/Constant4'
      *  Constant: '<S284>/Constant6'
@@ -2476,7 +2441,7 @@ void Robot_Control_step(void)
      *  Switch: '<S284>/Switch4'
      *  UnaryMinus: '<S284>/Unary Minus1'
      */
-    if (rtb_Swerve_Motors_Disabled) {
+    if (rtb_Compare_a) {
       rtb_Add_bn = Translation_Speed_Rate_Limit_Dec;
     } else if (rtb_AND1_c) {
       /* Switch: '<S284>/Switch4' incorporates:
@@ -2955,7 +2920,7 @@ void Robot_Control_step(void)
     rtb_Add_h5 = 0.0;
     rtb_Switch4 = 0.0;
     rtb_AND1_c = true;
-    rtb_Swerve_Motors_Disabled = true;
+    rtb_Compare_a = true;
     rtb_TOF_g[0] = Rebuilt_Shoot_TOF_0;
     rtb_TOF_g[1] = Rebuilt_Shoot_TOF_1;
     rtb_TOF_g[2] = Rebuilt_Shoot_TOF_2;
@@ -2965,7 +2930,7 @@ void Robot_Control_step(void)
     rtb_TOF_g[6] = Rebuilt_Shoot_TOF_6;
     rtb_TOF_g[7] = Rebuilt_Shoot_TOF_7;
     rtb_TmpSignalConversionAtLoo__0 = &rtb_TmpSignalConversionAtLook_o[0];
-    while (rtb_Swerve_Motors_Disabled && (rtb_Button_Spinup_Enable <= 10)) {
+    while (rtb_Compare_a && (rtb_Button_Spinup_Enable <= 10)) {
       /* Switch: '<S106>/Switch' incorporates:
        *  Memory: '<S97>/Memory1'
        *  Memory: '<S97>/Memory2'
@@ -3025,7 +2990,7 @@ void Robot_Control_step(void)
         (-Robot_Control_U.Robot_Velocity_Y)) + rtb_Sin4;
 
       /* Memory: '<S97>/Memory' */
-      rtb_Swerve_Motors_Disabled = rtb_AND1_c;
+      rtb_Compare_a = rtb_AND1_c;
 
       /* Update for Memory: '<S97>/Memory1' */
       rtb_Merge1 = Robot_Control_B.RB_Desired_Target_X;
@@ -3339,7 +3304,7 @@ void Robot_Control_step(void)
   /* RelationalOperator: '<S308>/Compare' incorporates:
    *  Constant: '<S308>/Constant'
    */
-  rtb_Swerve_Motors_Disabled = (rtb_Init_g == 0.0);
+  rtb_Compare_a = (rtb_Init_g == 0.0);
 
   /* RelationalOperator: '<S309>/Compare' incorporates:
    *  Constant: '<S309>/Constant'
@@ -3358,7 +3323,7 @@ void Robot_Control_step(void)
    *  Switch: '<S297>/Switch1'
    *  UnaryMinus: '<S297>/Unary Minus'
    */
-  if (rtb_Swerve_Motors_Disabled) {
+  if (rtb_Compare_a) {
     /* SignalConversion generated from: '<S297>/Lookup Table Dynamic' incorporates:
      *  Constant: '<S297>/Constant4'
      *  Constant: '<S297>/Constant6'
@@ -3448,7 +3413,7 @@ void Robot_Control_step(void)
      *  Switch: '<S297>/Switch4'
      *  UnaryMinus: '<S297>/Unary Minus1'
      */
-    if (rtb_Swerve_Motors_Disabled) {
+    if (rtb_Compare_a) {
       rtb_Add_bn = Steering_Absolute_Cmd_Rate_Limit_Dec;
     } else if (rtb_AND1_c) {
       /* Switch: '<S297>/Switch4' incorporates:
@@ -3546,7 +3511,7 @@ void Robot_Control_step(void)
   /* RelationalOperator: '<S301>/Compare' incorporates:
    *  Constant: '<S301>/Constant'
    */
-  rtb_Swerve_Motors_Disabled = (rtb_Init_g == 0.0);
+  rtb_Compare_a = (rtb_Init_g == 0.0);
 
   /* RelationalOperator: '<S302>/Compare' incorporates:
    *  Constant: '<S302>/Constant'
@@ -3566,7 +3531,7 @@ void Robot_Control_step(void)
    *  Switch: '<S296>/Switch5'
    *  UnaryMinus: '<S296>/Unary Minus'
    */
-  if (rtb_Swerve_Motors_Disabled) {
+  if (rtb_Compare_a) {
     rtb_Sin4 = -Steering_Relative_Cmd_Rate_Limit_Dec;
 
     /* SignalConversion generated from: '<S296>/Lookup Table Dynamic' incorporates:
@@ -3653,7 +3618,7 @@ void Robot_Control_step(void)
      *  Constant: '<S296>/Constant1'
      *  Switch: '<S296>/Switch4'
      */
-    if (rtb_Swerve_Motors_Disabled) {
+    if (rtb_Compare_a) {
       rtb_Sin4 = Steering_Relative_Cmd_Rate_Limit_Dec;
     } else if (rtb_AND1_c) {
       /* Switch: '<S296>/Switch4' incorporates:
@@ -3786,10 +3751,10 @@ void Robot_Control_step(void)
   /* RelationalOperator: '<S329>/Compare' incorporates:
    *  Constant: '<S329>/Constant'
    */
-  rtb_AND4 = (rtb_Switch2_p2 == 0.0);
+  rtb_Is_Absolute_Translation_g = (rtb_Switch2_p2 == 0.0);
 
   /* Switch: '<S325>/Switch1' */
-  if (rtb_AND4) {
+  if (rtb_Is_Absolute_Translation_g) {
     /* Switch: '<S325>/Switch1' incorporates:
      *  Constant: '<S325>/Constant'
      */
@@ -3828,10 +3793,10 @@ void Robot_Control_step(void)
   /* RelationalOperator: '<S339>/Compare' incorporates:
    *  Constant: '<S339>/Constant'
    */
-  rtb_Swerve_Motors_Disabled = (rtb_Optimized_Module_Angle_p == 0.0);
+  rtb_Compare_a = (rtb_Optimized_Module_Angle_p == 0.0);
 
   /* Switch: '<S335>/Switch1' */
-  if (rtb_Swerve_Motors_Disabled) {
+  if (rtb_Compare_a) {
     /* Switch: '<S335>/Switch1' incorporates:
      *  Constant: '<S335>/Constant'
      */
@@ -4114,7 +4079,7 @@ void Robot_Control_step(void)
   /* End of Saturate: '<S264>/Saturation2' */
 
   /* Switch: '<S325>/Switch' */
-  if (!rtb_AND4) {
+  if (!rtb_Is_Absolute_Translation_g) {
     /* Switch: '<S325>/Switch' incorporates:
      *  Fcn: '<S326>/x->theta'
      */
@@ -4850,7 +4815,7 @@ void Robot_Control_step(void)
   /* End of Saturate: '<S225>/Saturation2' */
 
   /* Switch: '<S335>/Switch' */
-  if (!rtb_Swerve_Motors_Disabled) {
+  if (!rtb_Compare_a) {
     /* Switch: '<S335>/Switch' incorporates:
      *  Fcn: '<S336>/x->theta'
      */
@@ -5394,8 +5359,7 @@ void Robot_Control_step(void)
    *  Constant: '<S129>/Constant'
    *  RelationalOperator: '<S129>/Compare'
    */
-  rtb_Swerve_Motors_Disabled = !(Robot_Control_B.RB_Desired_Transfer_Speed ==
-    0.0);
+  rtb_Is_Absolute_Steering = !(Robot_Control_B.RB_Desired_Transfer_Speed == 0.0);
 
   /* Switch: '<S92>/Switch1' incorporates:
    *  Abs: '<S92>/Abs'
@@ -5407,10 +5371,10 @@ void Robot_Control_step(void)
    *  UnitDelay: '<S92>/Unit Delay'
    */
   if ((fabs(rtb_Integral_d) < Rebuilt_Transfer_Error_Integral_Enable) &&
-      rtb_Swerve_Motors_Disabled) {
+      rtb_Is_Absolute_Steering) {
     rtb_AND1_c = true;
   } else {
-    rtb_AND1_c = (rtb_Swerve_Motors_Disabled &&
+    rtb_AND1_c = (rtb_Is_Absolute_Steering &&
                   (Robot_Control_DW.UnitDelay_DSTATE_ki));
   }
 
@@ -5475,7 +5439,7 @@ void Robot_Control_step(void)
   /* Switch: '<S92>/Switch2' incorporates:
    *  Logic: '<S92>/Logical Operator1'
    */
-  if (rtb_Swerve_Motors_Disabled) {
+  if (rtb_Is_Absolute_Steering) {
     /* Sum: '<S130>/Add1' */
     rtb_Add_bn = rtb_Switch2_p2 + rtb_Integral_d;
 
@@ -5601,7 +5565,7 @@ void Robot_Control_step(void)
    *  Constant: '<S124>/Constant'
    *  RelationalOperator: '<S124>/Compare'
    */
-  rtb_Swerve_Motors_Disabled = !(Robot_Control_B.RB_Desired_Shooter_Speed == 0.0);
+  rtb_Is_Absolute_Steering = !(Robot_Control_B.RB_Desired_Shooter_Speed == 0.0);
 
   /* Sum: '<S125>/Sum' incorporates:
    *  Sum: '<S90>/Subtract'
@@ -5664,11 +5628,11 @@ void Robot_Control_step(void)
    *  UnitDelay: '<S90>/Unit Delay'
    */
   if ((fabs(rtb_Error_d) < Rebuilt_Shooter_Error_Integral_Enable) &&
-      rtb_Swerve_Motors_Disabled) {
-    rtb_AND4 = true;
+      rtb_Is_Absolute_Steering) {
+    rtb_Is_Absolute_Translation_g = true;
   } else {
-    rtb_AND4 = (rtb_Swerve_Motors_Disabled &&
-                (Robot_Control_DW.UnitDelay_DSTATE_db));
+    rtb_Is_Absolute_Translation_g = (rtb_Is_Absolute_Steering &&
+      (Robot_Control_DW.UnitDelay_DSTATE_db));
   }
 
   /* End of Switch: '<S90>/Switch1' */
@@ -5676,7 +5640,7 @@ void Robot_Control_step(void)
   /* Switch: '<S125>/Switch' incorporates:
    *  Constant: '<S125>/Constant4'
    */
-  if (rtb_AND4) {
+  if (rtb_Is_Absolute_Translation_g) {
     /* Sum: '<S125>/Sum2' incorporates:
      *  Gain: '<S125>/Gain2'
      *  Sum: '<S125>/Sum'
@@ -5734,7 +5698,7 @@ void Robot_Control_step(void)
   /* Switch: '<S90>/Switch2' incorporates:
    *  Logic: '<S90>/Logical Operator1'
    */
-  if (rtb_Swerve_Motors_Disabled) {
+  if (rtb_Is_Absolute_Steering) {
     /* Sum: '<S125>/Add1' */
     rtb_Add_bn += rtb_Error_d;
 
@@ -5816,6 +5780,21 @@ void Robot_Control_step(void)
   }
 
   /* End of Chart: '<S10>/Chart' */
+
+  /* Outport: '<Root>/Enable_Wheels' */
+  Robot_Control_Y.Enable_Wheels = rtb_Enable_Wheels;
+
+  /* Outport: '<Root>/Reset_Wheel_Offsets' */
+  Robot_Control_Y.Reset_Wheel_Offsets = rtb_Reset_Wheel_Offsets;
+
+  /* Outport: '<Root>/Disable_Wheels' */
+  Robot_Control_Y.Disable_Wheels = rtb_Disable_Wheels;
+
+  /* Outport: '<Root>/Swerve_Motors_Disabled' */
+  Robot_Control_Y.Swerve_Motors_Disabled = rtb_Swerve_Motors_Disabled;
+
+  /* Outport: '<Root>/Vision_Desired_Pipeline' */
+  Robot_Control_Y.Vision_Desired_Pipeline = rtb_Desired_Pipeline;
 
   /* Sum: '<S1>/Sum' incorporates:
    *  Constant: '<S1>/Constant2'
@@ -6106,7 +6085,7 @@ void Robot_Control_step(void)
   Robot_Control_DW.UnitDelay_DSTATE_di = rtb_Error_d;
 
   /* Update for UnitDelay: '<S90>/Unit Delay' */
-  Robot_Control_DW.UnitDelay_DSTATE_db = rtb_AND4;
+  Robot_Control_DW.UnitDelay_DSTATE_db = rtb_Is_Absolute_Translation_g;
 }
 
 /* Model initialize function */

@@ -51,10 +51,6 @@ SimulinkNetworkTables2::SimulinkNetworkTables2()
     NTinst.AddListener(P__Odometry_X_Y_TEAR__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Odometry_X_Y_TEAR = event.GetValueEventData()->value.GetDouble();});
     P__Odometry_X_Y_TEAR__Entry.SetDouble(0);
  
-    P__RobotMaxV_GyroReset__Entry = NTtable_Tune->GetEntry("RobotMaxV_GyroReset");
-    NTinst.AddListener(P__RobotMaxV_GyroReset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {RobotMaxV_GyroReset = event.GetValueEventData()->value.GetDouble();});
-    P__RobotMaxV_GyroReset__Entry.SetDouble(1);
- 
 // Inports
     I__BackLeft_Drive_Motor_Rev__Entry = NTtable_Inport->GetEntry("BackLeft_Drive_Motor_Rev");
     I__BackLeft_Drive_Motor_Speed__Entry = NTtable_Inport->GetEntry("BackLeft_Drive_Motor_Speed");
@@ -74,8 +70,6 @@ SimulinkNetworkTables2::SimulinkNetworkTables2()
     I__FrontRight_Turn_Offset__Entry = NTtable_Inport->GetEntry("FrontRight_Turn_Offset");
     I__Gyro_Angle__Entry = NTtable_Inport->GetEntry("Gyro_Angle");
     I__IsBlueAlliance__Entry = NTtable_Inport->GetEntry("IsBlueAlliance");
-    I__Vision_Gyro_Angle__Entry = NTtable_Inport->GetEntry("Vision_Gyro_Angle");
-    I__Vision_Gyro_Angle_Status__Entry = NTtable_Inport->GetEntry("Vision_Gyro_Angle_Status");
  
 // Outports
     O__Auto_Start_Position__Entry = NTtable_Outport->GetEntry("Auto_Start_Position");
@@ -124,7 +118,6 @@ void SimulinkNetworkTables2::PostStepCallback()
     P__Odometry_IC_Y__Entry.SetDouble(Odometry_IC_Y);
     P__Odometry_Reset_IC__Entry.SetDouble(Odometry_Reset_IC);
     P__Odometry_X_Y_TEAR__Entry.SetDouble(Odometry_X_Y_TEAR);
-    P__RobotMaxV_GyroReset__Entry.SetDouble(RobotMaxV_GyroReset);
     // Inports
     I__BackLeft_Drive_Motor_Rev__Entry.SetDouble(Odometry_U.BackLeft_Drive_Motor_Rev);
     I__BackLeft_Drive_Motor_Speed__Entry.SetDouble(Odometry_U.BackLeft_Drive_Motor_Speed);
@@ -144,8 +137,6 @@ void SimulinkNetworkTables2::PostStepCallback()
     I__FrontRight_Turn_Offset__Entry.SetDouble(Odometry_U.FrontRight_Turn_Offset);
     I__Gyro_Angle__Entry.SetDouble(Odometry_U.Gyro_Angle);
     I__IsBlueAlliance__Entry.SetDouble(Odometry_U.IsBlueAlliance);
-    I__Vision_Gyro_Angle__Entry.SetDouble(Odometry_U.Vision_Gyro_Angle);
-    I__Vision_Gyro_Angle_Status__Entry.SetDouble(Odometry_U.Vision_Gyro_Angle_Status);
     // Outports
     O__Auto_Start_Position__Entry.SetDouble(Odometry_Y.Auto_Start_Position);
     O__BL_Steer_Module_Angle__Entry.SetDouble(Odometry_Y.BL_Steer_Module_Angle);
