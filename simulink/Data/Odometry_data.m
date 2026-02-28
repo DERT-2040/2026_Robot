@@ -20,6 +20,9 @@ Gyro_Calibration_Auto_Left = 210;
 Gyro_Calibration_Auto_Center = 180;
 Gyro_Calibration_Auto_Right = 125;
 
+% Vision Gyro Updates - Maximum Allowable Robot Velocity
+RobotMaxV_GyroReset = 1; % M/S
+
 %% Odometry rotation matrix
 % robot rotation matrix to obtain: 
 %   Vx and Vy for each module from the robot center Vx, Vy, and Omega
@@ -54,7 +57,3 @@ Odometry_X_Y_TEAR = 0;
 
 Odometry_IC_X = 0;
 Odometry_IC_Y = 0;
-
-%Maximum Robot Velocity to be allowed to shoot
-
-RobotMaxVelocityShoot = 1;
