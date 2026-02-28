@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.457
+ * Model version                  : 2.458
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Feb 26 22:51:08 2026
+ * C/C++ source code generated on : Fri Feb 27 22:16:37 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -217,6 +217,10 @@ real_T Rebuilt_Intake_Des_Angle_In = 0.0;/* Variable: Rebuilt_Intake_Des_Angle_I
 real_T Rebuilt_Intake_Des_Angle_Out = 90.0;/* Variable: Rebuilt_Intake_Des_Angle_Out
                                             * Referenced by: '<S6>/Chart'
                                             */
+real_T Rebuilt_Negative_Feeder_Speed = -1000.0;
+                                      /* Variable: Rebuilt_Negative_Feeder_Speed
+                                       * Referenced by: '<S12>/Shooter_Transfer_Feeder Chart'
+                                       */
 real_T Rebuilt_Roller_Desired_Speed = 0.0;/* Variable: Rebuilt_Roller_Desired_Speed
                                            * Referenced by: '<S6>/Constant'
                                            */
@@ -2907,6 +2911,8 @@ void Robot_Control_step(void)
             ((Robot_Control_B.RB_Ready_to_Score) ||
              (Robot_Control_B.RB_Ready_to_Pass))) {
           Robot_Control_DW.is_Shooting = Robot_Control_IN_Transfer;
+          Robot_Control_B.RB_Desired_Feeder_Speed =
+            Rebuilt_Negative_Feeder_Speed;
           Robot_Control_B.RB_Desired_Transfer_Speed =
             Rebuilt_Target_Transfer_Speed;
         }
@@ -2914,6 +2920,7 @@ void Robot_Control_step(void)
 
        default:
         /* case IN_Transfer: */
+        Robot_Control_B.RB_Desired_Feeder_Speed = Rebuilt_Negative_Feeder_Speed;
         if (Robot_Control_U.Measured_Transfer_Speed >
             (Robot_Control_B.RB_Desired_Transfer_Speed *
              Rebuilt_Transfer_Minimum_Factor)) {

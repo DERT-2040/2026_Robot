@@ -22,6 +22,7 @@ Field_Red_Hub_Y =  158.84*0.0254;             % Meters
 % Targets
 Rebuilt_Transfer_Minimum_Factor = 0.8;
 Rebuilt_Target_Transfer_Speed = 4000;   % rpm
+Rebuilt_Negative_Feeder_Speed = -1000;
 Rebuilt_Target_Feeder_Speed = Rebuilt_Target_Transfer_Speed*0.84;  % rpm
 % (the 0.84 factor sets feeder belt linear speed to match transfer wheel surface linear speed)
 % Assumes 4 inch diameter transfer wheels and 24 tooth pulleys driving the belts

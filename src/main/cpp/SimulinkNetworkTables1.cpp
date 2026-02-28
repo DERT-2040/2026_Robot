@@ -159,6 +159,10 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     NTinst.AddListener(P__Rebuilt_Intake_Des_Angle_Out__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_Des_Angle_Out = event.GetValueEventData()->value.GetDouble();});
     P__Rebuilt_Intake_Des_Angle_Out__Entry.SetDouble(90);
  
+    P__Rebuilt_Negative_Feeder_Speed__Entry = NTtable_Tune->GetEntry("Rebuilt_Negative_Feeder_Speed");
+    NTinst.AddListener(P__Rebuilt_Negative_Feeder_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Negative_Feeder_Speed = event.GetValueEventData()->value.GetDouble();});
+    P__Rebuilt_Negative_Feeder_Speed__Entry.SetDouble(-1000);
+ 
     P__Rebuilt_Roller_Desired_Speed__Entry = NTtable_Tune->GetEntry("Rebuilt_Roller_Desired_Speed");
     NTinst.AddListener(P__Rebuilt_Roller_Desired_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Roller_Desired_Speed = event.GetValueEventData()->value.GetDouble();});
     P__Rebuilt_Roller_Desired_Speed__Entry.SetDouble(0);
@@ -982,6 +986,7 @@ void SimulinkNetworkTables1::PostStepCallback()
     P__Rebuilt_Intake_Cycle_Angle_Out__Entry.SetDouble(Rebuilt_Intake_Cycle_Angle_Out);
     P__Rebuilt_Intake_Des_Angle_In__Entry.SetDouble(Rebuilt_Intake_Des_Angle_In);
     P__Rebuilt_Intake_Des_Angle_Out__Entry.SetDouble(Rebuilt_Intake_Des_Angle_Out);
+    P__Rebuilt_Negative_Feeder_Speed__Entry.SetDouble(Rebuilt_Negative_Feeder_Speed);
     P__Rebuilt_Roller_Desired_Speed__Entry.SetDouble(Rebuilt_Roller_Desired_Speed);
     P__Rebuilt_Roller_Error_Integral_Enable__Entry.SetDouble(Rebuilt_Roller_Error_Integral_Enable);
     P__Rebuilt_Roller_Motor_Gain_FF__Entry.SetDouble(Rebuilt_Roller_Motor_Gain_FF);

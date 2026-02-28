@@ -54,6 +54,7 @@ private:
         nt::NetworkTableEntry P__Rebuilt_Intake_Cycle_Angle_Out__Entry;
         nt::NetworkTableEntry P__Rebuilt_Intake_Des_Angle_In__Entry;
         nt::NetworkTableEntry P__Rebuilt_Intake_Des_Angle_Out__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Negative_Feeder_Speed__Entry;
         nt::NetworkTableEntry P__Rebuilt_Roller_Desired_Speed__Entry;
         nt::NetworkTableEntry P__Rebuilt_Roller_Error_Integral_Enable__Entry;
         nt::NetworkTableEntry P__Rebuilt_Roller_Motor_Gain_FF__Entry;
