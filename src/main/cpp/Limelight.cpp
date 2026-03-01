@@ -115,7 +115,7 @@ void Limelight::PreStepCallback() {
         }
 
         Odometry_U.Vision_Gyro_Angle = CameraOneLLMeasurement.pose.Rotation().Degrees().value(); //Get the robot's orientation from the Limelight's pose estimation in degrees
-        Odometry_U.Vision_Gyro_Angle_Status = (CameraOneLLAvgTagArea > 0) && (CameraOneLLTagCount > 0);
+        Odometry_U.Vision_Gyro_Angle_Status = !((CameraOneLLAvgTagArea > 0) && (CameraOneLLTagCount > 0));
 
         // Robot Pose Relative to Tag
         std::vector<double> c1TargetPoseRobotSpace = LimelightHelpers::getTargetPose_RobotSpace(nsLimelight::CameraOneCreateInfo.LimelightName);

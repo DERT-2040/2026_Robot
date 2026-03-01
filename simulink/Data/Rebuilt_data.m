@@ -45,17 +45,17 @@ Rebuilt_Shoot_Dist_3 = 3.692;
 Rebuilt_Shoot_Dist_4 = 4.353;
 Rebuilt_Shoot_Dist_5 = 4.884;
 Rebuilt_Shoot_Dist_6 = 5.6;
-Rebuilt_Shoot_Dist_7 = 6.5;
+Rebuilt_Shoot_Dist_7 = 9; %6.5;
 
 % Desired_Shooter_Motor_Speed (rpm)
 Rebuilt_Shoot_Shooter_Spd_0 = 2900;
 Rebuilt_Shoot_Shooter_Spd_1 = 3000;
 Rebuilt_Shoot_Shooter_Spd_2 = 3250;
-Rebuilt_Shoot_Shooter_Spd_3 = 3425;
+Rebuilt_Shoot_Shooter_Spd_3 = 3400;
 Rebuilt_Shoot_Shooter_Spd_4 = 3575;
 Rebuilt_Shoot_Shooter_Spd_5 = 3700;
 Rebuilt_Shoot_Shooter_Spd_6 = 3850;
-Rebuilt_Shoot_Shooter_Spd_7 = 4000;
+Rebuilt_Shoot_Shooter_Spd_7 = 4500;
 
 % Desired Hood Position (pwm)
 Rebuilt_Shoot_Hood_Pos_0 = 0.05;
@@ -65,7 +65,7 @@ Rebuilt_Shoot_Hood_Pos_3 = 0.4;
 Rebuilt_Shoot_Hood_Pos_4 = 0.45;
 Rebuilt_Shoot_Hood_Pos_5 = 0.5;
 Rebuilt_Shoot_Hood_Pos_6 = 0.58;
-Rebuilt_Shoot_Hood_Pos_7 = 0.62;
+Rebuilt_Shoot_Hood_Pos_7 = 1;
 
 % Time of Flight (sec)
 Rebuilt_Shoot_TOF_0 = 0.943;
@@ -82,10 +82,10 @@ Rebuilt_Shoot_Gyro_Err_0 = 5;
 Rebuilt_Shoot_Gyro_Err_1 = 5;
 Rebuilt_Shoot_Gyro_Err_2 = 5;
 Rebuilt_Shoot_Gyro_Err_3 = 4;
-Rebuilt_Shoot_Gyro_Err_4 = 3;
-Rebuilt_Shoot_Gyro_Err_5 = 2;
-Rebuilt_Shoot_Gyro_Err_6 = 2;
-Rebuilt_Shoot_Gyro_Err_7 = 2;
+Rebuilt_Shoot_Gyro_Err_4 = 3.4;
+Rebuilt_Shoot_Gyro_Err_5 = 3;
+Rebuilt_Shoot_Gyro_Err_6 = 2.8;
+Rebuilt_Shoot_Gyro_Err_7 = 2.5;
 
 % PLOT TABLES
     plot_dist     = [Rebuilt_Shoot_Dist_0 Rebuilt_Shoot_Dist_1 Rebuilt_Shoot_Dist_2 Rebuilt_Shoot_Dist_3 Rebuilt_Shoot_Dist_4 Rebuilt_Shoot_Dist_5 Rebuilt_Shoot_Dist_6 Rebuilt_Shoot_Dist_7];

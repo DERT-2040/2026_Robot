@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.458
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Feb 27 22:16:37 2026
+ * C/C++ source code generated on : Sat Feb 28 22:42:19 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -258,7 +258,7 @@ real_T Rebuilt_Shoot_Dist_5 = 4.884;   /* Variable: Rebuilt_Shoot_Dist_5
 real_T Rebuilt_Shoot_Dist_6 = 5.6;     /* Variable: Rebuilt_Shoot_Dist_6
                                         * Referenced by: '<S117>/Constant2'
                                         */
-real_T Rebuilt_Shoot_Dist_7 = 6.5;     /* Variable: Rebuilt_Shoot_Dist_7
+real_T Rebuilt_Shoot_Dist_7 = 9.0;     /* Variable: Rebuilt_Shoot_Dist_7
                                         * Referenced by: '<S117>/Constant1'
                                         */
 real_T Rebuilt_Shoot_Gyro_Err_0 = 5.0; /* Variable: Rebuilt_Shoot_Gyro_Err_0
@@ -270,19 +270,19 @@ real_T Rebuilt_Shoot_Gyro_Err_1 = 5.0; /* Variable: Rebuilt_Shoot_Gyro_Err_1
 real_T Rebuilt_Shoot_Gyro_Err_2 = 5.0; /* Variable: Rebuilt_Shoot_Gyro_Err_2
                                         * Referenced by: '<S113>/Constant7'
                                         */
-real_T Rebuilt_Shoot_Gyro_Err_3 = 5.0; /* Variable: Rebuilt_Shoot_Gyro_Err_3
+real_T Rebuilt_Shoot_Gyro_Err_3 = 4.0; /* Variable: Rebuilt_Shoot_Gyro_Err_3
                                         * Referenced by: '<S113>/Constant8'
                                         */
-real_T Rebuilt_Shoot_Gyro_Err_4 = 5.0; /* Variable: Rebuilt_Shoot_Gyro_Err_4
+real_T Rebuilt_Shoot_Gyro_Err_4 = 3.4; /* Variable: Rebuilt_Shoot_Gyro_Err_4
                                         * Referenced by: '<S113>/Constant9'
                                         */
-real_T Rebuilt_Shoot_Gyro_Err_5 = 5.0; /* Variable: Rebuilt_Shoot_Gyro_Err_5
+real_T Rebuilt_Shoot_Gyro_Err_5 = 3.0; /* Variable: Rebuilt_Shoot_Gyro_Err_5
                                         * Referenced by: '<S113>/Constant10'
                                         */
-real_T Rebuilt_Shoot_Gyro_Err_6 = 5.0; /* Variable: Rebuilt_Shoot_Gyro_Err_6
+real_T Rebuilt_Shoot_Gyro_Err_6 = 2.8; /* Variable: Rebuilt_Shoot_Gyro_Err_6
                                         * Referenced by: '<S113>/Constant2'
                                         */
-real_T Rebuilt_Shoot_Gyro_Err_7 = 5.0; /* Variable: Rebuilt_Shoot_Gyro_Err_7
+real_T Rebuilt_Shoot_Gyro_Err_7 = 2.5; /* Variable: Rebuilt_Shoot_Gyro_Err_7
                                         * Referenced by: '<S113>/Constant1'
                                         */
 real_T Rebuilt_Shoot_Hood_Pos_0 = 0.05;/* Variable: Rebuilt_Shoot_Hood_Pos_0
@@ -306,7 +306,7 @@ real_T Rebuilt_Shoot_Hood_Pos_5 = 0.5; /* Variable: Rebuilt_Shoot_Hood_Pos_5
 real_T Rebuilt_Shoot_Hood_Pos_6 = 0.58;/* Variable: Rebuilt_Shoot_Hood_Pos_6
                                         * Referenced by: '<S114>/Constant2'
                                         */
-real_T Rebuilt_Shoot_Hood_Pos_7 = 0.62;/* Variable: Rebuilt_Shoot_Hood_Pos_7
+real_T Rebuilt_Shoot_Hood_Pos_7 = 1.0; /* Variable: Rebuilt_Shoot_Hood_Pos_7
                                         * Referenced by: '<S114>/Constant1'
                                         */
 real_T Rebuilt_Shoot_Hood_Pos_Max_Error = 0.03;
@@ -321,28 +321,28 @@ real_T Rebuilt_Shoot_Robot_Velocity_Max = 1.0;
                                    /* Variable: Rebuilt_Shoot_Robot_Velocity_Max
                                     * Referenced by: '<S104>/Constant'
                                     */
-real_T Rebuilt_Shoot_Shooter_Spd_0 = 2500.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_0
+real_T Rebuilt_Shoot_Shooter_Spd_0 = 2900.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_0
                                              * Referenced by: '<S115>/Constant5'
                                              */
-real_T Rebuilt_Shoot_Shooter_Spd_1 = 2800.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_1
+real_T Rebuilt_Shoot_Shooter_Spd_1 = 3000.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_1
                                              * Referenced by: '<S115>/Constant6'
                                              */
-real_T Rebuilt_Shoot_Shooter_Spd_2 = 3100.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_2
+real_T Rebuilt_Shoot_Shooter_Spd_2 = 3250.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_2
                                              * Referenced by: '<S115>/Constant7'
                                              */
-real_T Rebuilt_Shoot_Shooter_Spd_3 = 3200.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_3
+real_T Rebuilt_Shoot_Shooter_Spd_3 = 3400.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_3
                                              * Referenced by: '<S115>/Constant8'
                                              */
-real_T Rebuilt_Shoot_Shooter_Spd_4 = 3400.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_4
+real_T Rebuilt_Shoot_Shooter_Spd_4 = 3575.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_4
                                              * Referenced by: '<S115>/Constant9'
                                              */
-real_T Rebuilt_Shoot_Shooter_Spd_5 = 3550.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_5
+real_T Rebuilt_Shoot_Shooter_Spd_5 = 3700.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_5
                                              * Referenced by: '<S115>/Constant10'
                                              */
-real_T Rebuilt_Shoot_Shooter_Spd_6 = 3800.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_6
+real_T Rebuilt_Shoot_Shooter_Spd_6 = 3850.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_6
                                              * Referenced by: '<S115>/Constant2'
                                              */
-real_T Rebuilt_Shoot_Shooter_Spd_7 = 4000.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_7
+real_T Rebuilt_Shoot_Shooter_Spd_7 = 4500.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_7
                                              * Referenced by: '<S115>/Constant1'
                                              */
 real_T Rebuilt_Shoot_TOF_0 = 0.943;    /* Variable: Rebuilt_Shoot_TOF_0
