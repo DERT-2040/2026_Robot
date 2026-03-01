@@ -33,10 +33,13 @@ private:
         nt::NetworkTableEntry P__Drive_Motor_Control_Sign_Change_Deadband__Entry;
         nt::NetworkTableEntry P__Field_BlueAllianceZoneX__Entry;
         nt::NetworkTableEntry P__Field_Blue_Hub_X__Entry;
-        nt::NetworkTableEntry P__Field_Blue_Hub_Y__Entry;
+        nt::NetworkTableEntry P__Field_Blue_Pass_X__Entry;
+        nt::NetworkTableEntry P__Field_Hub_Y__Entry;
+        nt::NetworkTableEntry P__Field_Pass_Y_Bottom__Entry;
+        nt::NetworkTableEntry P__Field_Pass_Y_Top__Entry;
         nt::NetworkTableEntry P__Field_RedAllianceZoneX__Entry;
         nt::NetworkTableEntry P__Field_Red_Hub_X__Entry;
-        nt::NetworkTableEntry P__Field_Red_Hub_Y__Entry;
+        nt::NetworkTableEntry P__Field_Red_Pass_X__Entry;
         nt::NetworkTableEntry P__Field_Translation_Control_Gain__Entry;
         nt::NetworkTableEntry P__Field_Translation_Speed_Max__Entry;
         nt::NetworkTableEntry P__KF_Enable__Entry;
@@ -195,7 +198,6 @@ private:
         nt::NetworkTableEntry P__Vision_Tag_Y_Offset__Entry;
  
         // Inports
-        nt::NetworkTableEntry I__Auto_Start_Position__Entry;
         nt::NetworkTableEntry I__BL_Steer_Module_Angle__Entry;
         nt::NetworkTableEntry I__BR_Steer_Module_Angle__Entry;
         nt::NetworkTableEntry I__BackLeft_Drive_Motor_Speed__Entry;

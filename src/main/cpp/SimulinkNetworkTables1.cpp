@@ -75,9 +75,21 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     NTinst.AddListener(P__Field_Blue_Hub_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Field_Blue_Hub_X = event.GetValueEventData()->value.GetDouble();});
     P__Field_Blue_Hub_X__Entry.SetDouble(4.6256);
  
-    P__Field_Blue_Hub_Y__Entry = NTtable_Tune->GetEntry("Field_Blue_Hub_Y");
-    NTinst.AddListener(P__Field_Blue_Hub_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Field_Blue_Hub_Y = event.GetValueEventData()->value.GetDouble();});
-    P__Field_Blue_Hub_Y__Entry.SetDouble(4.0345);
+    P__Field_Blue_Pass_X__Entry = NTtable_Tune->GetEntry("Field_Blue_Pass_X");
+    NTinst.AddListener(P__Field_Blue_Pass_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Field_Blue_Pass_X = event.GetValueEventData()->value.GetDouble();});
+    P__Field_Blue_Pass_X__Entry.SetDouble(1.9889);
+ 
+    P__Field_Hub_Y__Entry = NTtable_Tune->GetEntry("Field_Hub_Y");
+    NTinst.AddListener(P__Field_Hub_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Field_Hub_Y = event.GetValueEventData()->value.GetDouble();});
+    P__Field_Hub_Y__Entry.SetDouble(4.0345);
+ 
+    P__Field_Pass_Y_Bottom__Entry = NTtable_Tune->GetEntry("Field_Pass_Y_Bottom");
+    NTinst.AddListener(P__Field_Pass_Y_Bottom__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Field_Pass_Y_Bottom = event.GetValueEventData()->value.GetDouble();});
+    P__Field_Pass_Y_Bottom__Entry.SetDouble(0.63297);
+ 
+    P__Field_Pass_Y_Top__Entry = NTtable_Tune->GetEntry("Field_Pass_Y_Top");
+    NTinst.AddListener(P__Field_Pass_Y_Top__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Field_Pass_Y_Top = event.GetValueEventData()->value.GetDouble();});
+    P__Field_Pass_Y_Top__Entry.SetDouble(7.4364);
  
     P__Field_RedAllianceZoneX__Entry = NTtable_Tune->GetEntry("Field_RedAllianceZoneX");
     NTinst.AddListener(P__Field_RedAllianceZoneX__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Field_RedAllianceZoneX = event.GetValueEventData()->value.GetDouble();});
@@ -87,9 +99,9 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     NTinst.AddListener(P__Field_Red_Hub_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Field_Red_Hub_X = event.GetValueEventData()->value.GetDouble();});
     P__Field_Red_Hub_X__Entry.SetDouble(11.9154);
  
-    P__Field_Red_Hub_Y__Entry = NTtable_Tune->GetEntry("Field_Red_Hub_Y");
-    NTinst.AddListener(P__Field_Red_Hub_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Field_Red_Hub_Y = event.GetValueEventData()->value.GetDouble();});
-    P__Field_Red_Hub_Y__Entry.SetDouble(4.0345);
+    P__Field_Red_Pass_X__Entry = NTtable_Tune->GetEntry("Field_Red_Pass_X");
+    NTinst.AddListener(P__Field_Red_Pass_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Field_Red_Pass_X = event.GetValueEventData()->value.GetDouble();});
+    P__Field_Red_Pass_X__Entry.SetDouble(14.552);
  
     P__Field_Translation_Control_Gain__Entry = NTtable_Tune->GetEntry("Field_Translation_Control_Gain");
     NTinst.AddListener(P__Field_Translation_Control_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Field_Translation_Control_Gain = event.GetValueEventData()->value.GetDouble();});
@@ -716,7 +728,6 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     P__Vision_Tag_Y_Offset__Entry.SetDouble(0);
  
 // Inports
-    I__Auto_Start_Position__Entry = NTtable_Inport->GetEntry("Auto_Start_Position");
     I__BL_Steer_Module_Angle__Entry = NTtable_Inport->GetEntry("BL_Steer_Module_Angle");
     I__BR_Steer_Module_Angle__Entry = NTtable_Inport->GetEntry("BR_Steer_Module_Angle");
     I__BackLeft_Drive_Motor_Speed__Entry = NTtable_Inport->GetEntry("BackLeft_Drive_Motor_Speed");
@@ -965,10 +976,13 @@ void SimulinkNetworkTables1::PostStepCallback()
     P__Drive_Motor_Control_Sign_Change_Deadband__Entry.SetDouble(Drive_Motor_Control_Sign_Change_Deadband);
     P__Field_BlueAllianceZoneX__Entry.SetDouble(Field_BlueAllianceZoneX);
     P__Field_Blue_Hub_X__Entry.SetDouble(Field_Blue_Hub_X);
-    P__Field_Blue_Hub_Y__Entry.SetDouble(Field_Blue_Hub_Y);
+    P__Field_Blue_Pass_X__Entry.SetDouble(Field_Blue_Pass_X);
+    P__Field_Hub_Y__Entry.SetDouble(Field_Hub_Y);
+    P__Field_Pass_Y_Bottom__Entry.SetDouble(Field_Pass_Y_Bottom);
+    P__Field_Pass_Y_Top__Entry.SetDouble(Field_Pass_Y_Top);
     P__Field_RedAllianceZoneX__Entry.SetDouble(Field_RedAllianceZoneX);
     P__Field_Red_Hub_X__Entry.SetDouble(Field_Red_Hub_X);
-    P__Field_Red_Hub_Y__Entry.SetDouble(Field_Red_Hub_Y);
+    P__Field_Red_Pass_X__Entry.SetDouble(Field_Red_Pass_X);
     P__Field_Translation_Control_Gain__Entry.SetDouble(Field_Translation_Control_Gain);
     P__Field_Translation_Speed_Max__Entry.SetDouble(Field_Translation_Speed_Max);
     P__KF_Enable__Entry.SetDouble(KF_Enable);
@@ -1126,7 +1140,6 @@ void SimulinkNetworkTables1::PostStepCallback()
     P__Vision_Tag_X_Offset__Entry.SetDouble(Vision_Tag_X_Offset);
     P__Vision_Tag_Y_Offset__Entry.SetDouble(Vision_Tag_Y_Offset);
     // Inports
-    I__Auto_Start_Position__Entry.SetDouble(Robot_Control_U.Auto_Start_Position);
     I__BL_Steer_Module_Angle__Entry.SetDouble(Robot_Control_U.BL_Steer_Module_Angle);
     I__BR_Steer_Module_Angle__Entry.SetDouble(Robot_Control_U.BR_Steer_Module_Angle);
     I__BackLeft_Drive_Motor_Speed__Entry.SetDouble(Robot_Control_U.BackLeft_Drive_Motor_Speed);

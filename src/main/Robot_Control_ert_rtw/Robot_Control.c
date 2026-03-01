@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.458
+ * Model version                  : 2.460
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Feb 28 22:42:19 2026
+ * C/C++ source code generated on : Sun Mar  1 00:07:44 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -141,10 +141,21 @@ real_T Field_BlueAllianceZoneX = 4.6256;/* Variable: Field_BlueAllianceZoneX
                                          *   '<S137>/BlueAllianceZoneX'
                                          */
 real_T Field_Blue_Hub_X = 4.6256;      /* Variable: Field_Blue_Hub_X
-                                        * Referenced by: '<S116>/Constant'
+                                        * Referenced by: '<S116>/Constant8'
                                         */
-real_T Field_Blue_Hub_Y = 4.0345;      /* Variable: Field_Blue_Hub_Y
-                                        * Referenced by: '<S116>/Constant1'
+real_T Field_Blue_Pass_X = 1.9889;     /* Variable: Field_Blue_Pass_X
+                                        * Referenced by: '<S116>/Blue_Top'
+                                        */
+real_T Field_Hub_Y = 4.0345;           /* Variable: Field_Hub_Y
+                                        * Referenced by:
+                                        *   '<S116>/Constant1'
+                                        *   '<S116>/Switch3'
+                                        */
+real_T Field_Pass_Y_Bottom = 0.63297;  /* Variable: Field_Pass_Y_Bottom
+                                        * Referenced by: '<S116>/Blue_Top2'
+                                        */
+real_T Field_Pass_Y_Top = 7.4364;      /* Variable: Field_Pass_Y_Top
+                                        * Referenced by: '<S116>/Blue_Top3'
                                         */
 real_T Field_RedAllianceZoneX = 11.9154;/* Variable: Field_RedAllianceZoneX
                                          * Referenced by:
@@ -152,10 +163,10 @@ real_T Field_RedAllianceZoneX = 11.9154;/* Variable: Field_RedAllianceZoneX
                                          *   '<S138>/RedAllianceZoneX'
                                          */
 real_T Field_Red_Hub_X = 11.9154;      /* Variable: Field_Red_Hub_X
-                                        * Referenced by: '<S116>/Constant2'
+                                        * Referenced by: '<S116>/Constant9'
                                         */
-real_T Field_Red_Hub_Y = 4.0345;       /* Variable: Field_Red_Hub_Y
-                                        * Referenced by: '<S116>/Constant3'
+real_T Field_Red_Pass_X = 14.552;      /* Variable: Field_Red_Pass_X
+                                        * Referenced by: '<S116>/Blue_Top1'
                                         */
 real_T Field_Translation_Control_Gain = 10.0;
                                      /* Variable: Field_Translation_Control_Gain
@@ -850,8 +861,8 @@ void Robot_Control_step(void)
   real_T rtb_Switch1;
   real_T rtb_Switch2;
   real_T rtb_Switch2_dp;
-  real_T rtb_Switch2_ku;
-  real_T rtb_Switch2_m;
+  real_T rtb_Switch2_e;
+  real_T rtb_Switch2_ee;
   real_T rtb_Switch2_ox;
   real_T rtb_Switch2_p2;
   real_T rtb_Switch4;
@@ -3008,8 +3019,9 @@ void Robot_Control_step(void)
      *  Sum: '<S111>/Add'
      *  Sum: '<S111>/Subtract'
      *  Sum: '<S111>/Subtract1'
-     *  Switch: '<S116>/Switch'
-     *  Switch: '<S116>/Switch1'
+     *  Switch: '<S116>/Switch4'
+     *  Switch: '<S116>/Switch5'
+     *  Switch: '<S116>/Switch6'
      *  Trigonometry: '<S111>/Tanh'
      */
     rtb_TmpSignalConversionAtLook_o[0] = Rebuilt_Shoot_Dist_0;
@@ -3046,26 +3058,57 @@ void Robot_Control_step(void)
     rtb_TmpSignalConversionAtLoo_d0[5] = Rebuilt_Shoot_Gyro_Err_5;
     rtb_TmpSignalConversionAtLoo_d0[6] = Rebuilt_Shoot_Gyro_Err_6;
     rtb_TmpSignalConversionAtLoo_d0[7] = Rebuilt_Shoot_Gyro_Err_7;
-    if (Robot_Control_U.IsBlueAlliance != 0.0) {
-      /* Switch: '<S116>/Switch' incorporates:
-       *  Constant: '<S116>/Constant'
+    if (Robot_Control_B.Is_Outside_Alliance_Zone) {
+      /* Switch: '<S116>/Switch2' incorporates:
+       *  Inport: '<Root>/IsBlueAlliance'
        */
-      Robot_Control_B.RB_Shoot_Target_X = Field_Blue_Hub_X;
+      if (Robot_Control_U.IsBlueAlliance != 0.0) {
+        /* Switch: '<S116>/Switch4' incorporates:
+         *  Constant: '<S116>/Blue_Top'
+         */
+        Robot_Control_B.RB_Shoot_Target_X = Field_Blue_Pass_X;
+      } else {
+        /* Switch: '<S116>/Switch4' incorporates:
+         *  Constant: '<S116>/Blue_Top1'
+         */
+        Robot_Control_B.RB_Shoot_Target_X = Field_Red_Pass_X;
+      }
 
-      /* Switch: '<S116>/Switch1' incorporates:
+      /* End of Switch: '<S116>/Switch2' */
+
+      /* Switch: '<S116>/Switch3' */
+      if (Robot_Control_B.KF_Position_Y > Field_Hub_Y) {
+        /* Switch: '<S116>/Switch6' incorporates:
+         *  Constant: '<S116>/Blue_Top3'
+         */
+        Robot_Control_B.RB_Shoot_Target_Y = Field_Pass_Y_Top;
+      } else {
+        /* Switch: '<S116>/Switch6' incorporates:
+         *  Constant: '<S116>/Blue_Top2'
+         */
+        Robot_Control_B.RB_Shoot_Target_Y = Field_Pass_Y_Bottom;
+      }
+
+      /* End of Switch: '<S116>/Switch3' */
+    } else {
+      if (Robot_Control_U.IsBlueAlliance != 0.0) {
+        /* Switch: '<S116>/Switch5' incorporates:
+         *  Constant: '<S116>/Constant8'
+         *  Switch: '<S116>/Switch4'
+         */
+        Robot_Control_B.RB_Shoot_Target_X = Field_Blue_Hub_X;
+      } else {
+        /* Switch: '<S116>/Switch4' incorporates:
+         *  Constant: '<S116>/Constant9'
+         *  Switch: '<S116>/Switch5'
+         */
+        Robot_Control_B.RB_Shoot_Target_X = Field_Red_Hub_X;
+      }
+
+      /* Switch: '<S116>/Switch6' incorporates:
        *  Constant: '<S116>/Constant1'
        */
-      Robot_Control_B.RB_Shoot_Target_Y = Field_Blue_Hub_Y;
-    } else {
-      /* Switch: '<S116>/Switch' incorporates:
-       *  Constant: '<S116>/Constant2'
-       */
-      Robot_Control_B.RB_Shoot_Target_X = Field_Red_Hub_X;
-
-      /* Switch: '<S116>/Switch1' incorporates:
-       *  Constant: '<S116>/Constant3'
-       */
-      Robot_Control_B.RB_Shoot_Target_Y = Field_Red_Hub_Y;
+      Robot_Control_B.RB_Shoot_Target_Y = Field_Hub_Y;
     }
 
     /* Outputs for Iterator SubSystem: '<S110>/Iterate_Shot_Target' incorporates:
@@ -4882,7 +4925,7 @@ void Robot_Control_step(void)
   /* Product: '<S240>/Product' incorporates:
    *  Constant: '<S240>/Constant3'
    */
-  rtb_Switch2_m = rtb_Hypot_b * Steering_Motor_Control_D;
+  rtb_Switch2_ee = rtb_Hypot_b * Steering_Motor_Control_D;
 
   /* Sum: '<S254>/Diff' incorporates:
    *  UnitDelay: '<S254>/UD'
@@ -4895,7 +4938,7 @@ void Robot_Control_step(void)
    *
    *  Store in Global RAM
    */
-  rtb_Add_i = rtb_Switch2_m - Robot_Control_DW.UD_DSTATE_i;
+  rtb_Add_i = rtb_Switch2_ee - Robot_Control_DW.UD_DSTATE_i;
 
   /* Saturate: '<S240>/Saturation' */
   if (rtb_Add_i > Steering_Motor_Control_D_UL) {
@@ -6048,7 +6091,7 @@ void Robot_Control_step(void)
     /* Sum: '<S33>/Subtract' incorporates:
      *  Constant: '<S33>/Constant'
      */
-    rtb_Switch2_ku = 1.0 - rtb_Add_is;
+    rtb_Switch2_e = 1.0 - rtb_Add_is;
 
     /* Switch: '<S36>/Switch2' incorporates:
      *  Constant: '<S33>/Constant'
@@ -6059,7 +6102,7 @@ void Robot_Control_step(void)
       /* Sum: '<S33>/Subtract1' incorporates:
        *  Constant: '<S33>/Constant1'
        */
-      rtb_Switch2_ku = -1.0 - rtb_Add_is;
+      rtb_Switch2_e = -1.0 - rtb_Add_is;
 
       /* Switch: '<S36>/Switch' incorporates:
        *  Constant: '<S33>/Constant1'
@@ -6067,7 +6110,7 @@ void Robot_Control_step(void)
        *  Sum: '<S33>/Subtract1'
        */
       if (!(rtb_Error_e < (-1.0 - rtb_Add_is))) {
-        rtb_Switch2_ku = rtb_Error_e;
+        rtb_Switch2_e = rtb_Error_e;
       }
 
       /* End of Switch: '<S36>/Switch' */
@@ -6076,12 +6119,12 @@ void Robot_Control_step(void)
     /* End of Switch: '<S36>/Switch2' */
 
     /* Saturate: '<S33>/Saturation1' */
-    if (rtb_Switch2_ku > 0.1) {
+    if (rtb_Switch2_e > 0.1) {
       rtb_Error_e = 0.1;
-    } else if (rtb_Switch2_ku < -0.1) {
+    } else if (rtb_Switch2_e < -0.1) {
       rtb_Error_e = -0.1;
     } else {
-      rtb_Error_e = rtb_Switch2_ku;
+      rtb_Error_e = rtb_Switch2_e;
     }
 
     /* End of Saturate: '<S33>/Saturation1' */
@@ -6161,7 +6204,7 @@ void Robot_Control_step(void)
   /* Product: '<S140>/Product' incorporates:
    *  Constant: '<S140>/Constant3'
    */
-  rtb_Switch2_ku = rtb_Add_is * 0.0;
+  rtb_Switch2_e = rtb_Add_is * 0.0;
 
   /* Sum: '<S141>/Diff' incorporates:
    *  UnitDelay: '<S141>/UD'
@@ -6174,7 +6217,7 @@ void Robot_Control_step(void)
    *
    *  Store in Global RAM
    */
-  rtb_Add_i = rtb_Switch2_ku - Robot_Control_DW.UD_DSTATE_ml;
+  rtb_Add_i = rtb_Switch2_e - Robot_Control_DW.UD_DSTATE_ml;
 
   /* Saturate: '<S140>/Saturation' */
   if (rtb_Add_i > 0.1) {
@@ -6576,7 +6619,7 @@ void Robot_Control_step(void)
    *
    *  Store in Global RAM
    */
-  Robot_Control_DW.UD_DSTATE_i = rtb_Switch2_m;
+  Robot_Control_DW.UD_DSTATE_i = rtb_Switch2_ee;
 
   /* Update for UnitDelay: '<S240>/Unit Delay' */
   Robot_Control_DW.UnitDelay_DSTATE_dt = rtb_Sum2_oc;
@@ -6696,7 +6739,7 @@ void Robot_Control_step(void)
    *
    *  Store in Global RAM
    */
-  Robot_Control_DW.UD_DSTATE_ml = rtb_Switch2_ku;
+  Robot_Control_DW.UD_DSTATE_ml = rtb_Switch2_e;
 
   /* Update for UnitDelay: '<S140>/Unit Delay' */
   Robot_Control_DW.UnitDelay_DSTATE_di = rtb_Error_b;

@@ -12,11 +12,14 @@ TEST_Intake_Roller_Motor_DC_OV = 0;
 
 %% Field Element Position Data
 Field_BlueAllianceZoneX = 182.11*0.0254;            % Meters
-Field_RedAllianceZoneX = (651.22-182.11)*0.0254;    % Meters
-Field_Blue_Hub_X = 182.11*0.0254;             % Meters
-Field_Blue_Hub_Y = 158.84*0.0254;             % Meters
-Field_Red_Hub_X =  (651.22-182.11)*0.0254;    % Meters
-Field_Red_Hub_Y =  158.84*0.0254;             % Meters
+Field_RedAllianceZoneX  = (651.22-182.11)*0.0254;    % Meters
+Field_Blue_Hub_X        = 182.11*0.0254;             % Meters
+Field_Hub_Y             = 158.84*0.0254;             % Meters
+Field_Red_Hub_X         = (651.22-182.11)*0.0254;    % Meters
+Field_Pass_Y_Top        = (317.69-(49.84/2))*0.0254;
+Field_Pass_Y_Bottom     = (49.84/2)*0.0254;
+Field_Blue_Pass_X       = (156.61/2)*0.0254;
+Field_Red_Pass_X        = (651.22-((156.61/2)))*0.0254;
 
 %% Shooting Control Data
 % Targets

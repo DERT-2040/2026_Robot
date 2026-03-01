@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Odometry'.
  *
- * Model version                  : 2.436
+ * Model version                  : 2.437
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Feb 28 15:48:58 2026
+ * C/C++ source code generated on : Sun Mar  1 00:13:14 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -63,6 +63,8 @@ typedef struct {
   real_T UD_DSTATE_i;                  /* '<S13>/UD' */
   real_T UD_DSTATE_iy;                 /* '<S14>/UD' */
   real_T UD_DSTATE_f;                  /* '<S15>/UD' */
+  real_T TappedDelay_X[4];             /* '<S3>/Tapped Delay' */
+  real_T TappedDelay1_X[4];            /* '<S3>/Tapped Delay1' */
   real_T DelayInput1_DSTATE;           /* '<S9>/Delay Input1' */
   real_T UnitDelay1_DSTATE;            /* '<S1>/Unit Delay1' */
   real_T UnitDelay2_DSTATE;            /* '<S1>/Unit Delay2' */
@@ -106,7 +108,6 @@ typedef struct {
 typedef struct {
   real_T Gyro_Angle_Field_rad;         /* '<Root>/Gyro_Angle_Field_rad' */
   real_T Gyro_Angle_rad;               /* '<Root>/Gyro_Angle_rad' */
-  real_T Auto_Start_Position;          /* '<Root>/Auto_Start_Position' */
   real_T FL_Steer_Module_Angle;        /* '<Root>/FL_Steer_Module_Angle' */
   real_T FR_Steer_Module_Angle;        /* '<Root>/FR_Steer_Module_Angle' */
   real_T BL_Steer_Module_Angle;        /* '<Root>/BL_Steer_Module_Angle' */
@@ -144,18 +145,6 @@ extern ExtY_Odometry_T Odometry_Y;
  * these parameters and exports their symbols.
  *
  */
-extern real_T Auto_Starting_Position;  /* Variable: Auto_Starting_Position
-                                        * Referenced by: '<S2>/Constant2'
-                                        */
-extern real_T Gyro_Calibration_Auto_Center;/* Variable: Gyro_Calibration_Auto_Center
-                                            * Referenced by: '<S2>/Constant5'
-                                            */
-extern real_T Gyro_Calibration_Auto_Left;/* Variable: Gyro_Calibration_Auto_Left
-                                          * Referenced by: '<S2>/Constant4'
-                                          */
-extern real_T Gyro_Calibration_Auto_Right;/* Variable: Gyro_Calibration_Auto_Right
-                                           * Referenced by: '<S2>/Constant6'
-                                           */
 extern real_T Gyro_Calibration_Default;/* Variable: Gyro_Calibration_Default
                                         * Referenced by:
                                         *   '<S2>/Constant7'

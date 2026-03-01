@@ -17,10 +17,6 @@ public:
     void PostStepCallback() override;
 private:
         // Parameters
-        nt::NetworkTableEntry P__Auto_Starting_Position__Entry;
-        nt::NetworkTableEntry P__Gyro_Calibration_Auto_Center__Entry;
-        nt::NetworkTableEntry P__Gyro_Calibration_Auto_Left__Entry;
-        nt::NetworkTableEntry P__Gyro_Calibration_Auto_Right__Entry;
         nt::NetworkTableEntry P__Gyro_Calibration_Default__Entry;
         nt::NetworkTableEntry P__Gyro_Calibration_Reset_Flag__Entry;
         nt::NetworkTableEntry P__Odometry_IC_X__Entry;
@@ -51,7 +47,6 @@ private:
         nt::NetworkTableEntry I__Vision_Gyro_Angle__Entry;
         nt::NetworkTableEntry I__Vision_Gyro_Angle_Status__Entry;
         // Outports
-        nt::NetworkTableEntry O__Auto_Start_Position__Entry;
         nt::NetworkTableEntry O__BL_Steer_Module_Angle__Entry;
         nt::NetworkTableEntry O__BR_Steer_Module_Angle__Entry;
         nt::NetworkTableEntry O__FL_Steer_Module_Angle__Entry;

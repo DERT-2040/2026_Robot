@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.458
+ * Model version                  : 2.460
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Feb 28 22:42:19 2026
+ * C/C++ source code generated on : Sun Mar  1 00:07:44 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -104,8 +104,8 @@ typedef struct {
   real_T Spline_Target_X;              /* '<S152>/Selector2' */
   real_T RB_Desired_Feeder_Speed;    /* '<S12>/Shooter_Transfer_Feeder Chart' */
   real_T RB_Desired_Transfer_Speed;  /* '<S12>/Shooter_Transfer_Feeder Chart' */
-  real_T RB_Shoot_Target_X;            /* '<S116>/Switch' */
-  real_T RB_Shoot_Target_Y;            /* '<S116>/Switch1' */
+  real_T RB_Shoot_Target_X;            /* '<S116>/Switch4' */
+  real_T RB_Shoot_Target_Y;            /* '<S116>/Switch6' */
   real_T RB_Desired_Hood_Pos;          /* '<S114>/Lookup Table Dynamic' */
   real_T RB_Desired_Shoot_Motor_Spd;   /* '<S115>/Lookup Table Dynamic' */
   real_T RB_Allow_Shoot_Gyro_Err;      /* '<S113>/Lookup Table Dynamic' */
@@ -338,7 +338,6 @@ typedef struct {
   real_T BackRight_Drive_Motor_Speed; /* '<Root>/BackRight_Drive_Motor_Speed' */
   real_T Gyro_Angle_Field_rad;         /* '<Root>/Gyro_Angle_Field_rad' */
   real_T Gyro_Angle_rad;               /* '<Root>/Gyro_Angle_rad' */
-  real_T Auto_Start_Position;          /* '<Root>/Auto_Start_Position' */
   real_T FL_Steer_Module_Angle;        /* '<Root>/FL_Steer_Module_Angle' */
   real_T FR_Steer_Module_Angle;        /* '<Root>/FR_Steer_Module_Angle' */
   real_T BL_Steer_Module_Angle;        /* '<Root>/BL_Steer_Module_Angle' */
@@ -522,10 +521,21 @@ extern real_T Field_BlueAllianceZoneX; /* Variable: Field_BlueAllianceZoneX
                                         *   '<S137>/BlueAllianceZoneX'
                                         */
 extern real_T Field_Blue_Hub_X;        /* Variable: Field_Blue_Hub_X
-                                        * Referenced by: '<S116>/Constant'
+                                        * Referenced by: '<S116>/Constant8'
                                         */
-extern real_T Field_Blue_Hub_Y;        /* Variable: Field_Blue_Hub_Y
-                                        * Referenced by: '<S116>/Constant1'
+extern real_T Field_Blue_Pass_X;       /* Variable: Field_Blue_Pass_X
+                                        * Referenced by: '<S116>/Blue_Top'
+                                        */
+extern real_T Field_Hub_Y;             /* Variable: Field_Hub_Y
+                                        * Referenced by:
+                                        *   '<S116>/Constant1'
+                                        *   '<S116>/Switch3'
+                                        */
+extern real_T Field_Pass_Y_Bottom;     /* Variable: Field_Pass_Y_Bottom
+                                        * Referenced by: '<S116>/Blue_Top2'
+                                        */
+extern real_T Field_Pass_Y_Top;        /* Variable: Field_Pass_Y_Top
+                                        * Referenced by: '<S116>/Blue_Top3'
                                         */
 extern real_T Field_RedAllianceZoneX;  /* Variable: Field_RedAllianceZoneX
                                         * Referenced by:
@@ -533,10 +543,10 @@ extern real_T Field_RedAllianceZoneX;  /* Variable: Field_RedAllianceZoneX
                                         *   '<S138>/RedAllianceZoneX'
                                         */
 extern real_T Field_Red_Hub_X;         /* Variable: Field_Red_Hub_X
-                                        * Referenced by: '<S116>/Constant2'
+                                        * Referenced by: '<S116>/Constant9'
                                         */
-extern real_T Field_Red_Hub_Y;         /* Variable: Field_Red_Hub_Y
-                                        * Referenced by: '<S116>/Constant3'
+extern real_T Field_Red_Pass_X;        /* Variable: Field_Red_Pass_X
+                                        * Referenced by: '<S116>/Blue_Top1'
                                         */
 extern real_T Field_Translation_Control_Gain;
                                      /* Variable: Field_Translation_Control_Gain
