@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.460
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sun Mar  1 19:25:20 2026
+ * C/C++ source code generated on : Mon Mar  2 06:56:00 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -1563,14 +1563,16 @@ void Robot_Control_step(void)
      *  RelationalOperator: '<S376>/Compare'
      *  UnitDelay: '<S11>/Unit Delay'
      *  UnitDelay: '<S375>/Delay Input1'
+     *  UnitDelay: '<S7>/Unit Delay1'
      *
      * Block description for '<S375>/Delay Input1':
      *
      *  Store in Global RAM
      */
-    if (((Robot_Control_B.Steering_Abs_Angle_Active) || (((int32_T)rtb_Compare_a)
-          > ((int32_T)Robot_Control_DW.DelayInput1_DSTATE_j))) ||
-        (Robot_Control_B.Active_GameState != 2)) {
+    if ((((Robot_Control_B.Steering_Abs_Angle_Active) || (((int32_T)
+            rtb_Compare_a) > ((int32_T)Robot_Control_DW.DelayInput1_DSTATE_j))) ||
+         (Robot_Control_B.Active_GameState != 2)) ||
+        (Robot_Control_B.RB_Shooter_Active)) {
       /* Switch: '<S367>/Switch8' incorporates:
        *  Inport: '<Root>/Gyro_Angle_rad'
        */
