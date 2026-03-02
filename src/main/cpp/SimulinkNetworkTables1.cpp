@@ -301,7 +301,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Shoot_Robot_Velocity_Max__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Robot_Velocity_Max");
     NTinst.AddListener(P__Rebuilt_Shoot_Robot_Velocity_Max__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Robot_Velocity_Max = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Robot_Velocity_Max__Entry.SetDouble(1);
+    P__Rebuilt_Shoot_Robot_Velocity_Max__Entry.SetDouble(1.7);
  
     P__Rebuilt_Shoot_Shooter_Spd_0__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Shooter_Spd_0");
     NTinst.AddListener(P__Rebuilt_Shoot_Shooter_Spd_0__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Shooter_Spd_0 = event.GetValueEventData()->value.GetDouble();});
@@ -952,6 +952,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__Vision_c1_Object_Corr_X_inch__Entry = NTtable_TPoint->GetEntry("Vision_c1_Object_Corr_X_inch");
     T__Vision_c1_Object_Corr_Y_inch__Entry = NTtable_TPoint->GetEntry("Vision_c1_Object_Corr_Y_inch");
     T__Vision_c1_Object_Corr_Yaw_deg__Entry = NTtable_TPoint->GetEntry("Vision_c1_Object_Corr_Yaw_deg");
+    T__WhileIterator__Entry = NTtable_TPoint->GetEntry("WhileIterator");
     T__loop_counter_robot_control__Entry = NTtable_TPoint->GetEntry("loop_counter_robot_control");
 }
  
@@ -1362,6 +1363,7 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__Vision_c1_Object_Corr_X_inch__Entry.SetDouble(Robot_Control_B.Vision_c1_Object_Corr_X_inch);
     T__Vision_c1_Object_Corr_Y_inch__Entry.SetDouble(Robot_Control_B.Vision_c1_Object_Corr_Y_inch);
     T__Vision_c1_Object_Corr_Yaw_deg__Entry.SetDouble(Robot_Control_B.Vision_c1_Object_Corr_Yaw_deg);
+    T__WhileIterator__Entry.SetDouble(Robot_Control_B.WhileIterator);
     T__loop_counter_robot_control__Entry.SetDouble(Robot_Control_B.loop_counter_robot_control);
 }
 // Why are you reading to the bottom of an autogen file?

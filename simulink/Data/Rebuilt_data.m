@@ -31,7 +31,7 @@ Rebuilt_Target_Feeder_Speed = Rebuilt_Target_Transfer_Speed*0.84;  % rpm
 % Assumes 4 inch diameter transfer wheels and 24 tooth pulleys driving the belts
 
 % Condition Checks
-Rebuilt_Shoot_Robot_Velocity_Max = 1;   % meter/second
+Rebuilt_Shoot_Robot_Velocity_Max = 1.7;   % meter/second
 Rebuilt_Shoot_Motor_Max_Error = 100;    % rpm
 Rebuilt_Shoot_Hood_Pos_Max_Error = 0.03;    % pwm position
 

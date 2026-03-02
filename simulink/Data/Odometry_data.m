@@ -17,7 +17,7 @@ Gyro_Calibration_Reset_Flag = 0;  % when this value increases then reset the deg
 Gyro_Calibration_Default = 0; % degrees
 
 % Vision Gyro Updates - Maximum Allowable Robot Velocity
-RobotMaxV_GyroReset = 1; % M/S
+RobotMaxV_GyroReset = 0.1; % M/S
 
 %% Odometry rotation matrix
 % robot rotation matrix to obtain: 

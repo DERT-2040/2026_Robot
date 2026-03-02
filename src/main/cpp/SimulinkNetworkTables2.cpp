@@ -37,7 +37,7 @@ SimulinkNetworkTables2::SimulinkNetworkTables2()
  
     P__RobotMaxV_GyroReset__Entry = NTtable_Tune->GetEntry("RobotMaxV_GyroReset");
     NTinst.AddListener(P__RobotMaxV_GyroReset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {RobotMaxV_GyroReset = event.GetValueEventData()->value.GetDouble();});
-    P__RobotMaxV_GyroReset__Entry.SetDouble(1);
+    P__RobotMaxV_GyroReset__Entry.SetDouble(0.1);
  
 // Inports
     I__BackLeft_Drive_Motor_Rev__Entry = NTtable_Inport->GetEntry("BackLeft_Drive_Motor_Rev");

@@ -5,11 +5,11 @@
  * sponsored by MathWorks.  Not for government, commercial or other
  * non-sponsored organizational use.
  *
- * Code generation for model "Odometry".
+ * Code generation for model "Robot_Control".
  *
- * Model version              : 2.423
+ * Model version              : 2.460
  * Simulink Coder version : 23.2 (R2023b) 01-Aug-2023
- * C source code generated on : Sat Dec 13 19:33:35 2025
+ * C source code generated on : Sun Mar  1 19:25:20 2026
  */
 #include "rtwtypes.h"
 
@@ -19,6 +19,23 @@ const real_T rtCP_pooled_5yrI5sG4rd1T[2] = { -80.0, -40.0 } ;
 extern const real_T rtCP_pooled_Bf9CpkNTNkgN[16];
 const real_T rtCP_pooled_Bf9CpkNTNkgN[16] = { 0.25, 0.0, 0.0, 0.25, 0.25, 0.0,
   0.0, 0.25, 0.25, 0.0, 0.0, 0.25, 0.25, 0.0, 0.0, 0.25 } ;
+
+extern const real_T rtCP_pooled_Gjx4MRKjwWNF[60];
+const real_T rtCP_pooled_Gjx4MRKjwWNF[60] = { 13.031, 9.541, 8.841, 9.241,
+  11.281, 12.761, 13.341, 14.371, 15.011, 0.0, 0.9593, 0.7593, 3.2993, 4.9193,
+  5.6693, 5.6693, 4.9693, 4.9093, 4.9093, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.5, 0.5,
+  0.5, 0.5, 0.0, 3.1416, 2.0944, 1.5708, 1.5708, 3.927, 3.927, 3.6652, 1.5708,
+  1.5708, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 3.0, 0.0, 2.0, 2.0, 2.0,
+  0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 } ;
+
+extern const real_T rtCP_pooled_HFhCqvkR3okO[60];
+const real_T rtCP_pooled_HFhCqvkR3okO[60] = { 3.51, 7.0, 7.7, 7.3, 5.26, 3.78,
+  3.2, 2.17, 1.53, 0.0, 7.11, 7.31, 4.77, 3.15, 2.4, 2.4, 3.1, 3.16, 3.16, 0.0,
+  1.0, 1.0, 1.0, 1.0, 1.0, 0.5, 0.5, 0.5, 0.5, 0.0, 0.0, -1.0471975511965976,
+  -1.5707963267948966, -1.5707963267948966, 0.78539816339744828,
+  0.78539816339744828, 0.52359877559829882, -1.5707963267948966,
+  -1.5707963267948966, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 3.0, 0.0,
+  2.0, 2.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 } ;
 
 extern const real_T rtCP_pooled_Ha5Ct2ozjCBu[2];
 const real_T rtCP_pooled_Ha5Ct2ozjCBu[2] = { 0.0, 0.78539816339744828 } ;
@@ -145,6 +162,14 @@ const real_T rtCP_pooled_ekLlM9ItYyIs[800] = { 7.582, 6.899, 6.273, 5.682, 0.0,
   2.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0471975511965979,
   -1.4311699866353502, -1.8151424220741026, -2.1991148575128552, 0.0, 0.0, 0.0,
   0.0, 0.0, 0.0 } ;
+
+extern const real_T rtCP_pooled_jyEP69xrmSuL[60];
+const real_T rtCP_pooled_jyEP69xrmSuL[60] = { 13.031, 9.541, 8.841, 9.241,
+  11.281, 12.761, 13.341, 14.371, 15.011, 0.0, 0.9593, 0.7593, 3.2993, 4.9193,
+  5.6693, 5.6693, 4.9693, 4.9093, 4.9093, 0.0, 2.0, 2.0, 2.0, 2.0, 2.0, 1.0, 1.0,
+  1.0, 1.0, 0.0, 3.1416, 2.0944, 1.5708, 1.5708, 3.927, 3.927, 3.6652, 1.5708,
+  1.5708, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 3.0, 0.0, 2.0, 2.0, 2.0,
+  0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 } ;
 
 extern const real_T rtCP_pooled_lxShGashPgga[75];
 const real_T rtCP_pooled_lxShGashPgga[75] = { 5.0, 4.0, 3.0, 2.0, 1.0, 0.0, -1.0,

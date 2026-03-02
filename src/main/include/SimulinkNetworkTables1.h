@@ -421,5 +421,6 @@ private:
         nt::NetworkTableEntry T__Vision_c1_Object_Corr_X_inch__Entry;
         nt::NetworkTableEntry T__Vision_c1_Object_Corr_Y_inch__Entry;
         nt::NetworkTableEntry T__Vision_c1_Object_Corr_Yaw_deg__Entry;
+        nt::NetworkTableEntry T__WhileIterator__Entry;
         nt::NetworkTableEntry T__loop_counter_robot_control__Entry;
 };

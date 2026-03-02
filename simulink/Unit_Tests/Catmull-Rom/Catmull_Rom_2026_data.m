@@ -18,32 +18,15 @@ plot_robot_rectangle = 1;  % 0 = off, 1 = on
 
 % Define which paths to run
 
-% Plot all of the paths
-%test_cases = [1:13]; %[1:11];  % normal cases
-
-% Start at left trench>NNZ>shoot right>Outputs>shoot right>climb right
-test_cases=[7,8,5,14,6,12]; %path 1 
-
-% Start at right trenc>NNZ>Shoot left>Depot>Shoot left>Climb left
-%test_cases =[9,10,15,2,11,13]; %path 2 
-
-% Start at left trench>NNZ>shoot right>Depot>shoot right>climb left
-%test_cases =[7,8,5,14,6,13]; %path 3
-
-% Start at right trenc>NNZ>Shoot left>Depot>Shoot left>Climb right
-%test_cases= [9,10,15,2,11,12]; %path 4
-
-% Start at right trench>Outpost>right shoot>climb right
-%test_cases=[4,5,6,12]; %path5
-
-% Start at right trench>Outpost>right shoot>climb left
-%test_cases =[4,5,6,13]; %path 6
-
-% Start at left ramp>Depot>left shoot>climb right
-%test_cases=[1,2,11,12]; %path7
-
-% Start at left ramp>Depot>left shoot>climb left
-%test_cases=[1,2,11,13]; %path8
+% Define which paths to run
+%test_cases = [1,2];
+%test_cases = [1,3];
+%test_cases = [4,5];
+%test_cases = [4,6];
+%test_cases = [7,8,2];
+%test_cases = [7,8,3];
+%test_cases = [9,10,5];
+%test_cases = [9,10,6];
 
 for m = 1:length(test_cases)
 

@@ -5,234 +5,162 @@ D2R = pi/180;
 field_width  = 317.69 * 0.0254;
 field_length = 651.22 * 0.0254;
 
-% [x, y, velocity, angle, Action during path]
+% [x, y, velocity, angle, action at path point, action during path segment]
 %     Column 5 action defined in the current row is the action taken
-%     between the current row point and the next row point if 
-%     next row point is not the last point in the list.
+%     at this point until it is completed.
 %
-%     Column 5 action defined in the current row is the action taken
-%     at the end of path if the point is the last point in the list.
+%     Column 6 action defined in the current row is the action taken
+%     between the current row point and the next row point and ends when
+%     the robot reaches the destination point in the ext row.
 %
-% Legend for column 5
-% 0 = Travel only
+% Legend for columns 5 and 6
+% 0 = No action at current point or during path to next point
 % 1 = Shooting
-% 2 = Gather fuel floor
-% 3 = Gather Fuel Depot
-% 4 = Gather Fuel Human(outpost) 
-% 5 = Climb
+% 2 = Gather Fuel from Floor
+% 3 = Climb
 
+% Start Location:  Left Trench
+% Middle Location: Neutral Zone
+% Finish Location: Right Hub
+Path_LT_NZ_RH = [
+    3.51, 7.11, 2,   0 *D2R, 0, 2;
+    7.00, 7.31, 2, -60 *D2R, 0, 2;
+    7.70, 4.77, 2, -90 *D2R, 0, 2;
+    7.30, 3.15, 2, -90 *D2R, 0, 0;
+    5.26, 2.4,  2,  45 *D2R, 0, 0;
+    3.78, 2.4,  1,  45 *D2R, 0, 0;
+    3.20, 3.10, 1,  30 *D2R, 1, 0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0];
 
-% Start Location: Left Start
-% Finish Location: Depot
-Path_1 = [
-    3.75, 5.9,  1, 180 *D2R, 2;
-    0.71, 5.97, 1, 180 *D2R, 3;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0];
+% Start Location:  Right Hub
+% Finish Location: Right Climb
+Path_RH_RC = [
+    3.20, 3.10, 1,  30 *D2R, 0, 0;
+    2.17, 3.16, 1, -90 *D2R, 0, 0;
+    1.53, 3.16, 1, -90 *D2R, 3, 0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0;    
+    0,0,0,0,0,0];
 
-% Start Location: Depot 
-% Finish Location: Left Shoot
-Path_2 = [
-    0.71, 5.97, 1, 180 *D2R, 0;
-    1.35, 5.97, 1, 180 *D2R, 2;
-    2.80, 5.35, 1, -50 *D2R, 1;
-   0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0];
-% Start Location: Left Shoot
-% Finish Location: Climb Middle
-Path_3 = [
-    2.80, 5.35, 1, -50 *D2R, 0;
-    2.30, 3.79, 1, -90 *D2R, 0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0];
+% Start Location:  Right Hub
+% Finish Location: Left Climb
+Path_RH_LC = [
+    3.20, 3.10, 1,  30 *D2R, 0, 0;
+    2.70, 4.25, 1, -90 *D2R, 0, 0;
+    1.53, 4.35, 1, -90 *D2R, 3, 0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0;    
+    0,0,0,0,0,0];
 
-% Start Location: Left trench Start
-% Finish Location: Human
-Path_4 = [
-    3.51, 0.62, 1, 180 *D2R, 2;
-    0.75, 0.73, 1, 180 *D2R, 4;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0];
+% Start Location:  Right Trench
+% Middle Location: Neutral Zone
+% Finish Location: Left Hub
+Path_RT_NZ_LH = [
+    3.51, 0.96, 2,   0 *D2R, 0, 2;
+    7.00, 0.76, 2,  60 *D2R, 0, 2;
+    7.70, 3.30, 2,  90 *D2R, 0, 2;
+    7.30, 4.92, 2,  90 *D2R, 0, 0;
+    5.26, 5.66, 2, -45 *D2R, 0, 0;
+    3.78, 5.66, 1, -45 *D2R, 0, 0;
+    3.20, 4.97, 1, -30 *D2R, 1, 0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0];
 
-% Start Location: Human
-% Finish Location: Right Shoot 
-Path_5 = [
-    0.75, 0.73, 1, 180 *D2R, 0;
-    1.83, 1.87, 1, 45  *D2R, 2;
-    2.80, 2.68, 1, 50  *D2R, 1;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0];
+% Start Location:  Left Hub
+% Finish Location: Left Climb
+Path_LH_LC = [
+    3.20, 4.97, 1, -30 *D2R, 0, 0;
+    2.70, 4.40, 1, -90 *D2R, 0, 0;
+    1.53, 4.35, 1, -90 *D2R, 3, 0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0;
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0;
+    0,0,0,0,0,0;     
+    0,0,0,0,0,0];
 
-% Start Location: Right Shoot
-% Finish Location: Climb Middle
-Path_6 = [
-    2.80, 2.68, 1,  50 *D2R, 0;
-    2.30, 3.79, 1, -90 *D2R, 0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0];
-
-
-% Start Location: Start Left Trench
-% Finish Location: Left Neutral
-Path_7 = [
-    3.51, 7.11, 1,   0 *D2R, 2;
-    7.00, 7.31, 1, -90 *D2R, 2;
-    7.50, 4.77, 1, -90 *D2R, 2;
-  0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0];
-% Start Location: Left Neutral
-% Finish Location: Right Shoot
-Path_8 = [
-    7.5, 4.77,  1,  -90 *D2R, 2;
-    7.09, 3.15, 1,  -22 *D2R, 0;
-    5.26, 2.4,  1,   45 *D2R, 0;
-    3.78, 2.4,  0.5, 45 *D2R, 0;
-    2.80, 2.68, 0.5, 50 *D2R, 1;
-     0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0];
+% Start Location:  Left Hub
+% Finish Location: Right Climb
+Path_LH_RC = [
+    3.20, 4.97, 1, -30 *D2R, 0, 0;
+    2.70, 3.35, 1, -90 *D2R, 0, 0;
+    1.53, 3.16, 1, -90 *D2R, 3, 0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0;
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0;
+    0,0,0,0,0,0;     
+    0,0,0,0,0,0];
 
 % Start Location: Right Trench
-% Finish Location: Right Neutral
-Path_9 = [
-    3.51, 0.62, 1, 0  *D2R, 2;
-    7,    0.7,  1, 90 *D2R, 2;
-    7.5,  3.38, 1, 90 *D2R, 2;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0];
+% Finish Location: Outpost
+Path_RT_OP = [
+    3.51, 0.62, 1, 180 *D2R, 0, 2;
+    0.75, 0.73, 1, 180 *D2R, 0, 0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0;
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0;
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0;
+    0,0,0,0,0,0];
 
-% Start Location: Right Neutral 
-% Finish Location: Left Shoot 
-Path_10 = [
-    7.5,  3.38, 1,  90 *D2R, 0;
-    7.00, 5.00, 1,  22 *D2R, 0;
-    5.43, 5.55, 1, -45 *D2R, 0;
-    3.78, 5.56, 1, -45 *D2R, 0;
-    2.80, 5.35, 1, -50 *D2R, 1;
-     0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0];
+% Start Location: Outpost
+% Finish Location: Right Hub
+Path_OP_RH = [
+    0.75, 0.73, 1, 180 *D2R, 0, 2;
+    1.30, 1.30, 1, 180 *D2R, 0, 0;
+    3.20, 3.10, 1, 30  *D2R, 1, 0;
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0;
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0;
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0;
+    0,0,0,0,0,0];
 
-% Start Location: Left Shoot
-% Finish Location: Climb Middle
-Path_11 = [
-    2.80, 5.35, 1, -50 *D2R, 0;
-    2.30, 3.79, 1, -90 *D2R, 0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0];
+% Start Location: Left Ramp
+% Finish Location: Depot
+Path_LR_DP = [
+    3.75, 5.9, 1,  180 *D2R, 0, 2;
+    0.71, 5.97, 1, 180 *D2R, 0, 0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0;
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0;
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0;
+    0,0,0,0,0,0];
 
-% Start Location: climb middle
-% Finish Location: climb right/bottom side 
-Path_12 = [
-    2.30, 3.79, 1, -90 *D2R, 0;
-    2.15, 3.30, 1, -90 *D2R, 0;
-    1.53, 3.16, 1, -90 *D2R, 5;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0];
+% Start Location: Depot 
+% Finish Location: Left Hub
+Path_DP_LH = [
+    0.71, 5.97, 1, 180 *D2R, 0, 2;
+    1.35, 5.97, 1, 180 *D2R, 0, 0;
+    3.20, 4.97, 1, -30 *D2R, 1, 0;
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0;
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0;
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0;
+    0,0,0,0,0,0];
 
-
-%start location climb middle
-%end location climb left/top side
-Path_13 = [
-    2.30, 3.79, 1, -90 *D2R, 0;
-    2.15, 4.10, 1, -90 *D2R, 0;
-    1.53, 4.35, 1, -90 *D2R, 5;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0];
-
-%start location:depot
-%End location: Shoot depot side
-% reverse of path 5
-Path_14 =[
-    2.80, 2.68, 1, 50  *D2R, 1;
-    1.83, 1.87, 1, 45  *D2R, 2;
-    0.75, 0.73, 1, 180 *D2R, 0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0];
-
-%Start location:shoot left
-%End location depot
-%reverse of path 2
-Path_15 =[
-    2.80, 5.35, 1, -50  *D2R, 1;
-    1.35, 5.97, 1,  180 *D2R, 2;
-    0.71, 5.97, 1,  180 *D2R, 0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0;
-    0,0,0,0,0];
 
 
 % Run this function to mirron paths from blue to red sides of the field
@@ -240,40 +168,30 @@ Path_15 =[
 
 % concatenate all of the paths into one multi-dimensional matrix
 All_Paths_Ref_Poses = cat(3, ...
-    Path_1(:,1:4), ...
-    Path_2(:,1:4), ...
-    Path_3(:,1:4), ...
-    Path_4(:,1:4), ...
-    Path_5(:,1:4), ...
-    Path_6(:,1:4), ...
-    Path_7(:,1:4), ...
-    Path_8(:,1:4), ...
-    Path_9(:,1:4), ...
-    Path_10(:,1:4), ...
-    Path_11(:,1:4), ...
-    Path_12(:,1:4), ...
-    Path_13(:,1:4), ...
-    Path_14(:,1:4), ...
-    Path_15(:,1:4) ...
-    );
-   
+    Path_LT_NZ_RH(:,1:4), ...   % 1
+    Path_RH_RC(:,1:4), ...      % 2
+    Path_RH_LC(:,1:4), ...      % 3
+    Path_RT_NZ_LH(:,1:4), ...   % 4
+    Path_LH_LC(:,1:4), ...      % 5
+    Path_LH_RC(:,1:4), ...      % 6
+    Path_RT_OP(:,1:4), ...      % 7
+    Path_OP_RH(:,1:4), ...      % 8
+    Path_LR_DP(:,1:4), ...      % 9
+    Path_DP_LH(:,1:4) ...       % 10
+  ); 
+
 % collect the number of poses in each path
 All_Paths_Num_Poses = [
-    nnz(Path_1(:,1));
-    nnz(Path_2(:,1));
-    nnz(Path_3(:,1));
-    nnz(Path_4(:,1));
-    nnz(Path_5(:,1));
-    nnz(Path_6(:,1));
-    nnz(Path_7(:,1));
-    nnz(Path_8(:,1));
-    nnz(Path_9(:,1));
-    nnz(Path_10(:,1));
-    nnz(Path_11(:,1));
-    nnz(Path_12(:,1));
-    nnz(Path_13(:,1));
-    nnz(Path_14(:,1));
-    nnz(Path_15(:,1));
+    nnz(Path_LT_NZ_RH(:,1));    % 1
+    nnz(Path_RH_RC(:,1));       % 2
+    nnz(Path_RH_LC(:,1));       % 3
+    nnz(Path_RT_NZ_LH(:,1));    % 4
+    nnz(Path_LH_LC(:,1));       % 5
+    nnz(Path_LH_RC(:,1));       % 6
+    nnz(Path_RT_OP(:,1));       % 7
+    nnz(Path_OP_RH(:,1));       % 8
+    nnz(Path_LR_DP(:,1));       % 9
+    nnz(Path_DP_LH(:,1))        % 10
     ];
 
 clear D2R field_width field_length

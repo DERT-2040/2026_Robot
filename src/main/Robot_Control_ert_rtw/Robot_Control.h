@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.460
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sun Mar  1 00:07:44 2026
+ * C/C++ source code generated on : Sun Mar  1 19:25:20 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -102,6 +102,7 @@ typedef struct {
   real_T Spline_Follow_Index;          /* '<S155>/Merge4' */
   real_T Spline_Target_Y;              /* '<S152>/Selector6' */
   real_T Spline_Target_X;              /* '<S152>/Selector2' */
+  real_T Assignment[450];              /* '<S177>/Assignment' */
   real_T RB_Desired_Feeder_Speed;    /* '<S12>/Shooter_Transfer_Feeder Chart' */
   real_T RB_Desired_Transfer_Speed;  /* '<S12>/Shooter_Transfer_Feeder Chart' */
   real_T RB_Shoot_Target_X;            /* '<S116>/Switch4' */
@@ -116,6 +117,7 @@ typedef struct {
   real_T Product2[2];                  /* '<S95>/Product2' */
   real_T Product3[2];                  /* '<S93>/Product3' */
   real_T RB_Des_Intake_Arm_Angle;      /* '<S6>/Chart' */
+  uint16_T WhileIterator;              /* '<S202>/While Iterator' */
   uint8_T Active_GameState;            /* '<S11>/Chart' */
   boolean_T Button_Enable_Wheels;      /* '<S25>/FixPt Relational Operator' */
   boolean_T Button_Reset_Wheel_Offsets;/* '<S26>/FixPt Relational Operator' */
@@ -211,6 +213,11 @@ typedef struct {
   real_T UnitDelay_DSTATE_p;           /* '<S381>/Unit Delay' */
   real_T FixPtUnitDelay1_DSTATE_f;     /* '<S385>/FixPt Unit Delay1' */
   real_T UnitDelay_DSTATE_gh;          /* '<S151>/Unit Delay' */
+  real_T UnitDelay_DSTATE_hn;          /* '<S150>/Unit Delay' */
+  real_T UnitDelay1_DSTATE_f4;         /* '<S203>/Unit Delay1' */
+  real_T UnitDelay_DSTATE_g4;          /* '<S203>/Unit Delay' */
+  real_T UnitDelay_DSTATE_le;          /* '<S153>/Unit Delay' */
+  real_T UnitDelay1_DSTATE_k;          /* '<S153>/Unit Delay1' */
   void *MatrixConcatenate_PWORK;       /* '<S172>/Matrix Concatenate' */
   int32_T Selector5_DIMS1[2];          /* '<S172>/Selector5' */
   int32_T MatrixConcatenate_DIMS1[2];  /* '<S172>/Matrix Concatenate' */
@@ -234,6 +241,8 @@ typedef struct {
   boolean_T DelayInput1_DSTATE_g2;     /* '<S373>/Delay Input1' */
   boolean_T UnitDelay2_DSTATE;         /* '<S367>/Unit Delay2' */
   boolean_T UnitDelay4_DSTATE;         /* '<S367>/Unit Delay4' */
+  boolean_T UnitDelay_DSTATE_e4;       /* '<S158>/Unit Delay' */
+  boolean_T UnitDelay_DSTATE_nu;       /* '<S163>/Unit Delay' */
   int8_T SwitchCase_ActiveSubsystem;   /* '<S1>/Switch Case' */
   int8_T If_ActiveSubsystem;           /* '<S13>/If' */
   int8_T If_ActiveSubsystem_h;         /* '<S155>/If' */
@@ -247,6 +256,7 @@ typedef struct {
   uint8_T is_active_c4_Robot_Control;  /* '<S6>/Chart' */
   uint8_T is_c4_Robot_Control;         /* '<S6>/Chart' */
   boolean_T icLoad;                    /* '<S42>/MemoryX' */
+  boolean_T Relay_Mode;                /* '<S185>/Relay' */
   boolean_T EnabledSubsystem_MODE;     /* '<S69>/Enabled Subsystem' */
   boolean_T MeasurementUpdate_MODE;    /* '<S62>/MeasurementUpdate' */
 } DW_Robot_Control_T;
