@@ -168,16 +168,16 @@ Path_DP_LH = [
 
 % concatenate all of the paths into one multi-dimensional matrix
 All_Paths_Ref_Poses = cat(3, ...
-    Path_LT_NZ_RH(:,1:4), ...   % 1
-    Path_RH_RC(:,1:4), ...      % 2
-    Path_RH_LC(:,1:4), ...      % 3
-    Path_RT_NZ_LH(:,1:4), ...   % 4
-    Path_LH_LC(:,1:4), ...      % 5
-    Path_LH_RC(:,1:4), ...      % 6
-    Path_RT_OP(:,1:4), ...      % 7
-    Path_OP_RH(:,1:4), ...      % 8
-    Path_LR_DP(:,1:4), ...      % 9
-    Path_DP_LH(:,1:4) ...       % 10
+    Path_LT_NZ_RH(:,:), ...   % 1
+    Path_RH_RC(:,:), ...      % 2
+    Path_RH_LC(:,:), ...      % 3
+    Path_RT_NZ_LH(:,:), ...   % 4
+    Path_LH_LC(:,:), ...      % 5
+    Path_LH_RC(:,:), ...      % 6
+    Path_RT_OP(:,:), ...      % 7
+    Path_OP_RH(:,:), ...      % 8
+    Path_LR_DP(:,:), ...      % 9
+    Path_DP_LH(:,:) ...       % 10
   ); 
 
 % collect the number of poses in each path
