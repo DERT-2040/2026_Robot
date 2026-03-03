@@ -30,6 +30,8 @@ Rebuilt_Target_Feeder_Speed = Rebuilt_Target_Transfer_Speed*0.84;  % rpm
 % (the 0.84 factor sets feeder belt linear speed to match transfer wheel surface linear speed)
 % Assumes 4 inch diameter transfer wheels and 24 tooth pulleys driving the belts
 
+Rebuilt_Shot_Init_Time = 0.4; % Seconds
+
 % Condition Checks
 Rebuilt_Shoot_Robot_Velocity_Max = 1.7;   % meter/second
 Rebuilt_Shoot_Motor_Max_Error = 100;    % rpm
@@ -49,6 +51,16 @@ Rebuilt_Shoot_Dist_4 = 4.353;
 Rebuilt_Shoot_Dist_5 = 4.884;
 Rebuilt_Shoot_Dist_6 = 5.6;
 Rebuilt_Shoot_Dist_7 = 9; %6.5;
+
+% Desired_Shooter_Motor_Speed Init (rpm)
+Rebuilt_Shoot_Shooter_Spd_I_0 = 2900;
+Rebuilt_Shoot_Shooter_Spd_I_1 = 3000;
+Rebuilt_Shoot_Shooter_Spd_I_2 = 3250;
+Rebuilt_Shoot_Shooter_Spd_I_3 = 3400;
+Rebuilt_Shoot_Shooter_Spd_I_4 = 3575;
+Rebuilt_Shoot_Shooter_Spd_I_5 = 3700;
+Rebuilt_Shoot_Shooter_Spd_I_6 = 3850;
+Rebuilt_Shoot_Shooter_Spd_I_7 = 4500;
 
 % Desired_Shooter_Motor_Speed (rpm)
 Rebuilt_Shoot_Shooter_Spd_0 = 2900;
