@@ -5,6 +5,8 @@
 Rebuilt2026::Rebuilt2026()
 {
     HoodServoSetPulseWidth();   
+    //change this with testing 
+    IntakeArmAngle.SetInverted(true);
 }
 
 void Rebuilt2026::HoodServoSetPulseWidth()
@@ -31,15 +33,18 @@ void Rebuilt2026::HoodServoSetPulseWidth()
 void Rebuilt2026::PreStepCallback()
 {
 	ShooterMotors.SendVelocityValuesToSL();
-    FeederMotors.SendVelocityValuesToSL(); //TODO: Uncomment
+    FeederMotors.SendVelocityValuesToSL();
     TransferMotors.SendVelocityValuesToSL();
+    IntakeMotors.SendVelocityValuesToSL();
+    Robot_Control_U.Measured_Intake_Arm_Angle = IntakeArmAngle.Get();
 }
 
 void Rebuilt2026::PostStepCallback()
 {
 	ShooterMotors.FetchMotorCommandsFromSL();
-    FeederMotors.FetchMotorCommandsFromSL(); //TODO: Uncomment
+    FeederMotors.FetchMotorCommandsFromSL();
     TransferMotors.FetchMotorCommandsFromSL();
+    IntakeMotors.FetchMotorCommandsFromSL();
 
     // Only set the servo positions if enabled from Simulink
     if(Robot_Control_Y.Desired_Hood_Enable)  // boolean from Simulink

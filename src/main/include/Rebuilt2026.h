@@ -8,11 +8,14 @@
 
 //FRC
 #include <frc/Servo.h>
+#include <frc/DutyCycleEncoder.h>
 
 namespace nsShooter = Constants::ShooterCreateInfo;
 namespace nsFeeder = Constants::FeederCreateInfo;
 namespace nsTransfer = Constants::TransferCreateInfo;
 namespace nsHood = Constants::HoodServo;
+namespace nsIntake = Constants::IntakeCreateInfo;
+namespace nsIntakeAngle = Constants::IntakeArmAngle;
 
 class Rebuilt2026 : public dlib::Component
 {
@@ -43,6 +46,20 @@ public:
     }
   };
   
+  dlib::TalonFXMotorGroup IntakeMotors
+  {
+    {
+      nsIntake::Intake_Roller, nsIntake::Intake_Arm
+    }
+  };
+
+  frc::DutyCycleEncoder IntakeArmAngle
+  {
+    nsIntakeAngle::armThroughBoreEncoderID, 
+    360, 
+    nsIntakeAngle::armThroughBoreEncoderOffset
+  };
+
 private:
   // Servos for hood linear actuator  
   frc::Servo HoodServo_Left{nsHood::Hood_Servo_PWM_Left_ID};

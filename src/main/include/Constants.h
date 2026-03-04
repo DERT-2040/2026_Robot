@@ -223,5 +223,29 @@ namespace Constants
         static constexpr int Hood_Servo_PWM_Right_ID = 1;
     }
     
+    namespace IntakeCreateInfo{
+        static TalonFXMotorCreateInfo defaultIntakeCreateInfo = TalonFXMotorCreateInfo::getDefaultCreateInfo()
+                .SetCanbus(*Constants::CANBuses::CANivoreBus)
+                .SetIsReversed(false)
+                .SetSupplyCurrentLimit(60)
+                .SetOpenLoopRampPeriod(0)
+                .SetEnableFOC(true)
+                .SetMotorType(TalonFXMotorType::KrakenX44);
+        static TalonFXMotorCreateInfo Intake_Arm = TalonFXMotorCreateInfo::getDefaultCreateInfo()
+                .SetCanID(15)
+                .SetDutyCycleCallback(&Robot_Control_Y.Intake_Arm_Motor_DC)
+                .SetDisplayName("Intake Arm");
+        static TalonFXMotorCreateInfo Intake_Roller = TalonFXMotorCreateInfo::getDefaultCreateInfo()
+                .SetCanID(16)
+                .SetDutyCycleCallback(&Robot_Control_Y.Intake_Roller_Motor_DC)
+                .SetVelocityCallback(&Robot_Control_U.Measured_Intake_Roller_Speed)
+                .SetDisplayName("Intake Roller");
+    }
+
+    namespace IntakeArmAngle{
+        //Arm Angle 
+        static constexpr int armThroughBoreEncoderID = 5;
+        static constexpr int armThroughBoreEncoderOffset = -164.3; // degrees
+    }
 
 };
