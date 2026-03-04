@@ -104,6 +104,7 @@ Rebuilt_Shoot_Gyro_Err_7 = 2.5;
 
 % PLOT TABLES
     plot_dist     = [Rebuilt_Shoot_Dist_0 Rebuilt_Shoot_Dist_1 Rebuilt_Shoot_Dist_2 Rebuilt_Shoot_Dist_3 Rebuilt_Shoot_Dist_4 Rebuilt_Shoot_Dist_5 Rebuilt_Shoot_Dist_6 Rebuilt_Shoot_Dist_7];
+    plot_shooter_i= [Rebuilt_Shoot_Shooter_Spd_I_0 Rebuilt_Shoot_Shooter_Spd_I_1 Rebuilt_Shoot_Shooter_Spd_I_2 Rebuilt_Shoot_Shooter_Spd_I_3 Rebuilt_Shoot_Shooter_Spd_I_4 Rebuilt_Shoot_Shooter_Spd_I_5 Rebuilt_Shoot_Shooter_Spd_I_6 Rebuilt_Shoot_Shooter_Spd_I_7];
     plot_shooter  = [Rebuilt_Shoot_Shooter_Spd_0 Rebuilt_Shoot_Shooter_Spd_1 Rebuilt_Shoot_Shooter_Spd_2 Rebuilt_Shoot_Shooter_Spd_3 Rebuilt_Shoot_Shooter_Spd_4 Rebuilt_Shoot_Shooter_Spd_5 Rebuilt_Shoot_Shooter_Spd_6 Rebuilt_Shoot_Shooter_Spd_7];
     plot_hood     = [Rebuilt_Shoot_Hood_Pos_0 Rebuilt_Shoot_Hood_Pos_1 Rebuilt_Shoot_Hood_Pos_2 Rebuilt_Shoot_Hood_Pos_3 Rebuilt_Shoot_Hood_Pos_4 Rebuilt_Shoot_Hood_Pos_5 Rebuilt_Shoot_Hood_Pos_6 Rebuilt_Shoot_Hood_Pos_7];
     plot_tof      = [Rebuilt_Shoot_TOF_0 Rebuilt_Shoot_TOF_1 Rebuilt_Shoot_TOF_2 Rebuilt_Shoot_TOF_3 Rebuilt_Shoot_TOF_4 Rebuilt_Shoot_TOF_5 Rebuilt_Shoot_TOF_6 Rebuilt_Shoot_TOF_7];
@@ -111,6 +112,8 @@ Rebuilt_Shoot_Gyro_Err_7 = 2.5;
     
     figure(1)
     subplot(2,2,1)
+    plot(plot_dist,plot_shooter_i,'-^')
+    hold on
     plot(plot_dist,plot_shooter,'-o')
     xlabel('Shot Distance (m)')
     ylabel('Shooter Speed (rpm)')
@@ -161,6 +164,9 @@ Rebuilt_Intake_Des_Angle_In = 0;
 Rebuilt_Intake_Des_Angle_Out = 90;
 Rebuilt_Intake_Cycle_Angle_In = 20;
 Rebuilt_Intake_Cycle_Angle_Out = 70;
+
+Rebuilt_Intake_RL_Inc = 90/1*0.02;
+Rebuilt_Intake_RL_Dec = -90/1*0.02;
 
 Rebuilt_Intake_Arm_Gain_P = 0;
 Rebuilt_Intake_Arm_Gain_I = 0;
