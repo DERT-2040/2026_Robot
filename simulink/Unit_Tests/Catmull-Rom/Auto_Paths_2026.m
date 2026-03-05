@@ -10,8 +10,8 @@ field_length = 651.22 * 0.0254;
 %     at this point until it is completed.
 %
 %     Column 6 action defined in the current row is the action taken
-%     between the current row point and the next row point and ends when
-%     the robot reaches the destination point in the ext row.
+%     between the previous row point and the current row point and ends when
+%     the robot reaches the destination point in the next row.
 %
 % Legend for columns 5 and 6
 % 0 = No action at current point or during path to next point
@@ -23,10 +23,10 @@ field_length = 651.22 * 0.0254;
 % Middle Location: Neutral Zone
 % Finish Location: Right Hub
 Path_LT_NZ_RH = [
-    3.51, 7.11, 2,   0 *D2R, 0, 2;
+    3.51, 7.11, 2,   0 *D2R, 0, 0;
     7.00, 7.31, 2, -60 *D2R, 0, 2;
     7.70, 4.77, 2, -90 *D2R, 0, 2;
-    7.30, 3.15, 2, -90 *D2R, 0, 0;
+    7.30, 3.15, 2, -90 *D2R, 0, 2;
     5.26, 2.4,  2,  45 *D2R, 0, 0;
     3.78, 2.4,  1,  45 *D2R, 0, 0;
     3.20, 3.10, 1,  30 *D2R, 1, 0;
@@ -66,10 +66,10 @@ Path_RH_LC = [
 % Middle Location: Neutral Zone
 % Finish Location: Left Hub
 Path_RT_NZ_LH = [
-    3.51, 0.96, 2,   0 *D2R, 0, 2;
+    3.51, 0.96, 2,   0 *D2R, 0, 0;
     7.00, 0.76, 2,  60 *D2R, 0, 2;
     7.70, 3.30, 2,  90 *D2R, 0, 2;
-    7.30, 4.92, 2,  90 *D2R, 0, 0;
+    7.30, 4.92, 2,  90 *D2R, 0, 2;
     5.26, 5.66, 2, -45 *D2R, 0, 0;
     3.78, 5.66, 1, -45 *D2R, 0, 0;
     3.20, 4.97, 1, -30 *D2R, 1, 0;
@@ -108,8 +108,8 @@ Path_LH_RC = [
 % Start Location: Right Trench
 % Finish Location: Outpost
 Path_RT_OP = [
-    3.51, 0.62, 1, 180 *D2R, 0, 2;
-    0.75, 0.73, 1, 180 *D2R, 0, 0;
+    3.51, 0.62, 1, 180 *D2R, 0, 0;
+    0.75, 0.73, 1, 180 *D2R, 0, 2;
     0,0,0,0,0,0;
     0,0,0,0,0,0; 
     0,0,0,0,0,0;
@@ -122,8 +122,8 @@ Path_RT_OP = [
 % Start Location: Outpost
 % Finish Location: Right Hub
 Path_OP_RH = [
-    0.75, 0.73, 1, 180 *D2R, 0, 2;
-    1.30, 1.30, 1, 180 *D2R, 0, 0;
+    0.75, 0.73, 1, 180 *D2R, 0, 0;
+    1.30, 1.30, 1, 180 *D2R, 0, 2;
     3.20, 3.10, 1, 30  *D2R, 1, 0;
     0,0,0,0,0,0; 
     0,0,0,0,0,0;
@@ -136,8 +136,8 @@ Path_OP_RH = [
 % Start Location: Left Ramp
 % Finish Location: Depot
 Path_LR_DP = [
-    3.75, 5.9, 1,  180 *D2R, 0, 2;
-    0.71, 5.97, 1, 180 *D2R, 0, 0;
+    3.75, 5.9, 1,  180 *D2R, 0, 0;
+    0.71, 5.97, 1, 180 *D2R, 0, 2;
     0,0,0,0,0,0;
     0,0,0,0,0,0; 
     0,0,0,0,0,0;
@@ -150,8 +150,8 @@ Path_LR_DP = [
 % Start Location: Depot 
 % Finish Location: Left Hub
 Path_DP_LH = [
-    0.71, 5.97, 1, 180 *D2R, 0, 2;
-    1.35, 5.97, 1, 180 *D2R, 0, 0;
+    0.71, 5.97, 1, 180 *D2R, 0, 0;
+    1.35, 5.97, 1, 180 *D2R, 0, 2;
     3.20, 4.97, 1, -30 *D2R, 1, 0;
     0,0,0,0,0,0; 
     0,0,0,0,0,0;

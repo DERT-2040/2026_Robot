@@ -19,14 +19,14 @@ plot_robot_rectangle = 1;  % 0 = off, 1 = on
 % Define which paths to run
 
 % Define which paths to run
-test_cases = [1,2];
+%test_cases = [1,2];
 %test_cases = [1,3];
 %test_cases = [4,5];
 %test_cases = [4,6];
 %test_cases = [7,8,2];
 %test_cases = [7,8,3];
 %test_cases = [9,10,5];
-%test_cases = [9,10,6];
+test_cases = [9,10,6];
 
 for m = 1:length(test_cases)
 
