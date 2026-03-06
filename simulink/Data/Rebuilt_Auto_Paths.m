@@ -7,7 +7,7 @@ field_length = 651.22 * 0.0254;
 
 %Chooser
 
-Auto_Path_Chooser = 1; 
+Auto_Path_Chooser = 2; 
 
 % [x, y, velocity, angle, action at path point, action during path segment]
 %     Column 5 action defined in the current row is the action taken
