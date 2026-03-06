@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.467
+ * Model version                  : 2.468
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Mar  5 20:21:30 2026
+ * C/C++ source code generated on : Thu Mar  5 23:15:44 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -26,8 +26,8 @@
 extern const real_T rtCP_pooled_mZW03emckTZz[4];
 extern const real_T rtCP_pooled_Por1fGzmcW36[4];
 extern const real_T rtCP_pooled_INwGxsZyA2TK[4];
-extern const real_T rtCP_pooled_h7dNF0C9MCJu[600];
-extern const real_T rtCP_pooled_z3ermjQZtYNF[600];
+extern const real_T rtCP_pooled_pcyDn9pxyYJU[600];
+extern const real_T rtCP_pooled_bM8PBb0v4Lt7[600];
 extern const real_T rtCP_pooled_tILAd79IfIfO[10];
 extern const real_T rtCP_pooled_mVxns4hAKRNf[21];
 extern const real_T rtCP_pooled_wsH2dcaSihoN[21];
@@ -37,61 +37,61 @@ extern const real_T rtCP_pooled_O4lHSDP8vPjo[2];
 extern const real_T rtCP_pooled_Ha5Ct2ozjCBu[2];
 
 #define rtCP_CaptureRadius_tableData   rtCP_pooled_mZW03emckTZz  /* Expression: Spline_Capture_Radius
-                                                                  * Referenced by: '<S165>/Capture Radius'
+                                                                  * Referenced by: '<S170>/Capture Radius'
                                                                   */
 #define rtCP_CaptureRadius_bp01Data    rtCP_pooled_Por1fGzmcW36  /* Expression: Spline_Velocity_Axis
-                                                                  * Referenced by: '<S165>/Capture Radius'
+                                                                  * Referenced by: '<S170>/Capture Radius'
                                                                   */
 #define rtCP_LookaheadDistance_tableDat rtCP_pooled_INwGxsZyA2TK /* Expression: Spline_Lookahead_Dist
-                                                                  * Referenced by: '<S165>/Lookahead Distance'
+                                                                  * Referenced by: '<S170>/Lookahead Distance'
                                                                   */
 #define rtCP_LookaheadDistance_bp01Data rtCP_pooled_Por1fGzmcW36 /* Expression: Spline_Velocity_Axis
-                                                                  * Referenced by: '<S165>/Lookahead Distance'
+                                                                  * Referenced by: '<S170>/Lookahead Distance'
                                                                   */
-#define rtCP_Constant_Value_c          rtCP_pooled_h7dNF0C9MCJu  /* Expression: All_Paths_Ref_Poses_Blue
-                                                                  * Referenced by: '<S19>/Constant'
+#define rtCP_Constant_Value_c          rtCP_pooled_pcyDn9pxyYJU  /* Expression: All_Paths_Ref_Poses_Blue
+                                                                  * Referenced by: '<S20>/Constant'
                                                                   */
-#define rtCP_Constant1_Value_b         rtCP_pooled_z3ermjQZtYNF  /* Expression: All_Paths_Ref_Poses_Red
-                                                                  * Referenced by: '<S19>/Constant1'
+#define rtCP_Constant1_Value_bc        rtCP_pooled_bM8PBb0v4Lt7  /* Expression: All_Paths_Ref_Poses_Red
+                                                                  * Referenced by: '<S20>/Constant1'
                                                                   */
 #define rtCP_uDLookupTable_tableData   rtCP_pooled_tILAd79IfIfO  /* Expression: All_Paths_Num_Poses
-                                                                  * Referenced by: '<S19>/1-D Lookup Table'
+                                                                  * Referenced by: '<S20>/1-D Lookup Table'
                                                                   */
 #define rtCP_Modulation_Str_Y_Rel_table rtCP_pooled_mVxns4hAKRNf /* Expression: Steering_Mod_Str_Rel_out
-                                                                  * Referenced by: '<S382>/Modulation_Str_Y_Rel'
+                                                                  * Referenced by: '<S389>/Modulation_Str_Y_Rel'
                                                                   */
 #define rtCP_Modulation_Str_Y_Rel_bp01D rtCP_pooled_wsH2dcaSihoN /* Expression: Steering_Mod_Str_Rel_in
-                                                                  * Referenced by: '<S382>/Modulation_Str_Y_Rel'
+                                                                  * Referenced by: '<S389>/Modulation_Str_Y_Rel'
                                                                   */
 #define rtCP_Modulation_Drv_tableData  rtCP_pooled_MtklTCiS35sn  /* Expression: Steering_Mod_Drv_out
-                                                                  * Referenced by: '<S383>/Modulation_Drv'
+                                                                  * Referenced by: '<S390>/Modulation_Drv'
                                                                   */
 #define rtCP_Modulation_Drv_bp01Data   rtCP_pooled_pwqtSNbEs40J  /* Expression: Steering_Mod_Drv_in
-                                                                  * Referenced by: '<S383>/Modulation_Drv'
+                                                                  * Referenced by: '<S390>/Modulation_Drv'
                                                                   */
 #define rtCP_uDLookupTable_tableData_g rtCP_pooled_O4lHSDP8vPjo  /* Expression: Drive_Motor_Control_Scale_Factor
-                                                                  * Referenced by: '<S296>/1-D Lookup Table'
+                                                                  * Referenced by: '<S301>/1-D Lookup Table'
                                                                   */
 #define rtCP_uDLookupTable_bp01Data    rtCP_pooled_Ha5Ct2ozjCBu  /* Expression: Drive_Motor_Control_Module_Angle_Error
-                                                                  * Referenced by: '<S296>/1-D Lookup Table'
+                                                                  * Referenced by: '<S301>/1-D Lookup Table'
                                                                   */
 #define rtCP_uDLookupTable_tableData_j rtCP_pooled_O4lHSDP8vPjo  /* Expression: Drive_Motor_Control_Scale_Factor
-                                                                  * Referenced by: '<S233>/1-D Lookup Table'
+                                                                  * Referenced by: '<S238>/1-D Lookup Table'
                                                                   */
 #define rtCP_uDLookupTable_bp01Data_h  rtCP_pooled_Ha5Ct2ozjCBu  /* Expression: Drive_Motor_Control_Module_Angle_Error
-                                                                  * Referenced by: '<S233>/1-D Lookup Table'
+                                                                  * Referenced by: '<S238>/1-D Lookup Table'
                                                                   */
 #define rtCP_uDLookupTable_tableData_gs rtCP_pooled_O4lHSDP8vPjo /* Expression: Drive_Motor_Control_Scale_Factor
-                                                                  * Referenced by: '<S254>/1-D Lookup Table'
+                                                                  * Referenced by: '<S259>/1-D Lookup Table'
                                                                   */
 #define rtCP_uDLookupTable_bp01Data_p  rtCP_pooled_Ha5Ct2ozjCBu  /* Expression: Drive_Motor_Control_Module_Angle_Error
-                                                                  * Referenced by: '<S254>/1-D Lookup Table'
+                                                                  * Referenced by: '<S259>/1-D Lookup Table'
                                                                   */
 #define rtCP_uDLookupTable_tableData_h rtCP_pooled_O4lHSDP8vPjo  /* Expression: Drive_Motor_Control_Scale_Factor
-                                                                  * Referenced by: '<S275>/1-D Lookup Table'
+                                                                  * Referenced by: '<S280>/1-D Lookup Table'
                                                                   */
 #define rtCP_uDLookupTable_bp01Data_j  rtCP_pooled_Ha5Ct2ozjCBu  /* Expression: Drive_Motor_Control_Module_Angle_Error
-                                                                  * Referenced by: '<S275>/1-D Lookup Table'
+                                                                  * Referenced by: '<S280>/1-D Lookup Table'
                                                                   */
 
 extern void Robot_C_IfActionSubsystem1_Init(DW_IfActionSubsystem1_Robot_C_T

@@ -15,6 +15,10 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     NTinst.AddListener(P__Auto_Path_Chooser__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Path_Chooser = event.GetValueEventData()->value.GetDouble();});
     P__Auto_Path_Chooser__Entry.SetDouble(1);
  
+    P__Auto_Shoot_Time__Entry = NTtable_Tune->GetEntry("Auto_Shoot_Time");
+    NTinst.AddListener(P__Auto_Shoot_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Shoot_Time = event.GetValueEventData()->value.GetDouble();});
+    P__Auto_Shoot_Time__Entry.SetDouble(4);
+ 
     P__Boost_Trigger_Decreasing_Limit__Entry = NTtable_Tune->GetEntry("Boost_Trigger_Decreasing_Limit");
     NTinst.AddListener(P__Boost_Trigger_Decreasing_Limit__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Decreasing_Limit = event.GetValueEventData()->value.GetDouble();});
     P__Boost_Trigger_Decreasing_Limit__Entry.SetDouble(-0.28);
@@ -933,6 +937,11 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
 // Test Points
     T__Active_GameState__Entry = NTtable_TPoint->GetEntry("Active_GameState");
+    T__Auto_Desired_Dynamic_Action__Entry = NTtable_TPoint->GetEntry("Auto_Desired_Dynamic_Action");
+    T__Auto_Desired_Static_Action__Entry = NTtable_TPoint->GetEntry("Auto_Desired_Static_Action");
+    T__Auto_Path_Counter__Entry = NTtable_TPoint->GetEntry("Auto_Path_Counter");
+    T__Auto_Path_ID__Entry = NTtable_TPoint->GetEntry("Auto_Path_ID");
+    T__Auto_Spline_Enable__Entry = NTtable_TPoint->GetEntry("Auto_Spline_Enable");
     T__BL_Desired_Module_Angle__Entry = NTtable_TPoint->GetEntry("BL_Desired_Module_Angle");
     T__BL_Desired_Wheel_Speed__Entry = NTtable_TPoint->GetEntry("BL_Desired_Wheel_Speed");
     T__BL_Desired_Wheel_Speed_in__Entry = NTtable_TPoint->GetEntry("BL_Desired_Wheel_Speed_in");
@@ -942,7 +951,6 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__Button_Disable_Wheels__Entry = NTtable_TPoint->GetEntry("Button_Disable_Wheels");
     T__Button_Enable_Wheels__Entry = NTtable_TPoint->GetEntry("Button_Enable_Wheels");
     T__Button_Reset_Wheel_Offsets__Entry = NTtable_TPoint->GetEntry("Button_Reset_Wheel_Offsets");
-    T__Desired_Static_Action__Entry = NTtable_TPoint->GetEntry("Desired_Static_Action");
     T__Drive_Joystick_X__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_X");
     T__Drive_Joystick_Y__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Y");
     T__Drive_Joystick_Z__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Z");
@@ -966,7 +974,6 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__Is_Outside_Alliance_Zone__Entry = NTtable_TPoint->GetEntry("Is_Outside_Alliance_Zone");
     T__KF_Position_X__Entry = NTtable_TPoint->GetEntry("KF_Position_X");
     T__KF_Position_Y__Entry = NTtable_TPoint->GetEntry("KF_Position_Y");
-    T__Path_Counter__Entry = NTtable_TPoint->GetEntry("Path_Counter");
     T__RB_Allow_Shoot_Gyro_Error__Entry = NTtable_TPoint->GetEntry("RB_Allow_Shoot_Gyro_Error");
     T__RB_Des_Init_Shoot_Motor_Spd__Entry = NTtable_TPoint->GetEntry("RB_Des_Init_Shoot_Motor_Spd");
     T__RB_Des_Intake_Arm_Angle__Entry = NTtable_TPoint->GetEntry("RB_Des_Intake_Arm_Angle");
@@ -1007,7 +1014,6 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__Relative_Error_Y__Entry = NTtable_TPoint->GetEntry("Relative_Error_Y");
     T__Robot_Reached_Destination__Entry = NTtable_TPoint->GetEntry("Robot_Reached_Destination");
     T__Spline_Enable__Entry = NTtable_TPoint->GetEntry("Spline_Enable");
-    T__Spline_Enable_j__Entry = NTtable_TPoint->GetEntry("Spline_Enable_j");
     T__Spline_Follow_Index__Entry = NTtable_TPoint->GetEntry("Spline_Follow_Index");
     T__Spline_Index__Entry = NTtable_TPoint->GetEntry("Spline_Index");
     T__Spline_Num_Poses__Entry = NTtable_TPoint->GetEntry("Spline_Num_Poses");
@@ -1051,6 +1057,7 @@ void SimulinkNetworkTables1::PostStepCallback()
 {
     // Tunable Parameters
     P__Auto_Path_Chooser__Entry.SetDouble(Auto_Path_Chooser);
+    P__Auto_Shoot_Time__Entry.SetDouble(Auto_Shoot_Time);
     P__Boost_Trigger_Decreasing_Limit__Entry.SetDouble(Boost_Trigger_Decreasing_Limit);
     P__Boost_Trigger_High_Speed__Entry.SetDouble(Boost_Trigger_High_Speed);
     P__Boost_Trigger_Increasing_Limit__Entry.SetDouble(Boost_Trigger_Increasing_Limit);
@@ -1370,6 +1377,11 @@ void SimulinkNetworkTables1::PostStepCallback()
     O__Vision_Desired_Pipeline__Entry.SetDouble(Robot_Control_Y.Vision_Desired_Pipeline);
     // Test Points
     T__Active_GameState__Entry.SetDouble(Robot_Control_B.Active_GameState);
+    T__Auto_Desired_Dynamic_Action__Entry.SetDouble(Robot_Control_B.Auto_Desired_Dynamic_Action);
+    T__Auto_Desired_Static_Action__Entry.SetDouble(Robot_Control_B.Auto_Desired_Static_Action);
+    T__Auto_Path_Counter__Entry.SetDouble(Robot_Control_B.Auto_Path_Counter);
+    T__Auto_Path_ID__Entry.SetDouble(Robot_Control_B.Auto_Path_ID);
+    T__Auto_Spline_Enable__Entry.SetDouble(Robot_Control_B.Auto_Spline_Enable);
     T__BL_Desired_Module_Angle__Entry.SetDouble(Robot_Control_B.BL_Desired_Module_Angle);
     T__BL_Desired_Wheel_Speed__Entry.SetDouble(Robot_Control_B.BL_Desired_Wheel_Speed);
     T__BL_Desired_Wheel_Speed_in__Entry.SetDouble(Robot_Control_B.BL_Desired_Wheel_Speed_in);
@@ -1379,7 +1391,6 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__Button_Disable_Wheels__Entry.SetDouble(Robot_Control_B.Button_Disable_Wheels);
     T__Button_Enable_Wheels__Entry.SetDouble(Robot_Control_B.Button_Enable_Wheels);
     T__Button_Reset_Wheel_Offsets__Entry.SetDouble(Robot_Control_B.Button_Reset_Wheel_Offsets);
-    T__Desired_Static_Action__Entry.SetDouble(Robot_Control_B.Desired_Static_Action);
     T__Drive_Joystick_X__Entry.SetDouble(Robot_Control_B.Drive_Joystick_X);
     T__Drive_Joystick_Y__Entry.SetDouble(Robot_Control_B.Drive_Joystick_Y);
     T__Drive_Joystick_Z__Entry.SetDouble(Robot_Control_B.Drive_Joystick_Z);
@@ -1403,7 +1414,6 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__Is_Outside_Alliance_Zone__Entry.SetDouble(Robot_Control_B.Is_Outside_Alliance_Zone);
     T__KF_Position_X__Entry.SetDouble(Robot_Control_B.KF_Position_X);
     T__KF_Position_Y__Entry.SetDouble(Robot_Control_B.KF_Position_Y);
-    T__Path_Counter__Entry.SetDouble(Robot_Control_B.Path_Counter);
     T__RB_Allow_Shoot_Gyro_Error__Entry.SetDouble(Robot_Control_B.RB_Allow_Shoot_Gyro_Error);
     T__RB_Des_Init_Shoot_Motor_Spd__Entry.SetDouble(Robot_Control_B.RB_Des_Init_Shoot_Motor_Spd);
     T__RB_Des_Intake_Arm_Angle__Entry.SetDouble(Robot_Control_B.RB_Des_Intake_Arm_Angle);
@@ -1444,7 +1454,6 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__Relative_Error_Y__Entry.SetDouble(Robot_Control_B.Relative_Error_Y);
     T__Robot_Reached_Destination__Entry.SetDouble(Robot_Control_B.Robot_Reached_Destination);
     T__Spline_Enable__Entry.SetDouble(Robot_Control_B.Spline_Enable);
-    T__Spline_Enable_j__Entry.SetDouble(Robot_Control_B.Spline_Enable_j);
     T__Spline_Follow_Index__Entry.SetDouble(Robot_Control_B.Spline_Follow_Index);
     T__Spline_Index__Entry.SetDouble(Robot_Control_B.Spline_Index);
     T__Spline_Num_Poses__Entry.SetDouble(Robot_Control_B.Spline_Num_Poses);

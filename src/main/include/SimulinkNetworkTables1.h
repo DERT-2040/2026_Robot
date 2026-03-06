@@ -18,6 +18,7 @@ public:
 private:
         // Parameters
         nt::NetworkTableEntry P__Auto_Path_Chooser__Entry;
+        nt::NetworkTableEntry P__Auto_Shoot_Time__Entry;
         nt::NetworkTableEntry P__Boost_Trigger_Decreasing_Limit__Entry;
         nt::NetworkTableEntry P__Boost_Trigger_High_Speed__Entry;
         nt::NetworkTableEntry P__Boost_Trigger_Increasing_Limit__Entry;
@@ -339,6 +340,11 @@ private:
  
         // Test Points
         nt::NetworkTableEntry T__Active_GameState__Entry;
+        nt::NetworkTableEntry T__Auto_Desired_Dynamic_Action__Entry;
+        nt::NetworkTableEntry T__Auto_Desired_Static_Action__Entry;
+        nt::NetworkTableEntry T__Auto_Path_Counter__Entry;
+        nt::NetworkTableEntry T__Auto_Path_ID__Entry;
+        nt::NetworkTableEntry T__Auto_Spline_Enable__Entry;
         nt::NetworkTableEntry T__BL_Desired_Module_Angle__Entry;
         nt::NetworkTableEntry T__BL_Desired_Wheel_Speed__Entry;
         nt::NetworkTableEntry T__BL_Desired_Wheel_Speed_in__Entry;
@@ -348,7 +354,6 @@ private:
         nt::NetworkTableEntry T__Button_Disable_Wheels__Entry;
         nt::NetworkTableEntry T__Button_Enable_Wheels__Entry;
         nt::NetworkTableEntry T__Button_Reset_Wheel_Offsets__Entry;
-        nt::NetworkTableEntry T__Desired_Static_Action__Entry;
         nt::NetworkTableEntry T__Drive_Joystick_X__Entry;
         nt::NetworkTableEntry T__Drive_Joystick_Y__Entry;
         nt::NetworkTableEntry T__Drive_Joystick_Z__Entry;
@@ -372,7 +377,6 @@ private:
         nt::NetworkTableEntry T__Is_Outside_Alliance_Zone__Entry;
         nt::NetworkTableEntry T__KF_Position_X__Entry;
         nt::NetworkTableEntry T__KF_Position_Y__Entry;
-        nt::NetworkTableEntry T__Path_Counter__Entry;
         nt::NetworkTableEntry T__RB_Allow_Shoot_Gyro_Error__Entry;
         nt::NetworkTableEntry T__RB_Des_Init_Shoot_Motor_Spd__Entry;
         nt::NetworkTableEntry T__RB_Des_Intake_Arm_Angle__Entry;
@@ -413,7 +417,6 @@ private:
         nt::NetworkTableEntry T__Relative_Error_Y__Entry;
         nt::NetworkTableEntry T__Robot_Reached_Destination__Entry;
         nt::NetworkTableEntry T__Spline_Enable__Entry;
-        nt::NetworkTableEntry T__Spline_Enable_j__Entry;
         nt::NetworkTableEntry T__Spline_Follow_Index__Entry;
         nt::NetworkTableEntry T__Spline_Index__Entry;
         nt::NetworkTableEntry T__Spline_Num_Poses__Entry;
