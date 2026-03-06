@@ -19,7 +19,7 @@ plot_robot_rectangle = 1;  % 0 = off, 1 = on
 % Define which paths to run
 
 % Define which paths to run
-test_cases = [1,2];
+%test_cases = [1,2];
 %test_cases = [1,3];
 %test_cases = [4,5];
 %test_cases = [4,6];
@@ -33,7 +33,7 @@ for m = 1:length(test_cases)
     k = test_cases(m);
 
     % Define data used by simulation (defined by Code_Gen_Model_data.m)
-    Spline_Ref_Poses = All_Paths_Ref_Poses(:,:,k);
+    Spline_Ref_Poses = All_Paths_Ref_Poses_Red(:,:,k);
     Spline_Num_Poses = All_Paths_Num_Poses(k);
 
     % Initial conditions
