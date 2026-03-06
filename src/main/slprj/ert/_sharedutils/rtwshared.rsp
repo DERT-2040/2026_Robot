@@ -10,3 +10,4 @@ rt_hypotd_snf.obj
 rt_modd_snf.obj
 rt_nonfinite.obj
 rt_powd_snf.obj
+plook_u32d_evencka.obj

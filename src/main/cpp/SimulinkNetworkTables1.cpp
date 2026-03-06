@@ -11,6 +11,10 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     auto NTtable_Outport = NTinst.GetTable("Simulink Top Level Ports");
     auto NTtable_TPoint = NTinst.GetTable("Simulink Test Points");
  
+    P__Auto_Path_Chooser__Entry = NTtable_Tune->GetEntry("Auto_Path_Chooser");
+    NTinst.AddListener(P__Auto_Path_Chooser__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Path_Chooser = event.GetValueEventData()->value.GetDouble();});
+    P__Auto_Path_Chooser__Entry.SetDouble(1);
+ 
     P__Boost_Trigger_Decreasing_Limit__Entry = NTtable_Tune->GetEntry("Boost_Trigger_Decreasing_Limit");
     NTinst.AddListener(P__Boost_Trigger_Decreasing_Limit__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Decreasing_Limit = event.GetValueEventData()->value.GetDouble();});
     P__Boost_Trigger_Decreasing_Limit__Entry.SetDouble(-0.28);
@@ -178,6 +182,42 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     P__Rebuilt_Intake_RL_Inc__Entry = NTtable_Tune->GetEntry("Rebuilt_Intake_RL_Inc");
     NTinst.AddListener(P__Rebuilt_Intake_RL_Inc__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_RL_Inc = event.GetValueEventData()->value.GetDouble();});
     P__Rebuilt_Intake_RL_Inc__Entry.SetDouble(1.8);
+ 
+    P__Rebuilt_Match_Time_Auto_Timer__Entry = NTtable_Tune->GetEntry("Rebuilt_Match_Time_Auto_Timer");
+    NTinst.AddListener(P__Rebuilt_Match_Time_Auto_Timer__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_Auto_Timer = event.GetValueEventData()->value.GetDouble();});
+    P__Rebuilt_Match_Time_Auto_Timer__Entry.SetDouble(27);
+ 
+    P__Rebuilt_Match_Time_End_Game_Timer__Entry = NTtable_Tune->GetEntry("Rebuilt_Match_Time_End_Game_Timer");
+    NTinst.AddListener(P__Rebuilt_Match_Time_End_Game_Timer__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_End_Game_Timer = event.GetValueEventData()->value.GetDouble();});
+    P__Rebuilt_Match_Time_End_Game_Timer__Entry.SetDouble(33);
+ 
+    P__Rebuilt_Match_Time_Shift_1__Entry = NTtable_Tune->GetEntry("Rebuilt_Match_Time_Shift_1");
+    NTinst.AddListener(P__Rebuilt_Match_Time_Shift_1__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_Shift_1 = event.GetValueEventData()->value.GetDouble();});
+    P__Rebuilt_Match_Time_Shift_1__Entry.SetDouble(32);
+ 
+    P__Rebuilt_Match_Time_Shift_2__Entry = NTtable_Tune->GetEntry("Rebuilt_Match_Time_Shift_2");
+    NTinst.AddListener(P__Rebuilt_Match_Time_Shift_2__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_Shift_2 = event.GetValueEventData()->value.GetDouble();});
+    P__Rebuilt_Match_Time_Shift_2__Entry.SetDouble(57);
+ 
+    P__Rebuilt_Match_Time_Shift_3__Entry = NTtable_Tune->GetEntry("Rebuilt_Match_Time_Shift_3");
+    NTinst.AddListener(P__Rebuilt_Match_Time_Shift_3__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_Shift_3 = event.GetValueEventData()->value.GetDouble();});
+    P__Rebuilt_Match_Time_Shift_3__Entry.SetDouble(82);
+ 
+    P__Rebuilt_Match_Time_Shift_4__Entry = NTtable_Tune->GetEntry("Rebuilt_Match_Time_Shift_4");
+    NTinst.AddListener(P__Rebuilt_Match_Time_Shift_4__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_Shift_4 = event.GetValueEventData()->value.GetDouble();});
+    P__Rebuilt_Match_Time_Shift_4__Entry.SetDouble(107);
+ 
+    P__Rebuilt_Match_Time_Shift_Timer__Entry = NTtable_Tune->GetEntry("Rebuilt_Match_Time_Shift_Timer");
+    NTinst.AddListener(P__Rebuilt_Match_Time_Shift_Timer__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_Shift_Timer = event.GetValueEventData()->value.GetDouble();});
+    P__Rebuilt_Match_Time_Shift_Timer__Entry.SetDouble(25);
+ 
+    P__Rebuilt_Match_Time_TeleOp__Entry = NTtable_Tune->GetEntry("Rebuilt_Match_Time_TeleOp");
+    NTinst.AddListener(P__Rebuilt_Match_Time_TeleOp__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_TeleOp = event.GetValueEventData()->value.GetDouble();});
+    P__Rebuilt_Match_Time_TeleOp__Entry.SetDouble(140);
+ 
+    P__Rebuilt_Match_Time_Transition__Entry = NTtable_Tune->GetEntry("Rebuilt_Match_Time_Transition");
+    NTinst.AddListener(P__Rebuilt_Match_Time_Transition__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_Transition = event.GetValueEventData()->value.GetDouble();});
+    P__Rebuilt_Match_Time_Transition__Entry.SetDouble(7);
  
     P__Rebuilt_Negative_Feeder_Speed__Entry = NTtable_Tune->GetEntry("Rebuilt_Negative_Feeder_Speed");
     NTinst.AddListener(P__Rebuilt_Negative_Feeder_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Negative_Feeder_Speed = event.GetValueEventData()->value.GetDouble();});
@@ -902,6 +942,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__Button_Disable_Wheels__Entry = NTtable_TPoint->GetEntry("Button_Disable_Wheels");
     T__Button_Enable_Wheels__Entry = NTtable_TPoint->GetEntry("Button_Enable_Wheels");
     T__Button_Reset_Wheel_Offsets__Entry = NTtable_TPoint->GetEntry("Button_Reset_Wheel_Offsets");
+    T__Desired_Static_Action__Entry = NTtable_TPoint->GetEntry("Desired_Static_Action");
     T__Drive_Joystick_X__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_X");
     T__Drive_Joystick_Y__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Y");
     T__Drive_Joystick_Z__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Z");
@@ -925,6 +966,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__Is_Outside_Alliance_Zone__Entry = NTtable_TPoint->GetEntry("Is_Outside_Alliance_Zone");
     T__KF_Position_X__Entry = NTtable_TPoint->GetEntry("KF_Position_X");
     T__KF_Position_Y__Entry = NTtable_TPoint->GetEntry("KF_Position_Y");
+    T__Path_Counter__Entry = NTtable_TPoint->GetEntry("Path_Counter");
     T__RB_Allow_Shoot_Gyro_Error__Entry = NTtable_TPoint->GetEntry("RB_Allow_Shoot_Gyro_Error");
     T__RB_Des_Init_Shoot_Motor_Spd__Entry = NTtable_TPoint->GetEntry("RB_Des_Init_Shoot_Motor_Spd");
     T__RB_Des_Intake_Arm_Angle__Entry = NTtable_TPoint->GetEntry("RB_Des_Intake_Arm_Angle");
@@ -952,6 +994,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__RB_Meas_Shooter_Speed_Max__Entry = NTtable_TPoint->GetEntry("RB_Meas_Shooter_Speed_Max");
     T__RB_Ready_to_Pass__Entry = NTtable_TPoint->GetEntry("RB_Ready_to_Pass");
     T__RB_Ready_to_Score__Entry = NTtable_TPoint->GetEntry("RB_Ready_to_Score");
+    T__RB_Shift_Time_Remaining__Entry = NTtable_TPoint->GetEntry("RB_Shift_Time_Remaining");
     T__RB_Shoot_Target_X__Entry = NTtable_TPoint->GetEntry("RB_Shoot_Target_X");
     T__RB_Shoot_Target_Y__Entry = NTtable_TPoint->GetEntry("RB_Shoot_Target_Y");
     T__RB_Shooter_Active__Entry = NTtable_TPoint->GetEntry("RB_Shooter_Active");
@@ -964,7 +1007,9 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__Relative_Error_Y__Entry = NTtable_TPoint->GetEntry("Relative_Error_Y");
     T__Robot_Reached_Destination__Entry = NTtable_TPoint->GetEntry("Robot_Reached_Destination");
     T__Spline_Enable__Entry = NTtable_TPoint->GetEntry("Spline_Enable");
+    T__Spline_Enable_j__Entry = NTtable_TPoint->GetEntry("Spline_Enable_j");
     T__Spline_Follow_Index__Entry = NTtable_TPoint->GetEntry("Spline_Follow_Index");
+    T__Spline_Index__Entry = NTtable_TPoint->GetEntry("Spline_Index");
     T__Spline_Num_Poses__Entry = NTtable_TPoint->GetEntry("Spline_Num_Poses");
     T__Spline_Out_Of_Bounds__Entry = NTtable_TPoint->GetEntry("Spline_Out_Of_Bounds");
     T__Spline_Target_X__Entry = NTtable_TPoint->GetEntry("Spline_Target_X");
@@ -1005,6 +1050,7 @@ void SimulinkNetworkTables1::PreStepCallback() {}
 void SimulinkNetworkTables1::PostStepCallback()
 {
     // Tunable Parameters
+    P__Auto_Path_Chooser__Entry.SetDouble(Auto_Path_Chooser);
     P__Boost_Trigger_Decreasing_Limit__Entry.SetDouble(Boost_Trigger_Decreasing_Limit);
     P__Boost_Trigger_High_Speed__Entry.SetDouble(Boost_Trigger_High_Speed);
     P__Boost_Trigger_Increasing_Limit__Entry.SetDouble(Boost_Trigger_Increasing_Limit);
@@ -1047,6 +1093,15 @@ void SimulinkNetworkTables1::PostStepCallback()
     P__Rebuilt_Intake_Des_Angle_Out__Entry.SetDouble(Rebuilt_Intake_Des_Angle_Out);
     P__Rebuilt_Intake_RL_Dec__Entry.SetDouble(Rebuilt_Intake_RL_Dec);
     P__Rebuilt_Intake_RL_Inc__Entry.SetDouble(Rebuilt_Intake_RL_Inc);
+    P__Rebuilt_Match_Time_Auto_Timer__Entry.SetDouble(Rebuilt_Match_Time_Auto_Timer);
+    P__Rebuilt_Match_Time_End_Game_Timer__Entry.SetDouble(Rebuilt_Match_Time_End_Game_Timer);
+    P__Rebuilt_Match_Time_Shift_1__Entry.SetDouble(Rebuilt_Match_Time_Shift_1);
+    P__Rebuilt_Match_Time_Shift_2__Entry.SetDouble(Rebuilt_Match_Time_Shift_2);
+    P__Rebuilt_Match_Time_Shift_3__Entry.SetDouble(Rebuilt_Match_Time_Shift_3);
+    P__Rebuilt_Match_Time_Shift_4__Entry.SetDouble(Rebuilt_Match_Time_Shift_4);
+    P__Rebuilt_Match_Time_Shift_Timer__Entry.SetDouble(Rebuilt_Match_Time_Shift_Timer);
+    P__Rebuilt_Match_Time_TeleOp__Entry.SetDouble(Rebuilt_Match_Time_TeleOp);
+    P__Rebuilt_Match_Time_Transition__Entry.SetDouble(Rebuilt_Match_Time_Transition);
     P__Rebuilt_Negative_Feeder_Speed__Entry.SetDouble(Rebuilt_Negative_Feeder_Speed);
     P__Rebuilt_Roller_Desired_Speed__Entry.SetDouble(Rebuilt_Roller_Desired_Speed);
     P__Rebuilt_Roller_Error_Integral_Enable__Entry.SetDouble(Rebuilt_Roller_Error_Integral_Enable);
@@ -1324,6 +1379,7 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__Button_Disable_Wheels__Entry.SetDouble(Robot_Control_B.Button_Disable_Wheels);
     T__Button_Enable_Wheels__Entry.SetDouble(Robot_Control_B.Button_Enable_Wheels);
     T__Button_Reset_Wheel_Offsets__Entry.SetDouble(Robot_Control_B.Button_Reset_Wheel_Offsets);
+    T__Desired_Static_Action__Entry.SetDouble(Robot_Control_B.Desired_Static_Action);
     T__Drive_Joystick_X__Entry.SetDouble(Robot_Control_B.Drive_Joystick_X);
     T__Drive_Joystick_Y__Entry.SetDouble(Robot_Control_B.Drive_Joystick_Y);
     T__Drive_Joystick_Z__Entry.SetDouble(Robot_Control_B.Drive_Joystick_Z);
@@ -1347,6 +1403,7 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__Is_Outside_Alliance_Zone__Entry.SetDouble(Robot_Control_B.Is_Outside_Alliance_Zone);
     T__KF_Position_X__Entry.SetDouble(Robot_Control_B.KF_Position_X);
     T__KF_Position_Y__Entry.SetDouble(Robot_Control_B.KF_Position_Y);
+    T__Path_Counter__Entry.SetDouble(Robot_Control_B.Path_Counter);
     T__RB_Allow_Shoot_Gyro_Error__Entry.SetDouble(Robot_Control_B.RB_Allow_Shoot_Gyro_Error);
     T__RB_Des_Init_Shoot_Motor_Spd__Entry.SetDouble(Robot_Control_B.RB_Des_Init_Shoot_Motor_Spd);
     T__RB_Des_Intake_Arm_Angle__Entry.SetDouble(Robot_Control_B.RB_Des_Intake_Arm_Angle);
@@ -1374,6 +1431,7 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__RB_Meas_Shooter_Speed_Max__Entry.SetDouble(Robot_Control_B.RB_Meas_Shooter_Speed_Max);
     T__RB_Ready_to_Pass__Entry.SetDouble(Robot_Control_B.RB_Ready_to_Pass);
     T__RB_Ready_to_Score__Entry.SetDouble(Robot_Control_B.RB_Ready_to_Score);
+    T__RB_Shift_Time_Remaining__Entry.SetDouble(Robot_Control_B.RB_Shift_Time_Remaining);
     T__RB_Shoot_Target_X__Entry.SetDouble(Robot_Control_B.RB_Shoot_Target_X);
     T__RB_Shoot_Target_Y__Entry.SetDouble(Robot_Control_B.RB_Shoot_Target_Y);
     T__RB_Shooter_Active__Entry.SetDouble(Robot_Control_B.RB_Shooter_Active);
@@ -1386,7 +1444,9 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__Relative_Error_Y__Entry.SetDouble(Robot_Control_B.Relative_Error_Y);
     T__Robot_Reached_Destination__Entry.SetDouble(Robot_Control_B.Robot_Reached_Destination);
     T__Spline_Enable__Entry.SetDouble(Robot_Control_B.Spline_Enable);
+    T__Spline_Enable_j__Entry.SetDouble(Robot_Control_B.Spline_Enable_j);
     T__Spline_Follow_Index__Entry.SetDouble(Robot_Control_B.Spline_Follow_Index);
+    T__Spline_Index__Entry.SetDouble(Robot_Control_B.Spline_Index);
     T__Spline_Num_Poses__Entry.SetDouble(Robot_Control_B.Spline_Num_Poses);
     T__Spline_Out_Of_Bounds__Entry.SetDouble(Robot_Control_B.Spline_Out_Of_Bounds);
     T__Spline_Target_X__Entry.SetDouble(Robot_Control_B.Spline_Target_X);

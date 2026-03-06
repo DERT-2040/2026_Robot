@@ -17,6 +17,7 @@ public:
     void PostStepCallback() override;
 private:
         // Parameters
+        nt::NetworkTableEntry P__Auto_Path_Chooser__Entry;
         nt::NetworkTableEntry P__Boost_Trigger_Decreasing_Limit__Entry;
         nt::NetworkTableEntry P__Boost_Trigger_High_Speed__Entry;
         nt::NetworkTableEntry P__Boost_Trigger_Increasing_Limit__Entry;
@@ -59,6 +60,15 @@ private:
         nt::NetworkTableEntry P__Rebuilt_Intake_Des_Angle_Out__Entry;
         nt::NetworkTableEntry P__Rebuilt_Intake_RL_Dec__Entry;
         nt::NetworkTableEntry P__Rebuilt_Intake_RL_Inc__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Match_Time_Auto_Timer__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Match_Time_End_Game_Timer__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Match_Time_Shift_1__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Match_Time_Shift_2__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Match_Time_Shift_3__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Match_Time_Shift_4__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Match_Time_Shift_Timer__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Match_Time_TeleOp__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Match_Time_Transition__Entry;
         nt::NetworkTableEntry P__Rebuilt_Negative_Feeder_Speed__Entry;
         nt::NetworkTableEntry P__Rebuilt_Roller_Desired_Speed__Entry;
         nt::NetworkTableEntry P__Rebuilt_Roller_Error_Integral_Enable__Entry;
@@ -338,6 +348,7 @@ private:
         nt::NetworkTableEntry T__Button_Disable_Wheels__Entry;
         nt::NetworkTableEntry T__Button_Enable_Wheels__Entry;
         nt::NetworkTableEntry T__Button_Reset_Wheel_Offsets__Entry;
+        nt::NetworkTableEntry T__Desired_Static_Action__Entry;
         nt::NetworkTableEntry T__Drive_Joystick_X__Entry;
         nt::NetworkTableEntry T__Drive_Joystick_Y__Entry;
         nt::NetworkTableEntry T__Drive_Joystick_Z__Entry;
@@ -361,6 +372,7 @@ private:
         nt::NetworkTableEntry T__Is_Outside_Alliance_Zone__Entry;
         nt::NetworkTableEntry T__KF_Position_X__Entry;
         nt::NetworkTableEntry T__KF_Position_Y__Entry;
+        nt::NetworkTableEntry T__Path_Counter__Entry;
         nt::NetworkTableEntry T__RB_Allow_Shoot_Gyro_Error__Entry;
         nt::NetworkTableEntry T__RB_Des_Init_Shoot_Motor_Spd__Entry;
         nt::NetworkTableEntry T__RB_Des_Intake_Arm_Angle__Entry;
@@ -388,6 +400,7 @@ private:
         nt::NetworkTableEntry T__RB_Meas_Shooter_Speed_Max__Entry;
         nt::NetworkTableEntry T__RB_Ready_to_Pass__Entry;
         nt::NetworkTableEntry T__RB_Ready_to_Score__Entry;
+        nt::NetworkTableEntry T__RB_Shift_Time_Remaining__Entry;
         nt::NetworkTableEntry T__RB_Shoot_Target_X__Entry;
         nt::NetworkTableEntry T__RB_Shoot_Target_Y__Entry;
         nt::NetworkTableEntry T__RB_Shooter_Active__Entry;
@@ -400,7 +413,9 @@ private:
         nt::NetworkTableEntry T__Relative_Error_Y__Entry;
         nt::NetworkTableEntry T__Robot_Reached_Destination__Entry;
         nt::NetworkTableEntry T__Spline_Enable__Entry;
+        nt::NetworkTableEntry T__Spline_Enable_j__Entry;
         nt::NetworkTableEntry T__Spline_Follow_Index__Entry;
+        nt::NetworkTableEntry T__Spline_Index__Entry;
         nt::NetworkTableEntry T__Spline_Num_Poses__Entry;
         nt::NetworkTableEntry T__Spline_Out_Of_Bounds__Entry;
         nt::NetworkTableEntry T__Spline_Target_X__Entry;

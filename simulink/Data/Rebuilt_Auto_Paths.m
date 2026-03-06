@@ -5,6 +5,10 @@ D2R = pi/180;
 field_width  = 317.69 * 0.0254;
 field_length = 651.22 * 0.0254;
 
+%Chooser
+
+Auto_Path_Chooser = 1; 
+
 % [x, y, velocity, angle, action at path point, action during path segment]
 %     Column 5 action defined in the current row is the action taken
 %     at this point until it is completed.
@@ -211,10 +215,10 @@ All_Paths_Num_Poses = [
 clear field_width field_length
 
 % Define complete auto paths
-Auto_Path_01 = [1,2];
-Auto_Path_02 = [1,3];
-Auto_Path_03 = [4,5];
-Auto_Path_04 = [4,6];
+Auto_Path_01 = [1,2,0];
+Auto_Path_02 = [1,3,0];
+Auto_Path_03 = [4,5,0];
+Auto_Path_04 = [4,6,0];
 Auto_Path_05 = [7,8,2];
 Auto_Path_06 = [7,8,3];
 Auto_Path_07 = [9,10,5];
