@@ -161,13 +161,15 @@ Path_DP_LH = [
     0,0,0,0,0,0;
     0,0,0,0,0,0];
 
-
+clear D2R
 
 % Run this function to mirron paths from blue to red sides of the field
 % Path_1_Red = MirrorPath(Path_1, field_width, field_length);
 
+clear field_width field_length
+
 % concatenate all of the paths into one multi-dimensional matrix
-All_Paths_Ref_Poses = cat(3, ...
+All_Paths_Ref_Poses_Blue = cat(3, ...
     Path_LT_NZ_RH(:,:), ...   % 1
     Path_RH_RC(:,:), ...      % 2
     Path_RH_LC(:,:), ...      % 3
@@ -181,7 +183,7 @@ All_Paths_Ref_Poses = cat(3, ...
   ); 
 
 % collect the number of poses in each path
-All_Paths_Num_Poses = [
+All_Paths_Num_Poses_Blue = [
     nnz(Path_LT_NZ_RH(:,1));    % 1
     nnz(Path_RH_RC(:,1));       % 2
     nnz(Path_RH_LC(:,1));       % 3
@@ -194,4 +196,12 @@ All_Paths_Num_Poses = [
     nnz(Path_DP_LH(:,1))        % 10
     ];
 
-clear D2R field_width field_length
+% Define complete auto paths
+Auto_Path_Blue_01 = [1,2];
+Auto_Path_Blue_02 = [1,3];
+Auto_Path_Blue_03 = [4,5];
+Auto_Path_Blue_04 = [4,6];
+Auto_Path_Blue_05 = [7,8,2];
+Auto_Path_Blue_06 = [7,8,3];
+Auto_Path_Blue_07 = [9,10,5];
+Auto_Path_Blue_08 = [9,10,6];
