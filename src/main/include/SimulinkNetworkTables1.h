@@ -52,13 +52,13 @@ private:
         nt::NetworkTableEntry P__Rebuilt_Hood_Servo_Rate_Limit_Dec__Entry;
         nt::NetworkTableEntry P__Rebuilt_Hood_Servo_Rate_Limit_Inc__Entry;
         nt::NetworkTableEntry P__Rebuilt_Intake_Arm_Gain_D__Entry;
-        nt::NetworkTableEntry P__Rebuilt_Intake_Arm_Gain_I__Entry;
         nt::NetworkTableEntry P__Rebuilt_Intake_Arm_Gain_P__Entry;
-        nt::NetworkTableEntry P__Rebuilt_Intake_Arm_Integral_Enable__Entry;
         nt::NetworkTableEntry P__Rebuilt_Intake_Cycle_Angle_In__Entry;
         nt::NetworkTableEntry P__Rebuilt_Intake_Cycle_Angle_Out__Entry;
         nt::NetworkTableEntry P__Rebuilt_Intake_Des_Angle_In__Entry;
         nt::NetworkTableEntry P__Rebuilt_Intake_Des_Angle_Out__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Intake_Meas_In_Disable__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Intake_Meas_Out_Disable__Entry;
         nt::NetworkTableEntry P__Rebuilt_Intake_RL_Dec__Entry;
         nt::NetworkTableEntry P__Rebuilt_Intake_RL_Inc__Entry;
         nt::NetworkTableEntry P__Rebuilt_Match_Time_Auto_Timer__Entry;
@@ -391,6 +391,7 @@ private:
         nt::NetworkTableEntry T__RB_Desired_Target_Y__Entry;
         nt::NetworkTableEntry T__RB_Desired_Transfer_Speed__Entry;
         nt::NetworkTableEntry T__RB_Feeder_Motor_PID_DC__Entry;
+        nt::NetworkTableEntry T__RB_Intake_Arm_Angle_Mod__Entry;
         nt::NetworkTableEntry T__RB_Intake_Arm_Motor_PID_DC__Entry;
         nt::NetworkTableEntry T__RB_Intake_Roller_Motor_PID_DC__Entry;
         nt::NetworkTableEntry T__RB_IsBlueActive__Entry;

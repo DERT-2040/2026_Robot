@@ -151,21 +151,13 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     NTinst.AddListener(P__Rebuilt_Intake_Arm_Gain_D__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_Arm_Gain_D = event.GetValueEventData()->value.GetDouble();});
     P__Rebuilt_Intake_Arm_Gain_D__Entry.SetDouble(0);
  
-    P__Rebuilt_Intake_Arm_Gain_I__Entry = NTtable_Tune->GetEntry("Rebuilt_Intake_Arm_Gain_I");
-    NTinst.AddListener(P__Rebuilt_Intake_Arm_Gain_I__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_Arm_Gain_I = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Intake_Arm_Gain_I__Entry.SetDouble(0);
- 
     P__Rebuilt_Intake_Arm_Gain_P__Entry = NTtable_Tune->GetEntry("Rebuilt_Intake_Arm_Gain_P");
     NTinst.AddListener(P__Rebuilt_Intake_Arm_Gain_P__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_Arm_Gain_P = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Intake_Arm_Gain_P__Entry.SetDouble(0);
- 
-    P__Rebuilt_Intake_Arm_Integral_Enable__Entry = NTtable_Tune->GetEntry("Rebuilt_Intake_Arm_Integral_Enable");
-    NTinst.AddListener(P__Rebuilt_Intake_Arm_Integral_Enable__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_Arm_Integral_Enable = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Intake_Arm_Integral_Enable__Entry.SetDouble(0);
+    P__Rebuilt_Intake_Arm_Gain_P__Entry.SetDouble(0.001);
  
     P__Rebuilt_Intake_Cycle_Angle_In__Entry = NTtable_Tune->GetEntry("Rebuilt_Intake_Cycle_Angle_In");
     NTinst.AddListener(P__Rebuilt_Intake_Cycle_Angle_In__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_Cycle_Angle_In = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Intake_Cycle_Angle_In__Entry.SetDouble(20);
+    P__Rebuilt_Intake_Cycle_Angle_In__Entry.SetDouble(0);
  
     P__Rebuilt_Intake_Cycle_Angle_Out__Entry = NTtable_Tune->GetEntry("Rebuilt_Intake_Cycle_Angle_Out");
     NTinst.AddListener(P__Rebuilt_Intake_Cycle_Angle_Out__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_Cycle_Angle_Out = event.GetValueEventData()->value.GetDouble();});
@@ -173,19 +165,27 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Intake_Des_Angle_In__Entry = NTtable_Tune->GetEntry("Rebuilt_Intake_Des_Angle_In");
     NTinst.AddListener(P__Rebuilt_Intake_Des_Angle_In__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_Des_Angle_In = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Intake_Des_Angle_In__Entry.SetDouble(0);
+    P__Rebuilt_Intake_Des_Angle_In__Entry.SetDouble(-40);
  
     P__Rebuilt_Intake_Des_Angle_Out__Entry = NTtable_Tune->GetEntry("Rebuilt_Intake_Des_Angle_Out");
     NTinst.AddListener(P__Rebuilt_Intake_Des_Angle_Out__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_Des_Angle_Out = event.GetValueEventData()->value.GetDouble();});
     P__Rebuilt_Intake_Des_Angle_Out__Entry.SetDouble(90);
  
+    P__Rebuilt_Intake_Meas_In_Disable__Entry = NTtable_Tune->GetEntry("Rebuilt_Intake_Meas_In_Disable");
+    NTinst.AddListener(P__Rebuilt_Intake_Meas_In_Disable__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_Meas_In_Disable = event.GetValueEventData()->value.GetDouble();});
+    P__Rebuilt_Intake_Meas_In_Disable__Entry.SetDouble(-20);
+ 
+    P__Rebuilt_Intake_Meas_Out_Disable__Entry = NTtable_Tune->GetEntry("Rebuilt_Intake_Meas_Out_Disable");
+    NTinst.AddListener(P__Rebuilt_Intake_Meas_Out_Disable__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_Meas_Out_Disable = event.GetValueEventData()->value.GetDouble();});
+    P__Rebuilt_Intake_Meas_Out_Disable__Entry.SetDouble(80);
+ 
     P__Rebuilt_Intake_RL_Dec__Entry = NTtable_Tune->GetEntry("Rebuilt_Intake_RL_Dec");
     NTinst.AddListener(P__Rebuilt_Intake_RL_Dec__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_RL_Dec = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Intake_RL_Dec__Entry.SetDouble(-1.8);
+    P__Rebuilt_Intake_RL_Dec__Entry.SetDouble(-1);
  
     P__Rebuilt_Intake_RL_Inc__Entry = NTtable_Tune->GetEntry("Rebuilt_Intake_RL_Inc");
     NTinst.AddListener(P__Rebuilt_Intake_RL_Inc__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_RL_Inc = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Intake_RL_Inc__Entry.SetDouble(1.8);
+    P__Rebuilt_Intake_RL_Inc__Entry.SetDouble(1);
  
     P__Rebuilt_Match_Time_Auto_Timer__Entry = NTtable_Tune->GetEntry("Rebuilt_Match_Time_Auto_Timer");
     NTinst.AddListener(P__Rebuilt_Match_Time_Auto_Timer__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_Auto_Timer = event.GetValueEventData()->value.GetDouble();});
@@ -229,23 +229,23 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Roller_Desired_Speed__Entry = NTtable_Tune->GetEntry("Rebuilt_Roller_Desired_Speed");
     NTinst.AddListener(P__Rebuilt_Roller_Desired_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Roller_Desired_Speed = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Roller_Desired_Speed__Entry.SetDouble(0);
+    P__Rebuilt_Roller_Desired_Speed__Entry.SetDouble(4500);
  
     P__Rebuilt_Roller_Error_Integral_Enable__Entry = NTtable_Tune->GetEntry("Rebuilt_Roller_Error_Integral_Enable");
     NTinst.AddListener(P__Rebuilt_Roller_Error_Integral_Enable__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Roller_Error_Integral_Enable = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Roller_Error_Integral_Enable__Entry.SetDouble(0);
+    P__Rebuilt_Roller_Error_Integral_Enable__Entry.SetDouble(300);
  
     P__Rebuilt_Roller_Motor_Gain_FF__Entry = NTtable_Tune->GetEntry("Rebuilt_Roller_Motor_Gain_FF");
     NTinst.AddListener(P__Rebuilt_Roller_Motor_Gain_FF__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Roller_Motor_Gain_FF = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Roller_Motor_Gain_FF__Entry.SetDouble(0);
+    P__Rebuilt_Roller_Motor_Gain_FF__Entry.SetDouble(0.00012732);
  
     P__Rebuilt_Roller_Motor_Gain_I__Entry = NTtable_Tune->GetEntry("Rebuilt_Roller_Motor_Gain_I");
     NTinst.AddListener(P__Rebuilt_Roller_Motor_Gain_I__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Roller_Motor_Gain_I = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Roller_Motor_Gain_I__Entry.SetDouble(0);
+    P__Rebuilt_Roller_Motor_Gain_I__Entry.SetDouble(2e-05);
  
     P__Rebuilt_Roller_Motor_Gain_P__Entry = NTtable_Tune->GetEntry("Rebuilt_Roller_Motor_Gain_P");
     NTinst.AddListener(P__Rebuilt_Roller_Motor_Gain_P__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Roller_Motor_Gain_P = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Roller_Motor_Gain_P__Entry.SetDouble(0);
+    P__Rebuilt_Roller_Motor_Gain_P__Entry.SetDouble(0.0001);
  
     P__Rebuilt_Shoot_Dist_0__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Dist_0");
     NTinst.AddListener(P__Rebuilt_Shoot_Dist_0__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Dist_0 = event.GetValueEventData()->value.GetDouble();});
@@ -988,6 +988,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__RB_Desired_Target_Y__Entry = NTtable_TPoint->GetEntry("RB_Desired_Target_Y");
     T__RB_Desired_Transfer_Speed__Entry = NTtable_TPoint->GetEntry("RB_Desired_Transfer_Speed");
     T__RB_Feeder_Motor_PID_DC__Entry = NTtable_TPoint->GetEntry("RB_Feeder_Motor_PID_DC");
+    T__RB_Intake_Arm_Angle_Mod__Entry = NTtable_TPoint->GetEntry("RB_Intake_Arm_Angle_Mod");
     T__RB_Intake_Arm_Motor_PID_DC__Entry = NTtable_TPoint->GetEntry("RB_Intake_Arm_Motor_PID_DC");
     T__RB_Intake_Roller_Motor_PID_DC__Entry = NTtable_TPoint->GetEntry("RB_Intake_Roller_Motor_PID_DC");
     T__RB_IsBlueActive__Entry = NTtable_TPoint->GetEntry("RB_IsBlueActive");
@@ -1091,13 +1092,13 @@ void SimulinkNetworkTables1::PostStepCallback()
     P__Rebuilt_Hood_Servo_Rate_Limit_Dec__Entry.SetDouble(Rebuilt_Hood_Servo_Rate_Limit_Dec);
     P__Rebuilt_Hood_Servo_Rate_Limit_Inc__Entry.SetDouble(Rebuilt_Hood_Servo_Rate_Limit_Inc);
     P__Rebuilt_Intake_Arm_Gain_D__Entry.SetDouble(Rebuilt_Intake_Arm_Gain_D);
-    P__Rebuilt_Intake_Arm_Gain_I__Entry.SetDouble(Rebuilt_Intake_Arm_Gain_I);
     P__Rebuilt_Intake_Arm_Gain_P__Entry.SetDouble(Rebuilt_Intake_Arm_Gain_P);
-    P__Rebuilt_Intake_Arm_Integral_Enable__Entry.SetDouble(Rebuilt_Intake_Arm_Integral_Enable);
     P__Rebuilt_Intake_Cycle_Angle_In__Entry.SetDouble(Rebuilt_Intake_Cycle_Angle_In);
     P__Rebuilt_Intake_Cycle_Angle_Out__Entry.SetDouble(Rebuilt_Intake_Cycle_Angle_Out);
     P__Rebuilt_Intake_Des_Angle_In__Entry.SetDouble(Rebuilt_Intake_Des_Angle_In);
     P__Rebuilt_Intake_Des_Angle_Out__Entry.SetDouble(Rebuilt_Intake_Des_Angle_Out);
+    P__Rebuilt_Intake_Meas_In_Disable__Entry.SetDouble(Rebuilt_Intake_Meas_In_Disable);
+    P__Rebuilt_Intake_Meas_Out_Disable__Entry.SetDouble(Rebuilt_Intake_Meas_Out_Disable);
     P__Rebuilt_Intake_RL_Dec__Entry.SetDouble(Rebuilt_Intake_RL_Dec);
     P__Rebuilt_Intake_RL_Inc__Entry.SetDouble(Rebuilt_Intake_RL_Inc);
     P__Rebuilt_Match_Time_Auto_Timer__Entry.SetDouble(Rebuilt_Match_Time_Auto_Timer);
@@ -1428,6 +1429,7 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__RB_Desired_Target_Y__Entry.SetDouble(Robot_Control_B.RB_Desired_Target_Y);
     T__RB_Desired_Transfer_Speed__Entry.SetDouble(Robot_Control_B.RB_Desired_Transfer_Speed);
     T__RB_Feeder_Motor_PID_DC__Entry.SetDouble(Robot_Control_B.RB_Feeder_Motor_PID_DC);
+    T__RB_Intake_Arm_Angle_Mod__Entry.SetDouble(Robot_Control_B.RB_Intake_Arm_Angle_Mod);
     T__RB_Intake_Arm_Motor_PID_DC__Entry.SetDouble(Robot_Control_B.RB_Intake_Arm_Motor_PID_DC);
     T__RB_Intake_Roller_Motor_PID_DC__Entry.SetDouble(Robot_Control_B.RB_Intake_Roller_Motor_PID_DC);
     T__RB_IsBlueActive__Entry.SetDouble(Robot_Control_B.RB_IsBlueActive);

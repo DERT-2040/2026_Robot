@@ -185,22 +185,23 @@ Rebuilt_Hood_Servo_Rate_Limit_Inc = 32/50*0.02;   % no load 32 mm/sec, total str
 Rebuilt_Hood_Servo_Rate_Limit_Dec = -Rebuilt_Hood_Servo_Rate_Limit_Inc;
 
 %% Intake
-Rebuilt_Intake_Des_Angle_In = 0;
+Rebuilt_Intake_Des_Angle_In = -40;
+Rebuilt_Intake_Meas_In_Disable = -20;   % disable motor when angle is less than this value and the desired anle is the in angle
+Rebuilt_Intake_Meas_Out_Disable = 80;   % disable motor when angle is more than this value and the desired anle is the out angle
 Rebuilt_Intake_Des_Angle_Out = 90;
-Rebuilt_Intake_Cycle_Angle_In = 20;
+
+Rebuilt_Intake_Cycle_Angle_In = 0;
 Rebuilt_Intake_Cycle_Angle_Out = 70;
 
-Rebuilt_Intake_RL_Inc = 90/1*0.02;
-Rebuilt_Intake_RL_Dec = -90/1*0.02;
+Rebuilt_Intake_RL_Inc =  100/2*0.02;
+Rebuilt_Intake_RL_Dec = -100/2*0.02;
 
-Rebuilt_Intake_Arm_Gain_P = 0;
-Rebuilt_Intake_Arm_Gain_I = 0;
+Rebuilt_Intake_Arm_Gain_P = 0.001;
 Rebuilt_Intake_Arm_Gain_D = 0;
-Rebuilt_Intake_Arm_Integral_Enable = 0;
 
-Rebuilt_Roller_Desired_Speed = 0;
-Rebuilt_Roller_Motor_Gain_FF = 0;
-Rebuilt_Roller_Motor_Gain_P = 0;
-Rebuilt_Roller_Motor_Gain_I = 0;
-Rebuilt_Roller_Error_Integral_Enable = 0;
+Rebuilt_Roller_Desired_Speed = 4500;
+Rebuilt_Roller_Motor_Gain_FF = 1/7854;
+Rebuilt_Roller_Motor_Gain_P = 0.0001;
+Rebuilt_Roller_Motor_Gain_I = 0.001*0.02;
+Rebuilt_Roller_Error_Integral_Enable = 300;
 
