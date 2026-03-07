@@ -87,7 +87,7 @@ MirrorPoint(Blue_Warning_Ramp_NZ_Max_X, field_length, field_width, true)
 Red_Warning_Ramp_NZ_Min_X = MirrorPoint(Blue_Warning_Ramp_NZ_Min_X, field_length, field_width, true);
 
 % Approaching Threshold for Lower Red Ramp
-Red_Approaching_Ramp_AZ_Max_X = MirrorPoint(Blue_Approaching_Ramp_AZ_Max_X, field_length, field_width, true);
+Red_Approaching_Ramp_AZ_Max_X = MirrorPoint(Blue_Approaching_Ramp_AZ_Max_X, field_length, field_width, true);%14.056988
 MirrorPoint(Blue_Approaching_Ramp_AZ_Max_X, field_length, field_width, true)
 Red_Approaching_Ramp_AZ_Min_X = Red_Warning_Ramp_AZ_Max_X;
 
@@ -96,5 +96,5 @@ MirrorPoint(Blue_Approaching_Ramp_NZ_Max_X, field_length, field_width, true)
 Red_Approach_Ramp_NZ_Min_X = MirrorPoint(Blue_Approaching_Ramp_NZ_Min_X, field_length, field_width, true);
 
 % Final Threshold for Lower Red Ramp
-Red_Final_Ramp_Max_X = MirrorPoint(Blue_Final_Ramp_Max_X, field_length, field_width, true);
-Red_Final_Ramp_Min_X = Red_Approaching_Ramp_AZ_Max_X;
+Red_Final_Ramp_Max_X = MirrorPoint(Blue_Final_Ramp_Max_X, field_length, field_width, true);%12.056988
+Red_Final_Ramp_Min_X = Red_Approaching_Ramp_AZ_Max_X;%14.056988
