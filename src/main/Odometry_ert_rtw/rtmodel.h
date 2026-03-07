@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Odometry'.
  *
- * Model version                  : 2.434
+ * Model version                  : 2.437
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Feb  7 16:26:24 2026
+ * C/C++ source code generated on : Sun Mar  1 19:26:35 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7

@@ -11,7 +11,8 @@
     "types": {
       "/FMSInfo": "FMSInfo",
       "/SmartDashboard/ALARM PANIC": "Alerts",
-      "/SmartDashboard/Auto Modes": "String Chooser"
+      "/SmartDashboard/Auto Modes": "String Chooser",
+      "/SmartDashboard/CAN Connection Alerts": "Alerts"
     }
   },
   "NetworkTables Info": {

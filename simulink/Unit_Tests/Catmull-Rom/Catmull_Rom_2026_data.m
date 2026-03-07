@@ -2,7 +2,7 @@
 Catmull_Rom_2026_field
 
 % Define paths from another file
-Auto_Paths_2026
+Rebuilt_Auto_Paths
 
 % Create additional subplots
 subplot(2,4,4)
@@ -17,15 +17,23 @@ Spline_Tension = 0.5;
 plot_robot_rectangle = 1;  % 0 = off, 1 = on
 
 % Define which paths to run
-test_cases = [1:13]; %[1:11];  % normal cases
 
-% Plot all of the paths
+% Define which paths to run
+test_cases = [1,2];
+%test_cases = [1,3];
+%test_cases = [4,5];
+%test_cases = [4,6];
+%test_cases = [7,8,2];
+%test_cases = [7,8,3];
+%test_cases = [9,10,5];
+%test_cases = [9,10,6];
+
 for m = 1:length(test_cases)
 
     k = test_cases(m);
 
     % Define data used by simulation (defined by Code_Gen_Model_data.m)
-    Spline_Ref_Poses = All_Paths_Ref_Poses(:,:,k);
+    Spline_Ref_Poses = All_Paths_Ref_Poses_Red(:,:,k);
     Spline_Num_Poses = All_Paths_Num_Poses(k);
 
     % Initial conditions

@@ -8,7 +8,10 @@ Not_Tunable_List = {'t_sample',...
     'Spline_Num_Samples','Spline_Num_Samples_3x','Spline_Samples_Per_Pass',...
     'Spline_Max_Num_RefPoses','Spline_Tension',...
     'Spline_Velocity_Axis','Spline_Capture_Radius','Spline_Lookahead_Dist',...
-    'Spline_Num_Poses_default','Spline_Ref_Poses_default'...
+    'Spline_Num_Poses_default','Spline_Ref_Poses_default',...
+    'All_Paths_Ref_Poses_Blue','All_Paths_Ref_Poses_Red',...
+    'All_Paths_Num_Poses','Auto_Path_01','Auto_Path_02','Auto_Path_03',...
+    'Auto_Path_04','Auto_Path_05','Auto_Path_06','Auto_Path_07','Auto_Path_08'...
 };
 
 % sample time model
@@ -23,10 +26,6 @@ TEST_Swerve_Mode_Steering = 0;
 % Pipeline for Test Mode
 TEST_Pipeline = uint8(0);
 
-% Hood servo position for Test Mode
-TEST_HoodServo_Enable = false;
-TEST_HoodServo_Position = 0.5;
-
 %% Kalman Filter
 KF_Enable = 1;
 KF_Odom_Covariance = 0.001*eye(2);
@@ -36,6 +35,7 @@ KF_Vision_Covariance = 0.1*eye(2);
 Common_data  % common to Robot_Controls and Odometry
 Swerve_Drive
 Spline_Path_Following
-Vision_Data
-
+Vision_data
+Rebuilt_data
+Rebuilt_Auto_Paths
 

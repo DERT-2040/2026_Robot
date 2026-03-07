@@ -2,7 +2,7 @@
 ## Makefile generated for component 'rtwshared'. 
 ## 
 ## Makefile     : rtwshared.mk
-## Generated on : Sat Dec 13 19:32:25 2025
+## Generated on : Thu Mar 05 23:05:15 2026
 ## Final product: ./rtwshared.lib
 ## Product type : static library
 ## 
@@ -24,7 +24,7 @@ MAKEFILE                  = rtwshared.mk
 MATLAB_ROOT               = C:/PROGRA~1/MATLAB/R2023b
 MATLAB_BIN                = C:/PROGRA~1/MATLAB/R2023b/bin
 MATLAB_ARCH_BIN           = $(MATLAB_BIN)/win64
-START_DIR                 = C:/GitHub/2025_Robot/src/main
+START_DIR                 = C:/GitHub/2026_Robot/src/main
 SOLVER                    = 
 SOLVER_OBJ                = 
 CLASSIC_INTERFACE         = 0
@@ -183,7 +183,7 @@ DEFINES = $(DEFINES_BUILD_ARGS) $(DEFINES_CUSTOM)
 ## SOURCE FILES
 ###########################################################################
 
-SRCS = $(START_DIR)/slprj/ert/_sharedutils/BINARYSEARCH_real_T.c $(START_DIR)/slprj/ert/_sharedutils/LookUp_real_T_real_T.c $(START_DIR)/slprj/ert/_sharedutils/const_params.c $(START_DIR)/slprj/ert/_sharedutils/look1_binlcpw.c $(START_DIR)/slprj/ert/_sharedutils/plook_u32u8_evencka.c $(START_DIR)/slprj/ert/_sharedutils/rtGetInf.c $(START_DIR)/slprj/ert/_sharedutils/rtGetNaN.c $(START_DIR)/slprj/ert/_sharedutils/rt_atan2d_snf.c $(START_DIR)/slprj/ert/_sharedutils/rt_hypotd_snf.c $(START_DIR)/slprj/ert/_sharedutils/rt_modd_snf.c $(START_DIR)/slprj/ert/_sharedutils/rt_nonfinite.c $(START_DIR)/slprj/ert/_sharedutils/rt_powd_snf.c
+SRCS = $(START_DIR)/slprj/ert/_sharedutils/BINARYSEARCH_real_T.c $(START_DIR)/slprj/ert/_sharedutils/LookUp_real_T_real_T.c $(START_DIR)/slprj/ert/_sharedutils/const_params.c $(START_DIR)/slprj/ert/_sharedutils/look1_binlcpw.c $(START_DIR)/slprj/ert/_sharedutils/plook_u32u8_evencka.c $(START_DIR)/slprj/ert/_sharedutils/rtGetInf.c $(START_DIR)/slprj/ert/_sharedutils/rtGetNaN.c $(START_DIR)/slprj/ert/_sharedutils/rt_atan2d_snf.c $(START_DIR)/slprj/ert/_sharedutils/rt_hypotd_snf.c $(START_DIR)/slprj/ert/_sharedutils/rt_modd_snf.c $(START_DIR)/slprj/ert/_sharedutils/rt_nonfinite.c $(START_DIR)/slprj/ert/_sharedutils/rt_powd_snf.c $(START_DIR)/slprj/ert/_sharedutils/plook_u32d_evencka.c
 
 ALL_SRCS = $(SRCS)
 
@@ -191,7 +191,7 @@ ALL_SRCS = $(SRCS)
 ## OBJECTS
 ###########################################################################
 
-OBJS = BINARYSEARCH_real_T.obj LookUp_real_T_real_T.obj const_params.obj look1_binlcpw.obj plook_u32u8_evencka.obj rtGetInf.obj rtGetNaN.obj rt_atan2d_snf.obj rt_hypotd_snf.obj rt_modd_snf.obj rt_nonfinite.obj rt_powd_snf.obj
+OBJS = BINARYSEARCH_real_T.obj LookUp_real_T_real_T.obj const_params.obj look1_binlcpw.obj plook_u32u8_evencka.obj rtGetInf.obj rtGetNaN.obj rt_atan2d_snf.obj rt_hypotd_snf.obj rt_modd_snf.obj rt_nonfinite.obj rt_powd_snf.obj plook_u32d_evencka.obj
 
 ALL_OBJS = $(OBJS)
 
@@ -431,6 +431,10 @@ rt_nonfinite.obj : $(START_DIR)/slprj/ert/_sharedutils/rt_nonfinite.c
 
 
 rt_powd_snf.obj : $(START_DIR)/slprj/ert/_sharedutils/rt_powd_snf.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
+plook_u32d_evencka.obj : $(START_DIR)/slprj/ert/_sharedutils/plook_u32d_evencka.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 

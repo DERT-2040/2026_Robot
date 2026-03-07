@@ -132,27 +132,26 @@ namespace Constants
         static constexpr int k_Pigeon2_Device_ID = 5;
     };
 
-
     namespace Limelight
     {
         static const LimeLightCameraCreateInfo CameraOneCreateInfo
         {
             "limelight-one", // Limelight Name
-            10.0/39.37008,   // Forward offset (meters)
-            0.0/39.37008,    // Side offset (meters)
-            10.0/39.37008,   // Height offset (meters)
+            2.50/39.37008,   // X+ (Forward): Towards the front of the robot (in meters).
+            -2.875/39.37008, // Y+ (Right): Towards the right side of the robot (in meters).
+            19.90/39.37008,  // Z+ (Up): Towards the top of the robot (in meters).
             0.0,             // Roll (degrees)
-            0.0,             // Pitch (degrees)
+            33,              // Pitch (degrees)
             0.0              // Yaw (degrees)
         };
         static const LimeLightCameraCreateInfo CameraTwoCreateInfo
         {
             "limelight-two", // Limelight Name
-            0.5,             // Forward offset (meters)
-            0.0,             // Side offset (meters)
-            0.5,             // Height offset (meters)
+            0.00/39.37008,   // X+ (Forward): Towards the front of the robot (in meters).
+            0.00/39.37008,   // Y+ (Right): Towards the right side of the robot (in meters).
+            0.00/39.37008,   // Z+ (Up): Towards the top of the robot (in meters).
             0.0,             // Roll (degrees)
-            30.0,            // Pitch (degrees)
+            0.0,             // Pitch (degrees)
             0.0              // Yaw (degrees)
         };
     };
@@ -160,7 +159,7 @@ namespace Constants
     namespace ShooterCreateInfo
     {
         static TalonFXMotorCreateInfo defaultShooterCreateInfo = TalonFXMotorCreateInfo::getDefaultCreateInfo()
-                .SetCanbus(*Constants::CANBuses::RioBus)
+                .SetCanbus(*Constants::CANBuses::CANivoreBus)
                 .SetIsReversed(false)
                 .SetSupplyCurrentLimit(60)
                 .SetOpenLoopRampPeriod(0)
@@ -168,25 +167,28 @@ namespace Constants
                 .SetMotorType(TalonFXMotorType::KrakenX60);
         static const TalonFXMotorCreateInfo Left = defaultShooterCreateInfo
                 .SetCanID(10)
-                .SetDutyCycleCallback(&Robot_Control_Y.Left_Shooter_DutyCycle)
-                .SetVelocityCallback(&Robot_Control_U.Left_Shooter_Motor_Speed)
+                .SetIsReversed(true)                
+                .SetDutyCycleCallback(&Robot_Control_Y.Shooter_Motor_DC_Left)
+                .SetVelocityCallback(&Robot_Control_U.Measured_Shooter_Speed_Left)
                 .SetDisplayName("Left Shooter Motor");
         static const TalonFXMotorCreateInfo Center = defaultShooterCreateInfo
                 .SetCanID(11)
-                .SetDutyCycleCallback(&Robot_Control_Y.Center_Shooter_DutyCycle)
-                .SetVelocityCallback(&Robot_Control_U.Center_Shooter_Motor_Speed)
+                .SetIsReversed(true)                
+                .SetDutyCycleCallback(&Robot_Control_Y.Shooter_Motor_DC_Center)
+                .SetVelocityCallback(&Robot_Control_U.Measured_Shooter_Speed_Center)
                 .SetDisplayName("Center Shooter Motor");
         static const TalonFXMotorCreateInfo Right = defaultShooterCreateInfo
                 .SetCanID(12)
-                .SetDutyCycleCallback(&Robot_Control_Y.Right_Shooter_DutyCycle)
-                .SetVelocityCallback(&Robot_Control_U.Right_Shooter_Motor_Speed)
+                .SetIsReversed(false)                
+                .SetDutyCycleCallback(&Robot_Control_Y.Shooter_Motor_DC_Right)
+                .SetVelocityCallback(&Robot_Control_U.Measured_Shooter_Speed_Right)
                 .SetDisplayName("Right Shooter Motor");
     }
 
     namespace FeederCreateInfo
     {
         static TalonFXMotorCreateInfo defaultFeederCreateInfo = TalonFXMotorCreateInfo::getDefaultCreateInfo()
-                .SetCanbus(*Constants::CANBuses::RioBus)
+                .SetCanbus(*Constants::CANBuses::CANivoreBus)
                 .SetIsReversed(false)
                 .SetSupplyCurrentLimit(60)
                 .SetOpenLoopRampPeriod(0)
@@ -194,15 +196,15 @@ namespace Constants
                 .SetMotorType(TalonFXMotorType::KrakenX44);
         static const TalonFXMotorCreateInfo Feeder = defaultFeederCreateInfo
                 .SetCanID(13)
-                .SetDutyCycleCallback(&Robot_Control_Y.Feeder_DutyCycle)
-                .SetVelocityCallback(&Robot_Control_U.Feeder_Motor_Speed)
+                .SetDutyCycleCallback(&Robot_Control_Y.Feeder_Motor_DC)
+                .SetVelocityCallback(&Robot_Control_U.Measured_Feeder_Speed)
                 .SetDisplayName("Feeder Motor");
     }
      
     namespace TransferCreateInfo
     {
         static TalonFXMotorCreateInfo defaultTransferCreateInfo = TalonFXMotorCreateInfo::getDefaultCreateInfo()
-                .SetCanbus(*Constants::CANBuses::RioBus)
+                .SetCanbus(*Constants::CANBuses::CANivoreBus)
                 .SetIsReversed(false)
                 .SetSupplyCurrentLimit(60)
                 .SetOpenLoopRampPeriod(0)
@@ -210,8 +212,8 @@ namespace Constants
                 .SetMotorType(TalonFXMotorType::KrakenX44);
         static const TalonFXMotorCreateInfo Transfer = defaultTransferCreateInfo
                 .SetCanID(14)
-                .SetDutyCycleCallback(&Robot_Control_Y.Transfer_DutyCycle)
-                .SetVelocityCallback(&Robot_Control_U.Transfer_Motor_Speed)
+                .SetDutyCycleCallback(&Robot_Control_Y.Transfer_Motor_DC)
+                .SetVelocityCallback(&Robot_Control_U.Measured_Transfer_Speed)
                 .SetDisplayName("Transfer Motor");
     }
 
@@ -221,5 +223,29 @@ namespace Constants
         static constexpr int Hood_Servo_PWM_Right_ID = 1;
     }
     
+    namespace IntakeCreateInfo{
+        static TalonFXMotorCreateInfo defaultIntakeCreateInfo = TalonFXMotorCreateInfo::getDefaultCreateInfo()
+                .SetCanbus(*Constants::CANBuses::CANivoreBus)
+                .SetIsReversed(false)
+                .SetSupplyCurrentLimit(60)
+                .SetOpenLoopRampPeriod(0)
+                .SetEnableFOC(true)
+                .SetMotorType(TalonFXMotorType::KrakenX44);
+        static TalonFXMotorCreateInfo Intake_Arm = TalonFXMotorCreateInfo::getDefaultCreateInfo()
+                .SetCanID(15)
+                .SetDutyCycleCallback(&Robot_Control_Y.Intake_Arm_Motor_DC)
+                .SetDisplayName("Intake Arm");
+        static TalonFXMotorCreateInfo Intake_Roller = TalonFXMotorCreateInfo::getDefaultCreateInfo()
+                .SetCanID(16)
+                .SetDutyCycleCallback(&Robot_Control_Y.Intake_Roller_Motor_DC)
+                .SetVelocityCallback(&Robot_Control_U.Measured_Intake_Roller_Speed)
+                .SetDisplayName("Intake Roller");
+    }
+
+    namespace IntakeArmAngle{
+        //Arm Angle 
+        static constexpr int armThroughBoreEncoderID = 5;
+        static constexpr int armThroughBoreEncoderOffset = -164.3; // degrees
+    }
 
 };
