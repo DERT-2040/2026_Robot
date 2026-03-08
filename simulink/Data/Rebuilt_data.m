@@ -65,7 +65,7 @@ clear Time_Shift_3 Time_Shift_4 Auto_Timer Shift_Timer End_Game_Timer
 % Iteration error target threshold
 Rebuilt_Shoot_Target_Error_Thresh = 0.1;    % Meters
 
-Rebuilt_Des_Gyro_Shoot_Offset = -1;  % Degrees
+Rebuilt_Des_Gyro_Shoot_Offset = 0;  % Degrees
 
 % Distance (m)
 Rebuilt_Shoot_Dist_0 = 1.370;
@@ -75,25 +75,25 @@ Rebuilt_Shoot_Dist_3 = 3.692;
 Rebuilt_Shoot_Dist_4 = 4.353;
 Rebuilt_Shoot_Dist_5 = 4.884;
 Rebuilt_Shoot_Dist_6 = 5.6;
-Rebuilt_Shoot_Dist_7 = 9; %6.5;
+Rebuilt_Shoot_Dist_7 = 9.0;;
 
 % Desired_Shooter_Motor_Speed Init (rpm)
 Rebuilt_Shoot_Shooter_Spd_I_0 = 2900;
-Rebuilt_Shoot_Shooter_Spd_I_1 = 3000;
-Rebuilt_Shoot_Shooter_Spd_I_2 = 3250;
-Rebuilt_Shoot_Shooter_Spd_I_3 = 3400;
-Rebuilt_Shoot_Shooter_Spd_I_4 = 3575;
-Rebuilt_Shoot_Shooter_Spd_I_5 = 3700;
-Rebuilt_Shoot_Shooter_Spd_I_6 = 3850;
+Rebuilt_Shoot_Shooter_Spd_I_1 = 3200;
+Rebuilt_Shoot_Shooter_Spd_I_2 = 3450;
+Rebuilt_Shoot_Shooter_Spd_I_3 = 3600;
+Rebuilt_Shoot_Shooter_Spd_I_4 = 3800;  %3850
+Rebuilt_Shoot_Shooter_Spd_I_5 = 3950;
+Rebuilt_Shoot_Shooter_Spd_I_6 = 4150;
 Rebuilt_Shoot_Shooter_Spd_I_7 = 4500;
 
 % Desired_Shooter_Motor_Speed (rpm)
-Rebuilt_Shoot_Shooter_Spd_0 = 2900;
-Rebuilt_Shoot_Shooter_Spd_1 = 3000;
-Rebuilt_Shoot_Shooter_Spd_2 = 3250;
-Rebuilt_Shoot_Shooter_Spd_3 = 3400;
-Rebuilt_Shoot_Shooter_Spd_4 = 3575;
-Rebuilt_Shoot_Shooter_Spd_5 = 3700;
+Rebuilt_Shoot_Shooter_Spd_0 = 2700;
+Rebuilt_Shoot_Shooter_Spd_1 = 2900;
+Rebuilt_Shoot_Shooter_Spd_2 = 3150;
+Rebuilt_Shoot_Shooter_Spd_3 = 3300;
+Rebuilt_Shoot_Shooter_Spd_4 = 3500;  %3525
+Rebuilt_Shoot_Shooter_Spd_5 = 3650;
 Rebuilt_Shoot_Shooter_Spd_6 = 3850;
 Rebuilt_Shoot_Shooter_Spd_7 = 4500;
 
@@ -114,18 +114,18 @@ Rebuilt_Shoot_TOF_2 = 1.167;
 Rebuilt_Shoot_TOF_3 = 1.185;
 Rebuilt_Shoot_TOF_4 = 1.250;
 Rebuilt_Shoot_TOF_5 = 1.337;
-Rebuilt_Shoot_TOF_6 = 1.337;
-Rebuilt_Shoot_TOF_7 = 1.337;
+Rebuilt_Shoot_TOF_6 = 1.4;
+Rebuilt_Shoot_TOF_7 = 1.5;
 
 % Allowed Gyro Error (degrees ... convert to radians in model)
 Rebuilt_Shoot_Gyro_Err_0 = 5;
 Rebuilt_Shoot_Gyro_Err_1 = 5;
-Rebuilt_Shoot_Gyro_Err_2 = 5;
-Rebuilt_Shoot_Gyro_Err_3 = 4;
-Rebuilt_Shoot_Gyro_Err_4 = 3.4;
-Rebuilt_Shoot_Gyro_Err_5 = 3;
-Rebuilt_Shoot_Gyro_Err_6 = 2.8;
-Rebuilt_Shoot_Gyro_Err_7 = 2.5;
+Rebuilt_Shoot_Gyro_Err_2 = 3.5;
+Rebuilt_Shoot_Gyro_Err_3 = 2.7;
+Rebuilt_Shoot_Gyro_Err_4 = 2;
+Rebuilt_Shoot_Gyro_Err_5 = 2;
+Rebuilt_Shoot_Gyro_Err_6 = 2;
+Rebuilt_Shoot_Gyro_Err_7 = 2;
 
 % PLOT TABLES
     plot_dist     = [Rebuilt_Shoot_Dist_0 Rebuilt_Shoot_Dist_1 Rebuilt_Shoot_Dist_2 Rebuilt_Shoot_Dist_3 Rebuilt_Shoot_Dist_4 Rebuilt_Shoot_Dist_5 Rebuilt_Shoot_Dist_6 Rebuilt_Shoot_Dist_7];
@@ -136,13 +136,14 @@ Rebuilt_Shoot_Gyro_Err_7 = 2.5;
     plot_gyro_err = [Rebuilt_Shoot_Gyro_Err_0 Rebuilt_Shoot_Gyro_Err_1 Rebuilt_Shoot_Gyro_Err_2 Rebuilt_Shoot_Gyro_Err_3 Rebuilt_Shoot_Gyro_Err_4 Rebuilt_Shoot_Gyro_Err_5 Rebuilt_Shoot_Gyro_Err_6 Rebuilt_Shoot_Gyro_Err_7];
     
     figure(1)
-    subplot(2,2,1)
+    subplot(2,2,1), hold off
     plot(plot_dist,plot_shooter_i,'-^')
     hold on
     plot(plot_dist,plot_shooter,'-o')
     xlabel('Shot Distance (m)')
     ylabel('Shooter Speed (rpm)')
     grid on
+    legend('Initial','Final','Location','northwest')
     
     subplot(2,2,2)
     plot(plot_dist,plot_hood,'-o')
@@ -174,7 +175,7 @@ Rebuilt_Transfer_Motor_Gain_I = 0.001*0.02;
 Rebuilt_Transfer_Error_Integral_Enable = 300;
 
 Rebuilt_Shooter_Motor_Gain_FF = 1/6048;
-Rebuilt_Shooter_Motor_Gain_P = 0.0005;
+Rebuilt_Shooter_Motor_Gain_P = 0.001;
 Rebuilt_Shooter_Motor_Gain_I = 0.001*0.02;
 Rebuilt_Shooter_Error_Integral_Enable = 300;
 
@@ -193,10 +194,10 @@ Rebuilt_Intake_Des_Angle_Out = 90;
 Rebuilt_Intake_Cycle_Angle_In = 0;
 Rebuilt_Intake_Cycle_Angle_Out = 70;
 
-Rebuilt_Intake_RL_Inc =  100/2*0.02;
-Rebuilt_Intake_RL_Dec = -100/2*0.02;
+Rebuilt_Intake_RL_Inc =  3;
+Rebuilt_Intake_RL_Dec = -3;
 
-Rebuilt_Intake_Arm_Gain_P = 0.001;
+Rebuilt_Intake_Arm_Gain_P = 0.01*0;
 Rebuilt_Intake_Arm_Gain_D = 0;
 
 Rebuilt_Roller_Desired_Speed = 4500;

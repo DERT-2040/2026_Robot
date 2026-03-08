@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.469
+ * Model version                  : 2.471
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Mar  6 23:50:31 2026
+ * C/C++ source code generated on : Sun Mar  8 10:06:43 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -79,18 +79,19 @@ typedef struct {
   real_T Steering_Localized_PID;       /* '<S353>/Saturation2' */
   real_T Steering_Rel_Cmd_SPF;         /* '<S13>/Merge1' */
   real_T Steering_Localized_Cmd;       /* '<S325>/Switch' */
-  real_T BR_Desired_Wheel_Speed_in;    /* '<S379>/Switch1' */
-  real_T FL_Desired_Wheel_Speed_in;    /* '<S364>/Switch1' */
-  real_T FR_Desired_Wheel_Speed_in;    /* '<S369>/Switch1' */
-  real_T BL_Desired_Wheel_Speed_in;    /* '<S374>/Switch1' */
-  real_T BR_Desired_Wheel_Speed;       /* '<S359>/Product3' */
-  real_T BR_Desired_Module_Angle;      /* '<S379>/Switch' */
-  real_T FL_Desired_Module_Angle;      /* '<S364>/Switch' */
-  real_T FL_Desired_Wheel_Speed;       /* '<S359>/Product' */
-  real_T FR_Desired_Module_Angle;      /* '<S369>/Switch' */
-  real_T FR_Desired_Wheel_Speed;       /* '<S359>/Product1' */
-  real_T BL_Desired_Module_Angle;      /* '<S374>/Switch' */
-  real_T BL_Desired_Wheel_Speed;       /* '<S359>/Product2' */
+  real_T BR_Desired_Wheel_Speed_in;    /* '<S380>/Switch1' */
+  real_T FL_Desired_Wheel_Speed_in;    /* '<S365>/Switch1' */
+  real_T FR_Desired_Wheel_Speed_in;    /* '<S370>/Switch1' */
+  real_T BL_Desired_Wheel_Speed_in;    /* '<S375>/Switch1' */
+  real_T BR_Desired_Wheel_Speed;       /* '<S360>/Product3' */
+  real_T BR_Desired_Module_Angle;      /* '<S380>/Switch' */
+  real_T FL_Desired_Module_Angle;      /* '<S365>/Switch' */
+  real_T FL_Desired_Wheel_Speed;       /* '<S360>/Product' */
+  real_T FR_Desired_Module_Angle;      /* '<S370>/Switch' */
+  real_T FR_Desired_Wheel_Speed;       /* '<S360>/Product1' */
+  real_T BL_Desired_Module_Angle;      /* '<S375>/Switch' */
+  real_T BL_Desired_Wheel_Speed;       /* '<S360>/Product2' */
+  real_T Steering_Heading_Error_deg;   /* '<S357>/Gain' */
   real_T RB_Transfer_Motor_PID_DC;     /* '<S123>/Switch2' */
   real_T RB_Feeder_Motor_PID_DC;       /* '<S12>/Product' */
   real_T RB_Desired_Hood_Pos_Shoot;    /* '<S117>/Merge2' */
@@ -107,12 +108,12 @@ typedef struct {
   real_T loop_counter_robot_control;   /* '<S1>/Sum' */
   real_T Steer_Joystick_X;             /* '<S5>/Signal Copy4' */
   real_T Feeder_Motor_Speed_tp;        /* '<Root>/Signal Copy' */
-  real_T Relative_Error_Angle;         /* '<S391>/Switch4' */
-  real_T Steering_Abs_Gyro_Latch;      /* '<S393>/Switch8' */
-  real_T Steering_Abs_Gyro;            /* '<S393>/Switch2' */
-  real_T Steering_Abs_Angle;           /* '<S393>/Switch3' */
-  real_T Relative_Error_Y;             /* '<S391>/Switch2' */
-  real_T Relative_Error_X;             /* '<S391>/Unary Minus1' */
+  real_T Relative_Error_Angle;         /* '<S392>/Switch4' */
+  real_T Steering_Abs_Gyro_Latch;      /* '<S394>/Switch8' */
+  real_T Steering_Abs_Gyro;            /* '<S394>/Switch2' */
+  real_T Steering_Abs_Angle;           /* '<S394>/Switch3' */
+  real_T Relative_Error_Y;             /* '<S392>/Switch2' */
+  real_T Relative_Error_X;             /* '<S392>/Unary Minus1' */
   real_T Auto_Path_ID;                 /* '<S20>/1-D Lookup Table1' */
   real_T Auto_Desired_Static_Action;   /* '<S20>/Chart' */
   real_T Auto_Desired_Dynamic_Action;  /* '<S20>/Chart' */
@@ -162,8 +163,8 @@ typedef struct {
   boolean_T Swerve_Drive_Integral_Enable;/* '<S9>/Merge23' */
   boolean_T Robot_Reached_Destination; /* '<S13>/Merge7' */
   boolean_T Test_Mode;                 /* '<S9>/Merge10' */
-  boolean_T Relative_Enable;           /* '<S391>/Logical Operator1' */
-  boolean_T Steering_Abs_Angle_Active; /* '<S393>/AND6' */
+  boolean_T Relative_Enable;           /* '<S392>/Logical Operator1' */
+  boolean_T Steering_Abs_Angle_Active; /* '<S394>/AND6' */
   boolean_T Auto_Spline_Enable;        /* '<S20>/Chart' */
   boolean_T Spline_Out_Of_Bounds;      /* '<S179>/Merge1' */
   boolean_T RB_Shooter_Active;       /* '<S12>/Shooter_Transfer_Feeder Chart' */
@@ -226,11 +227,11 @@ typedef struct {
   real_T UnitDelay1_DSTATE_in;         /* '<S166>/Unit Delay1' */
   real_T UD_DSTATE_kz;                 /* '<S165>/UD' */
   real_T UnitDelay_DSTATE_l1;          /* '<S164>/Unit Delay' */
-  real_T UnitDelay3_DSTATE;            /* '<S393>/Unit Delay3' */
-  real_T UnitDelay1_DSTATE_j2;         /* '<S393>/Unit Delay1' */
-  real_T UnitDelay1_DSTATE_l;          /* '<S407>/Unit Delay1' */
-  real_T UnitDelay_DSTATE_p;           /* '<S407>/Unit Delay' */
-  real_T FixPtUnitDelay1_DSTATE_f;     /* '<S411>/FixPt Unit Delay1' */
+  real_T UnitDelay3_DSTATE;            /* '<S394>/Unit Delay3' */
+  real_T UnitDelay1_DSTATE_j2;         /* '<S394>/Unit Delay1' */
+  real_T UnitDelay1_DSTATE_l;          /* '<S408>/Unit Delay1' */
+  real_T UnitDelay_DSTATE_p;           /* '<S408>/Unit Delay' */
+  real_T FixPtUnitDelay1_DSTATE_f;     /* '<S412>/FixPt Unit Delay1' */
   real_T UnitDelay1_DSTATE_iz[60];     /* '<S20>/Unit Delay1' */
   real_T UnitDelay1_DSTATE_k;          /* '<S19>/Unit Delay1' */
   real_T UnitDelay_DSTATE_b;           /* '<S19>/Unit Delay' */
@@ -253,7 +254,7 @@ typedef struct {
   uint8_T FixPtUnitDelay2_DSTATE_c;    /* '<S344>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_f;    /* '<S115>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_b;    /* '<S52>/FixPt Unit Delay2' */
-  uint8_T FixPtUnitDelay2_DSTATE_a;    /* '<S411>/FixPt Unit Delay2' */
+  uint8_T FixPtUnitDelay2_DSTATE_a;    /* '<S412>/FixPt Unit Delay2' */
   boolean_T UnitDelay_DSTATE_lly;      /* '<S7>/Unit Delay' */
   boolean_T UnitDelay_DSTATE_ki;       /* '<S123>/Unit Delay' */
   boolean_T UnitDelay_DSTATE_nh;       /* '<S41>/Unit Delay' */
@@ -261,14 +262,14 @@ typedef struct {
   boolean_T UnitDelay1_DSTATE_ea;      /* '<S121>/Unit Delay1' */
   boolean_T UnitDelay_DSTATE_db;       /* '<S121>/Unit Delay' */
   boolean_T UnitDelay_DSTATE_ir;       /* '<S16>/Unit Delay' */
-  boolean_T DelayInput1_DSTATE_j;      /* '<S401>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_f;      /* '<S400>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_m;      /* '<S396>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_k;      /* '<S397>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_g;      /* '<S398>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_g2;     /* '<S399>/Delay Input1' */
-  boolean_T UnitDelay2_DSTATE_l;       /* '<S393>/Unit Delay2' */
-  boolean_T UnitDelay4_DSTATE;         /* '<S393>/Unit Delay4' */
+  boolean_T DelayInput1_DSTATE_j;      /* '<S402>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_f;      /* '<S401>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_m;      /* '<S397>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_k;      /* '<S398>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_g;      /* '<S399>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_g2;     /* '<S400>/Delay Input1' */
+  boolean_T UnitDelay2_DSTATE_l;       /* '<S394>/Unit Delay2' */
+  boolean_T UnitDelay4_DSTATE;         /* '<S394>/Unit Delay4' */
   boolean_T DelayInput1_DSTATE_kb;     /* '<S25>/Delay Input1' */
   boolean_T UnitDelay_DSTATE_e4;       /* '<S182>/Unit Delay' */
   boolean_T UnitDelay_DSTATE_nu;       /* '<S187>/Unit Delay' */
@@ -482,19 +483,19 @@ extern real_T Auto_Shoot_Time;         /* Variable: Auto_Shoot_Time
                                         */
 extern real_T Boost_Trigger_Decreasing_Limit;
                                      /* Variable: Boost_Trigger_Decreasing_Limit
-                                      * Referenced by: '<S408>/Constant1'
+                                      * Referenced by: '<S409>/Constant1'
                                       */
 extern real_T Boost_Trigger_High_Speed;/* Variable: Boost_Trigger_High_Speed
                                         * Referenced by:
-                                        *   '<S404>/Constant'
-                                        *   '<S404>/Saturation'
+                                        *   '<S405>/Constant'
+                                        *   '<S405>/Saturation'
                                         */
 extern real_T Boost_Trigger_Increasing_Limit;
                                      /* Variable: Boost_Trigger_Increasing_Limit
-                                      * Referenced by: '<S408>/Constant3'
+                                      * Referenced by: '<S409>/Constant3'
                                       */
 extern real_T Boost_Trigger_Low_Speed; /* Variable: Boost_Trigger_Low_Speed
-                                        * Referenced by: '<S404>/Constant1'
+                                        * Referenced by: '<S405>/Constant1'
                                         */
 extern real_T Drive_Motor_Control_D;   /* Variable: Drive_Motor_Control_D
                                         * Referenced by:
@@ -603,10 +604,10 @@ extern real_T Field_Red_Pass_X;        /* Variable: Field_Red_Pass_X
                                         */
 extern real_T Field_Translation_Control_Gain;
                                      /* Variable: Field_Translation_Control_Gain
-                                      * Referenced by: '<S394>/Gain2'
+                                      * Referenced by: '<S395>/Gain2'
                                       */
 extern real_T Field_Translation_Speed_Max;/* Variable: Field_Translation_Speed_Max
-                                           * Referenced by: '<S394>/Constant5'
+                                           * Referenced by: '<S395>/Constant5'
                                            */
 extern real_T KF_Enable;               /* Variable: KF_Enable
                                         * Referenced by:
@@ -941,22 +942,22 @@ extern real_T Rebuilt_Transfer_Motor_Gain_P;
                                        */
 extern real_T Relative_Steering_Error_Angle_Gain;
                                  /* Variable: Relative_Steering_Error_Angle_Gain
-                                  * Referenced by: '<S393>/Constant4'
+                                  * Referenced by: '<S394>/Constant4'
                                   */
 extern real_T Relative_Steering_Error_Angle_Gain_Object_Factor;
                    /* Variable: Relative_Steering_Error_Angle_Gain_Object_Factor
-                    * Referenced by: '<S391>/Gain'
+                    * Referenced by: '<S392>/Gain'
                     */
 extern real_T Relative_Steering_Speed_Max;/* Variable: Relative_Steering_Speed_Max
-                                           * Referenced by: '<S393>/Constant10'
+                                           * Referenced by: '<S394>/Constant10'
                                            */
 extern real_T Relative_Translation_Control_Gain;
                                   /* Variable: Relative_Translation_Control_Gain
-                                   * Referenced by: '<S394>/Gain1'
+                                   * Referenced by: '<S395>/Gain1'
                                    */
 extern real_T Relative_Translation_Speed_Max;
                                      /* Variable: Relative_Translation_Speed_Max
-                                      * Referenced by: '<S394>/Constant8'
+                                      * Referenced by: '<S395>/Constant8'
                                       */
 extern real_T Spline_Last_Pose_Distance_to_Velocity_Gain;
                          /* Variable: Spline_Last_Pose_Distance_to_Velocity_Gain
@@ -1128,10 +1129,10 @@ extern real_T Steering_Relative_Cmd_Rate_Limit_Inc;
                                 * Referenced by: '<S335>/Constant3'
                                 */
 extern real_T Steering_Relative_Gain;  /* Variable: Steering_Relative_Gain
-                                        * Referenced by: '<S393>/Constant'
+                                        * Referenced by: '<S394>/Constant'
                                         */
 extern real_T Steering_Twist_Gain;     /* Variable: Steering_Twist_Gain
-                                        * Referenced by: '<S393>/Constant1'
+                                        * Referenced by: '<S394>/Constant1'
                                         */
 extern real_T TEST_Desired_Hood_Enable_OV;/* Variable: TEST_Desired_Hood_Enable_OV
                                            * Referenced by: '<S10>/Constant7'
@@ -1166,13 +1167,13 @@ extern real_T TEST_Shooter_Motor_DC_Right_OV;
                                       */
 extern real_T TEST_Swerve_Mode_Override_Flag;
                                      /* Variable: TEST_Swerve_Mode_Override_Flag
-                                      * Referenced by: '<S392>/Constant5'
+                                      * Referenced by: '<S393>/Constant5'
                                       */
 extern real_T TEST_Swerve_Mode_Steering;/* Variable: TEST_Swerve_Mode_Steering
-                                         * Referenced by: '<S392>/Constant8'
+                                         * Referenced by: '<S393>/Constant8'
                                          */
 extern real_T TEST_Swerve_Mode_Translation;/* Variable: TEST_Swerve_Mode_Translation
-                                            * Referenced by: '<S392>/Constant7'
+                                            * Referenced by: '<S393>/Constant7'
                                             */
 extern real_T TEST_Transfer_Motor_DC_OV;/* Variable: TEST_Transfer_Motor_DC_OV
                                          * Referenced by: '<S10>/Constant1'
@@ -1202,29 +1203,29 @@ extern real_T Translation_Speed_Rate_Limit_Inc;
                                     * Referenced by: '<S323>/Constant3'
                                     */
 extern real_T Translation_Twist_Gain;  /* Variable: Translation_Twist_Gain
-                                        * Referenced by: '<S394>/Gain'
+                                        * Referenced by: '<S395>/Gain'
                                         */
 extern real_T Twist_Deadzone_neg;      /* Variable: Twist_Deadzone_neg
                                         * Referenced by:
-                                        *   '<S393>/Dead Zone'
                                         *   '<S394>/Dead Zone'
+                                        *   '<S395>/Dead Zone'
                                         */
 extern real_T Twist_Deadzone_pos;      /* Variable: Twist_Deadzone_pos
                                         * Referenced by:
-                                        *   '<S393>/Dead Zone'
                                         *   '<S394>/Dead Zone'
+                                        *   '<S395>/Dead Zone'
                                         */
 extern real_T Vision_Object_Angle_Offset;/* Variable: Vision_Object_Angle_Offset
                                           * Referenced by: '<S17>/Constant6'
                                           */
 extern real_T Vision_Object_Target_Angle;/* Variable: Vision_Object_Target_Angle
-                                          * Referenced by: '<S391>/Constant7'
+                                          * Referenced by: '<S392>/Constant7'
                                           */
 extern real_T Vision_Object_Target_X;  /* Variable: Vision_Object_Target_X
-                                        * Referenced by: '<S391>/Constant1'
+                                        * Referenced by: '<S392>/Constant1'
                                         */
 extern real_T Vision_Object_Target_Y;  /* Variable: Vision_Object_Target_Y
-                                        * Referenced by: '<S391>/Constant4'
+                                        * Referenced by: '<S392>/Constant4'
                                         */
 extern real_T Vision_Object_X_Offset;  /* Variable: Vision_Object_X_Offset
                                         * Referenced by: '<S17>/Constant4'
@@ -1236,13 +1237,13 @@ extern real_T Vision_Tag_Angle_Offset; /* Variable: Vision_Tag_Angle_Offset
                                         * Referenced by: '<S17>/Constant5'
                                         */
 extern real_T Vision_Tag_Target_Angle; /* Variable: Vision_Tag_Target_Angle
-                                        * Referenced by: '<S391>/Constant8'
+                                        * Referenced by: '<S392>/Constant8'
                                         */
 extern real_T Vision_Tag_Target_X;     /* Variable: Vision_Tag_Target_X
-                                        * Referenced by: '<S391>/Constant2'
+                                        * Referenced by: '<S392>/Constant2'
                                         */
 extern real_T Vision_Tag_Target_Y;     /* Variable: Vision_Tag_Target_Y
-                                        * Referenced by: '<S391>/Constant5'
+                                        * Referenced by: '<S392>/Constant5'
                                         */
 extern real_T Vision_Tag_X_Offset;     /* Variable: Vision_Tag_X_Offset
                                         * Referenced by: '<S17>/Constant3'
@@ -1253,7 +1254,7 @@ extern real_T Vision_Tag_Y_Offset;     /* Variable: Vision_Tag_Y_Offset
 extern uint8_T TEST_Pipeline;          /* Variable: TEST_Pipeline
                                         * Referenced by:
                                         *   '<S16>/Constant22'
-                                        *   '<S391>/Constant11'
+                                        *   '<S392>/Constant11'
                                         */
 
 /* Model entry point functions */
@@ -1355,14 +1356,14 @@ extern RT_MODEL_Robot_Control_T *const Robot_Control_M;
  * Block '<S350>/Data Type Duplicate' : Unused code path elimination
  * Block '<S350>/Data Type Propagation' : Unused code path elimination
  * Block '<S351>/FixPt Data Type Duplicate1' : Unused code path elimination
- * Block '<S357>/Data Type Duplicate' : Unused code path elimination
- * Block '<S357>/Data Type Propagation' : Unused code path elimination
+ * Block '<S358>/Data Type Duplicate' : Unused code path elimination
+ * Block '<S358>/Data Type Propagation' : Unused code path elimination
  * Block '<S353>/Scope' : Unused code path elimination
- * Block '<S403>/Data Type Duplicate' : Unused code path elimination
- * Block '<S403>/Data Type Propagation' : Unused code path elimination
- * Block '<S410>/Data Type Duplicate' : Unused code path elimination
- * Block '<S410>/Data Type Propagation' : Unused code path elimination
- * Block '<S411>/FixPt Data Type Duplicate1' : Unused code path elimination
+ * Block '<S404>/Data Type Duplicate' : Unused code path elimination
+ * Block '<S404>/Data Type Propagation' : Unused code path elimination
+ * Block '<S411>/Data Type Duplicate' : Unused code path elimination
+ * Block '<S411>/Data Type Propagation' : Unused code path elimination
+ * Block '<S412>/FixPt Data Type Duplicate1' : Unused code path elimination
  * Block '<S1>/Data Type Conversion' : Eliminate redundant data type conversion
  * Block '<S1>/Data Type Conversion1' : Eliminate redundant data type conversion
  * Block '<S3>/Signal Copy' : Eliminate redundant signal conversion block
@@ -1381,8 +1382,8 @@ extern RT_MODEL_Robot_Control_T *const Robot_Control_M;
  * Block '<S12>/Signal Copy1' : Eliminate redundant signal conversion block
  * Block '<S12>/Signal Copy2' : Eliminate redundant signal conversion block
  * Block '<S228>/Signal Copy' : Eliminate redundant signal conversion block
- * Block '<S391>/Constant10' : Unused code path elimination
- * Block '<S391>/Constant9' : Unused code path elimination
+ * Block '<S392>/Constant10' : Unused code path elimination
+ * Block '<S392>/Constant9' : Unused code path elimination
  */
 
 /*-
@@ -1756,74 +1757,75 @@ extern RT_MODEL_Robot_Control_T *const Robot_Control_M;
  * '<S354>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Steering Heading PID/PID with Error Wrapping/Angle Modulus'
  * '<S355>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Steering Heading PID/PID with Error Wrapping/Difference'
  * '<S356>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Steering Heading PID/PID with Error Wrapping/Low_Pass_Filter'
- * '<S357>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Steering Heading PID/PID with Error Wrapping/Saturation Dynamic'
- * '<S358>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Translation Steering Command/Angle Modulus'
- * '<S359>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Reduce Speeds for Maximum Speed Limit'
- * '<S360>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add'
- * '<S361>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add1'
- * '<S362>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add2'
- * '<S363>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add3'
- * '<S364>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add/Angle_Saver'
- * '<S365>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add/Cartesian to Polar'
- * '<S366>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add/Polar to Cartesian'
- * '<S367>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add/Polar to Cartesian1'
- * '<S368>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add/Angle_Saver/Compare To Zero1'
- * '<S369>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add1/Angle_Saver'
- * '<S370>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add1/Cartesian to Polar'
- * '<S371>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add1/Polar to Cartesian'
- * '<S372>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add1/Polar to Cartesian1'
- * '<S373>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add1/Angle_Saver/Compare To Zero1'
- * '<S374>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add2/Angle_Saver'
- * '<S375>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add2/Cartesian to Polar'
- * '<S376>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add2/Polar to Cartesian'
- * '<S377>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add2/Polar to Cartesian1'
- * '<S378>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add2/Angle_Saver/Compare To Zero1'
- * '<S379>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add3/Angle_Saver'
- * '<S380>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add3/Cartesian to Polar'
- * '<S381>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add3/Polar to Cartesian'
- * '<S382>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add3/Polar to Cartesian1'
- * '<S383>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add3/Angle_Saver/Compare To Zero1'
- * '<S384>' : 'Robot_Control/Control_System/Teleop/Compare To Zero'
- * '<S385>' : 'Robot_Control/Control_System/Teleop/Compare To Zero1'
- * '<S386>' : 'Robot_Control/Control_System/Teleop/Compare To Zero2'
- * '<S387>' : 'Robot_Control/Control_System/Teleop/Compare To Zero3'
- * '<S388>' : 'Robot_Control/Control_System/Teleop/Compare To Zero4'
- * '<S389>' : 'Robot_Control/Control_System/Teleop/Compare To Zero5'
- * '<S390>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive'
- * '<S391>' : 'Robot_Control/Control_System/Teleop/Relative Errors'
- * '<S392>' : 'Robot_Control/Control_System/Teleop/Subsystem'
- * '<S393>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering'
- * '<S394>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation'
- * '<S395>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Compare To Zero2'
- * '<S396>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase'
- * '<S397>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase1'
- * '<S398>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase2'
- * '<S399>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase3'
- * '<S400>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase4'
- * '<S401>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase5'
- * '<S402>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Previous active game state was not Teleop'
- * '<S403>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Saturation Dynamic'
- * '<S404>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit'
- * '<S405>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero'
- * '<S406>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero1'
- * '<S407>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero'
- * '<S408>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit'
- * '<S409>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter'
- * '<S410>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Saturation Dynamic'
- * '<S411>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Unit Delay External IC'
- * '<S412>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero'
- * '<S413>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero1'
- * '<S414>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Constant'
- * '<S415>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Constant1'
- * '<S416>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Constant2'
- * '<S417>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero6'
- * '<S418>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero7'
- * '<S419>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero8'
- * '<S420>' : 'Robot_Control/Control_System/Vision_Corrections/Area Percentage to Distance'
- * '<S421>' : 'Robot_Control/Control_System/Vision_Corrections/Degrees to Radians'
- * '<S422>' : 'Robot_Control/Control_System/Vision_Corrections/Polar to Cartesian1'
- * '<S423>' : 'Robot_Control/Control_System/Vision_Corrections/Area Percentage to Distance/Prevent raising 0 to a negative exponent'
- * '<S424>' : 'Robot_Control/Control_System/Vision_Corrections/Area Percentage to Distance/Subsystem'
+ * '<S357>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Steering Heading PID/PID with Error Wrapping/Radians to Degrees'
+ * '<S358>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Steering Heading PID/PID with Error Wrapping/Saturation Dynamic'
+ * '<S359>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Translation Steering Command/Angle Modulus'
+ * '<S360>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Reduce Speeds for Maximum Speed Limit'
+ * '<S361>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add'
+ * '<S362>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add1'
+ * '<S363>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add2'
+ * '<S364>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add3'
+ * '<S365>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add/Angle_Saver'
+ * '<S366>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add/Cartesian to Polar'
+ * '<S367>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add/Polar to Cartesian'
+ * '<S368>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add/Polar to Cartesian1'
+ * '<S369>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add/Angle_Saver/Compare To Zero1'
+ * '<S370>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add1/Angle_Saver'
+ * '<S371>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add1/Cartesian to Polar'
+ * '<S372>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add1/Polar to Cartesian'
+ * '<S373>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add1/Polar to Cartesian1'
+ * '<S374>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add1/Angle_Saver/Compare To Zero1'
+ * '<S375>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add2/Angle_Saver'
+ * '<S376>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add2/Cartesian to Polar'
+ * '<S377>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add2/Polar to Cartesian'
+ * '<S378>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add2/Polar to Cartesian1'
+ * '<S379>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add2/Angle_Saver/Compare To Zero1'
+ * '<S380>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add3/Angle_Saver'
+ * '<S381>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add3/Cartesian to Polar'
+ * '<S382>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add3/Polar to Cartesian'
+ * '<S383>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add3/Polar to Cartesian1'
+ * '<S384>' : 'Robot_Control/Control_System/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add3/Angle_Saver/Compare To Zero1'
+ * '<S385>' : 'Robot_Control/Control_System/Teleop/Compare To Zero'
+ * '<S386>' : 'Robot_Control/Control_System/Teleop/Compare To Zero1'
+ * '<S387>' : 'Robot_Control/Control_System/Teleop/Compare To Zero2'
+ * '<S388>' : 'Robot_Control/Control_System/Teleop/Compare To Zero3'
+ * '<S389>' : 'Robot_Control/Control_System/Teleop/Compare To Zero4'
+ * '<S390>' : 'Robot_Control/Control_System/Teleop/Compare To Zero5'
+ * '<S391>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive'
+ * '<S392>' : 'Robot_Control/Control_System/Teleop/Relative Errors'
+ * '<S393>' : 'Robot_Control/Control_System/Teleop/Subsystem'
+ * '<S394>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering'
+ * '<S395>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation'
+ * '<S396>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Compare To Zero2'
+ * '<S397>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase'
+ * '<S398>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase1'
+ * '<S399>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase2'
+ * '<S400>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase3'
+ * '<S401>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase4'
+ * '<S402>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase5'
+ * '<S403>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Previous active game state was not Teleop'
+ * '<S404>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Saturation Dynamic'
+ * '<S405>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit'
+ * '<S406>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero'
+ * '<S407>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero1'
+ * '<S408>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero'
+ * '<S409>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit'
+ * '<S410>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter'
+ * '<S411>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Saturation Dynamic'
+ * '<S412>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Unit Delay External IC'
+ * '<S413>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero'
+ * '<S414>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero1'
+ * '<S415>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Constant'
+ * '<S416>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Constant1'
+ * '<S417>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Constant2'
+ * '<S418>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero6'
+ * '<S419>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero7'
+ * '<S420>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero8'
+ * '<S421>' : 'Robot_Control/Control_System/Vision_Corrections/Area Percentage to Distance'
+ * '<S422>' : 'Robot_Control/Control_System/Vision_Corrections/Degrees to Radians'
+ * '<S423>' : 'Robot_Control/Control_System/Vision_Corrections/Polar to Cartesian1'
+ * '<S424>' : 'Robot_Control/Control_System/Vision_Corrections/Area Percentage to Distance/Prevent raising 0 to a negative exponent'
+ * '<S425>' : 'Robot_Control/Control_System/Vision_Corrections/Area Percentage to Distance/Subsystem'
  */
 #endif                                 /* RTW_HEADER_Robot_Control_h_ */
 

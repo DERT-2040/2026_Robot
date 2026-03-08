@@ -433,6 +433,7 @@ private:
         nt::NetworkTableEntry T__Steering_Abs_Cmd_SPF__Entry;
         nt::NetworkTableEntry T__Steering_Abs_Gyro__Entry;
         nt::NetworkTableEntry T__Steering_Abs_Gyro_Latch__Entry;
+        nt::NetworkTableEntry T__Steering_Heading_Error_deg__Entry;
         nt::NetworkTableEntry T__Steering_Localized_Cmd__Entry;
         nt::NetworkTableEntry T__Steering_Localized_PID__Entry;
         nt::NetworkTableEntry T__Steering_Rel_Cmd__Entry;
