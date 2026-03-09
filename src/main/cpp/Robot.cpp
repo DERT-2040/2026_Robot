@@ -36,14 +36,16 @@ void Robot::RobotInit()
   4_ms,
   0_ms);
 }
-void Robot::DisabledInit()   {Robot_Control_U.GameState = 0;}
-void Robot::AutonomousInit() {Robot_Control_U.GameState = 1;}
-void Robot::TeleopInit()     {Robot_Control_U.GameState = 2;}
-void Robot::TestInit()       {Robot_Control_U.GameState = 3;}
-void Robot::SimulationInit() {Robot_Control_U.GameState = 4;}
+void Robot::DisabledInit()   {Robot_Control_U.GameState = 0; Odometry_U.GameState = 0;}
+void Robot::AutonomousInit() {Robot_Control_U.GameState = 1; Odometry_U.GameState = 1;}
+void Robot::TeleopInit()     {Robot_Control_U.GameState = 2; Odometry_U.GameState = 2;}
+void Robot::TestInit()       {Robot_Control_U.GameState = 3; Odometry_U.GameState = 3;}
+void Robot::SimulationInit() {Robot_Control_U.GameState = 4; Odometry_U.GameState = 4;}
 
 void Robot::RobotPeriodic() 
 {  
+  Robot_Control_to_Odometry_Feedback();
+  
   HighFrequencyPreStep();
   Odometry_step();      //Step the model
   HighFrequencyPostStep();
@@ -57,6 +59,7 @@ void Robot::RobotPeriodic()
 
 void Robot::Odometry_to_Robot_Control_Transfer()
 {
+  // These are outputs from Odometry being transfered to Robot_Control inputs
   Robot_Control_U.Gyro_Angle_Field_rad  = Odometry_Y.Gyro_Angle_Field_rad;
   Robot_Control_U.Gyro_Angle_rad        = Odometry_Y.Gyro_Angle_rad;
   Robot_Control_U.FL_Steer_Module_Angle = Odometry_Y.FL_Steer_Module_Angle;
@@ -69,11 +72,16 @@ void Robot::Odometry_to_Robot_Control_Transfer()
   Robot_Control_U.Odom_Delta_Y          = Odometry_Y.Odom_Delta_Y;
   Robot_Control_U.Robot_Velocity_X      = Odometry_Y.Robot_Velocity_X;
   Robot_Control_U.Robot_Velocity_Y      = Odometry_Y.Robot_Velocity_Y;
-  // These are common inputs to Odometry and Robot Control
+  // These are common inputs to Odometry and Robot_Control
   Robot_Control_U.FrontLeft_Drive_Motor_Speed  = Odometry_U.FrontLeft_Drive_Motor_Speed;
   Robot_Control_U.FrontRight_Drive_Motor_Speed = Odometry_U.FrontRight_Drive_Motor_Speed;
   Robot_Control_U.BackLeft_Drive_Motor_Speed   = Odometry_U.BackLeft_Drive_Motor_Speed;
   Robot_Control_U.BackRight_Drive_Motor_Speed  = Odometry_U.BackRight_Drive_Motor_Speed;  
+}
+
+void Robot::Robot_Control_to_Odometry_Feedback()
+{
+  Odometry_U.Auto_Initial_Gyro_Angle = Robot_Control_Y.Auto_Initial_Gyro_Angle;
 }
 
 #ifndef RUNNING_FRC_TESTS

@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.471
+ * Model version                  : 2.472
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sun Mar  8 10:06:43 2026
+ * C/C++ source code generated on : Sun Mar  8 18:33:31 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -447,6 +447,7 @@ typedef struct {
   boolean_T Desired_Hood_Enable;       /* '<Root>/Desired_Hood_Enable' */
   real_T Intake_Arm_Motor_DC;          /* '<Root>/Intake_Arm_Motor_DC' */
   real_T Intake_Roller_Motor_DC;       /* '<Root>/Intake_Roller_Motor_DC' */
+  real_T Auto_Initial_Gyro_Angle;      /* '<Root>/Auto_Initial_Gyro_Angle' */
 } ExtY_Robot_Control_T;
 
 /* Real-time Model Data Structure */

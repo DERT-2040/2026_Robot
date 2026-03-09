@@ -113,7 +113,7 @@ Steering_Heading_Control_D_LL = -Steering_Heading_Control_D_UL;
 Steering_Heading_Control_Total_UL = 2.5;  % m/sec
 Steering_Heading_Control_Total_LL = -Steering_Heading_Control_Total_UL;
 
-Steering_Heading_Control_Deadzone = 0.1;
+Steering_Heading_Control_Deadzone = 0.01;
 
 
 clear Derivative_low_pass_filter_freq

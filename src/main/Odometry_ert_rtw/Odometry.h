@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Odometry'.
  *
- * Model version                  : 2.437
+ * Model version                  : 2.438
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sun Mar  1 19:26:35 2026
+ * C/C++ source code generated on : Sun Mar  8 17:56:27 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -39,48 +39,50 @@
 
 /* Block signals (default storage) */
 typedef struct {
-  real_T FL_Steer_Module_Angle;        /* '<S27>/Add1' */
-  real_T FR_Steer_Module_Angle;        /* '<S28>/Add1' */
-  real_T BL_Steer_Module_Angle;        /* '<S29>/Add1' */
-  real_T BR_Steer_Module_Angle;        /* '<S30>/Add1' */
+  real_T FL_Steer_Module_Angle;        /* '<S30>/Add1' */
+  real_T FR_Steer_Module_Angle;        /* '<S31>/Add1' */
+  real_T BL_Steer_Module_Angle;        /* '<S32>/Add1' */
+  real_T BR_Steer_Module_Angle;        /* '<S33>/Add1' */
   real_T Gyro_Angle_Calibrated_deg;    /* '<S2>/Subtract1' */
-  real_T Gyro_Angle_Field_rad;         /* '<S7>/Add1' */
+  real_T Gyro_Angle_Field_rad;         /* '<S8>/Add1' */
   real_T Product6[2];                  /* '<S4>/Product6' */
   real_T Product6_k[2];                /* '<S3>/Product6' */
-  real_T Gyro_Angle_rad;               /* '<S6>/Add1' */
+  real_T Gyro_Angle_rad;               /* '<S7>/Add1' */
   real_T Odom_Position_X;              /* '<S3>/Accumulator2' */
-  real_T Odometry_X_global_est_ft;     /* '<S20>/meters to feet' */
-  real_T Odometry_X_global_TEAR_ft;    /* '<S20>/Subtract' */
+  real_T Odometry_X_global_est_ft;     /* '<S23>/meters to feet' */
+  real_T Odometry_X_global_TEAR_ft;    /* '<S23>/Subtract' */
   real_T Odom_Position_Y;              /* '<S3>/Accumulator' */
-  real_T Odometry_Y_global_est_ft;     /* '<S20>/meters to feet1' */
-  real_T Odometry_Y_global_TEAR_ft;    /* '<S20>/Subtract1' */
+  real_T Odometry_Y_global_est_ft;     /* '<S23>/meters to feet1' */
+  real_T Odometry_Y_global_TEAR_ft;    /* '<S23>/Subtract1' */
   real_T loop_counter_odometry;        /* '<S1>/Sum' */
 } B_Odometry_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  real_T UD_DSTATE;                    /* '<S12>/UD' */
-  real_T UD_DSTATE_i;                  /* '<S13>/UD' */
-  real_T UD_DSTATE_iy;                 /* '<S14>/UD' */
-  real_T UD_DSTATE_f;                  /* '<S15>/UD' */
+  real_T UD_DSTATE;                    /* '<S15>/UD' */
+  real_T UD_DSTATE_i;                  /* '<S16>/UD' */
+  real_T UD_DSTATE_iy;                 /* '<S17>/UD' */
+  real_T UD_DSTATE_f;                  /* '<S18>/UD' */
   real_T TappedDelay_X[4];             /* '<S3>/Tapped Delay' */
   real_T TappedDelay1_X[4];            /* '<S3>/Tapped Delay1' */
-  real_T DelayInput1_DSTATE;           /* '<S9>/Delay Input1' */
+  real_T DelayInput1_DSTATE;           /* '<S10>/Delay Input1' */
   real_T UnitDelay1_DSTATE;            /* '<S1>/Unit Delay1' */
   real_T UnitDelay2_DSTATE;            /* '<S1>/Unit Delay2' */
   real_T UnitDelay1_DSTATE_f;          /* '<S2>/Unit Delay1' */
-  real_T UD_DSTATE_m;                  /* '<S22>/UD' */
-  real_T UD_DSTATE_h;                  /* '<S11>/UD' */
+  real_T UD_DSTATE_m;                  /* '<S25>/UD' */
+  real_T UD_DSTATE_h;                  /* '<S14>/UD' */
   real_T Accumulator2_DSTATE;          /* '<S3>/Accumulator2' */
-  real_T UnitDelay_DSTATE;             /* '<S20>/Unit Delay' */
+  real_T UnitDelay_DSTATE;             /* '<S23>/Unit Delay' */
   real_T Accumulator_DSTATE;           /* '<S3>/Accumulator' */
-  real_T UnitDelay1_DSTATE_d;          /* '<S20>/Unit Delay1' */
+  real_T UnitDelay1_DSTATE_d;          /* '<S23>/Unit Delay1' */
+  uint8_T UnitDelay_DSTATE_dk;         /* '<S2>/Unit Delay' */
   int8_T Accumulator2_PrevResetState;  /* '<S3>/Accumulator2' */
   int8_T Accumulator_PrevResetState;   /* '<S3>/Accumulator' */
 } DW_Odometry_T;
 
 /* External inputs (root inport signals with default storage) */
 typedef struct {
+  uint8_T GameState;                   /* '<Root>/GameState' */
   real_T IsBlueAlliance;               /* '<Root>/IsBlueAlliance' */
   real_T Gyro_Angle;                   /* '<Root>/Gyro_Angle' */
   real_T FrontLeft_Drive_Motor_Rev;    /* '<Root>/FrontLeft_Drive_Motor_Rev' */
@@ -102,6 +104,7 @@ typedef struct {
   real_T BackRight_Drive_Motor_Speed; /* '<Root>/BackRight_Drive_Motor_Speed' */
   real_T Vision_Gyro_Angle;            /* '<Root>/Vision_Gyro_Angle' */
   boolean_T Vision_Gyro_Angle_Status;  /* '<Root>/Vision_Gyro_Angle_Status' */
+  real_T Auto_Initial_Gyro_Angle;      /* '<Root>/Auto_Initial_Gyro_Angle' */
 } ExtU_Odometry_T;
 
 /* External outputs (root outports fed by signals with default storage) */
@@ -163,7 +166,7 @@ extern real_T Odometry_Reset_IC;       /* Variable: Odometry_Reset_IC
                                         * Referenced by: '<S3>/Constant'
                                         */
 extern real_T Odometry_X_Y_TEAR;       /* Variable: Odometry_X_Y_TEAR
-                                        * Referenced by: '<S20>/Constant'
+                                        * Referenced by: '<S23>/Constant'
                                         */
 extern real_T RobotMaxV_GyroReset;     /* Variable: RobotMaxV_GyroReset
                                         * Referenced by: '<S2>/Constant8'
@@ -180,6 +183,7 @@ extern RT_MODEL_Odometry_T *const Odometry_M;
 /*-
  * These blocks were eliminated from the model due to optimizations:
  *
+ * Block '<S1>/Data Type Conversion' : Eliminate redundant data type conversion
  * Block '<S3>/Signal Copy' : Eliminate redundant signal conversion block
  * Block '<S3>/Signal Copy1' : Eliminate redundant signal conversion block
  * Block '<S3>/Signal Copy2' : Eliminate redundant signal conversion block
@@ -210,31 +214,34 @@ extern RT_MODEL_Odometry_T *const Odometry_M;
  * '<S3>'   : 'Odometry/Odometry/Odometry'
  * '<S4>'   : 'Odometry/Odometry/Robot Velocity'
  * '<S5>'   : 'Odometry/Odometry/Steer_Module_Offset_Adjustments'
- * '<S6>'   : 'Odometry/Odometry/Gyro_Angles/Angle Modulus1'
- * '<S7>'   : 'Odometry/Odometry/Gyro_Angles/Angle Modulus2'
- * '<S8>'   : 'Odometry/Odometry/Gyro_Angles/Degrees to Radians'
- * '<S9>'   : 'Odometry/Odometry/Gyro_Angles/Detect Increase'
- * '<S10>'  : 'Odometry/Odometry/Gyro_Angles/Radians to Degrees'
- * '<S11>'  : 'Odometry/Odometry/Odometry/Difference'
- * '<S12>'  : 'Odometry/Odometry/Odometry/Difference1'
- * '<S13>'  : 'Odometry/Odometry/Odometry/Difference3'
- * '<S14>'  : 'Odometry/Odometry/Odometry/Difference4'
- * '<S15>'  : 'Odometry/Odometry/Odometry/Difference5'
- * '<S16>'  : 'Odometry/Odometry/Odometry/Polar to Cartesian'
- * '<S17>'  : 'Odometry/Odometry/Odometry/Polar to Cartesian1'
- * '<S18>'  : 'Odometry/Odometry/Odometry/Polar to Cartesian2'
- * '<S19>'  : 'Odometry/Odometry/Odometry/Polar to Cartesian3'
- * '<S20>'  : 'Odometry/Odometry/Odometry/Tear for validation testing'
- * '<S21>'  : 'Odometry/Odometry/Odometry/Tear for validation testing/Compare To Zero'
- * '<S22>'  : 'Odometry/Odometry/Robot Velocity/Difference'
- * '<S23>'  : 'Odometry/Odometry/Robot Velocity/Polar to Cartesian'
- * '<S24>'  : 'Odometry/Odometry/Robot Velocity/Polar to Cartesian1'
- * '<S25>'  : 'Odometry/Odometry/Robot Velocity/Polar to Cartesian2'
- * '<S26>'  : 'Odometry/Odometry/Robot Velocity/Polar to Cartesian3'
- * '<S27>'  : 'Odometry/Odometry/Steer_Module_Offset_Adjustments/Angle Modulus'
- * '<S28>'  : 'Odometry/Odometry/Steer_Module_Offset_Adjustments/Angle Modulus1'
- * '<S29>'  : 'Odometry/Odometry/Steer_Module_Offset_Adjustments/Angle Modulus2'
- * '<S30>'  : 'Odometry/Odometry/Steer_Module_Offset_Adjustments/Angle Modulus3'
+ * '<S6>'   : 'Odometry/Odometry/Gyro_Angles/Active game state is Auto'
+ * '<S7>'   : 'Odometry/Odometry/Gyro_Angles/Angle Modulus1'
+ * '<S8>'   : 'Odometry/Odometry/Gyro_Angles/Angle Modulus2'
+ * '<S9>'   : 'Odometry/Odometry/Gyro_Angles/Degrees to Radians'
+ * '<S10>'  : 'Odometry/Odometry/Gyro_Angles/Detect Increase'
+ * '<S11>'  : 'Odometry/Odometry/Gyro_Angles/Previous active game state was not Auto'
+ * '<S12>'  : 'Odometry/Odometry/Gyro_Angles/Radians to Degrees'
+ * '<S13>'  : 'Odometry/Odometry/Gyro_Angles/Radians to Degrees1'
+ * '<S14>'  : 'Odometry/Odometry/Odometry/Difference'
+ * '<S15>'  : 'Odometry/Odometry/Odometry/Difference1'
+ * '<S16>'  : 'Odometry/Odometry/Odometry/Difference3'
+ * '<S17>'  : 'Odometry/Odometry/Odometry/Difference4'
+ * '<S18>'  : 'Odometry/Odometry/Odometry/Difference5'
+ * '<S19>'  : 'Odometry/Odometry/Odometry/Polar to Cartesian'
+ * '<S20>'  : 'Odometry/Odometry/Odometry/Polar to Cartesian1'
+ * '<S21>'  : 'Odometry/Odometry/Odometry/Polar to Cartesian2'
+ * '<S22>'  : 'Odometry/Odometry/Odometry/Polar to Cartesian3'
+ * '<S23>'  : 'Odometry/Odometry/Odometry/Tear for validation testing'
+ * '<S24>'  : 'Odometry/Odometry/Odometry/Tear for validation testing/Compare To Zero'
+ * '<S25>'  : 'Odometry/Odometry/Robot Velocity/Difference'
+ * '<S26>'  : 'Odometry/Odometry/Robot Velocity/Polar to Cartesian'
+ * '<S27>'  : 'Odometry/Odometry/Robot Velocity/Polar to Cartesian1'
+ * '<S28>'  : 'Odometry/Odometry/Robot Velocity/Polar to Cartesian2'
+ * '<S29>'  : 'Odometry/Odometry/Robot Velocity/Polar to Cartesian3'
+ * '<S30>'  : 'Odometry/Odometry/Steer_Module_Offset_Adjustments/Angle Modulus'
+ * '<S31>'  : 'Odometry/Odometry/Steer_Module_Offset_Adjustments/Angle Modulus1'
+ * '<S32>'  : 'Odometry/Odometry/Steer_Module_Offset_Adjustments/Angle Modulus2'
+ * '<S33>'  : 'Odometry/Odometry/Steer_Module_Offset_Adjustments/Angle Modulus3'
  */
 #endif                                 /* RTW_HEADER_Odometry_h_ */
 

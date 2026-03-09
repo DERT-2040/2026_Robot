@@ -79,7 +79,7 @@ Rebuilt_Shoot_Dist_7 = 9.0;;
 
 % Desired_Shooter_Motor_Speed Init (rpm)
 Rebuilt_Shoot_Shooter_Spd_I_0 = 2900;
-Rebuilt_Shoot_Shooter_Spd_I_1 = 3200;
+Rebuilt_Shoot_Shooter_Spd_I_1 = 3150;
 Rebuilt_Shoot_Shooter_Spd_I_2 = 3450;
 Rebuilt_Shoot_Shooter_Spd_I_3 = 3600;
 Rebuilt_Shoot_Shooter_Spd_I_4 = 3800;  %3850

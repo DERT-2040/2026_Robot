@@ -46,6 +46,9 @@ private:
   /** Transfer data from Odometry outputs to Robot_Control inputs */
   void Odometry_to_Robot_Control_Transfer();
 
+  /** Feedback data from Robot_Control outputs to Odometry inputs */
+  void Robot_Control_to_Odometry_Feedback();
+
   /** Puts all inputs from sensors and HIDs into Simulink */
   void PreStep() {for(auto component : dlib::Component::allCreatedComponents) component->PreStepCallback();}
   

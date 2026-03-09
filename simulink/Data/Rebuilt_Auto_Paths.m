@@ -29,87 +29,29 @@ Auto_Shoot_Time = 4;   % seconds
 % Middle Location: Neutral Zone
 % Finish Location: Right Hub
 Path_LT_NZ_RH = [
-    3.51, 7.11, 2,   0 *D2R, 0, 0;
-    7.00, 7.31, 2, -60 *D2R, 0, 3;
-    7.70, 4.77, 2, -90 *D2R, 0, 3;
-    7.30, 3.15, 2, -90 *D2R, 0, 3;
-    5.26, 2.4,  1,  45 *D2R, 0, 0;
-    3.78, 2.4,  1,  45 *D2R, 0, 1;
+    3.51, 7.20, 2,   0 *D2R, 0, 0;
+    7.00, 7.31, 1.5, -60 *D2R, 0, 3;
+    7.70, 4.77, 1.5, -90 *D2R, 0, 3;
+    7.60, 2.00, 1.5, -90 *D2R, 0, 3;
+    6.00, 0.90, 1.5, 180 *D2R, 0, 0;
+    3.50, 0.90, 1.5, 180 *D2R, 0, 1;
     3.20, 3.10, 1,  30 *D2R, 2, 0;
     0,0,0,0,0,0;
     0,0,0,0,0,0;
     0,0,0,0,0,0];
 
-% Start Location:  Right Hub
-% Finish Location: Right Climb
-Path_RH_RC = [
-    3.20, 3.10, 1,  30 *D2R, 0, 0;
-    2.17, 3.16, 1, -90 *D2R, 0, 0;
-    1.53, 3.16, 1, -90 *D2R, 4, 0;
-    0,0,0,0,0,0;
-    0,0,0,0,0,0;
-    0,0,0,0,0,0;
-    0,0,0,0,0,0;
-    0,0,0,0,0,0;
-    0,0,0,0,0,0;    
-    0,0,0,0,0,0];
-
-% Start Location:  Right Hub
-% Finish Location: Left Climb
-Path_RH_LC = [
-    3.20, 3.10, 1,  30 *D2R, 0, 0;
-    2.70, 4.25, 1, -90 *D2R, 0, 0;
-    1.53, 4.35, 1, -90 *D2R, 4, 0;
-    0,0,0,0,0,0;
-    0,0,0,0,0,0;
-    0,0,0,0,0,0;
-    0,0,0,0,0,0;
-    0,0,0,0,0,0;
-    0,0,0,0,0,0;    
-    0,0,0,0,0,0];
-
 % Start Location:  Right Trench
 % Middle Location: Neutral Zone
 % Finish Location: Left Hub
-Path_RT_NZ_LH = [
-    3.51, 0.96, 2,   0 *D2R, 0, 0;
-    7.00, 0.76, 2,  60 *D2R, 0, 3;
-    7.70, 3.30, 2,  90 *D2R, 0, 3;
-    7.30, 4.92, 2,  90 *D2R, 0, 3;
-    5.26, 5.66, 2, -45 *D2R, 0, 0;
-    3.78, 5.66, 1, -45 *D2R, 0, 1;
-    3.20, 4.97, 1, -30 *D2R, 2, 0;
-    0,0,0,0,0,0;
-    0,0,0,0,0,0; 
-    0,0,0,0,0,0];
+Path_RT_NZ_LH = MirrorPathSameSide(Path_LT_NZ_RH,field_width);
+Path_RT_NZ_LH(1,4) = 0 *D2R;
+Path_RT_NZ_LH(2,4) = 60 *D2R;
+Path_RT_NZ_LH(3,4) = 90 *D2R;
+Path_RT_NZ_LH(4,4) = 90 *D2R;
+Path_RT_NZ_LH(5,4) = 180 *D2R;
+Path_RT_NZ_LH(6,4) = 180 *D2R;
+Path_RT_NZ_LH(7,4) = -30 *D2R;
 
-% Start Location:  Left Hub
-% Finish Location: Left Climb
-Path_LH_LC = [
-    3.20, 4.97, 1, -30 *D2R, 0, 0;
-    2.70, 4.40, 1, -90 *D2R, 0, 0;
-    1.53, 4.35, 1, -90 *D2R, 4, 0;
-    0,0,0,0,0,0;
-    0,0,0,0,0,0; 
-    0,0,0,0,0,0;
-    0,0,0,0,0,0; 
-    0,0,0,0,0,0;
-    0,0,0,0,0,0;     
-    0,0,0,0,0,0];
-
-% Start Location:  Left Hub
-% Finish Location: Right Climb
-Path_LH_RC = [
-    3.20, 4.97, 1, -30 *D2R, 0, 0;
-    2.70, 3.35, 1, -90 *D2R, 0, 0;
-    1.53, 3.16, 1, -90 *D2R, 4, 0;
-    0,0,0,0,0,0;
-    0,0,0,0,0,0; 
-    0,0,0,0,0,0;
-    0,0,0,0,0,0; 
-    0,0,0,0,0,0;
-    0,0,0,0,0,0;     
-    0,0,0,0,0,0];
 
 % Start Location: Right Trench
 % Finish Location: Outpost
@@ -172,15 +114,11 @@ clear D2R
 % concatenate all of the paths into one multi-dimensional matrix
 All_Paths_Ref_Poses_Blue = cat(3, ...
     Path_LT_NZ_RH, ...   % 1
-    Path_RH_RC, ...      % 2
-    Path_RH_LC, ...      % 3
-    Path_RT_NZ_LH, ...   % 4
-    Path_LH_LC, ...      % 5
-    Path_LH_RC, ...      % 6
-    Path_RT_OP, ...      % 7
-    Path_OP_RH, ...      % 8
-    Path_LR_DP, ...      % 9
-    Path_DP_LH ...       % 10
+    Path_RT_NZ_LH, ...   % 2
+    Path_RT_OP, ...      % 3
+    Path_OP_RH, ...      % 4
+    Path_LR_DP, ...      % 5
+    Path_DP_LH ...       % 6
   ); 
 
 % Run this function to mirron paths from blue to red sides of the field
@@ -188,15 +126,11 @@ All_Paths_Ref_Poses_Blue = cat(3, ...
 
 All_Paths_Ref_Poses_Red = cat(3, ...
     MirrorPath(Path_LT_NZ_RH, field_width, field_length), ...   % 1
-    MirrorPath(Path_RH_RC, field_width, field_length), ...      % 2
-    MirrorPath(Path_RH_LC, field_width, field_length), ...      % 3
-    MirrorPath(Path_RT_NZ_LH, field_width, field_length), ...   % 4
-    MirrorPath(Path_LH_LC, field_width, field_length), ...      % 5
-    MirrorPath(Path_LH_RC, field_width, field_length), ...      % 6
-    MirrorPath(Path_RT_OP, field_width, field_length), ...      % 7
-    MirrorPath(Path_OP_RH, field_width, field_length), ...      % 8
-    MirrorPath(Path_LR_DP, field_width, field_length), ...      % 9
-    MirrorPath(Path_DP_LH, field_width, field_length) ...       % 10
+    MirrorPath(Path_RT_NZ_LH, field_width, field_length), ...   % 2
+    MirrorPath(Path_RT_OP, field_width, field_length), ...      % 3
+    MirrorPath(Path_OP_RH, field_width, field_length), ...      % 4
+    MirrorPath(Path_LR_DP, field_width, field_length), ...      % 5
+    MirrorPath(Path_DP_LH, field_width, field_length) ...       % 6
   ); 
 
 clear field_width field_length
@@ -204,26 +138,18 @@ clear field_width field_length
 % collect the number of poses in each path
 All_Paths_Num_Poses = [
     nnz(Path_LT_NZ_RH(:,1));    % 1
-    nnz(Path_RH_RC(:,1));       % 2
-    nnz(Path_RH_LC(:,1));       % 3
-    nnz(Path_RT_NZ_LH(:,1));    % 4
-    nnz(Path_LH_LC(:,1));       % 5
-    nnz(Path_LH_RC(:,1));       % 6
-    nnz(Path_RT_OP(:,1));       % 7
-    nnz(Path_OP_RH(:,1));       % 8
-    nnz(Path_LR_DP(:,1));       % 9
-    nnz(Path_DP_LH(:,1))        % 10
+    nnz(Path_RT_NZ_LH(:,1));    % 2
+    nnz(Path_RT_OP(:,1));       % 3
+    nnz(Path_OP_RH(:,1));       % 4
+    nnz(Path_LR_DP(:,1));       % 5
+    nnz(Path_DP_LH(:,1))        % 6
     ];
 
 clear Path_LT_NZ_RH Path_RH_RC Path_RH_LC Path_RT_NZ_LH Path_LH_LC
 clear Path_LH_RC Path_RT_OP Path_OP_RH Path_LR_DP Path_DP_LH
 
-% Define complete auto paths
-Auto_Path_01 = [1,2,0];
-Auto_Path_02 = [1,3,0];
-Auto_Path_03 = [4,5,0];
-Auto_Path_04 = [4,6,0];
-Auto_Path_05 = [7,8,2];
-Auto_Path_06 = [7,8,3];
-Auto_Path_07 = [9,10,5];
-Auto_Path_08 = [9,10,6];
+% Define complete auto paths (fill with zeros so all are the same length)
+Auto_Path_01 = [1,0,0];
+Auto_Path_02 = [2,0,0];
+Auto_Path_03 = [3,4,0];
+Auto_Path_04 = [5,6,0];

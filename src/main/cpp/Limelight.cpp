@@ -76,15 +76,25 @@ void Limelight::PreStepCallback() {
         double CameraTwoLLAvgTagDist = CameraTwoLLMeasurement.avgTagDist;
         double CameraTwoLLTagCount   = CameraTwoLLMeasurement.tagCount;
 
-        // Limelight Tag Scores
-        int CameraOneLLScore = 0;
-        int CameraTwoLLScore = 0;
+        // Set tag area threshold for trusting POSE and resetting gyro angle
+        double TagAreaTrustThreshold = 0.3;
 
-        // Pass Into Simulink
-        Robot_Control_U.Vision_Num_Tags_Detected = CameraOneLLTagCount + CameraTwoLLTagCount;
+        // Pass Tag Count into Simulink if tag area is large enough to trust POSE
+        double TrustedTagCount = 0;
+        if (CameraOneLLAvgTagArea > TagAreaTrustThreshold) {
+            TrustedTagCount = TrustedTagCount + CameraOneLLTagCount;
+        }
+        if (CameraTwoLLAvgTagArea > TagAreaTrustThreshold) {
+            TrustedTagCount = TrustedTagCount + CameraTwoLLTagCount;
+        }   
+        Robot_Control_U.Vision_Num_Tags_Detected = TrustedTagCount;
 
         // Logic to evaluate which Limelight has "better" tags currently, based on amount of Tag on screen and tag distance
         // Sets input values based on that
+
+        int CameraOneLLScore = 0;
+        int CameraTwoLLScore = 0;
+
         if (CameraOneLLAvgTagArea > CameraTwoLLAvgTagArea) {
             CameraOneLLScore++;
         } else if (CameraOneLLAvgTagArea < CameraTwoLLAvgTagArea) {
@@ -113,10 +123,11 @@ void Limelight::PreStepCallback() {
                 Robot_Control_U.Vision_RobotPoseFieldSpace_X = CameraTwoLLMeasurement.pose.X().value();
                 Robot_Control_U.Vision_RobotPoseFieldSpace_Y = CameraTwoLLMeasurement.pose.Y().value();
         }
-        Odometry_U.Vision_Gyro_Angle = CameraOneLLMeasurement.pose.Rotation().Degrees().value(); //Get the robot's orientation from the Limelight's pose estimation in degrees
-        Odometry_U.Vision_Gyro_Angle_Status = !((CameraOneLLAvgTagArea > 0.4) && (CameraOneLLTagCount > 0));
-
         
+        // Provide gyro angle reset value and status to Odometry to consider resetting the field coordinate gyro angle
+        Odometry_U.Vision_Gyro_Angle = CameraOneLLMeasurement.pose.Rotation().Degrees().value(); //Get the robot's orientation from the Limelight's pose estimation in degrees
+        Odometry_U.Vision_Gyro_Angle_Status = !((CameraOneLLAvgTagArea > TagAreaTrustThreshold) && (CameraOneLLTagCount > 0));
+
         // Robot Pose Relative to Tag
         std::vector<double> c1TargetPoseRobotSpace = LimelightHelpers::getTargetPose_RobotSpace(nsLimelight::CameraOneCreateInfo.LimelightName);
         size_t c1VectorLength = c1TargetPoseRobotSpace.size();
@@ -172,6 +183,7 @@ void Limelight::PreStepCallback() {
     /////////////////////////////////
     // UNEXPECTED PIPELINE
     /////////////////////////////////    
+
     } else {
         Robot_Control_U.Vision_Num_Tags_Detected = 0;        
         Robot_Control_U.Vision_RobotPoseFieldSpace_X = 0;

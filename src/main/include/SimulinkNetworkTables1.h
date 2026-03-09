@@ -315,6 +315,7 @@ private:
         nt::NetworkTableEntry I__Vision_c1_Object_Valid__Entry;
         nt::NetworkTableEntry I__Vision_c1_Object_Ver_deg__Entry;
         // Outports
+        nt::NetworkTableEntry O__Auto_Initial_Gyro_Angle__Entry;
         nt::NetworkTableEntry O__BackLeft_Drive_DutyCycle__Entry;
         nt::NetworkTableEntry O__BackLeft_Steer_DutyCycle__Entry;
         nt::NetworkTableEntry O__BackRight_Drive_DutyCycle__Entry;

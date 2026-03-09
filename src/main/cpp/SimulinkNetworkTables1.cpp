@@ -393,7 +393,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Shoot_Shooter_Spd_I_1__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Shooter_Spd_I_1");
     NTinst.AddListener(P__Rebuilt_Shoot_Shooter_Spd_I_1__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Shooter_Spd_I_1 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Shooter_Spd_I_1__Entry.SetDouble(3200);
+    P__Rebuilt_Shoot_Shooter_Spd_I_1__Entry.SetDouble(3150);
  
     P__Rebuilt_Shoot_Shooter_Spd_I_2__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Shooter_Spd_I_2");
     NTinst.AddListener(P__Rebuilt_Shoot_Shooter_Spd_I_2__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Shooter_Spd_I_2 = event.GetValueEventData()->value.GetDouble();});
@@ -585,7 +585,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Steering_Heading_Control_Deadzone__Entry = NTtable_Tune->GetEntry("Steering_Heading_Control_Deadzone");
     NTinst.AddListener(P__Steering_Heading_Control_Deadzone__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Heading_Control_Deadzone = event.GetValueEventData()->value.GetDouble();});
-    P__Steering_Heading_Control_Deadzone__Entry.SetDouble(0.1);
+    P__Steering_Heading_Control_Deadzone__Entry.SetDouble(0.01);
  
     P__Steering_Heading_Control_I__Entry = NTtable_Tune->GetEntry("Steering_Heading_Control_I");
     NTinst.AddListener(P__Steering_Heading_Control_I__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Heading_Control_I = event.GetValueEventData()->value.GetDouble();});
@@ -912,6 +912,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     I__Vision_c1_Object_Ver_deg__Entry = NTtable_Inport->GetEntry("Vision_c1_Object_Ver_deg");
  
 // Outports
+    O__Auto_Initial_Gyro_Angle__Entry = NTtable_Outport->GetEntry("Auto_Initial_Gyro_Angle");
     O__BackLeft_Drive_DutyCycle__Entry = NTtable_Outport->GetEntry("BackLeft_Drive_DutyCycle");
     O__BackLeft_Steer_DutyCycle__Entry = NTtable_Outport->GetEntry("BackLeft_Steer_DutyCycle");
     O__BackRight_Drive_DutyCycle__Entry = NTtable_Outport->GetEntry("BackRight_Drive_DutyCycle");
@@ -1355,6 +1356,7 @@ void SimulinkNetworkTables1::PostStepCallback()
     I__Vision_c1_Object_Valid__Entry.SetDouble(Robot_Control_U.Vision_c1_Object_Valid);
     I__Vision_c1_Object_Ver_deg__Entry.SetDouble(Robot_Control_U.Vision_c1_Object_Ver_deg);
     // Outports
+    O__Auto_Initial_Gyro_Angle__Entry.SetDouble(Robot_Control_Y.Auto_Initial_Gyro_Angle);
     O__BackLeft_Drive_DutyCycle__Entry.SetDouble(Robot_Control_Y.BackLeft_Drive_DutyCycle);
     O__BackLeft_Steer_DutyCycle__Entry.SetDouble(Robot_Control_Y.BackLeft_Steer_DutyCycle);
     O__BackRight_Drive_DutyCycle__Entry.SetDouble(Robot_Control_Y.BackRight_Drive_DutyCycle);

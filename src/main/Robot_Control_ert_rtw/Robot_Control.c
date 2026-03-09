@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.471
+ * Model version                  : 2.472
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sun Mar  8 10:06:43 2026
+ * C/C++ source code generated on : Sun Mar  8 18:33:31 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -419,7 +419,7 @@ real_T Rebuilt_Shoot_Shooter_Spd_I_0 = 2900.0;
                                       /* Variable: Rebuilt_Shoot_Shooter_Spd_I_0
                                        * Referenced by: '<S142>/Constant5'
                                        */
-real_T Rebuilt_Shoot_Shooter_Spd_I_1 = 3200.0;
+real_T Rebuilt_Shoot_Shooter_Spd_I_1 = 3150.0;
                                       /* Variable: Rebuilt_Shoot_Shooter_Spd_I_1
                                        * Referenced by: '<S142>/Constant6'
                                        */
@@ -596,7 +596,7 @@ real_T Steering_Heading_Control_D_UL = 0.0;
                                       /* Variable: Steering_Heading_Control_D_UL
                                        * Referenced by: '<S353>/Saturation'
                                        */
-real_T Steering_Heading_Control_Deadzone = 0.1;
+real_T Steering_Heading_Control_Deadzone = 0.01;
                                   /* Variable: Steering_Heading_Control_Deadzone
                                    * Referenced by: '<S352>/Constant'
                                    */
@@ -966,11 +966,13 @@ void Robot_Control_step(void)
   real_T rtb_Add2[2];
   real_T rtb_Minus_n[2];
   real_T rtb_Reshapey[2];
+  real_T rtb_Add1_l;
   real_T rtb_Add_a5;
   real_T rtb_Add_e3;
   real_T rtb_Add_f1;
   real_T rtb_Add_fd;
   real_T rtb_Add_i;
+  real_T rtb_Auto_Initial_Gyro_Angle;
   real_T rtb_DeadZone;
   real_T rtb_Error_c5;
   real_T rtb_Error_n;
@@ -986,6 +988,7 @@ void Robot_Control_step(void)
   real_T rtb_Merge1;
   real_T rtb_Minus_k_idx_0;
   real_T rtb_Minus_k_idx_1;
+  real_T rtb_Modulation_Drv;
   real_T rtb_Optimized_Module_Angle;
   real_T rtb_Optimized_Module_Angle_p;
   real_T rtb_Product_aa;
@@ -999,10 +1002,8 @@ void Robot_Control_step(void)
   real_T rtb_Sum1_l;
   real_T rtb_Sum2_e;
   real_T rtb_Sum2_oc;
-  real_T rtb_Switch1;
   real_T rtb_Switch1_b0;
-  real_T rtb_Switch2;
-  real_T rtb_Switch2_be;
+  real_T rtb_Switch2_ee;
   real_T rtb_Switch2_p2;
   real_T rtb_uDLookupTable;
   real_T *rtb_TmpSignalConversionAtLoo__0;
@@ -1367,6 +1368,11 @@ void Robot_Control_step(void)
      */
     rtb_LogicalOperator1_n = false;
 
+    /* SignalConversion generated from: '<S4>/Auto_Initial_Gyro_Angle' incorporates:
+     *  Constant: '<S4>/Constant21'
+     */
+    rtb_Auto_Initial_Gyro_Angle = 0.0;
+
     /* End of Outputs for SubSystem: '<S1>/Disabled' */
     break;
 
@@ -1417,60 +1423,32 @@ void Robot_Control_step(void)
      *  Constant: '<S21>/Constant10'
      *  Constant: '<S21>/Constant11'
      *  Constant: '<S21>/Constant12'
-     *  Constant: '<S21>/Constant13'
-     *  Constant: '<S21>/Constant14'
-     *  Constant: '<S21>/Constant15'
-     *  Constant: '<S21>/Constant16'
      *  Constant: '<S21>/Constant17'
      *  Constant: '<S21>/Constant9'
      */
     switch ((int32_T)Auto_Path_Chooser) {
      case 1:
       rtb_MultiportSwitch1[0] = 1;
-      rtb_MultiportSwitch1[1] = 2;
+      rtb_MultiportSwitch1[1] = 0;
       rtb_MultiportSwitch1[2] = 0;
       break;
 
      case 2:
-      rtb_MultiportSwitch1[0] = 1;
-      rtb_MultiportSwitch1[1] = 3;
+      rtb_MultiportSwitch1[0] = 2;
+      rtb_MultiportSwitch1[1] = 0;
       rtb_MultiportSwitch1[2] = 0;
       break;
 
      case 3:
-      rtb_MultiportSwitch1[0] = 4;
-      rtb_MultiportSwitch1[1] = 5;
+      rtb_MultiportSwitch1[0] = 3;
+      rtb_MultiportSwitch1[1] = 4;
       rtb_MultiportSwitch1[2] = 0;
-      break;
-
-     case 4:
-      rtb_MultiportSwitch1[0] = 4;
-      rtb_MultiportSwitch1[1] = 6;
-      rtb_MultiportSwitch1[2] = 0;
-      break;
-
-     case 5:
-      rtb_MultiportSwitch1[0] = 7;
-      rtb_MultiportSwitch1[1] = 8;
-      rtb_MultiportSwitch1[2] = 2;
-      break;
-
-     case 6:
-      rtb_MultiportSwitch1[0] = 7;
-      rtb_MultiportSwitch1[1] = 8;
-      rtb_MultiportSwitch1[2] = 3;
-      break;
-
-     case 7:
-      rtb_MultiportSwitch1[0] = 9;
-      rtb_MultiportSwitch1[1] = 10;
-      rtb_MultiportSwitch1[2] = 5;
       break;
 
      default:
-      rtb_MultiportSwitch1[0] = 9;
-      rtb_MultiportSwitch1[1] = 10;
-      rtb_MultiportSwitch1[2] = 6;
+      rtb_MultiportSwitch1[0] = 5;
+      rtb_MultiportSwitch1[1] = 6;
+      rtb_MultiportSwitch1[2] = 0;
       break;
     }
 
@@ -1632,13 +1610,18 @@ void Robot_Control_step(void)
 
     /* End of Selector: '<S20>/Selector' */
 
+    /* Selector: '<S18>/Select heading angle from first row' incorporates:
+     *  Selector: '<S20>/Selector'
+     */
+    rtb_Auto_Initial_Gyro_Angle = rtb_Spline_Ref_Poses_h[30];
+
     /* Merge: '<S9>/Merge9' incorporates:
      *  Lookup_n-D: '<S20>/1-D Lookup Table'
      *  Lookup_n-D: '<S20>/1-D Lookup Table1'
      */
     Robot_Control_B.Spline_Num_Poses =
       rtCP_uDLookupTable_tableData[plook_u32d_evencka
-      (Robot_Control_B.Auto_Path_ID, 1.0, 1.0, 9U)];
+      (Robot_Control_B.Auto_Path_ID, 1.0, 1.0, 5U)];
 
     /* Merge: '<S9>/Merge7' incorporates:
      *  SignalConversion: '<S18>/Signal Copy'
@@ -2036,15 +2019,15 @@ void Robot_Control_step(void)
      *  Product: '<S394>/Product1'
      *  SignalConversion: '<S5>/Signal Copy5'
      */
-    rtb_Subtract_c3 = (look1_binlcpw(Robot_Control_B.Steer_Joystick_Y,
-      rtCP_Modulation_Str_Y_Rel_bp01D, rtCP_Modulation_Str_Y_Rel_table, 20U) *
-                       Steering_Relative_Gain) + (rtb_Add_a5 *
-      Steering_Twist_Gain);
+    rtb_Auto_Initial_Gyro_Angle = (look1_binlcpw
+      (Robot_Control_B.Steer_Joystick_Y, rtCP_Modulation_Str_Y_Rel_bp01D,
+       rtCP_Modulation_Str_Y_Rel_table, 20U) * Steering_Relative_Gain) +
+      (rtb_Add_a5 * Steering_Twist_Gain);
 
     /* RelationalOperator: '<S396>/Compare' incorporates:
      *  Constant: '<S396>/Constant'
      */
-    rtb_Compare_ik = (rtb_Subtract_c3 == 0.0);
+    rtb_Compare_ik = (rtb_Auto_Initial_Gyro_Angle == 0.0);
 
     /* Logic: '<S394>/AND2' incorporates:
      *  RelationalOperator: '<S397>/FixPt Relational Operator'
@@ -2137,25 +2120,25 @@ void Robot_Control_step(void)
      *  Switch: '<S394>/Switch7'
      */
     if (Robot_Control_B.Face_Away_Driver) {
-      rtb_Switch1_b0 = 0.0;
+      rtb_Subtract_c3 = 0.0;
     } else if (Robot_Control_B.Face_Left_Driver) {
       /* Switch: '<S394>/Switch5' incorporates:
        *  Constant: '<S394>/Constant6'
        */
-      rtb_Switch1_b0 = 1.5707963267948966;
+      rtb_Subtract_c3 = 1.5707963267948966;
     } else if (Robot_Control_B.Face_Toward_Driver) {
       /* Switch: '<S394>/Switch6' incorporates:
        *  Constant: '<S394>/Constant7'
        *  Switch: '<S394>/Switch5'
        */
-      rtb_Switch1_b0 = 3.1415926535897931;
+      rtb_Subtract_c3 = 3.1415926535897931;
     } else if (Robot_Control_B.Face_Right_Driver) {
       /* Switch: '<S394>/Switch7' incorporates:
        *  Constant: '<S394>/Constant8'
        *  Switch: '<S394>/Switch5'
        *  Switch: '<S394>/Switch6'
        */
-      rtb_Switch1_b0 = 4.71238898038469;
+      rtb_Subtract_c3 = 4.71238898038469;
     } else if (rtb_AND4) {
       /* Switch: '<S394>/Switch1' incorporates:
        *  Constant: '<S15>/Constant10'
@@ -2163,14 +2146,14 @@ void Robot_Control_step(void)
        *  Switch: '<S394>/Switch6'
        *  Switch: '<S394>/Switch7'
        */
-      rtb_Switch1_b0 = 0.0;
+      rtb_Subtract_c3 = 0.0;
     } else {
       /* Switch: '<S394>/Switch6' incorporates:
        *  Switch: '<S394>/Switch5'
        *  Switch: '<S394>/Switch7'
        *  UnitDelay: '<S394>/Unit Delay1'
        */
-      rtb_Switch1_b0 = Robot_Control_DW.UnitDelay1_DSTATE_j2;
+      rtb_Subtract_c3 = Robot_Control_DW.UnitDelay1_DSTATE_j2;
     }
 
     /* End of Switch: '<S394>/Switch4' */
@@ -2185,7 +2168,7 @@ void Robot_Control_step(void)
       Robot_Control_B.Steering_Abs_Gyro = 0.0;
 
       /* Switch: '<S394>/Switch3' */
-      Robot_Control_B.Steering_Abs_Angle = rtb_Switch1_b0;
+      Robot_Control_B.Steering_Abs_Angle = rtb_Subtract_c3;
     } else {
       /* Switch: '<S394>/Switch2' */
       Robot_Control_B.Steering_Abs_Gyro =
@@ -2221,14 +2204,14 @@ void Robot_Control_step(void)
     /* Lookup_n-D: '<S395>/Modulation_Drv' incorporates:
      *  Math: '<S395>/Magnitude'
      */
-    rtb_Sin4 = look1_binlcpw(rt_hypotd_snf(Robot_Control_B.Drive_Joystick_X,
-      Robot_Control_B.Drive_Joystick_Y), rtCP_Modulation_Drv_bp01Data,
-      rtCP_Modulation_Drv_tableData, 20U);
+    rtb_Modulation_Drv = look1_binlcpw(rt_hypotd_snf
+      (Robot_Control_B.Drive_Joystick_X, Robot_Control_B.Drive_Joystick_Y),
+      rtCP_Modulation_Drv_bp01Data, rtCP_Modulation_Drv_tableData, 20U);
 
     /* RelationalOperator: '<S406>/Compare' incorporates:
      *  Constant: '<S406>/Constant'
      */
-    rtb_Swerve_Motors_Disabled = (rtb_Sin4 == 0.0);
+    rtb_Swerve_Motors_Disabled = (rtb_Modulation_Drv == 0.0);
 
     /* DeadZone: '<S395>/Dead Zone' */
     if (Robot_Control_B.Drive_Joystick_Z > Twist_Deadzone_pos) {
@@ -2327,11 +2310,11 @@ void Robot_Control_step(void)
      */
     if ((Robot_Control_B.Drive_Joystick_X == 0.0) &&
         (Robot_Control_B.Drive_Joystick_Y == 0.0)) {
-      rtb_Switch1 = Robot_Control_DW.UnitDelay1_DSTATE_l;
-      rtb_Switch2 = Robot_Control_DW.UnitDelay_DSTATE_p;
+      rtb_Switch1_b0 = Robot_Control_DW.UnitDelay1_DSTATE_l;
+      rtb_Sin4 = Robot_Control_DW.UnitDelay_DSTATE_p;
     } else {
-      rtb_Switch1 = Robot_Control_B.Drive_Joystick_Y;
-      rtb_Switch2 = Robot_Control_B.Drive_Joystick_X;
+      rtb_Switch1_b0 = Robot_Control_B.Drive_Joystick_Y;
+      rtb_Sin4 = Robot_Control_B.Drive_Joystick_X;
     }
 
     /* End of Switch: '<S408>/Switch1' */
@@ -2392,7 +2375,7 @@ void Robot_Control_step(void)
        *  Switch: '<S395>/Switch4'
        *  Trigonometry: '<S395>/Atan2'
        */
-      Robot_Control_B.Translation_Angle = rt_atan2d_snf(rtb_Switch1, rtb_Switch2);
+      Robot_Control_B.Translation_Angle = rt_atan2d_snf(rtb_Switch1_b0, rtb_Sin4);
     }
 
     /* End of Switch: '<S395>/Switch1' */
@@ -2471,7 +2454,7 @@ void Robot_Control_step(void)
       /* Product: '<S405>/Product' incorporates:
        *  Switch: '<S395>/Switch2'
        */
-      rtb_Add_a5 = rtb_Sin4 * rtb_Init;
+      rtb_Add_a5 = rtb_Modulation_Drv * rtb_Init;
 
       /* Saturate: '<S405>/Saturation' incorporates:
        *  Switch: '<S395>/Switch2'
@@ -2495,7 +2478,7 @@ void Robot_Control_step(void)
     /* Merge: '<S9>/Merge2' incorporates:
      *  SignalConversion: '<S394>/Signal Copy'
      */
-    Robot_Control_B.Steering_Rel_Cmd = rtb_Subtract_c3;
+    Robot_Control_B.Steering_Rel_Cmd = rtb_Auto_Initial_Gyro_Angle;
 
     /* Switch: '<S392>/Switch6' incorporates:
      *  Constant: '<S392>/Constant11'
@@ -2583,6 +2566,11 @@ void Robot_Control_step(void)
      */
     rtb_LogicalOperator1_n = (Robot_Control_U.Joystick_Right_B1 != 0.0);
 
+    /* SignalConversion generated from: '<S15>/Auto_Initial_Gyro_Angle' incorporates:
+     *  Constant: '<S15>/Constant21'
+     */
+    rtb_Auto_Initial_Gyro_Angle = 0.0;
+
     /* Update for UnitDelay: '<S402>/Delay Input1'
      *
      * Block description for '<S402>/Delay Input1':
@@ -2642,13 +2630,13 @@ void Robot_Control_step(void)
     Robot_Control_DW.UnitDelay3_DSTATE = Robot_Control_B.Steering_Abs_Gyro_Latch;
 
     /* Update for UnitDelay: '<S394>/Unit Delay1' */
-    Robot_Control_DW.UnitDelay1_DSTATE_j2 = rtb_Switch1_b0;
+    Robot_Control_DW.UnitDelay1_DSTATE_j2 = rtb_Subtract_c3;
 
     /* Update for UnitDelay: '<S408>/Unit Delay1' */
-    Robot_Control_DW.UnitDelay1_DSTATE_l = rtb_Switch1;
+    Robot_Control_DW.UnitDelay1_DSTATE_l = rtb_Switch1_b0;
 
     /* Update for UnitDelay: '<S408>/Unit Delay' */
-    Robot_Control_DW.UnitDelay_DSTATE_p = rtb_Switch2;
+    Robot_Control_DW.UnitDelay_DSTATE_p = rtb_Sin4;
 
     /* Update for UnitDelay: '<S412>/FixPt Unit Delay2' incorporates:
      *  Constant: '<S412>/FixPt Constant'
@@ -2787,6 +2775,11 @@ void Robot_Control_step(void)
      *  Constant: '<S16>/Constant20'
      */
     rtb_LogicalOperator1_n = false;
+
+    /* SignalConversion generated from: '<S16>/Auto_Initial_Gyro_Angle' incorporates:
+     *  Constant: '<S16>/Constant10'
+     */
+    rtb_Auto_Initial_Gyro_Angle = 0.0;
 
     /* SignalConversion: '<S16>/Signal Copy' */
     rtb_Enable_Wheels = Robot_Control_B.Button_Enable_Wheels;
@@ -3089,8 +3082,8 @@ void Robot_Control_step(void)
        *  Selector: '<S182>/Selector'
        *  Selector: '<S185>/Selector'
        */
-      rtb_Init = rtb_Ref_Poses[((int32_T)Robot_Control_DW.UnitDelay_DSTATE_gh) -
-        1];
+      rtb_Switch2_p2 = rtb_Ref_Poses[((int32_T)
+        Robot_Control_DW.UnitDelay_DSTATE_gh) - 1];
 
       /* End of Outputs for SubSystem: '<S182>/Increment_If_Rectangle_Check' */
 
@@ -3098,7 +3091,7 @@ void Robot_Control_step(void)
        *  Concatenate: '<S175>/Matrix Concatenate2'
        *  Selector: '<S182>/Selector'
        */
-      rtb_Minus_n[0] = rtb_Reshapey[0] - rtb_Init;
+      rtb_Minus_n[0] = rtb_Reshapey[0] - rtb_Switch2_p2;
 
       /* Outputs for IfAction SubSystem: '<S182>/Increment_If_Rectangle_Check' incorporates:
        *  ActionPort: '<S185>/Action Port'
@@ -3109,7 +3102,7 @@ void Robot_Control_step(void)
        *  Selector: '<S185>/Selector'
        *  Sum: '<S182>/Minus'
        */
-      rtb_DeadZone = rtb_Ref_Poses[((int32_T)
+      rtb_Modulation_Drv = rtb_Ref_Poses[((int32_T)
         Robot_Control_DW.UnitDelay_DSTATE_gh) + 9];
 
       /* End of Outputs for SubSystem: '<S182>/Increment_If_Rectangle_Check' */
@@ -3118,7 +3111,7 @@ void Robot_Control_step(void)
        *  Concatenate: '<S175>/Matrix Concatenate2'
        *  Selector: '<S182>/Selector'
        */
-      rtb_Minus_n[1] = rtb_Reshapey[1] - rtb_DeadZone;
+      rtb_Minus_n[1] = rtb_Reshapey[1] - rtb_Modulation_Drv;
 
       /* Math: '<S182>/Hypot' */
       rtb_Switch1_b0 = rt_hypotd_snf(rtb_Minus_n[0], rtb_Minus_n[1]);
@@ -3284,18 +3277,18 @@ void Robot_Control_step(void)
          *  Selector: '<S185>/Selector1'
          *  Sum: '<S193>/Minus1'
          */
-        rtb_Minus_n[0] = rtb_MatrixConcatenate_b_idx_0 - rtb_Init;
+        rtb_Minus_n[0] = rtb_MatrixConcatenate_b_idx_0 - rtb_Switch2_p2;
 
         /* Selector: '<S185>/Selector1' incorporates:
          *  Selector: '<S175>/Selector1'
          */
-        rtb_Switch1 = rtb_Ref_Poses[((int32_T)rtb_Switch1_b0) + 9];
+        rtb_DeadZone = rtb_Ref_Poses[((int32_T)rtb_Switch1_b0) + 9];
 
         /* Sum: '<S193>/Subtract' incorporates:
          *  Selector: '<S185>/Selector1'
          *  Sum: '<S193>/Minus1'
          */
-        rtb_Minus_n[1] = rtb_Switch1 - rtb_DeadZone;
+        rtb_Minus_n[1] = rtb_DeadZone - rtb_Modulation_Drv;
 
         /* Math: '<S193>/Hypot' */
         rtb_Sin4 = rt_hypotd_snf(rtb_Minus_n[0], rtb_Minus_n[1]);
@@ -3304,44 +3297,44 @@ void Robot_Control_step(void)
         rtb_Switch1_b0 = rtb_Minus_n[1];
 
         /* UnaryMinus: '<S193>/Unary Minus' */
-        rtb_Switch2_p2 = rtb_Minus_n[0];
+        rtb_Add1_l = rtb_Minus_n[0];
 
         /* Product: '<S193>/Product' incorporates:
          *  Product: '<S193>/Divide'
          *  UnaryMinus: '<S193>/Unary Minus'
          */
         rtb_Minus_n[0] = (rtb_Switch1_b0 / rtb_Sin4) * rtb_Subtract_c3;
-        rtb_Minus_n[1] = ((-rtb_Switch2_p2) / rtb_Sin4) * rtb_Subtract_c3;
+        rtb_Minus_n[1] = ((-rtb_Add1_l) / rtb_Sin4) * rtb_Subtract_c3;
 
         /* Sum: '<S193>/Add1' incorporates:
          *  Sum: '<S193>/Add2'
          *  Sum: '<S193>/Minus'
          */
-        rtb_Switch2_p2 = rtb_MatrixConcatenate_b_idx_0 - rtb_Minus_n[0];
+        rtb_Add1_l = rtb_MatrixConcatenate_b_idx_0 - rtb_Minus_n[0];
 
         /* Sum: '<S193>/Minus4' incorporates:
          *  Sum: '<S193>/Add2'
          *  Sum: '<S193>/Minus'
          */
         rtb_MatrixConcatenate_b_idx_0 = (rtb_MatrixConcatenate_b_idx_0 +
-          rtb_Minus_n[0]) - rtb_Switch2_p2;
+          rtb_Minus_n[0]) - rtb_Add1_l;
 
         /* Sum: '<S193>/Minus5' incorporates:
          *  Concatenate: '<S175>/Matrix Concatenate2'
          *  Sum: '<S193>/Minus'
          */
-        rtb_Minus_k_idx_0 = rtb_Reshapey[0] - rtb_Switch2_p2;
+        rtb_Minus_k_idx_0 = rtb_Reshapey[0] - rtb_Add1_l;
 
         /* Sum: '<S193>/Add' incorporates:
          *  Sum: '<S193>/Add2'
          *  Sum: '<S193>/Minus1'
          */
-        rtb_Switch1_b0 = rtb_Init - rtb_Minus_n[0];
+        rtb_Switch1_b0 = rtb_Switch2_p2 - rtb_Minus_n[0];
 
         /* Sum: '<S193>/Minus' incorporates:
          *  Sum: '<S193>/Minus1'
          */
-        rtb_Switch2_p2 -= rtb_Switch1_b0;
+        rtb_Add1_l -= rtb_Switch1_b0;
 
         /* DotProduct: '<S193>/Dot Product' incorporates:
          *  Concatenate: '<S175>/Matrix Concatenate2'
@@ -3349,18 +3342,18 @@ void Robot_Control_step(void)
          *  Sum: '<S193>/Minus1'
          *  Sum: '<S193>/Minus5'
          */
-        rtb_Sin4 = (rtb_Reshapey[0] - rtb_Switch1_b0) * rtb_Switch2_p2;
+        rtb_Sin4 = (rtb_Reshapey[0] - rtb_Switch1_b0) * rtb_Add1_l;
 
         /* DotProduct: '<S193>/Dot Product1' incorporates:
          *  Sum: '<S193>/Minus'
          */
-        rtb_Init = rtb_Switch2_p2 * rtb_Switch2_p2;
+        rtb_Switch2_p2 = rtb_Add1_l * rtb_Add1_l;
 
         /* DotProduct: '<S193>/Dot Product2' incorporates:
          *  Sum: '<S193>/Minus4'
          *  Sum: '<S193>/Minus5'
          */
-        rtb_Switch2 = rtb_MatrixConcatenate_b_idx_0 * rtb_Minus_k_idx_0;
+        rtb_Init = rtb_MatrixConcatenate_b_idx_0 * rtb_Minus_k_idx_0;
 
         /* DotProduct: '<S193>/Dot Product3' incorporates:
          *  Sum: '<S193>/Minus4'
@@ -3372,31 +3365,31 @@ void Robot_Control_step(void)
          *  Sum: '<S193>/Add2'
          *  Sum: '<S193>/Minus'
          */
-        rtb_Switch2_p2 = rtb_Switch1 - rtb_Minus_n[1];
+        rtb_Add1_l = rtb_DeadZone - rtb_Minus_n[1];
 
         /* Sum: '<S193>/Minus4' incorporates:
          *  Sum: '<S193>/Add2'
          *  Sum: '<S193>/Minus'
          */
-        rtb_MatrixConcatenate_b_idx_0 = (rtb_Switch1 + rtb_Minus_n[1]) -
-          rtb_Switch2_p2;
+        rtb_MatrixConcatenate_b_idx_0 = (rtb_DeadZone + rtb_Minus_n[1]) -
+          rtb_Add1_l;
 
         /* Sum: '<S193>/Minus5' incorporates:
          *  Concatenate: '<S175>/Matrix Concatenate2'
          *  Sum: '<S193>/Minus'
          */
-        rtb_Minus_k_idx_0 = rtb_Reshapey[1] - rtb_Switch2_p2;
+        rtb_Minus_k_idx_0 = rtb_Reshapey[1] - rtb_Add1_l;
 
         /* Sum: '<S193>/Add' incorporates:
          *  Sum: '<S193>/Add2'
          *  Sum: '<S193>/Minus1'
          */
-        rtb_Switch1_b0 = rtb_DeadZone - rtb_Minus_n[1];
+        rtb_Switch1_b0 = rtb_Modulation_Drv - rtb_Minus_n[1];
 
         /* Sum: '<S193>/Minus' incorporates:
          *  Sum: '<S193>/Minus1'
          */
-        rtb_Switch2_p2 -= rtb_Switch1_b0;
+        rtb_Add1_l -= rtb_Switch1_b0;
 
         /* DotProduct: '<S193>/Dot Product' incorporates:
          *  Concatenate: '<S175>/Matrix Concatenate2'
@@ -3404,7 +3397,7 @@ void Robot_Control_step(void)
          *  Sum: '<S193>/Minus1'
          *  Sum: '<S193>/Minus5'
          */
-        rtb_Sin4 += (rtb_Reshapey[1] - rtb_Switch1_b0) * rtb_Switch2_p2;
+        rtb_Sin4 += (rtb_Reshapey[1] - rtb_Switch1_b0) * rtb_Add1_l;
 
         /* RelationalOperator: '<S194>/Compare' incorporates:
          *  Constant: '<S194>/Constant'
@@ -3415,15 +3408,15 @@ void Robot_Control_step(void)
          *  DotProduct: '<S193>/Dot Product1'
          *  Sum: '<S193>/Minus'
          */
-        rtb_Is_Absolute_Translation_g = (rtb_Sin4 <= ((rtb_Switch2_p2 *
-          rtb_Switch2_p2) + rtb_Init));
+        rtb_Is_Absolute_Translation_g = (rtb_Sin4 <= ((rtb_Add1_l * rtb_Add1_l)
+          + rtb_Switch2_p2));
 
         /* DotProduct: '<S193>/Dot Product2' incorporates:
          *  Sum: '<S193>/Minus4'
          *  Sum: '<S193>/Minus5'
          */
         rtb_Sin4 = (rtb_MatrixConcatenate_b_idx_0 * rtb_Minus_k_idx_0) +
-          rtb_Switch2;
+          rtb_Init;
 
         /* Merge: '<S179>/Merge4' incorporates:
          *  Constant: '<S195>/Constant'
@@ -3630,52 +3623,53 @@ void Robot_Control_step(void)
        */
       s201_iter = 1;
       do {
-        rtb_Init = rtb_Assignment[s201_iter + 1];
-        rtb_Minus_n[0] = rtb_Init - rtb_Assignment[s201_iter - 1];
+        rtb_Switch2_p2 = rtb_Assignment[s201_iter + 1];
+        rtb_Minus_n[0] = rtb_Switch2_p2 - rtb_Assignment[s201_iter - 1];
         rtb_Add2[0] = rtb_Assignment[s201_iter] - rtb_Assignment[s201_iter + 2];
-        rtb_Minus_k_idx_0 = rtb_Init - rtb_Assignment[s201_iter];
-        rtb_Init = rtb_Assignment[s201_iter + 13];
-        rtb_Minus_n[1] = rtb_Init - rtb_Assignment[s201_iter + 11];
-        rtb_Switch2_p2 = rtb_Assignment[s201_iter + 12];
-        rtb_Add2[1] = rtb_Switch2_p2 - rtb_Assignment[s201_iter + 14];
-        rtb_Minus_k_idx_1 = rtb_Init - rtb_Switch2_p2;
+        rtb_Minus_k_idx_0 = rtb_Switch2_p2 - rtb_Assignment[s201_iter];
+        rtb_Switch2_p2 = rtb_Assignment[s201_iter + 13];
+        rtb_Minus_n[1] = rtb_Switch2_p2 - rtb_Assignment[s201_iter + 11];
+        rtb_Add1_l = rtb_Assignment[s201_iter + 12];
+        rtb_Add2[1] = rtb_Add1_l - rtb_Assignment[s201_iter + 14];
+        rtb_Minus_k_idx_1 = rtb_Switch2_p2 - rtb_Add1_l;
         for (rtb_Bias1_p = 0; rtb_Bias1_p < 50; rtb_Bias1_p++) {
           rtb_Sin4 = ((real_T)rtb_Bias1_p) / 49.0;
-          rtb_DeadZone = rt_powd_snf(rtb_Sin4, 2.0);
-          rtb_Init = rt_powd_snf(rtb_Sin4, 3.0);
-          rtb_Switch1 = (rtb_Sin4 - (2.0 * rtb_DeadZone)) + rtb_Init;
-          rtb_Switch2 = rtb_DeadZone - rtb_Init;
-          rtb_Init = (3.0 * rtb_DeadZone) - (2.0 * rtb_Init);
-          rtb_MatrixConcatenate_b_idx_0 = ((((rtb_Minus_n[0] * rtb_Switch1) +
-            (rtb_Add2[0] * rtb_Switch2)) * 0.5) + (rtb_Minus_k_idx_0 * rtb_Init))
-            + rtb_Assignment[s201_iter];
-          rtb_Init = ((((rtb_Minus_n[1] * rtb_Switch1) + (rtb_Add2[1] *
-            rtb_Switch2)) * 0.5) + (rtb_Minus_k_idx_1 * rtb_Init)) +
+          rtb_Modulation_Drv = rt_powd_snf(rtb_Sin4, 2.0);
+          rtb_Switch2_p2 = rt_powd_snf(rtb_Sin4, 3.0);
+          rtb_DeadZone = (rtb_Sin4 - (2.0 * rtb_Modulation_Drv)) +
             rtb_Switch2_p2;
-          rtb_Switch1 = ((3.0 * rtb_DeadZone) - (4.0 * rtb_Sin4)) + 1.0;
-          rtb_Switch2 = (2.0 * rtb_Sin4) - (3.0 * rtb_DeadZone);
-          rtb_DeadZone = (rtb_Sin4 - rtb_DeadZone) * 6.0;
-          rtb_MatrixConcatenate_idx_0 = (((rtb_Minus_n[0] * rtb_Switch1) +
-            (rtb_Add2[0] * rtb_Switch2)) * 0.5) + (rtb_Minus_k_idx_0 *
-            rtb_DeadZone);
-          rtb_Hypot_g5 = (((rtb_Minus_n[1] * rtb_Switch1) + (rtb_Add2[1] *
-            rtb_Switch2)) * 0.5) + (rtb_Minus_k_idx_1 * rtb_DeadZone);
-          rtb_DeadZone = (6.0 * rtb_Sin4) - 4.0;
-          rtb_Switch1 = (-6.0 * rtb_Sin4) + 2.0;
+          rtb_Init = rtb_Modulation_Drv - rtb_Switch2_p2;
+          rtb_Switch2_p2 = (3.0 * rtb_Modulation_Drv) - (2.0 * rtb_Switch2_p2);
+          rtb_MatrixConcatenate_b_idx_0 = ((((rtb_Minus_n[0] * rtb_DeadZone) +
+            (rtb_Add2[0] * rtb_Init)) * 0.5) + (rtb_Minus_k_idx_0 *
+            rtb_Switch2_p2)) + rtb_Assignment[s201_iter];
+          rtb_Switch2_p2 = ((((rtb_Minus_n[1] * rtb_DeadZone) + (rtb_Add2[1] *
+            rtb_Init)) * 0.5) + (rtb_Minus_k_idx_1 * rtb_Switch2_p2)) +
+            rtb_Add1_l;
+          rtb_DeadZone = ((3.0 * rtb_Modulation_Drv) - (4.0 * rtb_Sin4)) + 1.0;
+          rtb_Init = (2.0 * rtb_Sin4) - (3.0 * rtb_Modulation_Drv);
+          rtb_Modulation_Drv = (rtb_Sin4 - rtb_Modulation_Drv) * 6.0;
+          rtb_MatrixConcatenate_idx_0 = (((rtb_Minus_n[0] * rtb_DeadZone) +
+            (rtb_Add2[0] * rtb_Init)) * 0.5) + (rtb_Minus_k_idx_0 *
+            rtb_Modulation_Drv);
+          rtb_Hypot_g5 = (((rtb_Minus_n[1] * rtb_DeadZone) + (rtb_Add2[1] *
+            rtb_Init)) * 0.5) + (rtb_Minus_k_idx_1 * rtb_Modulation_Drv);
+          rtb_Modulation_Drv = (6.0 * rtb_Sin4) - 4.0;
+          rtb_DeadZone = (-6.0 * rtb_Sin4) + 2.0;
           rtb_Sin4 = (-12.0 * rtb_Sin4) + 6.0;
-          rtb_Switch2 = (((rtb_Minus_n[0] * rtb_DeadZone) + (rtb_Add2[0] *
-            rtb_Switch1)) * 0.5) + (rtb_Minus_k_idx_0 * rtb_Sin4);
-          rtb_Switch1 = (((rtb_Minus_n[1] * rtb_DeadZone) + (rtb_Add2[1] *
-            rtb_Switch1)) * 0.5) + (rtb_Minus_k_idx_1 * rtb_Sin4);
-          rtb_DeadZone = rt_powd_snf(rt_hypotd_snf(rtb_MatrixConcatenate_idx_0,
-            rtb_Hypot_g5), 3.0);
-          rtb_Sin4 = fmax(1.0E-10, rtb_DeadZone);
-          Robot_Control_DW.Relay_Mode = ((rtb_DeadZone >= 2.2204460492503131E-16)
-            || (Robot_Control_DW.Relay_Mode));
+          rtb_Init = (((rtb_Minus_n[0] * rtb_Modulation_Drv) + (rtb_Add2[0] *
+            rtb_DeadZone)) * 0.5) + (rtb_Minus_k_idx_0 * rtb_Sin4);
+          rtb_DeadZone = (((rtb_Minus_n[1] * rtb_Modulation_Drv) + (rtb_Add2[1] *
+            rtb_DeadZone)) * 0.5) + (rtb_Minus_k_idx_1 * rtb_Sin4);
+          rtb_Modulation_Drv = rt_powd_snf(rt_hypotd_snf
+            (rtb_MatrixConcatenate_idx_0, rtb_Hypot_g5), 3.0);
+          rtb_Sin4 = fmax(1.0E-10, rtb_Modulation_Drv);
+          Robot_Control_DW.Relay_Mode = ((rtb_Modulation_Drv >=
+            2.2204460492503131E-16) || (Robot_Control_DW.Relay_Mode));
           if (Robot_Control_DW.Relay_Mode) {
-            rtb_DeadZone = 1.0;
+            rtb_Modulation_Drv = 1.0;
           } else {
-            rtb_DeadZone = -1.0;
+            rtb_Modulation_Drv = -1.0;
           }
 
           if ((rtb_Bias1_p + 1) == 1) {
@@ -3683,10 +3677,10 @@ void Robot_Control_step(void)
           }
 
           rtb_Assignment_d[rtb_Bias1_p] = rtb_MatrixConcatenate_b_idx_0;
-          rtb_Assignment_d[rtb_Bias1_p + 50] = rtb_Init;
+          rtb_Assignment_d[rtb_Bias1_p + 50] = rtb_Switch2_p2;
           rtb_Assignment_d[rtb_Bias1_p + 100] = fabs
-            ((rtb_MatrixConcatenate_idx_0 * rtb_Switch1) - (rtb_Switch2 *
-              rtb_Hypot_g5)) / (rtb_Sin4 * rtb_DeadZone);
+            ((rtb_MatrixConcatenate_idx_0 * rtb_DeadZone) - (rtb_Init *
+              rtb_Hypot_g5)) / (rtb_Sin4 * rtb_Modulation_Drv);
         }
 
         if (s201_iter == 1) {
@@ -4081,9 +4075,9 @@ void Robot_Control_step(void)
      *  UnitDelay: '<S177>/Unit Delay1'
      */
     if (rtb_Is_Absolute_Translation_g) {
-      rtb_DeadZone = Robot_Control_DW.UnitDelay1_DSTATE_kc;
+      rtb_Modulation_Drv = Robot_Control_DW.UnitDelay1_DSTATE_kc;
     } else {
-      rtb_DeadZone = rt_atan2d_snf(Robot_Control_B.Spline_Target_Y -
+      rtb_Modulation_Drv = rt_atan2d_snf(Robot_Control_B.Spline_Target_Y -
         Robot_Control_B.KF_Position_Y, Robot_Control_B.Spline_Target_X -
         Robot_Control_B.KF_Position_X);
     }
@@ -4093,7 +4087,7 @@ void Robot_Control_step(void)
     /* Merge: '<S13>/Merge3' incorporates:
      *  SignalConversion: '<S177>/Signal Copy2'
      */
-    Robot_Control_B.Translation_Angle_SPF = rtb_DeadZone;
+    Robot_Control_B.Translation_Angle_SPF = rtb_Modulation_Drv;
 
     /* Merge: '<S13>/Merge7' incorporates:
      *  SignalConversion: '<S174>/Signal Copy'
@@ -4145,7 +4139,7 @@ void Robot_Control_step(void)
     Robot_Control_DW.UnitDelay_DSTATE_le = rtb_Sin4;
 
     /* Update for UnitDelay: '<S177>/Unit Delay1' */
-    Robot_Control_DW.UnitDelay1_DSTATE_kc = rtb_DeadZone;
+    Robot_Control_DW.UnitDelay1_DSTATE_kc = rtb_Modulation_Drv;
 
     /* End of Outputs for SubSystem: '<S13>/Spline Path Following Enabled' */
   } else {
@@ -5056,10 +5050,10 @@ void Robot_Control_step(void)
        */
       if (Iteration_Number > 1) {
         rtb_Sin4 = rtb_Merge1;
-        rtb_DeadZone = rtb_Subtract_c3;
+        rtb_Modulation_Drv = rtb_Subtract_c3;
       } else {
         rtb_Sin4 = Robot_Control_B.RB_Shoot_Target_X;
-        rtb_DeadZone = Robot_Control_B.RB_Shoot_Target_Y;
+        rtb_Modulation_Drv = Robot_Control_B.RB_Shoot_Target_Y;
       }
 
       /* End of Switch: '<S137>/Switch' */
@@ -5069,7 +5063,7 @@ void Robot_Control_step(void)
        *  Sum: '<S135>/Subtract1'
        */
       Robot_Control_B.RB_Desired_Shot_Distance = rt_hypotd_snf(rtb_Sin4 -
-        Robot_Control_B.KF_Position_X, rtb_DeadZone -
+        Robot_Control_B.KF_Position_X, rtb_Modulation_Drv -
         Robot_Control_B.KF_Position_Y);
 
       /* S-Function (sfix_look1_dyn): '<S136>/Lookup Table Dynamic' */
@@ -5106,7 +5100,7 @@ void Robot_Control_step(void)
        *  Product: '<S138>/Product1'
        */
       Robot_Control_B.RB_Desired_Target_Y = (rtb_Merge1 *
-        (-Robot_Control_U.Robot_Velocity_Y)) + rtb_DeadZone;
+        (-Robot_Control_U.Robot_Velocity_Y)) + rtb_Modulation_Drv;
 
       /* Memory: '<S128>/Memory' */
       rtb_Compare_ik = rtb_Button_Spinup_Enable;
@@ -5129,7 +5123,7 @@ void Robot_Control_step(void)
        */
       rtb_Button_Spinup_Enable = (rt_hypotd_snf
         (Robot_Control_B.RB_Desired_Target_X - rtb_Sin4,
-         Robot_Control_B.RB_Desired_Target_Y - rtb_DeadZone) >=
+         Robot_Control_B.RB_Desired_Target_Y - rtb_Modulation_Drv) >=
         Rebuilt_Shoot_Target_Error_Thresh);
       Iteration_Number++;
     }
@@ -5263,8 +5257,8 @@ void Robot_Control_step(void)
    *  Switch: '<S3>/Switch1'
    *  Switch: '<S3>/Switch3'
    */
-  rtb_Switch2_p2 = rt_modd_snf((rtb_Add_a5 - rtb_Minus_k_idx_1) +
-    3.1415926535897931, 6.2831853071795862) - 3.1415926535897931;
+  rtb_Add1_l = rt_modd_snf((rtb_Add_a5 - rtb_Minus_k_idx_1) + 3.1415926535897931,
+    6.2831853071795862) - 3.1415926535897931;
 
   /* Sum: '<S356>/Sum1' incorporates:
    *  Constant: '<S353>/Constant2'
@@ -5272,9 +5266,8 @@ void Robot_Control_step(void)
    *  Sum: '<S356>/Sum'
    *  UnitDelay: '<S356>/Unit Delay1'
    */
-  rtb_LookupTableDynamic_b = ((rtb_Switch2_p2 -
-    Robot_Control_DW.UnitDelay1_DSTATE) * Steering_Heading_Control_D_FilterCoeff)
-    + Robot_Control_DW.UnitDelay1_DSTATE;
+  rtb_LookupTableDynamic_b = ((rtb_Add1_l - Robot_Control_DW.UnitDelay1_DSTATE) *
+    Steering_Heading_Control_D_FilterCoeff) + Robot_Control_DW.UnitDelay1_DSTATE;
 
   /* Product: '<S353>/Product' incorporates:
    *  Constant: '<S353>/Constant3'
@@ -5305,7 +5298,7 @@ void Robot_Control_step(void)
    *  Gain: '<S353>/Gain1'
    *  Saturate: '<S353>/Saturation'
    */
-  rtb_Switch1_b0 = (Steering_Heading_Control_P * rtb_Switch2_p2) + rtb_Add_a5;
+  rtb_Switch1_b0 = (Steering_Heading_Control_P * rtb_Add1_l) + rtb_Add_a5;
 
   /* Sum: '<S353>/Subtract' incorporates:
    *  Constant: '<S353>/Constant'
@@ -5316,7 +5309,7 @@ void Robot_Control_step(void)
    *  Gain: '<S353>/Gain2'
    *  UnitDelay: '<S353>/Unit Delay'
    */
-  rtb_Subtract_c3 = (Steering_Heading_Control_I * rtb_Switch2_p2) +
+  rtb_Subtract_c3 = (Steering_Heading_Control_I * rtb_Add1_l) +
     Robot_Control_DW.UnitDelay_DSTATE_m;
 
   /* Switch: '<S358>/Switch2' incorporates:
@@ -5541,7 +5534,7 @@ void Robot_Control_step(void)
   /* Product: '<S336>/Product' incorporates:
    *  Switch: '<S336>/Switch1'
    */
-  rtb_Init = rtb_Add_a5 * rtb_Switch1_b0;
+  rtb_Switch2_p2 = rtb_Add_a5 * rtb_Switch1_b0;
 
   /* Sum: '<S349>/Sum1' */
   rtb_Sin4 = rtb_MatrixConcatenate_b_idx_0 - rtb_Optimized_Module_Angle_p;
@@ -5549,38 +5542,38 @@ void Robot_Control_step(void)
   /* Switch: '<S350>/Switch2' incorporates:
    *  RelationalOperator: '<S350>/LowerRelop1'
    */
-  if (!(rtb_Sin4 > rtb_Init)) {
+  if (!(rtb_Sin4 > rtb_Switch2_p2)) {
     /* Switch: '<S336>/Switch2' incorporates:
      *  Constant: '<S336>/Constant1'
      *  Switch: '<S336>/Switch4'
      */
     if (rtb_Button_Spinup_Enable) {
-      rtb_DeadZone = Steering_Absolute_Cmd_Rate_Limit_Dec;
+      rtb_Modulation_Drv = Steering_Absolute_Cmd_Rate_Limit_Dec;
     } else if (rtb_Button_Shoot_Enable) {
       /* Switch: '<S336>/Switch4' incorporates:
        *  Constant: '<S336>/Constant1'
        */
-      rtb_DeadZone = Steering_Absolute_Cmd_Rate_Limit_Dec;
+      rtb_Modulation_Drv = Steering_Absolute_Cmd_Rate_Limit_Dec;
     } else {
       /* Switch: '<S336>/Switch4' incorporates:
        *  Constant: '<S336>/Constant3'
        *  UnaryMinus: '<S336>/Unary Minus1'
        */
-      rtb_DeadZone = -Steering_Absolute_Cmd_Rate_Limit_Inc;
+      rtb_Modulation_Drv = -Steering_Absolute_Cmd_Rate_Limit_Inc;
     }
 
     /* End of Switch: '<S336>/Switch2' */
 
     /* Product: '<S336>/Product2' */
-    rtb_DeadZone *= rtb_Switch1_b0;
+    rtb_Modulation_Drv *= rtb_Switch1_b0;
 
     /* Switch: '<S350>/Switch' incorporates:
      *  RelationalOperator: '<S350>/UpperRelop'
      */
-    if (rtb_Sin4 < rtb_DeadZone) {
-      rtb_Init = rtb_DeadZone;
+    if (rtb_Sin4 < rtb_Modulation_Drv) {
+      rtb_Switch2_p2 = rtb_Modulation_Drv;
     } else {
-      rtb_Init = rtb_Sin4;
+      rtb_Switch2_p2 = rtb_Sin4;
     }
 
     /* End of Switch: '<S350>/Switch' */
@@ -5589,7 +5582,7 @@ void Robot_Control_step(void)
   /* End of Switch: '<S350>/Switch2' */
 
   /* Sum: '<S349>/Sum' */
-  rtb_Switch1_b0 = rtb_Init + rtb_Optimized_Module_Angle_p;
+  rtb_Switch1_b0 = rtb_Switch2_p2 + rtb_Optimized_Module_Angle_p;
 
   /* Signum: '<S335>/Sign2' incorporates:
    *  UnitDelay: '<S335>/Unit Delay'
@@ -5667,8 +5660,8 @@ void Robot_Control_step(void)
    *  Sum: '<S335>/Subtract'
    *  UnitDelay: '<S335>/Unit Delay'
    */
-  rtb_DeadZone = fabs(Robot_Control_DW.UnitDelay_DSTATE_g -
-                      Robot_Control_B.Steering_Rel_Cmd_SPF);
+  rtb_Modulation_Drv = fabs(Robot_Control_DW.UnitDelay_DSTATE_g -
+    Robot_Control_B.Steering_Rel_Cmd_SPF);
 
   /* Switch: '<S335>/Switch1' incorporates:
    *  Constant: '<S335>/Constant1'
@@ -5705,8 +5698,8 @@ void Robot_Control_step(void)
      *
      */
     LookUp_real_T_real_T( &(rtb_LookupTableDynamic_p), &rtb_Reshapey[0],
-                         rtb_DeadZone, &rtb_Minus_n[0], 1U);
-    rtb_DeadZone = rtb_LookupTableDynamic_p;
+                         rtb_Modulation_Drv, &rtb_Minus_n[0], 1U);
+    rtb_Modulation_Drv = rtb_LookupTableDynamic_p;
   } else {
     if (rtb_Button_Shoot_Enable) {
       /* Switch: '<S335>/Switch3' incorporates:
@@ -5743,22 +5736,22 @@ void Robot_Control_step(void)
      *
      */
     LookUp_real_T_real_T( &(rtb_LookupTableDynamic1_g), &rtb_Reshapey[0],
-                         rtb_DeadZone, &rtb_Minus_n[0], 1U);
-    rtb_DeadZone = rtb_LookupTableDynamic1_g;
+                         rtb_Modulation_Drv, &rtb_Minus_n[0], 1U);
+    rtb_Modulation_Drv = rtb_LookupTableDynamic1_g;
   }
 
   /* End of Switch: '<S335>/Switch1' */
 
   /* Product: '<S335>/Product' */
-  rtb_Sin4 *= rtb_DeadZone;
+  rtb_Sin4 *= rtb_Modulation_Drv;
 
   /* Sum: '<S342>/Sum1' */
-  rtb_Switch1 = rtb_MatrixConcatenate_b_idx_0 - rtb_Optimized_Module_Angle_p;
+  rtb_DeadZone = rtb_MatrixConcatenate_b_idx_0 - rtb_Optimized_Module_Angle_p;
 
   /* Switch: '<S343>/Switch2' incorporates:
    *  RelationalOperator: '<S343>/LowerRelop1'
    */
-  if (!(rtb_Switch1 > rtb_Sin4)) {
+  if (!(rtb_DeadZone > rtb_Sin4)) {
     /* Switch: '<S335>/Switch2' incorporates:
      *  Constant: '<S335>/Constant1'
      *  Switch: '<S335>/Switch4'
@@ -5781,13 +5774,13 @@ void Robot_Control_step(void)
     /* End of Switch: '<S335>/Switch2' */
 
     /* Product: '<S335>/Product2' */
-    rtb_Sin4 *= rtb_DeadZone;
+    rtb_Sin4 *= rtb_Modulation_Drv;
 
     /* Switch: '<S343>/Switch' incorporates:
      *  RelationalOperator: '<S343>/UpperRelop'
      */
-    if (!(rtb_Switch1 < rtb_Sin4)) {
-      rtb_Sin4 = rtb_Switch1;
+    if (!(rtb_DeadZone < rtb_Sin4)) {
+      rtb_Sin4 = rtb_DeadZone;
     }
 
     /* End of Switch: '<S343>/Switch' */
@@ -5817,7 +5810,7 @@ void Robot_Control_step(void)
    *  Fcn: '<S377>/r->x'
    *  Fcn: '<S382>/r->x'
    */
-  rtb_Switch1 = Robot_Control_B.Translation_Speed_RL * cos
+  rtb_DeadZone = Robot_Control_B.Translation_Speed_RL * cos
     (Robot_Control_B.Translation_Steering_Cmd);
 
   /* Sum: '<S361>/Add' incorporates:
@@ -5825,14 +5818,14 @@ void Robot_Control_step(void)
    *  Fcn: '<S368>/r->x'
    */
   rtb_Reshapey[0] = (Robot_Control_B.Steering_Localized_Cmd * cos
-                     (Robot_Control_ConstB.FL_Tangent_Angle)) + rtb_Switch1;
+                     (Robot_Control_ConstB.FL_Tangent_Angle)) + rtb_DeadZone;
 
   /* Fcn: '<S367>/theta->y' incorporates:
    *  Fcn: '<S372>/theta->y'
    *  Fcn: '<S377>/theta->y'
    *  Fcn: '<S382>/theta->y'
    */
-  rtb_DeadZone = Robot_Control_B.Translation_Speed_RL * sin
+  rtb_Modulation_Drv = Robot_Control_B.Translation_Speed_RL * sin
     (Robot_Control_B.Translation_Steering_Cmd);
 
   /* Sum: '<S361>/Add' incorporates:
@@ -5840,42 +5833,45 @@ void Robot_Control_step(void)
    *  Fcn: '<S368>/theta->y'
    */
   rtb_Reshapey[1] = (Robot_Control_B.Steering_Localized_Cmd * sin
-                     (Robot_Control_ConstB.FL_Tangent_Angle)) + rtb_DeadZone;
+                     (Robot_Control_ConstB.FL_Tangent_Angle)) +
+    rtb_Modulation_Drv;
 
   /* Sum: '<S362>/Add' incorporates:
    *  Fcn: '<S373>/r->x'
    *  Fcn: '<S373>/theta->y'
    */
   rtb_Minus_n[0] = (Robot_Control_B.Steering_Localized_Cmd * cos
-                    (Robot_Control_ConstB.FR_Tangent_Angle)) + rtb_Switch1;
-  rtb_Minus_n[1] = (Robot_Control_B.Steering_Localized_Cmd * sin
                     (Robot_Control_ConstB.FR_Tangent_Angle)) + rtb_DeadZone;
+  rtb_Minus_n[1] = (Robot_Control_B.Steering_Localized_Cmd * sin
+                    (Robot_Control_ConstB.FR_Tangent_Angle)) +
+    rtb_Modulation_Drv;
 
   /* Sum: '<S363>/Add' incorporates:
    *  Fcn: '<S378>/r->x'
    *  Fcn: '<S378>/theta->y'
    */
   rtb_Add2[0] = (Robot_Control_B.Steering_Localized_Cmd * cos
-                 (Robot_Control_ConstB.BL_Tangent_Angle)) + rtb_Switch1;
-  rtb_Add2[1] = (Robot_Control_B.Steering_Localized_Cmd * sin
                  (Robot_Control_ConstB.BL_Tangent_Angle)) + rtb_DeadZone;
+  rtb_Add2[1] = (Robot_Control_B.Steering_Localized_Cmd * sin
+                 (Robot_Control_ConstB.BL_Tangent_Angle)) + rtb_Modulation_Drv;
 
   /* Sum: '<S364>/Add' incorporates:
    *  Fcn: '<S383>/r->x'
    *  Fcn: '<S383>/theta->y'
    */
   rtb_Minus_k_idx_0 = (Robot_Control_B.Steering_Localized_Cmd * cos
-                       (Robot_Control_ConstB.BR_Tangent_Angle)) + rtb_Switch1;
-  rtb_Minus_k_idx_1 = (Robot_Control_B.Steering_Localized_Cmd * sin
                        (Robot_Control_ConstB.BR_Tangent_Angle)) + rtb_DeadZone;
+  rtb_Minus_k_idx_1 = (Robot_Control_B.Steering_Localized_Cmd * sin
+                       (Robot_Control_ConstB.BR_Tangent_Angle)) +
+    rtb_Modulation_Drv;
 
   /* Fcn: '<S381>/x->r' */
-  rtb_Init = rt_hypotd_snf(rtb_Minus_k_idx_0, rtb_Minus_k_idx_1);
+  rtb_Switch2_p2 = rt_hypotd_snf(rtb_Minus_k_idx_0, rtb_Minus_k_idx_1);
 
   /* RelationalOperator: '<S384>/Compare' incorporates:
    *  Constant: '<S384>/Constant'
    */
-  rtb_Compare_ik = (rtb_Init == 0.0);
+  rtb_Compare_ik = (rtb_Switch2_p2 == 0.0);
 
   /* Switch: '<S380>/Switch1' */
   if (rtb_Compare_ik) {
@@ -5885,18 +5881,18 @@ void Robot_Control_step(void)
     Robot_Control_B.BR_Desired_Wheel_Speed_in = 1.0E-15;
   } else {
     /* Switch: '<S380>/Switch1' */
-    Robot_Control_B.BR_Desired_Wheel_Speed_in = rtb_Init;
+    Robot_Control_B.BR_Desired_Wheel_Speed_in = rtb_Switch2_p2;
   }
 
   /* End of Switch: '<S380>/Switch1' */
 
   /* Fcn: '<S366>/x->r' */
-  rtb_Init = rt_hypotd_snf(rtb_Reshapey[0], rtb_Reshapey[1]);
+  rtb_Switch2_p2 = rt_hypotd_snf(rtb_Reshapey[0], rtb_Reshapey[1]);
 
   /* RelationalOperator: '<S369>/Compare' incorporates:
    *  Constant: '<S369>/Constant'
    */
-  rtb_Button_Spinup_Enable = (rtb_Init == 0.0);
+  rtb_Button_Spinup_Enable = (rtb_Switch2_p2 == 0.0);
 
   /* Switch: '<S365>/Switch1' */
   if (rtb_Button_Spinup_Enable) {
@@ -5906,7 +5902,7 @@ void Robot_Control_step(void)
     Robot_Control_B.FL_Desired_Wheel_Speed_in = 1.0E-15;
   } else {
     /* Switch: '<S365>/Switch1' */
-    Robot_Control_B.FL_Desired_Wheel_Speed_in = rtb_Init;
+    Robot_Control_B.FL_Desired_Wheel_Speed_in = rtb_Switch2_p2;
   }
 
   /* End of Switch: '<S365>/Switch1' */
@@ -5961,7 +5957,7 @@ void Robot_Control_step(void)
    *  Constant: '<S360>/Constant'
    *  MinMax: '<S360>/Max'
    */
-  rtb_Init = 5.3690930669470935 / fmax(fmax(fmax(fmax(5.3690930669470935,
+  rtb_Switch2_p2 = 5.3690930669470935 / fmax(fmax(fmax(fmax(5.3690930669470935,
     Robot_Control_B.FL_Desired_Wheel_Speed_in),
     Robot_Control_B.FR_Desired_Wheel_Speed_in),
     Robot_Control_B.BL_Desired_Wheel_Speed_in),
@@ -5969,7 +5965,7 @@ void Robot_Control_step(void)
 
   /* Product: '<S360>/Product3' */
   Robot_Control_B.BR_Desired_Wheel_Speed =
-    Robot_Control_B.BR_Desired_Wheel_Speed_in * rtb_Init;
+    Robot_Control_B.BR_Desired_Wheel_Speed_in * rtb_Switch2_p2;
 
   /* Switch: '<S380>/Switch' */
   if (!rtb_Compare_ik) {
@@ -5998,7 +5994,7 @@ void Robot_Control_step(void)
    *  Switch: '<S304>/Angle_Switch'
    *  Trigonometry: '<S314>/Sin4'
    */
-  rtb_DeadZone = sin(Robot_Control_B.BR_Desired_Module_Angle);
+  rtb_Modulation_Drv = sin(Robot_Control_B.BR_Desired_Module_Angle);
 
   /* Trigonometry: '<S315>/Cos5' incorporates:
    *  Inport: '<Root>/BR_Steer_Module_Angle'
@@ -6012,8 +6008,8 @@ void Robot_Control_step(void)
    *  Trigonometry: '<S315>/Cos4'
    *  Trigonometry: '<S315>/Sin4'
    */
-  rtb_Switch1 = (rtb_Minus_k_idx_1 * rtb_Optimized_Module_Angle) + (rtb_DeadZone
-    * rtb_Optimized_Module_Angle_p);
+  rtb_DeadZone = (rtb_Minus_k_idx_1 * rtb_Optimized_Module_Angle) +
+    (rtb_Modulation_Drv * rtb_Optimized_Module_Angle_p);
 
   /* Sum: '<S315>/Subtract' incorporates:
    *  Product: '<S315>/Product'
@@ -6021,11 +6017,11 @@ void Robot_Control_step(void)
    *  Trigonometry: '<S315>/Cos4'
    *  Trigonometry: '<S315>/Sin4'
    */
-  rtb_Switch2 = (rtb_Minus_k_idx_1 * rtb_Optimized_Module_Angle_p) -
-    (rtb_DeadZone * rtb_Optimized_Module_Angle);
+  rtb_Init = (rtb_Minus_k_idx_1 * rtb_Optimized_Module_Angle_p) -
+    (rtb_Modulation_Drv * rtb_Optimized_Module_Angle);
 
   /* Math: '<S315>/Hypot' */
-  rtb_Minus_k_idx_0 = rt_hypotd_snf(rtb_Switch2, rtb_Switch1);
+  rtb_Minus_k_idx_0 = rt_hypotd_snf(rtb_Init, rtb_DeadZone);
 
   /* Switch: '<S315>/Switch' incorporates:
    *  Constant: '<S315>/Constant'
@@ -6037,8 +6033,8 @@ void Robot_Control_step(void)
    *  Switch: '<S315>/Switch1'
    */
   if (rtb_Minus_k_idx_0 > 1.0E-6) {
-    rtb_MatrixConcatenate_b_idx_0 = rtb_Switch1 / rtb_Minus_k_idx_0;
-    rtb_Optimized_Module_Angle_p = rtb_Switch2 / rtb_Minus_k_idx_0;
+    rtb_MatrixConcatenate_b_idx_0 = rtb_DeadZone / rtb_Minus_k_idx_0;
+    rtb_Optimized_Module_Angle_p = rtb_Init / rtb_Minus_k_idx_0;
   } else {
     rtb_MatrixConcatenate_b_idx_0 = 0.0;
     rtb_Optimized_Module_Angle_p = 1.0;
@@ -6064,18 +6060,18 @@ void Robot_Control_step(void)
      *  Product: '<S314>/Product3'
      *  UnaryMinus: '<S304>/Unary Minus'
      */
-    rtb_Switch1 = (rtb_Minus_k_idx_1 * Robot_Control_ConstB.Sin5_c) +
-      (rtb_DeadZone * Robot_Control_ConstB.Cos5_b);
+    rtb_DeadZone = (rtb_Minus_k_idx_1 * Robot_Control_ConstB.Sin5_c) +
+      (rtb_Modulation_Drv * Robot_Control_ConstB.Cos5_b);
 
     /* Sum: '<S314>/Subtract' incorporates:
      *  Product: '<S314>/Product'
      *  Product: '<S314>/Product1'
      */
-    rtb_Switch2 = (rtb_Minus_k_idx_1 * Robot_Control_ConstB.Cos5_b) -
-      (rtb_DeadZone * Robot_Control_ConstB.Sin5_c);
+    rtb_Init = (rtb_Minus_k_idx_1 * Robot_Control_ConstB.Cos5_b) -
+      (rtb_Modulation_Drv * Robot_Control_ConstB.Sin5_c);
 
     /* Math: '<S314>/Hypot' */
-    rtb_DeadZone = rt_hypotd_snf(rtb_Switch2, rtb_Switch1);
+    rtb_Modulation_Drv = rt_hypotd_snf(rtb_Init, rtb_DeadZone);
 
     /* Switch: '<S314>/Switch1' incorporates:
      *  Constant: '<S314>/Constant'
@@ -6086,16 +6082,16 @@ void Robot_Control_step(void)
      *  RelationalOperator: '<S317>/Compare'
      *  Switch: '<S314>/Switch'
      */
-    if (rtb_DeadZone > 1.0E-6) {
-      rtb_Switch2 /= rtb_DeadZone;
-      rtb_DeadZone = rtb_Switch1 / rtb_DeadZone;
+    if (rtb_Modulation_Drv > 1.0E-6) {
+      rtb_Init /= rtb_Modulation_Drv;
+      rtb_Modulation_Drv = rtb_DeadZone / rtb_Modulation_Drv;
     } else {
-      rtb_Switch2 = 1.0;
-      rtb_DeadZone = 0.0;
+      rtb_Init = 1.0;
+      rtb_Modulation_Drv = 0.0;
     }
 
     /* End of Switch: '<S314>/Switch1' */
-    rtb_Optimized_Module_Angle = rt_atan2d_snf(rtb_DeadZone, rtb_Switch2);
+    rtb_Optimized_Module_Angle = rt_atan2d_snf(rtb_Modulation_Drv, rtb_Init);
   } else {
     rtb_Add_a5 = Robot_Control_B.BR_Desired_Wheel_Speed;
     rtb_Optimized_Module_Angle = Robot_Control_B.BR_Desired_Module_Angle;
@@ -6162,7 +6158,7 @@ void Robot_Control_step(void)
   /* Sum: '<S303>/Sum' incorporates:
    *  Inport: '<Root>/BackRight_Drive_Motor_Speed'
    */
-  rtb_Switch2 = rtb_MatrixConcatenate_b_idx_0 -
+  rtb_Init = rtb_MatrixConcatenate_b_idx_0 -
     Robot_Control_U.BackRight_Drive_Motor_Speed;
 
   /* Sum: '<S310>/Sum1' incorporates:
@@ -6171,14 +6167,14 @@ void Robot_Control_step(void)
    *  Sum: '<S310>/Sum'
    *  UnitDelay: '<S310>/Unit Delay1'
    */
-  rtb_DeadZone = ((rtb_Switch2 - Robot_Control_DW.UnitDelay1_DSTATE_j) *
-                  Drive_Motor_Control_D_FilterCoeff) +
+  rtb_Modulation_Drv = ((rtb_Init - Robot_Control_DW.UnitDelay1_DSTATE_j) *
+                        Drive_Motor_Control_D_FilterCoeff) +
     Robot_Control_DW.UnitDelay1_DSTATE_j;
 
   /* Product: '<S303>/Product' incorporates:
    *  Constant: '<S303>/Constant3'
    */
-  rtb_Switch1 = rtb_DeadZone * Drive_Motor_Control_D;
+  rtb_DeadZone = rtb_Modulation_Drv * Drive_Motor_Control_D;
 
   /* Sum: '<S309>/Diff' incorporates:
    *  UnitDelay: '<S309>/UD'
@@ -6191,7 +6187,7 @@ void Robot_Control_step(void)
    *
    *  Store in Global RAM
    */
-  rtb_Add_a5 = rtb_Switch1 - Robot_Control_DW.UD_DSTATE_j;
+  rtb_Add_a5 = rtb_DeadZone - Robot_Control_DW.UD_DSTATE_j;
 
   /* Saturate: '<S303>/Saturation' */
   if (rtb_Add_a5 > Drive_Motor_Control_D_UL) {
@@ -6206,7 +6202,7 @@ void Robot_Control_step(void)
    *  Saturate: '<S303>/Saturation'
    */
   rtb_Minus_k_idx_0 = ((Drive_Motor_Control_FF * rtb_MatrixConcatenate_b_idx_0)
-                       + (Drive_Motor_Control_P * rtb_Switch2)) + rtb_Add_a5;
+                       + (Drive_Motor_Control_P * rtb_Init)) + rtb_Add_a5;
 
   /* Saturate: '<S303>/Saturation2' incorporates:
    *  Sum: '<S303>/Add1'
@@ -6274,11 +6270,11 @@ void Robot_Control_step(void)
    *  Trigonometry: '<S252>/Cos4'
    *  Trigonometry: '<S252>/Sin4'
    */
-  rtb_Switch2 = (rtb_Minus_k_idx_1 * rtb_Optimized_Module_Angle_p) -
+  rtb_Init = (rtb_Minus_k_idx_1 * rtb_Optimized_Module_Angle_p) -
     (rtb_Optimized_Module_Angle * rtb_uDLookupTable);
 
   /* Math: '<S252>/Hypot' */
-  rtb_Hypot_g5 = rt_hypotd_snf(rtb_Switch2, rtb_Minus_k_idx_0);
+  rtb_Hypot_g5 = rt_hypotd_snf(rtb_Init, rtb_Minus_k_idx_0);
 
   /* Switch: '<S252>/Switch' incorporates:
    *  Constant: '<S252>/Constant'
@@ -6291,7 +6287,7 @@ void Robot_Control_step(void)
    */
   if (rtb_Hypot_g5 > 1.0E-6) {
     rtb_MatrixConcatenate_b_idx_0 = rtb_Minus_k_idx_0 / rtb_Hypot_g5;
-    rtb_Optimized_Module_Angle_p = rtb_Switch2 / rtb_Hypot_g5;
+    rtb_Optimized_Module_Angle_p = rtb_Init / rtb_Hypot_g5;
   } else {
     rtb_MatrixConcatenate_b_idx_0 = 0.0;
     rtb_Optimized_Module_Angle_p = 1.0;
@@ -6301,7 +6297,7 @@ void Robot_Control_step(void)
 
   /* Product: '<S360>/Product' */
   Robot_Control_B.FL_Desired_Wheel_Speed =
-    Robot_Control_B.FL_Desired_Wheel_Speed_in * rtb_Init;
+    Robot_Control_B.FL_Desired_Wheel_Speed_in * rtb_Switch2_p2;
 
   /* Switch: '<S241>/Speed_Switch' incorporates:
    *  Abs: '<S241>/Abs'
@@ -6332,7 +6328,7 @@ void Robot_Control_step(void)
       (rtb_Optimized_Module_Angle * Robot_Control_ConstB.Sin5);
 
     /* Math: '<S251>/Hypot' */
-    rtb_Switch2 = rt_hypotd_snf(rtb_Hypot_g5, rtb_Minus_k_idx_0);
+    rtb_Init = rt_hypotd_snf(rtb_Hypot_g5, rtb_Minus_k_idx_0);
 
     /* Switch: '<S251>/Switch1' incorporates:
      *  Constant: '<S251>/Constant'
@@ -6343,9 +6339,9 @@ void Robot_Control_step(void)
      *  RelationalOperator: '<S254>/Compare'
      *  Switch: '<S251>/Switch'
      */
-    if (rtb_Switch2 > 1.0E-6) {
-      rtb_Hypot_g5 /= rtb_Switch2;
-      rtb_Minus_k_idx_0 /= rtb_Switch2;
+    if (rtb_Init > 1.0E-6) {
+      rtb_Hypot_g5 /= rtb_Init;
+      rtb_Minus_k_idx_0 /= rtb_Init;
     } else {
       rtb_Hypot_g5 = 1.0;
       rtb_Minus_k_idx_0 = 0.0;
@@ -6436,7 +6432,7 @@ void Robot_Control_step(void)
   /* Product: '<S240>/Product' incorporates:
    *  Constant: '<S240>/Constant3'
    */
-  rtb_Switch2 = rtb_Minus_k_idx_0 * Drive_Motor_Control_D;
+  rtb_Init = rtb_Minus_k_idx_0 * Drive_Motor_Control_D;
 
   /* Sum: '<S246>/Diff' incorporates:
    *  UnitDelay: '<S246>/UD'
@@ -6449,7 +6445,7 @@ void Robot_Control_step(void)
    *
    *  Store in Global RAM
    */
-  rtb_Add_a5 = rtb_Switch2 - Robot_Control_DW.UD_DSTATE_h;
+  rtb_Add_a5 = rtb_Init - Robot_Control_DW.UD_DSTATE_h;
 
   /* Saturate: '<S240>/Saturation' */
   if (rtb_Add_a5 > Drive_Motor_Control_D_UL) {
@@ -6673,7 +6669,7 @@ void Robot_Control_step(void)
 
   /* Product: '<S360>/Product1' */
   Robot_Control_B.FR_Desired_Wheel_Speed =
-    Robot_Control_B.FR_Desired_Wheel_Speed_in * rtb_Init;
+    Robot_Control_B.FR_Desired_Wheel_Speed_in * rtb_Switch2_p2;
 
   /* Switch: '<S262>/Speed_Switch' incorporates:
    *  Abs: '<S262>/Abs'
@@ -6877,7 +6873,7 @@ void Robot_Control_step(void)
   /* Product: '<S264>/Product' incorporates:
    *  Constant: '<S264>/Constant3'
    */
-  rtb_Switch2_be = rtb_Hypot_b * Steering_Motor_Control_D;
+  rtb_Switch2_ee = rtb_Hypot_b * Steering_Motor_Control_D;
 
   /* Sum: '<S278>/Diff' incorporates:
    *  UnitDelay: '<S278>/UD'
@@ -6890,7 +6886,7 @@ void Robot_Control_step(void)
    *
    *  Store in Global RAM
    */
-  rtb_Add_a5 = rtb_Switch2_be - Robot_Control_DW.UD_DSTATE_i;
+  rtb_Add_a5 = rtb_Switch2_ee - Robot_Control_DW.UD_DSTATE_i;
 
   /* Saturate: '<S264>/Saturation' */
   if (rtb_Add_a5 > Steering_Motor_Control_D_UL) {
@@ -7047,7 +7043,7 @@ void Robot_Control_step(void)
 
   /* Product: '<S360>/Product2' */
   Robot_Control_B.BL_Desired_Wheel_Speed =
-    Robot_Control_B.BL_Desired_Wheel_Speed_in * rtb_Init;
+    Robot_Control_B.BL_Desired_Wheel_Speed_in * rtb_Switch2_p2;
 
   /* Switch: '<S283>/Speed_Switch' incorporates:
    *  Abs: '<S283>/Abs'
@@ -7111,15 +7107,15 @@ void Robot_Control_step(void)
    *  Constant: '<S286>/Constant'
    *  Switch: '<S283>/Speed_Switch'
    */
-  rtb_Init = rtb_Add_a5 * 1154.7574092481445;
+  rtb_Switch2_p2 = rtb_Add_a5 * 1154.7574092481445;
 
   /* Signum: '<S281>/Sign' */
-  if (rtIsNaN(rtb_Init)) {
+  if (rtIsNaN(rtb_Switch2_p2)) {
     rtb_Add_a5 = (rtNaN);
-  } else if (rtb_Init < 0.0) {
+  } else if (rtb_Switch2_p2 < 0.0) {
     rtb_Add_a5 = -1.0;
   } else {
-    rtb_Add_a5 = (rtb_Init > 0.0);
+    rtb_Add_a5 = (rtb_Switch2_p2 > 0.0);
   }
 
   /* Signum: '<S281>/Sign1' incorporates:
@@ -7157,17 +7153,18 @@ void Robot_Control_step(void)
    *  Sum: '<S297>/Add1'
    *  Sum: '<S297>/Add2'
    */
-  rtb_Init = (((real_T)((rtb_Add_a5 == rtb_Minus_k_idx_1) || (fabs
+  rtb_Switch2_p2 = (((real_T)((rtb_Add_a5 == rtb_Minus_k_idx_1) || (fabs
     (Robot_Control_U.BackLeft_Drive_Motor_Speed) <=
-    Drive_Motor_Control_Sign_Change_Deadband))) * rtb_Init) * look1_binlcpw(fabs
-    (rt_modd_snf(rtb_Optimized_Module_Angle_p + 1.5707963267948966,
-                 3.1415926535897931) - 1.5707963267948966),
-    rtCP_uDLookupTable_bp01Data_j, rtCP_uDLookupTable_tableData_h, 1U);
+    Drive_Motor_Control_Sign_Change_Deadband))) * rtb_Switch2_p2) *
+    look1_binlcpw(fabs(rt_modd_snf(rtb_Optimized_Module_Angle_p +
+    1.5707963267948966, 3.1415926535897931) - 1.5707963267948966),
+                  rtCP_uDLookupTable_bp01Data_j, rtCP_uDLookupTable_tableData_h,
+                  1U);
 
   /* Sum: '<S282>/Sum' incorporates:
    *  Inport: '<Root>/BackLeft_Drive_Motor_Speed'
    */
-  rtb_MatrixConcatenate_b_idx_0 = rtb_Init -
+  rtb_MatrixConcatenate_b_idx_0 = rtb_Switch2_p2 -
     Robot_Control_U.BackLeft_Drive_Motor_Speed;
 
   /* Sum: '<S289>/Sum1' incorporates:
@@ -7211,21 +7208,22 @@ void Robot_Control_step(void)
    *  Gain: '<S282>/Gain1'
    *  Saturate: '<S282>/Saturation'
    */
-  rtb_Init = ((Drive_Motor_Control_FF * rtb_Init) + (Drive_Motor_Control_P *
-    rtb_MatrixConcatenate_b_idx_0)) + rtb_Add_a5;
+  rtb_Switch2_p2 = ((Drive_Motor_Control_FF * rtb_Switch2_p2) +
+                    (Drive_Motor_Control_P * rtb_MatrixConcatenate_b_idx_0)) +
+    rtb_Add_a5;
 
   /* Saturate: '<S282>/Saturation2' incorporates:
    *  Sum: '<S282>/Add1'
    */
-  if (rtb_Init > 1.0) {
+  if (rtb_Switch2_p2 > 1.0) {
     /* Outport: '<Root>/BackLeft_Drive_DutyCycle' */
     Robot_Control_Y.BackLeft_Drive_DutyCycle = 1.0;
-  } else if (rtb_Init < -1.0) {
+  } else if (rtb_Switch2_p2 < -1.0) {
     /* Outport: '<Root>/BackLeft_Drive_DutyCycle' */
     Robot_Control_Y.BackLeft_Drive_DutyCycle = -1.0;
   } else {
     /* Outport: '<Root>/BackLeft_Drive_DutyCycle' */
-    Robot_Control_Y.BackLeft_Drive_DutyCycle = rtb_Init;
+    Robot_Control_Y.BackLeft_Drive_DutyCycle = rtb_Switch2_p2;
   }
 
   /* End of Saturate: '<S282>/Saturation2' */
@@ -7236,7 +7234,7 @@ void Robot_Control_step(void)
    *  Math: '<S298>/Math Function'
    *  Sum: '<S298>/Add2'
    */
-  rtb_Init = rt_modd_snf(rtb_Optimized_Module_Angle_p + 3.1415926535897931,
+  rtb_Switch2_p2 = rt_modd_snf(rtb_Optimized_Module_Angle_p + 3.1415926535897931,
     6.2831853071795862) - 3.1415926535897931;
 
   /* Sum: '<S300>/Sum1' incorporates:
@@ -7245,7 +7243,7 @@ void Robot_Control_step(void)
    *  Sum: '<S300>/Sum'
    *  UnitDelay: '<S300>/Unit Delay1'
    */
-  rtb_Optimized_Module_Angle_p = ((rtb_Init -
+  rtb_Optimized_Module_Angle_p = ((rtb_Switch2_p2 -
     Robot_Control_DW.UnitDelay1_DSTATE_nw) *
     Steering_Motor_Control_D_FilterCoeff) +
     Robot_Control_DW.UnitDelay1_DSTATE_nw;
@@ -7279,7 +7277,7 @@ void Robot_Control_step(void)
    *  Gain: '<S285>/Gain1'
    *  Saturate: '<S285>/Saturation'
    */
-  rtb_Add_f1 = (Steering_Motor_Control_P * rtb_Init) + rtb_Add_a5;
+  rtb_Add_f1 = (Steering_Motor_Control_P * rtb_Switch2_p2) + rtb_Add_a5;
 
   /* Sum: '<S285>/Subtract' incorporates:
    *  Constant: '<S285>/Constant'
@@ -7290,7 +7288,7 @@ void Robot_Control_step(void)
    *  Gain: '<S285>/Gain2'
    *  UnitDelay: '<S285>/Unit Delay'
    */
-  rtb_Init = (Steering_Motor_Control_I * rtb_Init) +
+  rtb_Switch2_p2 = (Steering_Motor_Control_I * rtb_Switch2_p2) +
     Robot_Control_DW.UnitDelay_DSTATE_k;
 
   /* Switch: '<S301>/Switch2' incorporates:
@@ -7298,7 +7296,7 @@ void Robot_Control_step(void)
    *  RelationalOperator: '<S301>/LowerRelop1'
    *  Sum: '<S285>/Subtract'
    */
-  if (!(rtb_Init > (1.0 - rtb_Add_f1))) {
+  if (!(rtb_Switch2_p2 > (1.0 - rtb_Add_f1))) {
     /* Sum: '<S285>/Subtract1' incorporates:
      *  Constant: '<S285>/Constant1'
      */
@@ -7309,8 +7307,8 @@ void Robot_Control_step(void)
      *  RelationalOperator: '<S301>/UpperRelop'
      *  Sum: '<S285>/Subtract1'
      */
-    if (!(rtb_Init < (-1.0 - rtb_Add_f1))) {
-      rtb_MatrixConcatenate_b_idx_0 = rtb_Init;
+    if (!(rtb_Switch2_p2 < (-1.0 - rtb_Add_f1))) {
+      rtb_MatrixConcatenate_b_idx_0 = rtb_Switch2_p2;
     }
 
     /* End of Switch: '<S301>/Switch' */
@@ -7352,8 +7350,8 @@ void Robot_Control_step(void)
    *  Math: '<S319>/Math Function'
    *  Sum: '<S319>/Add2'
    */
-  rtb_Init = rt_modd_snf(rtb_Integral_d + 3.1415926535897931, 6.2831853071795862)
-    - 3.1415926535897931;
+  rtb_Switch2_p2 = rt_modd_snf(rtb_Integral_d + 3.1415926535897931,
+    6.2831853071795862) - 3.1415926535897931;
 
   /* Sum: '<S321>/Sum1' incorporates:
    *  Constant: '<S306>/Constant2'
@@ -7361,9 +7359,9 @@ void Robot_Control_step(void)
    *  Sum: '<S321>/Sum'
    *  UnitDelay: '<S321>/Unit Delay1'
    */
-  rtb_Optimized_Module_Angle = ((rtb_Init - Robot_Control_DW.UnitDelay1_DSTATE_i)
-    * Steering_Motor_Control_D_FilterCoeff) +
-    Robot_Control_DW.UnitDelay1_DSTATE_i;
+  rtb_Optimized_Module_Angle = ((rtb_Switch2_p2 -
+    Robot_Control_DW.UnitDelay1_DSTATE_i) * Steering_Motor_Control_D_FilterCoeff)
+    + Robot_Control_DW.UnitDelay1_DSTATE_i;
 
   /* Product: '<S306>/Product' incorporates:
    *  Constant: '<S306>/Constant3'
@@ -7394,7 +7392,7 @@ void Robot_Control_step(void)
    *  Gain: '<S306>/Gain1'
    *  Saturate: '<S306>/Saturation'
    */
-  rtb_Add_fd = (Steering_Motor_Control_P * rtb_Init) + rtb_Add_a5;
+  rtb_Add_fd = (Steering_Motor_Control_P * rtb_Switch2_p2) + rtb_Add_a5;
 
   /* Sum: '<S306>/Subtract' incorporates:
    *  Constant: '<S306>/Constant'
@@ -7405,7 +7403,7 @@ void Robot_Control_step(void)
    *  Gain: '<S306>/Gain2'
    *  UnitDelay: '<S306>/Unit Delay'
    */
-  rtb_Init = (Steering_Motor_Control_I * rtb_Init) +
+  rtb_Switch2_p2 = (Steering_Motor_Control_I * rtb_Switch2_p2) +
     Robot_Control_DW.UnitDelay_DSTATE_lm;
 
   /* Switch: '<S322>/Switch2' incorporates:
@@ -7413,7 +7411,7 @@ void Robot_Control_step(void)
    *  RelationalOperator: '<S322>/LowerRelop1'
    *  Sum: '<S306>/Subtract'
    */
-  if (!(rtb_Init > (1.0 - rtb_Add_fd))) {
+  if (!(rtb_Switch2_p2 > (1.0 - rtb_Add_fd))) {
     /* Sum: '<S306>/Subtract1' incorporates:
      *  Constant: '<S306>/Constant1'
      */
@@ -7424,8 +7422,8 @@ void Robot_Control_step(void)
      *  RelationalOperator: '<S322>/UpperRelop'
      *  Sum: '<S306>/Subtract1'
      */
-    if (!(rtb_Init < (-1.0 - rtb_Add_fd))) {
-      rtb_MatrixConcatenate_b_idx_0 = rtb_Init;
+    if (!(rtb_Switch2_p2 < (-1.0 - rtb_Add_fd))) {
+      rtb_MatrixConcatenate_b_idx_0 = rtb_Switch2_p2;
     }
 
     /* End of Switch: '<S322>/Switch' */
@@ -7462,8 +7460,7 @@ void Robot_Control_step(void)
   /* End of Saturate: '<S306>/Saturation2' */
 
   /* Gain: '<S357>/Gain' */
-  Robot_Control_B.Steering_Heading_Error_deg = 57.295779513082323 *
-    rtb_Switch2_p2;
+  Robot_Control_B.Steering_Heading_Error_deg = 57.295779513082323 * rtb_Add1_l;
 
   /* Sum: '<S169>/Sum' incorporates:
    *  Inport: '<Root>/Measured_Transfer_Speed'
@@ -7479,13 +7476,13 @@ void Robot_Control_step(void)
    *  Sum: '<S171>/Sum'
    *  UnitDelay: '<S171>/Unit Delay1'
    */
-  rtb_Switch2_p2 = ((rtb_Integral_d - Robot_Control_DW.UnitDelay1_DSTATE_ji) *
-                    0.1) + Robot_Control_DW.UnitDelay1_DSTATE_ji;
+  rtb_Add1_l = ((rtb_Integral_d - Robot_Control_DW.UnitDelay1_DSTATE_ji) * 0.1)
+    + Robot_Control_DW.UnitDelay1_DSTATE_ji;
 
   /* Product: '<S169>/Product' incorporates:
    *  Constant: '<S169>/Constant3'
    */
-  rtb_Add_fd = rtb_Switch2_p2 * 0.0;
+  rtb_Add_fd = rtb_Add1_l * 0.0;
 
   /* Sum: '<S170>/Diff' incorporates:
    *  UnitDelay: '<S170>/UD'
@@ -7513,9 +7510,10 @@ void Robot_Control_step(void)
    *  Saturate: '<S169>/Saturation'
    *  Sum: '<S169>/Sum'
    */
-  rtb_Init = ((Rebuilt_Transfer_Motor_Gain_FF *
-               Robot_Control_B.RB_Desired_Transfer_Speed) +
-              (Rebuilt_Transfer_Motor_Gain_P * rtb_Integral_d)) + rtb_Add_a5;
+  rtb_Switch2_p2 = ((Rebuilt_Transfer_Motor_Gain_FF *
+                     Robot_Control_B.RB_Desired_Transfer_Speed) +
+                    (Rebuilt_Transfer_Motor_Gain_P * rtb_Integral_d)) +
+    rtb_Add_a5;
 
   /* Logic: '<S123>/Logical Operator1' incorporates:
    *  Constant: '<S168>/Constant'
@@ -7557,25 +7555,25 @@ void Robot_Control_step(void)
     /* Sum: '<S169>/Subtract' incorporates:
      *  Constant: '<S169>/Constant'
      */
-    rtb_Integral_d = 1.0 - rtb_Init;
+    rtb_Integral_d = 1.0 - rtb_Switch2_p2;
 
     /* Switch: '<S172>/Switch2' incorporates:
      *  Constant: '<S169>/Constant'
      *  RelationalOperator: '<S172>/LowerRelop1'
      *  Sum: '<S169>/Subtract'
      */
-    if (!(rtb_MatrixConcatenate_b_idx_0 > (1.0 - rtb_Init))) {
+    if (!(rtb_MatrixConcatenate_b_idx_0 > (1.0 - rtb_Switch2_p2))) {
       /* Sum: '<S169>/Subtract1' incorporates:
        *  Constant: '<S169>/Constant1'
        */
-      rtb_Integral_d = -1.0 - rtb_Init;
+      rtb_Integral_d = -1.0 - rtb_Switch2_p2;
 
       /* Switch: '<S172>/Switch' incorporates:
        *  Constant: '<S169>/Constant1'
        *  RelationalOperator: '<S172>/UpperRelop'
        *  Sum: '<S169>/Subtract1'
        */
-      if (!(rtb_MatrixConcatenate_b_idx_0 < (-1.0 - rtb_Init))) {
+      if (!(rtb_MatrixConcatenate_b_idx_0 < (-1.0 - rtb_Switch2_p2))) {
         rtb_Integral_d = rtb_MatrixConcatenate_b_idx_0;
       }
 
@@ -7603,7 +7601,7 @@ void Robot_Control_step(void)
    */
   if (rtb_Button_Shoot_Enable) {
     /* Sum: '<S169>/Add1' */
-    rtb_Add_a5 = rtb_Init + rtb_Integral_d;
+    rtb_Add_a5 = rtb_Switch2_p2 + rtb_Integral_d;
 
     /* Saturate: '<S169>/Saturation2' */
     if (rtb_Add_a5 > 1.0) {
@@ -7656,7 +7654,7 @@ void Robot_Control_step(void)
      *  Constant: '<S10>/Constant2'
      */
     Robot_Control_Y.Feeder_Motor_DC = TEST_Feeder_Motor_DC_OV;
-    rtb_Init = TEST_Desired_Hood_Pos_OV;
+    rtb_Switch2_p2 = TEST_Desired_Hood_Pos_OV;
   } else {
     /* Outport: '<Root>/Transfer_Motor_DC' */
     Robot_Control_Y.Transfer_Motor_DC = Robot_Control_B.RB_Transfer_Motor_PID_DC;
@@ -7668,7 +7666,7 @@ void Robot_Control_step(void)
 
     /* Outport: '<Root>/Feeder_Motor_DC' */
     Robot_Control_Y.Feeder_Motor_DC = Robot_Control_B.RB_Feeder_Motor_PID_DC;
-    rtb_Init = Robot_Control_B.RB_Desired_Hood_Pos_Shoot;
+    rtb_Switch2_p2 = Robot_Control_B.RB_Desired_Hood_Pos_Shoot;
   }
 
   /* End of Switch: '<S10>/Switch' */
@@ -7676,23 +7674,23 @@ void Robot_Control_step(void)
   /* Saturate: '<S10>/Saturation' incorporates:
    *  Switch: '<S10>/Switch5'
    */
-  if (rtb_Init > Rebuilt_Hood_Servo_Pos_Max) {
-    rtb_Init = Rebuilt_Hood_Servo_Pos_Max;
-  } else if (rtb_Init < Rebuilt_Hood_Servo_Pos_Min) {
-    rtb_Init = Rebuilt_Hood_Servo_Pos_Min;
+  if (rtb_Switch2_p2 > Rebuilt_Hood_Servo_Pos_Max) {
+    rtb_Switch2_p2 = Rebuilt_Hood_Servo_Pos_Max;
+  } else if (rtb_Switch2_p2 < Rebuilt_Hood_Servo_Pos_Min) {
+    rtb_Switch2_p2 = Rebuilt_Hood_Servo_Pos_Min;
   }
 
   /* End of Saturate: '<S10>/Saturation' */
 
   /* Outport: '<Root>/Desired_Hood_Pos' */
-  Robot_Control_Y.Desired_Hood_Pos = rtb_Init;
+  Robot_Control_Y.Desired_Hood_Pos = rtb_Switch2_p2;
 
   /* Switch: '<S115>/Init' incorporates:
    *  UnitDelay: '<S115>/FixPt Unit Delay1'
    *  UnitDelay: '<S115>/FixPt Unit Delay2'
    */
   if (Robot_Control_DW.FixPtUnitDelay2_DSTATE_f != 0) {
-    rtb_MatrixConcatenate_b_idx_0 = rtb_Init;
+    rtb_MatrixConcatenate_b_idx_0 = rtb_Switch2_p2;
   } else {
     rtb_MatrixConcatenate_b_idx_0 = Robot_Control_B.Estimated_Hood_Pos;
   }
@@ -7700,7 +7698,7 @@ void Robot_Control_step(void)
   /* End of Switch: '<S115>/Init' */
 
   /* Sum: '<S113>/Sum1' */
-  rtb_Init -= rtb_MatrixConcatenate_b_idx_0;
+  rtb_Switch2_p2 -= rtb_MatrixConcatenate_b_idx_0;
 
   /* Switch: '<S114>/Switch2' incorporates:
    *  Constant: '<S112>/Constant1'
@@ -7709,28 +7707,29 @@ void Robot_Control_step(void)
    *  RelationalOperator: '<S114>/UpperRelop'
    *  Switch: '<S114>/Switch'
    */
-  if (rtb_Init > Rebuilt_Hood_Servo_Rate_Limit_Inc) {
-    rtb_Init = Rebuilt_Hood_Servo_Rate_Limit_Inc;
-  } else if (rtb_Init < Rebuilt_Hood_Servo_Rate_Limit_Dec) {
+  if (rtb_Switch2_p2 > Rebuilt_Hood_Servo_Rate_Limit_Inc) {
+    rtb_Switch2_p2 = Rebuilt_Hood_Servo_Rate_Limit_Inc;
+  } else if (rtb_Switch2_p2 < Rebuilt_Hood_Servo_Rate_Limit_Dec) {
     /* Switch: '<S114>/Switch' incorporates:
      *  Constant: '<S112>/Constant1'
      */
-    rtb_Init = Rebuilt_Hood_Servo_Rate_Limit_Dec;
+    rtb_Switch2_p2 = Rebuilt_Hood_Servo_Rate_Limit_Dec;
   }
 
   /* End of Switch: '<S114>/Switch2' */
 
   /* Sum: '<S113>/Sum' */
-  Robot_Control_B.Estimated_Hood_Pos = rtb_Init + rtb_MatrixConcatenate_b_idx_0;
+  Robot_Control_B.Estimated_Hood_Pos = rtb_Switch2_p2 +
+    rtb_MatrixConcatenate_b_idx_0;
 
   /* Switch: '<S6>/Switch' incorporates:
    *  Constant: '<S6>/Constant'
    *  Constant: '<S6>/Constant1'
    */
   if (rtb_LogicalOperator1_n) {
-    rtb_Init = Rebuilt_Roller_Desired_Speed;
+    rtb_Switch2_p2 = Rebuilt_Roller_Desired_Speed;
   } else {
-    rtb_Init = 0.0;
+    rtb_Switch2_p2 = 0.0;
   }
 
   /* End of Switch: '<S6>/Switch' */
@@ -7739,13 +7738,13 @@ void Robot_Control_step(void)
    *  Constant: '<S53>/Constant'
    *  RelationalOperator: '<S53>/Compare'
    */
-  rtb_LogicalOperator1_n = !(rtb_Init == 0.0);
+  rtb_LogicalOperator1_n = !(rtb_Switch2_p2 == 0.0);
 
   /* Sum: '<S54>/Sum' incorporates:
    *  Inport: '<Root>/Measured_Intake_Roller_Speed'
    *  Sum: '<S41>/Subtract'
    */
-  rtb_Error_n = rtb_Init - Robot_Control_U.Measured_Intake_Roller_Speed;
+  rtb_Error_n = rtb_Switch2_p2 - Robot_Control_U.Measured_Intake_Roller_Speed;
 
   /* Sum: '<S56>/Sum1' incorporates:
    *  Constant: '<S54>/Constant2'
@@ -7788,8 +7787,8 @@ void Robot_Control_step(void)
    *  Saturate: '<S54>/Saturation'
    *  Sum: '<S54>/Sum'
    */
-  rtb_MatrixConcatenate_b_idx_0 = ((Rebuilt_Roller_Motor_Gain_FF * rtb_Init) +
-    (Rebuilt_Roller_Motor_Gain_P * rtb_Error_n)) + rtb_Add_a5;
+  rtb_MatrixConcatenate_b_idx_0 = ((Rebuilt_Roller_Motor_Gain_FF *
+    rtb_Switch2_p2) + (Rebuilt_Roller_Motor_Gain_P * rtb_Error_n)) + rtb_Add_a5;
 
   /* Switch: '<S41>/Switch1' incorporates:
    *  Abs: '<S41>/Abs'
@@ -7819,7 +7818,7 @@ void Robot_Control_step(void)
      *  Sum: '<S54>/Sum'
      *  UnitDelay: '<S54>/Unit Delay'
      */
-    rtb_Init = (Rebuilt_Roller_Motor_Gain_I * rtb_Error_n) +
+    rtb_Switch2_p2 = (Rebuilt_Roller_Motor_Gain_I * rtb_Error_n) +
       Robot_Control_DW.UnitDelay_DSTATE_dl;
 
     /* Sum: '<S54>/Subtract' incorporates:
@@ -7832,7 +7831,7 @@ void Robot_Control_step(void)
      *  RelationalOperator: '<S57>/LowerRelop1'
      *  Sum: '<S54>/Subtract'
      */
-    if (!(rtb_Init > (1.0 - rtb_MatrixConcatenate_b_idx_0))) {
+    if (!(rtb_Switch2_p2 > (1.0 - rtb_MatrixConcatenate_b_idx_0))) {
       /* Sum: '<S54>/Subtract1' incorporates:
        *  Constant: '<S54>/Constant1'
        */
@@ -7843,8 +7842,8 @@ void Robot_Control_step(void)
        *  RelationalOperator: '<S57>/UpperRelop'
        *  Sum: '<S54>/Subtract1'
        */
-      if (!(rtb_Init < (-1.0 - rtb_MatrixConcatenate_b_idx_0))) {
-        rtb_Error_n = rtb_Init;
+      if (!(rtb_Switch2_p2 < (-1.0 - rtb_MatrixConcatenate_b_idx_0))) {
+        rtb_Error_n = rtb_Switch2_p2;
       }
 
       /* End of Switch: '<S57>/Switch' */
@@ -7976,16 +7975,16 @@ void Robot_Control_step(void)
    *  UnitDelay: '<S52>/FixPt Unit Delay2'
    */
   if (Robot_Control_DW.FixPtUnitDelay2_DSTATE_b != 0) {
-    rtb_Init = Robot_Control_B.RB_Des_Intake_Arm_Angle;
+    rtb_Switch2_p2 = Robot_Control_B.RB_Des_Intake_Arm_Angle;
   } else {
-    rtb_Init = Robot_Control_B.RB_Des_Intake_Arm_Angle_RL;
+    rtb_Switch2_p2 = Robot_Control_B.RB_Des_Intake_Arm_Angle_RL;
   }
 
   /* End of Switch: '<S52>/Init' */
 
   /* Sum: '<S50>/Sum1' */
   rtb_MatrixConcatenate_b_idx_0 = Robot_Control_B.RB_Des_Intake_Arm_Angle -
-    rtb_Init;
+    rtb_Switch2_p2;
 
   /* Switch: '<S51>/Switch2' incorporates:
    *  Constant: '<S40>/Constant1'
@@ -8007,10 +8006,10 @@ void Robot_Control_step(void)
 
   /* Sum: '<S50>/Sum' */
   Robot_Control_B.RB_Des_Intake_Arm_Angle_RL = rtb_MatrixConcatenate_b_idx_0 +
-    rtb_Init;
+    rtb_Switch2_p2;
 
   /* Sum: '<S46>/Sum' */
-  rtb_Init = Robot_Control_B.RB_Des_Intake_Arm_Angle_RL -
+  rtb_Switch2_p2 = Robot_Control_B.RB_Des_Intake_Arm_Angle_RL -
     Robot_Control_B.RB_Intake_Arm_Angle_Mod;
 
   /* Sum: '<S48>/Sum1' incorporates:
@@ -8019,7 +8018,7 @@ void Robot_Control_step(void)
    *  Sum: '<S48>/Sum'
    *  UnitDelay: '<S48>/Unit Delay1'
    */
-  rtb_Sum1_l = ((rtb_Init - Robot_Control_DW.UnitDelay1_DSTATE_c) * 0.1) +
+  rtb_Sum1_l = ((rtb_Switch2_p2 - Robot_Control_DW.UnitDelay1_DSTATE_c) * 0.1) +
     Robot_Control_DW.UnitDelay1_DSTATE_c;
 
   /* Product: '<S46>/Product' incorporates:
@@ -8053,7 +8052,7 @@ void Robot_Control_step(void)
    *  Saturate: '<S46>/Saturation'
    */
   rtb_Add_i = ((0.0 * Robot_Control_B.RB_Des_Intake_Arm_Angle_RL) +
-               (Rebuilt_Intake_Arm_Gain_P * rtb_Init)) + rtb_Add_a5;
+               (Rebuilt_Intake_Arm_Gain_P * rtb_Switch2_p2)) + rtb_Add_a5;
 
   /* Sum: '<S46>/Subtract' incorporates:
    *  Constant: '<S46>/Constant'
@@ -8064,14 +8063,14 @@ void Robot_Control_step(void)
    *  Gain: '<S46>/Gain2'
    *  UnitDelay: '<S46>/Unit Delay'
    */
-  rtb_Init = (0.0 * rtb_Init) + Robot_Control_DW.UnitDelay_DSTATE_km;
+  rtb_Switch2_p2 = (0.0 * rtb_Switch2_p2) + Robot_Control_DW.UnitDelay_DSTATE_km;
 
   /* Switch: '<S49>/Switch2' incorporates:
    *  Constant: '<S46>/Constant'
    *  RelationalOperator: '<S49>/LowerRelop1'
    *  Sum: '<S46>/Subtract'
    */
-  if (!(rtb_Init > (1.0 - rtb_Add_i))) {
+  if (!(rtb_Switch2_p2 > (1.0 - rtb_Add_i))) {
     /* Sum: '<S46>/Subtract1' incorporates:
      *  Constant: '<S46>/Constant1'
      */
@@ -8082,8 +8081,8 @@ void Robot_Control_step(void)
      *  RelationalOperator: '<S49>/UpperRelop'
      *  Sum: '<S46>/Subtract1'
      */
-    if (!(rtb_Init < (-1.0 - rtb_Add_i))) {
-      rtb_MatrixConcatenate_b_idx_0 = rtb_Init;
+    if (!(rtb_Switch2_p2 < (-1.0 - rtb_Add_i))) {
+      rtb_MatrixConcatenate_b_idx_0 = rtb_Switch2_p2;
     }
 
     /* End of Switch: '<S49>/Switch' */
@@ -8170,7 +8169,7 @@ void Robot_Control_step(void)
   /* Sum: '<S164>/Sum' incorporates:
    *  Sum: '<S121>/Subtract'
    */
-  rtb_Init = Robot_Control_B.RB_Desired_Shooter_Speed -
+  rtb_Switch2_p2 = Robot_Control_B.RB_Desired_Shooter_Speed -
     Robot_Control_B.RB_Meas_Shooter_Speed_Max;
 
   /* Sum: '<S166>/Sum1' incorporates:
@@ -8180,7 +8179,7 @@ void Robot_Control_step(void)
    *  Sum: '<S166>/Sum'
    *  UnitDelay: '<S166>/Unit Delay1'
    */
-  rtb_Add_i = ((rtb_Init - Robot_Control_DW.UnitDelay1_DSTATE_in) * 0.1) +
+  rtb_Add_i = ((rtb_Switch2_p2 - Robot_Control_DW.UnitDelay1_DSTATE_in) * 0.1) +
     Robot_Control_DW.UnitDelay1_DSTATE_in;
 
   /* Product: '<S164>/Product' incorporates:
@@ -8216,7 +8215,7 @@ void Robot_Control_step(void)
    */
   rtb_Add_a5 += (Rebuilt_Shooter_Motor_Gain_FF *
                  Robot_Control_B.RB_Desired_Shooter_Speed) +
-    (Rebuilt_Shooter_Motor_Gain_P * rtb_Init);
+    (Rebuilt_Shooter_Motor_Gain_P * rtb_Switch2_p2);
 
   /* Switch: '<S121>/Switch4' incorporates:
    *  Constant: '<S121>/Constant6'
@@ -8226,7 +8225,7 @@ void Robot_Control_step(void)
    *  RelationalOperator: '<S121>/LessThan2'
    *  UnitDelay: '<S121>/Unit Delay1'
    */
-  if ((rtb_Init < 0.0) && rtb_LogicalOperator1_n) {
+  if ((rtb_Switch2_p2 < 0.0) && rtb_LogicalOperator1_n) {
     rtb_Intake_Arm_Move_In = true;
   } else {
     rtb_Intake_Arm_Move_In = (rtb_LogicalOperator1_n &&
@@ -8243,7 +8242,7 @@ void Robot_Control_step(void)
    *  RelationalOperator: '<S121>/LessThan'
    *  UnitDelay: '<S121>/Unit Delay'
    */
-  if ((rtb_Init < Rebuilt_Shooter_Error_Integral_Enable) &&
+  if ((rtb_Switch2_p2 < Rebuilt_Shooter_Error_Integral_Enable) &&
       rtb_LogicalOperator1_n) {
     rtb_Intake_Arm_Move_Out = true;
   } else {
@@ -8264,7 +8263,7 @@ void Robot_Control_step(void)
      *  Switch: '<S164>/Switch1'
      *  UnitDelay: '<S164>/Unit Delay'
      */
-    rtb_Init = ((Rebuilt_Shooter_Motor_Gain_I * rtb_Init) * ((real_T)
+    rtb_Switch2_p2 = ((Rebuilt_Shooter_Motor_Gain_I * rtb_Switch2_p2) * ((real_T)
       (!rtb_Intake_Arm_Move_In))) + Robot_Control_DW.UnitDelay_DSTATE_l1;
 
     /* Sum: '<S164>/Subtract' incorporates:
@@ -8277,7 +8276,7 @@ void Robot_Control_step(void)
      *  RelationalOperator: '<S167>/LowerRelop1'
      *  Sum: '<S164>/Subtract'
      */
-    if (!(rtb_Init > (1.0 - rtb_Add_a5))) {
+    if (!(rtb_Switch2_p2 > (1.0 - rtb_Add_a5))) {
       /* Sum: '<S164>/Subtract1' incorporates:
        *  Constant: '<S164>/Constant1'
        */
@@ -8288,8 +8287,8 @@ void Robot_Control_step(void)
        *  RelationalOperator: '<S167>/UpperRelop'
        *  Sum: '<S164>/Subtract1'
        */
-      if (!(rtb_Init < (-1.0 - rtb_Add_a5))) {
-        rtb_Error_c5 = rtb_Init;
+      if (!(rtb_Switch2_p2 < (-1.0 - rtb_Add_a5))) {
+        rtb_Error_c5 = rtb_Switch2_p2;
       }
 
       /* End of Switch: '<S167>/Switch' */
@@ -8299,16 +8298,16 @@ void Robot_Control_step(void)
 
     /* Saturate: '<S164>/Saturation1' */
     if (rtb_Error_c5 > 0.1) {
-      rtb_Init = 0.1;
+      rtb_Switch2_p2 = 0.1;
     } else if (rtb_Error_c5 < -0.1) {
-      rtb_Init = -0.1;
+      rtb_Switch2_p2 = -0.1;
     } else {
-      rtb_Init = rtb_Error_c5;
+      rtb_Switch2_p2 = rtb_Error_c5;
     }
 
     /* End of Saturate: '<S164>/Saturation1' */
   } else {
-    rtb_Init = 0.0;
+    rtb_Switch2_p2 = 0.0;
   }
 
   /* End of Switch: '<S164>/Switch' */
@@ -8318,7 +8317,7 @@ void Robot_Control_step(void)
    */
   if (rtb_LogicalOperator1_n) {
     /* Sum: '<S164>/Add1' */
-    rtb_Add_a5 += rtb_Init;
+    rtb_Add_a5 += rtb_Switch2_p2;
 
     /* Saturate: '<S164>/Saturation2' */
     if (rtb_Add_a5 > 1.0) {
@@ -8414,6 +8413,9 @@ void Robot_Control_step(void)
   /* Outport: '<Root>/Vision_Desired_Pipeline' */
   Robot_Control_Y.Vision_Desired_Pipeline = rtb_Desired_Pipeline;
 
+  /* Outport: '<Root>/Auto_Initial_Gyro_Angle' */
+  Robot_Control_Y.Auto_Initial_Gyro_Angle = rtb_Auto_Initial_Gyro_Angle;
+
   /* Sum: '<S1>/Sum' incorporates:
    *  Constant: '<S1>/Constant2'
    *  UnitDelay: '<S1>/Unit Delay1'
@@ -8483,9 +8485,9 @@ void Robot_Control_step(void)
    *  Constant: '<S58>/A'
    *  Delay: '<S58>/MemoryX'
    */
-  rtb_Add_a5 = (0.0 * Robot_Control_DW.MemoryX_DSTATE[1]) +
+  rtb_Auto_Initial_Gyro_Angle = (0.0 * Robot_Control_DW.MemoryX_DSTATE[1]) +
     Robot_Control_DW.MemoryX_DSTATE[0];
-  rtb_Error_c5 = (0.0 * Robot_Control_DW.MemoryX_DSTATE[0]) +
+  rtb_Add_a5 = (0.0 * Robot_Control_DW.MemoryX_DSTATE[0]) +
     Robot_Control_DW.MemoryX_DSTATE[1];
 
   /* Update for Delay: '<S58>/MemoryX' incorporates:
@@ -8497,9 +8499,10 @@ void Robot_Control_step(void)
    *  Sum: '<S78>/Add'
    */
   Robot_Control_DW.MemoryX_DSTATE[0] = (((0.0 * Robot_Control_U.Odom_Delta_Y) +
-    Robot_Control_U.Odom_Delta_X) + rtb_Add_a5) + Robot_Control_B.Product3[0];
+    Robot_Control_U.Odom_Delta_X) + rtb_Auto_Initial_Gyro_Angle) +
+    Robot_Control_B.Product3[0];
   Robot_Control_DW.MemoryX_DSTATE[1] = (((0.0 * Robot_Control_U.Odom_Delta_X) +
-    Robot_Control_U.Odom_Delta_Y) + rtb_Error_c5) + Robot_Control_B.Product3[1];
+    Robot_Control_U.Odom_Delta_Y) + rtb_Add_a5) + Robot_Control_B.Product3[1];
 
   /* Update for UnitDelay: '<S334>/FixPt Unit Delay2' incorporates:
    *  Constant: '<S334>/FixPt Constant'
@@ -8562,7 +8565,7 @@ void Robot_Control_step(void)
   Robot_Control_DW.FixPtUnitDelay1_DSTATE_p = rtb_Sin4;
 
   /* Update for UnitDelay: '<S310>/Unit Delay1' */
-  Robot_Control_DW.UnitDelay1_DSTATE_j = rtb_DeadZone;
+  Robot_Control_DW.UnitDelay1_DSTATE_j = rtb_Modulation_Drv;
 
   /* Update for UnitDelay: '<S309>/UD'
    *
@@ -8570,7 +8573,7 @@ void Robot_Control_step(void)
    *
    *  Store in Global RAM
    */
-  Robot_Control_DW.UD_DSTATE_j = rtb_Switch1;
+  Robot_Control_DW.UD_DSTATE_j = rtb_DeadZone;
 
   /* Update for UnitDelay: '<S303>/Unit Delay' */
   Robot_Control_DW.UnitDelay_DSTATE_lw = 0.0;
@@ -8584,7 +8587,7 @@ void Robot_Control_step(void)
    *
    *  Store in Global RAM
    */
-  Robot_Control_DW.UD_DSTATE_h = rtb_Switch2;
+  Robot_Control_DW.UD_DSTATE_h = rtb_Init;
 
   /* Update for UnitDelay: '<S240>/Unit Delay' */
   Robot_Control_DW.UnitDelay_DSTATE_j = 0.0;
@@ -8626,7 +8629,7 @@ void Robot_Control_step(void)
    *
    *  Store in Global RAM
    */
-  Robot_Control_DW.UD_DSTATE_i = rtb_Switch2_be;
+  Robot_Control_DW.UD_DSTATE_i = rtb_Switch2_ee;
 
   /* Update for UnitDelay: '<S264>/Unit Delay' */
   Robot_Control_DW.UnitDelay_DSTATE_dt = rtb_Sum2_oc;
@@ -8674,7 +8677,7 @@ void Robot_Control_step(void)
   Robot_Control_DW.UnitDelay_DSTATE_lm = rtb_Integral_bj;
 
   /* Update for UnitDelay: '<S171>/Unit Delay1' */
-  Robot_Control_DW.UnitDelay1_DSTATE_ji = rtb_Switch2_p2;
+  Robot_Control_DW.UnitDelay1_DSTATE_ji = rtb_Add1_l;
 
   /* Update for UnitDelay: '<S170>/UD'
    *
@@ -8754,7 +8757,7 @@ void Robot_Control_step(void)
   Robot_Control_DW.UnitDelay1_DSTATE_ea = rtb_Intake_Arm_Move_In;
 
   /* Update for UnitDelay: '<S164>/Unit Delay' */
-  Robot_Control_DW.UnitDelay_DSTATE_l1 = rtb_Init;
+  Robot_Control_DW.UnitDelay_DSTATE_l1 = rtb_Switch2_p2;
 
   /* Update for UnitDelay: '<S121>/Unit Delay' */
   Robot_Control_DW.UnitDelay_DSTATE_db = rtb_Intake_Arm_Move_Out;

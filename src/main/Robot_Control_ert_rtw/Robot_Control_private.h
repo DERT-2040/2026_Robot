@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.471
+ * Model version                  : 2.472
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sun Mar  8 10:06:43 2026
+ * C/C++ source code generated on : Sun Mar  8 18:33:31 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -26,9 +26,9 @@
 extern const real_T rtCP_pooled_mZW03emckTZz[4];
 extern const real_T rtCP_pooled_Por1fGzmcW36[4];
 extern const real_T rtCP_pooled_INwGxsZyA2TK[4];
-extern const real_T rtCP_pooled_nZ5vGaVosc4b[600];
-extern const real_T rtCP_pooled_jI6RC0ZRFzpR[600];
-extern const real_T rtCP_pooled_tILAd79IfIfO[10];
+extern const real_T rtCP_pooled_yopyUGgQDnoo[360];
+extern const real_T rtCP_pooled_I0Z7e96ymCbD[360];
+extern const real_T rtCP_pooled_A5iRO1zitm3k[6];
 extern const real_T rtCP_pooled_mVxns4hAKRNf[21];
 extern const real_T rtCP_pooled_wsH2dcaSihoN[21];
 extern const real_T rtCP_pooled_MtklTCiS35sn[21];
@@ -48,13 +48,13 @@ extern const real_T rtCP_pooled_Ha5Ct2ozjCBu[2];
 #define rtCP_LookaheadDistance_bp01Data rtCP_pooled_Por1fGzmcW36 /* Expression: Spline_Velocity_Axis
                                                                   * Referenced by: '<S174>/Lookahead Distance'
                                                                   */
-#define rtCP_Constant_Value_c          rtCP_pooled_nZ5vGaVosc4b  /* Expression: All_Paths_Ref_Poses_Blue
+#define rtCP_Constant_Value_c          rtCP_pooled_yopyUGgQDnoo  /* Expression: All_Paths_Ref_Poses_Blue
                                                                   * Referenced by: '<S20>/Constant'
                                                                   */
-#define rtCP_Constant1_Value_bc        rtCP_pooled_jI6RC0ZRFzpR  /* Expression: All_Paths_Ref_Poses_Red
+#define rtCP_Constant1_Value_bc        rtCP_pooled_I0Z7e96ymCbD  /* Expression: All_Paths_Ref_Poses_Red
                                                                   * Referenced by: '<S20>/Constant1'
                                                                   */
-#define rtCP_uDLookupTable_tableData   rtCP_pooled_tILAd79IfIfO  /* Expression: All_Paths_Num_Poses
+#define rtCP_uDLookupTable_tableData   rtCP_pooled_A5iRO1zitm3k  /* Expression: All_Paths_Num_Poses
                                                                   * Referenced by: '<S20>/1-D Lookup Table'
                                                                   */
 #define rtCP_Modulation_Str_Y_Rel_table rtCP_pooled_mVxns4hAKRNf /* Expression: Steering_Mod_Str_Rel_out

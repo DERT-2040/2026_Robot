@@ -26,6 +26,7 @@ private:
         nt::NetworkTableEntry P__RobotMaxV_GyroReset__Entry;
  
         // Inports
+        nt::NetworkTableEntry I__Auto_Initial_Gyro_Angle__Entry;
         nt::NetworkTableEntry I__BackLeft_Drive_Motor_Rev__Entry;
         nt::NetworkTableEntry I__BackLeft_Drive_Motor_Speed__Entry;
         nt::NetworkTableEntry I__BackLeft_Steer_Rev__Entry;
@@ -42,6 +43,7 @@ private:
         nt::NetworkTableEntry I__FrontRight_Drive_Motor_Speed__Entry;
         nt::NetworkTableEntry I__FrontRight_Steer_Rev__Entry;
         nt::NetworkTableEntry I__FrontRight_Turn_Offset__Entry;
+        nt::NetworkTableEntry I__GameState__Entry;
         nt::NetworkTableEntry I__Gyro_Angle__Entry;
         nt::NetworkTableEntry I__IsBlueAlliance__Entry;
         nt::NetworkTableEntry I__Vision_Gyro_Angle__Entry;
