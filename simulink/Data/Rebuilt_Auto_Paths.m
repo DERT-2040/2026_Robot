@@ -109,6 +109,47 @@ Path_DP_LH = [
     0,0,0,0,0,0;
     0,0,0,0,0,0];
 
+%Start Location: Left ramp
+% Finish Location: Right Hub
+Path_LR_RH = [
+    3.75, 5.9, 1,  180 *D2R, 0, 0;
+    0.71, 5.97, 1, 180 *D2R, 0, 0;
+    2.00, 4.00, 1, -90 *D2R, 0, 3;
+    0.75, 0.73, 1, 180 *D2R, 0, 0;
+    3.20, 3.10, 1, 30  *D2R, 2, 0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0;
+    0,0,0,0,0,0];
+
+%Start Location: left trench
+% Finish Location: NZ
+Path_LT_NZ = [
+  3.51, 7.20, 2,   0 *D2R, 0, 0;
+    7.00, 7.31, 1.5, -60 *D2R, 0, 3;
+    7.70, 4.77, 1.5, -90 *D2R, 0, 3;
+   0,0,0,0,0,0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0;
+    0,0,0,0,0,0];
+%Start Location:NZ 
+% Finish Location: Left hub
+Path_NZ_LH = [
+ 7.70, 4.77, 1.5, -90 *D2R, 0, 3;
+    7.00, 7.31, 1.5, -60 *D2R, 0, 3;
+    3.51, 7.20, 2,   0 *D2R, 0, 0;
+    3.00, 5.50, 1, 90 *D2R, 0, 0;
+  3.20, 4.97, 1, -30 *D2R, 2, 0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0];
+
 clear D2R
 
 % concatenate all of the paths into one multi-dimensional matrix
@@ -118,7 +159,10 @@ All_Paths_Ref_Poses_Blue = cat(3, ...
     Path_RT_OP, ...      % 3
     Path_OP_RH, ...      % 4
     Path_LR_DP, ...      % 5
-    Path_DP_LH ...       % 6
+    Path_DP_LH, ...      % 6
+    Path_LR_RH, ...      % 7
+    Path_LT_NZ, ...       %8
+    Path_NZ_LH ...       %9
   ); 
 
 % Run this function to mirron paths from blue to red sides of the field
@@ -130,7 +174,10 @@ All_Paths_Ref_Poses_Red = cat(3, ...
     MirrorPath(Path_RT_OP, field_width, field_length), ...      % 3
     MirrorPath(Path_OP_RH, field_width, field_length), ...      % 4
     MirrorPath(Path_LR_DP, field_width, field_length), ...      % 5
-    MirrorPath(Path_DP_LH, field_width, field_length) ...       % 6
+    MirrorPath(Path_DP_LH, field_width, field_length), ...      % 6
+    MirrorPath(Path_LR_RH, field_width, field_length), ...       % 7
+    MirrorPath(Path_LT_NZ, field_width, field_length), ...       % 8
+     MirrorPath(Path_NZ_LH, field_width, field_length) ...       % 8
   ); 
 
 clear field_width field_length
@@ -142,11 +189,14 @@ All_Paths_Num_Poses = [
     nnz(Path_RT_OP(:,1));       % 3
     nnz(Path_OP_RH(:,1));       % 4
     nnz(Path_LR_DP(:,1));       % 5
-    nnz(Path_DP_LH(:,1))        % 6
+    nnz(Path_DP_LH(:,1));       % 6
+    nnz(Path_LR_RH(:,1))        % 7
+     nnz(Path_LT_NZ(:,1))        % 8
+     nnz(Path_NZ_LH(:,1))        % 8
     ];
 
 clear Path_LT_NZ_RH Path_RH_RC Path_RH_LC Path_RT_NZ_LH Path_LH_LC
-clear Path_LH_RC Path_RT_OP Path_OP_RH Path_LR_DP Path_DP_LH
+clear Path_LH_RC Path_RT_OP Path_OP_RH Path_LR_DP Path_DP_LH Path_LR_RH Path_LT_NZ Path_NZ_LH
 
 % Define complete auto paths (fill with zeros so all are the same length)
 Auto_Path_01 = [1,0,0];
