@@ -1,4 +1,5 @@
 % Field Size 317 in. x 691 in.
+hold on
 field_width = 317.69 * 0.0254;
 field_length = 691.22 * 0.0254;
 
