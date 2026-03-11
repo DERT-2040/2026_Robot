@@ -71,7 +71,10 @@ private:
         {"Auto_Path_01", 1},
         {"Auto_Path_02", 2},
         {"Auto_Path_03", 3},
-        {"Auto_Path_04", 4}
+        {"Auto_Path_04", 4},
+        {"Auto_Path_06", 5},
+        {"Auto_Path_06", 6},
+        {"Auto_Path_07", 7}        
       },
     &Auto_Path_Chooser //Simulink parameter name
   };
