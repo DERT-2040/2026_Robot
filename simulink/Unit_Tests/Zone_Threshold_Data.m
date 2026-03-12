@@ -31,6 +31,8 @@ Final_Trench_Time = .2;
 
 % Higher Blue Trench
 Higher_Trench_Min_Y = MirrorPoint(Lower_Trench_Max_Y, field_length, field_width, false);
+Higher_Trench_Max_Y = MirrorPoint(Lower_Trench_Min_Y, field_length, field_width, false);
+
 
 % Warning Threshold for Lower Red Trench
 Red_Warning_Trench_AZ_Max_X = MirrorPoint(Blue_Warning_Trench_AZ_Max_X, field_length, field_width, true);
