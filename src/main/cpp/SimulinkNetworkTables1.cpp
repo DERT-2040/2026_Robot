@@ -17,7 +17,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Auto_Shoot_Time__Entry = NTtable_Tune->GetEntry("Auto_Shoot_Time");
     NTinst.AddListener(P__Auto_Shoot_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Shoot_Time = event.GetValueEventData()->value.GetDouble();});
-    P__Auto_Shoot_Time__Entry.SetDouble(4);
+    P__Auto_Shoot_Time__Entry.SetDouble(3);
  
     P__Boost_Trigger_Decreasing_Limit__Entry = NTtable_Tune->GetEntry("Boost_Trigger_Decreasing_Limit");
     NTinst.AddListener(P__Boost_Trigger_Decreasing_Limit__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Decreasing_Limit = event.GetValueEventData()->value.GetDouble();});
@@ -122,6 +122,30 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     P__KF_Enable__Entry = NTtable_Tune->GetEntry("KF_Enable");
     NTinst.AddListener(P__KF_Enable__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {KF_Enable = event.GetValueEventData()->value.GetDouble();});
     P__KF_Enable__Entry.SetDouble(1);
+ 
+    P__Rate_Limit_Max_X__Entry = NTtable_Tune->GetEntry("Rate_Limit_Max_X");
+    NTinst.AddListener(P__Rate_Limit_Max_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rate_Limit_Max_X = event.GetValueEventData()->value.GetDouble();});
+    P__Rate_Limit_Max_X__Entry.SetDouble(0.02);
+ 
+    P__Rate_Limit_Max_Y__Entry = NTtable_Tune->GetEntry("Rate_Limit_Max_Y");
+    NTinst.AddListener(P__Rate_Limit_Max_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rate_Limit_Max_Y = event.GetValueEventData()->value.GetDouble();});
+    P__Rate_Limit_Max_Y__Entry.SetDouble(0.02);
+ 
+    P__Rate_Limit_Max_Z__Entry = NTtable_Tune->GetEntry("Rate_Limit_Max_Z");
+    NTinst.AddListener(P__Rate_Limit_Max_Z__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rate_Limit_Max_Z = event.GetValueEventData()->value.GetDouble();});
+    P__Rate_Limit_Max_Z__Entry.SetDouble(0.02);
+ 
+    P__Rate_Limit_Min_X__Entry = NTtable_Tune->GetEntry("Rate_Limit_Min_X");
+    NTinst.AddListener(P__Rate_Limit_Min_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rate_Limit_Min_X = event.GetValueEventData()->value.GetDouble();});
+    P__Rate_Limit_Min_X__Entry.SetDouble(-0.02);
+ 
+    P__Rate_Limit_Min_Y__Entry = NTtable_Tune->GetEntry("Rate_Limit_Min_Y");
+    NTinst.AddListener(P__Rate_Limit_Min_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rate_Limit_Min_Y = event.GetValueEventData()->value.GetDouble();});
+    P__Rate_Limit_Min_Y__Entry.SetDouble(-0.02);
+ 
+    P__Rate_Limit_Min_Z__Entry = NTtable_Tune->GetEntry("Rate_Limit_Min_Z");
+    NTinst.AddListener(P__Rate_Limit_Min_Z__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rate_Limit_Min_Z = event.GetValueEventData()->value.GetDouble();});
+    P__Rate_Limit_Min_Z__Entry.SetDouble(-0.02);
  
     P__Rebuilt_Des_Gyro_Shoot_Offset__Entry = NTtable_Tune->GetEntry("Rebuilt_Des_Gyro_Shoot_Offset");
     NTinst.AddListener(P__Rebuilt_Des_Gyro_Shoot_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Des_Gyro_Shoot_Offset = event.GetValueEventData()->value.GetDouble();});
@@ -953,9 +977,12 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__Button_Enable_Wheels__Entry = NTtable_TPoint->GetEntry("Button_Enable_Wheels");
     T__Button_Reset_Wheel_Offsets__Entry = NTtable_TPoint->GetEntry("Button_Reset_Wheel_Offsets");
     T__Drive_Joystick_X__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_X");
+    T__Drive_Joystick_X_preRL__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_X_preRL");
     T__Drive_Joystick_Y__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Y");
+    T__Drive_Joystick_Y_preRL__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Y_preRL");
     T__Drive_Joystick_Z__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Z");
     T__Drive_Joystick_Z_Mode__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Z_Mode");
+    T__Drive_Joystick_Z_preRL__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Z_preRL");
     T__Estimated_Hood_Pos__Entry = NTtable_TPoint->GetEntry("Estimated_Hood_Pos");
     T__FL_Desired_Module_Angle__Entry = NTtable_TPoint->GetEntry("FL_Desired_Module_Angle");
     T__FL_Desired_Wheel_Speed__Entry = NTtable_TPoint->GetEntry("FL_Desired_Wheel_Speed");
@@ -1087,6 +1114,12 @@ void SimulinkNetworkTables1::PostStepCallback()
     P__Field_Translation_Control_Gain__Entry.SetDouble(Field_Translation_Control_Gain);
     P__Field_Translation_Speed_Max__Entry.SetDouble(Field_Translation_Speed_Max);
     P__KF_Enable__Entry.SetDouble(KF_Enable);
+    P__Rate_Limit_Max_X__Entry.SetDouble(Rate_Limit_Max_X);
+    P__Rate_Limit_Max_Y__Entry.SetDouble(Rate_Limit_Max_Y);
+    P__Rate_Limit_Max_Z__Entry.SetDouble(Rate_Limit_Max_Z);
+    P__Rate_Limit_Min_X__Entry.SetDouble(Rate_Limit_Min_X);
+    P__Rate_Limit_Min_Y__Entry.SetDouble(Rate_Limit_Min_Y);
+    P__Rate_Limit_Min_Z__Entry.SetDouble(Rate_Limit_Min_Z);
     P__Rebuilt_Des_Gyro_Shoot_Offset__Entry.SetDouble(Rebuilt_Des_Gyro_Shoot_Offset);
     P__Rebuilt_Feeder_Motor_Gain_FF__Entry.SetDouble(Rebuilt_Feeder_Motor_Gain_FF);
     P__Rebuilt_Hood_Servo_Pos_Max__Entry.SetDouble(Rebuilt_Hood_Servo_Pos_Max);
@@ -1396,9 +1429,12 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__Button_Enable_Wheels__Entry.SetDouble(Robot_Control_B.Button_Enable_Wheels);
     T__Button_Reset_Wheel_Offsets__Entry.SetDouble(Robot_Control_B.Button_Reset_Wheel_Offsets);
     T__Drive_Joystick_X__Entry.SetDouble(Robot_Control_B.Drive_Joystick_X);
+    T__Drive_Joystick_X_preRL__Entry.SetDouble(Robot_Control_B.Drive_Joystick_X_preRL);
     T__Drive_Joystick_Y__Entry.SetDouble(Robot_Control_B.Drive_Joystick_Y);
+    T__Drive_Joystick_Y_preRL__Entry.SetDouble(Robot_Control_B.Drive_Joystick_Y_preRL);
     T__Drive_Joystick_Z__Entry.SetDouble(Robot_Control_B.Drive_Joystick_Z);
     T__Drive_Joystick_Z_Mode__Entry.SetDouble(Robot_Control_B.Drive_Joystick_Z_Mode);
+    T__Drive_Joystick_Z_preRL__Entry.SetDouble(Robot_Control_B.Drive_Joystick_Z_preRL);
     T__Estimated_Hood_Pos__Entry.SetDouble(Robot_Control_B.Estimated_Hood_Pos);
     T__FL_Desired_Module_Angle__Entry.SetDouble(Robot_Control_B.FL_Desired_Module_Angle);
     T__FL_Desired_Wheel_Speed__Entry.SetDouble(Robot_Control_B.FL_Desired_Wheel_Speed);

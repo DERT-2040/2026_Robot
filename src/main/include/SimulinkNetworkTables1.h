@@ -45,6 +45,12 @@ private:
         nt::NetworkTableEntry P__Field_Translation_Control_Gain__Entry;
         nt::NetworkTableEntry P__Field_Translation_Speed_Max__Entry;
         nt::NetworkTableEntry P__KF_Enable__Entry;
+        nt::NetworkTableEntry P__Rate_Limit_Max_X__Entry;
+        nt::NetworkTableEntry P__Rate_Limit_Max_Y__Entry;
+        nt::NetworkTableEntry P__Rate_Limit_Max_Z__Entry;
+        nt::NetworkTableEntry P__Rate_Limit_Min_X__Entry;
+        nt::NetworkTableEntry P__Rate_Limit_Min_Y__Entry;
+        nt::NetworkTableEntry P__Rate_Limit_Min_Z__Entry;
         nt::NetworkTableEntry P__Rebuilt_Des_Gyro_Shoot_Offset__Entry;
         nt::NetworkTableEntry P__Rebuilt_Feeder_Motor_Gain_FF__Entry;
         nt::NetworkTableEntry P__Rebuilt_Hood_Servo_Pos_Max__Entry;
@@ -356,9 +362,12 @@ private:
         nt::NetworkTableEntry T__Button_Enable_Wheels__Entry;
         nt::NetworkTableEntry T__Button_Reset_Wheel_Offsets__Entry;
         nt::NetworkTableEntry T__Drive_Joystick_X__Entry;
+        nt::NetworkTableEntry T__Drive_Joystick_X_preRL__Entry;
         nt::NetworkTableEntry T__Drive_Joystick_Y__Entry;
+        nt::NetworkTableEntry T__Drive_Joystick_Y_preRL__Entry;
         nt::NetworkTableEntry T__Drive_Joystick_Z__Entry;
         nt::NetworkTableEntry T__Drive_Joystick_Z_Mode__Entry;
+        nt::NetworkTableEntry T__Drive_Joystick_Z_preRL__Entry;
         nt::NetworkTableEntry T__Estimated_Hood_Pos__Entry;
         nt::NetworkTableEntry T__FL_Desired_Module_Angle__Entry;
         nt::NetworkTableEntry T__FL_Desired_Wheel_Speed__Entry;
