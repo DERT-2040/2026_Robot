@@ -39,3 +39,13 @@ Vision_data
 Rebuilt_data
 Rebuilt_Auto_Paths
 
+%Rate Limit for Shooting
+Rate_Limit_Max_X = 1;
+Rate_Limit_Min_X = 0;
+Rate_Limit_Max_Y = 1;
+Rate_Limit_Min_Y = 0;
+Rate_Limit_Max_Z = 1;
+Rate_Limit_Min_Z = 0;
+
+
+
