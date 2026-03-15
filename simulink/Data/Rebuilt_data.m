@@ -37,6 +37,7 @@ Rebuilt_Shot_Init_Time = 0.4; % Seconds
 Rebuilt_Shoot_Robot_Velocity_Max = 1.7;   % meter/second
 Rebuilt_Shoot_Motor_Max_Error = 100;    % rpm
 Rebuilt_Shoot_Hood_Pos_Max_Error = 0.03;    % pwm position
+Feeder_Max_Pulsetime = 2; % seconds
 
 % Check if Hub is Active for Scoring
 Rebuilt_Match_Time_TeleOp = 160-20;

@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.476
+ * Model version                  : 2.477
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sun Mar 15 10:36:05 2026
+ * C/C++ source code generated on : Sun Mar 15 14:11:08 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -249,6 +249,7 @@ typedef struct {
   real_T UnitDelay_DSTATE_lc;          /* '<S162>/Unit Delay' */
   real_T UnitDelay_DSTATE_bb;          /* '<S143>/Unit Delay' */
   real_T timer;                        /* '<S353>/Add dither' */
+  real_T Feeder_Loops_Shooting;      /* '<S12>/Shooter_Transfer_Feeder Chart' */
   void *MatrixConcatenate_PWORK;       /* '<S212>/Matrix Concatenate' */
   int32_T Selector5_DIMS1[2];          /* '<S212>/Selector5' */
   int32_T MatrixConcatenate_DIMS1[2];  /* '<S212>/Matrix Concatenate' */
@@ -580,6 +581,9 @@ extern real_T Drive_Motor_Control_Sign_Change_Deadband;
                             *   '<S303>/Constant'
                             *   '<S324>/Constant'
                             */
+extern real_T Feeder_Max_Pulsetime;    /* Variable: Feeder_Max_Pulsetime
+                                        * Referenced by: '<S12>/Shooter_Transfer_Feeder Chart'
+                                        */
 extern real_T Field_BlueAllianceZoneX; /* Variable: Field_BlueAllianceZoneX
                                         * Referenced by:
                                         *   '<S175>/BlueAllianceZoneX'
