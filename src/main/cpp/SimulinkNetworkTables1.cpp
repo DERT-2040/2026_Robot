@@ -177,15 +177,15 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Intake_Arm_Gain_P__Entry = NTtable_Tune->GetEntry("Rebuilt_Intake_Arm_Gain_P");
     NTinst.AddListener(P__Rebuilt_Intake_Arm_Gain_P__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_Arm_Gain_P = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Intake_Arm_Gain_P__Entry.SetDouble(0);
+    P__Rebuilt_Intake_Arm_Gain_P__Entry.SetDouble(0.005);
  
     P__Rebuilt_Intake_Cycle_Angle_In__Entry = NTtable_Tune->GetEntry("Rebuilt_Intake_Cycle_Angle_In");
     NTinst.AddListener(P__Rebuilt_Intake_Cycle_Angle_In__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_Cycle_Angle_In = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Intake_Cycle_Angle_In__Entry.SetDouble(0);
+    P__Rebuilt_Intake_Cycle_Angle_In__Entry.SetDouble(-10);
  
     P__Rebuilt_Intake_Cycle_Angle_Out__Entry = NTtable_Tune->GetEntry("Rebuilt_Intake_Cycle_Angle_Out");
     NTinst.AddListener(P__Rebuilt_Intake_Cycle_Angle_Out__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_Cycle_Angle_Out = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Intake_Cycle_Angle_Out__Entry.SetDouble(70);
+    P__Rebuilt_Intake_Cycle_Angle_Out__Entry.SetDouble(10);
  
     P__Rebuilt_Intake_Des_Angle_In__Entry = NTtable_Tune->GetEntry("Rebuilt_Intake_Des_Angle_In");
     NTinst.AddListener(P__Rebuilt_Intake_Des_Angle_In__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_Des_Angle_In = event.GetValueEventData()->value.GetDouble();});
@@ -205,39 +205,43 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Intake_RL_Dec__Entry = NTtable_Tune->GetEntry("Rebuilt_Intake_RL_Dec");
     NTinst.AddListener(P__Rebuilt_Intake_RL_Dec__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_RL_Dec = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Intake_RL_Dec__Entry.SetDouble(-3);
+    P__Rebuilt_Intake_RL_Dec__Entry.SetDouble(-2);
  
     P__Rebuilt_Intake_RL_Inc__Entry = NTtable_Tune->GetEntry("Rebuilt_Intake_RL_Inc");
     NTinst.AddListener(P__Rebuilt_Intake_RL_Inc__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_RL_Inc = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Intake_RL_Inc__Entry.SetDouble(3);
+    P__Rebuilt_Intake_RL_Inc__Entry.SetDouble(2);
  
     P__Rebuilt_Match_Time_Auto_Timer__Entry = NTtable_Tune->GetEntry("Rebuilt_Match_Time_Auto_Timer");
     NTinst.AddListener(P__Rebuilt_Match_Time_Auto_Timer__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_Auto_Timer = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Match_Time_Auto_Timer__Entry.SetDouble(27);
+    P__Rebuilt_Match_Time_Auto_Timer__Entry.SetDouble(30);
  
     P__Rebuilt_Match_Time_End_Game_Timer__Entry = NTtable_Tune->GetEntry("Rebuilt_Match_Time_End_Game_Timer");
     NTinst.AddListener(P__Rebuilt_Match_Time_End_Game_Timer__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_End_Game_Timer = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Match_Time_End_Game_Timer__Entry.SetDouble(33);
+    P__Rebuilt_Match_Time_End_Game_Timer__Entry.SetDouble(30);
  
     P__Rebuilt_Match_Time_Shift_1__Entry = NTtable_Tune->GetEntry("Rebuilt_Match_Time_Shift_1");
     NTinst.AddListener(P__Rebuilt_Match_Time_Shift_1__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_Shift_1 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Match_Time_Shift_1__Entry.SetDouble(32);
+    P__Rebuilt_Match_Time_Shift_1__Entry.SetDouble(35);
  
     P__Rebuilt_Match_Time_Shift_2__Entry = NTtable_Tune->GetEntry("Rebuilt_Match_Time_Shift_2");
     NTinst.AddListener(P__Rebuilt_Match_Time_Shift_2__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_Shift_2 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Match_Time_Shift_2__Entry.SetDouble(57);
+    P__Rebuilt_Match_Time_Shift_2__Entry.SetDouble(60);
  
     P__Rebuilt_Match_Time_Shift_3__Entry = NTtable_Tune->GetEntry("Rebuilt_Match_Time_Shift_3");
     NTinst.AddListener(P__Rebuilt_Match_Time_Shift_3__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_Shift_3 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Match_Time_Shift_3__Entry.SetDouble(82);
+    P__Rebuilt_Match_Time_Shift_3__Entry.SetDouble(85);
  
     P__Rebuilt_Match_Time_Shift_4__Entry = NTtable_Tune->GetEntry("Rebuilt_Match_Time_Shift_4");
     NTinst.AddListener(P__Rebuilt_Match_Time_Shift_4__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_Shift_4 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Match_Time_Shift_4__Entry.SetDouble(107);
+    P__Rebuilt_Match_Time_Shift_4__Entry.SetDouble(110);
  
     P__Rebuilt_Match_Time_Shift_Timer__Entry = NTtable_Tune->GetEntry("Rebuilt_Match_Time_Shift_Timer");
     NTinst.AddListener(P__Rebuilt_Match_Time_Shift_Timer__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_Shift_Timer = event.GetValueEventData()->value.GetDouble();});
     P__Rebuilt_Match_Time_Shift_Timer__Entry.SetDouble(25);
+ 
+    P__Rebuilt_Match_Time_Shoot_Early__Entry = NTtable_Tune->GetEntry("Rebuilt_Match_Time_Shoot_Early");
+    NTinst.AddListener(P__Rebuilt_Match_Time_Shoot_Early__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_Shoot_Early = event.GetValueEventData()->value.GetDouble();});
+    P__Rebuilt_Match_Time_Shoot_Early__Entry.SetDouble(3);
  
     P__Rebuilt_Match_Time_TeleOp__Entry = NTtable_Tune->GetEntry("Rebuilt_Match_Time_TeleOp");
     NTinst.AddListener(P__Rebuilt_Match_Time_TeleOp__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_TeleOp = event.GetValueEventData()->value.GetDouble();});
@@ -245,7 +249,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Match_Time_Transition__Entry = NTtable_Tune->GetEntry("Rebuilt_Match_Time_Transition");
     NTinst.AddListener(P__Rebuilt_Match_Time_Transition__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_Transition = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Match_Time_Transition__Entry.SetDouble(7);
+    P__Rebuilt_Match_Time_Transition__Entry.SetDouble(10);
  
     P__Rebuilt_Negative_Feeder_Speed__Entry = NTtable_Tune->GetEntry("Rebuilt_Negative_Feeder_Speed");
     NTinst.AddListener(P__Rebuilt_Negative_Feeder_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Negative_Feeder_Speed = event.GetValueEventData()->value.GetDouble();});
@@ -976,11 +980,8 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__Button_Disable_Wheels__Entry = NTtable_TPoint->GetEntry("Button_Disable_Wheels");
     T__Button_Enable_Wheels__Entry = NTtable_TPoint->GetEntry("Button_Enable_Wheels");
     T__Button_Reset_Wheel_Offsets__Entry = NTtable_TPoint->GetEntry("Button_Reset_Wheel_Offsets");
-    T__Drive_Joystick_X__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_X");
     T__Drive_Joystick_X_preRL__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_X_preRL");
-    T__Drive_Joystick_Y__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Y");
     T__Drive_Joystick_Y_preRL__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Y_preRL");
-    T__Drive_Joystick_Z__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Z");
     T__Drive_Joystick_Z_Mode__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Z_Mode");
     T__Drive_Joystick_Z_preRL__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Z_preRL");
     T__Estimated_Hood_Pos__Entry = NTtable_TPoint->GetEntry("Estimated_Hood_Pos");
@@ -1143,6 +1144,7 @@ void SimulinkNetworkTables1::PostStepCallback()
     P__Rebuilt_Match_Time_Shift_3__Entry.SetDouble(Rebuilt_Match_Time_Shift_3);
     P__Rebuilt_Match_Time_Shift_4__Entry.SetDouble(Rebuilt_Match_Time_Shift_4);
     P__Rebuilt_Match_Time_Shift_Timer__Entry.SetDouble(Rebuilt_Match_Time_Shift_Timer);
+    P__Rebuilt_Match_Time_Shoot_Early__Entry.SetDouble(Rebuilt_Match_Time_Shoot_Early);
     P__Rebuilt_Match_Time_TeleOp__Entry.SetDouble(Rebuilt_Match_Time_TeleOp);
     P__Rebuilt_Match_Time_Transition__Entry.SetDouble(Rebuilt_Match_Time_Transition);
     P__Rebuilt_Negative_Feeder_Speed__Entry.SetDouble(Rebuilt_Negative_Feeder_Speed);
@@ -1428,11 +1430,8 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__Button_Disable_Wheels__Entry.SetDouble(Robot_Control_B.Button_Disable_Wheels);
     T__Button_Enable_Wheels__Entry.SetDouble(Robot_Control_B.Button_Enable_Wheels);
     T__Button_Reset_Wheel_Offsets__Entry.SetDouble(Robot_Control_B.Button_Reset_Wheel_Offsets);
-    T__Drive_Joystick_X__Entry.SetDouble(Robot_Control_B.Drive_Joystick_X);
     T__Drive_Joystick_X_preRL__Entry.SetDouble(Robot_Control_B.Drive_Joystick_X_preRL);
-    T__Drive_Joystick_Y__Entry.SetDouble(Robot_Control_B.Drive_Joystick_Y);
     T__Drive_Joystick_Y_preRL__Entry.SetDouble(Robot_Control_B.Drive_Joystick_Y_preRL);
-    T__Drive_Joystick_Z__Entry.SetDouble(Robot_Control_B.Drive_Joystick_Z);
     T__Drive_Joystick_Z_Mode__Entry.SetDouble(Robot_Control_B.Drive_Joystick_Z_Mode);
     T__Drive_Joystick_Z_preRL__Entry.SetDouble(Robot_Control_B.Drive_Joystick_Z_preRL);
     T__Estimated_Hood_Pos__Entry.SetDouble(Robot_Control_B.Estimated_Hood_Pos);

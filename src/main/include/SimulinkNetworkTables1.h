@@ -74,6 +74,7 @@ private:
         nt::NetworkTableEntry P__Rebuilt_Match_Time_Shift_3__Entry;
         nt::NetworkTableEntry P__Rebuilt_Match_Time_Shift_4__Entry;
         nt::NetworkTableEntry P__Rebuilt_Match_Time_Shift_Timer__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Match_Time_Shoot_Early__Entry;
         nt::NetworkTableEntry P__Rebuilt_Match_Time_TeleOp__Entry;
         nt::NetworkTableEntry P__Rebuilt_Match_Time_Transition__Entry;
         nt::NetworkTableEntry P__Rebuilt_Negative_Feeder_Speed__Entry;
@@ -361,11 +362,8 @@ private:
         nt::NetworkTableEntry T__Button_Disable_Wheels__Entry;
         nt::NetworkTableEntry T__Button_Enable_Wheels__Entry;
         nt::NetworkTableEntry T__Button_Reset_Wheel_Offsets__Entry;
-        nt::NetworkTableEntry T__Drive_Joystick_X__Entry;
         nt::NetworkTableEntry T__Drive_Joystick_X_preRL__Entry;
-        nt::NetworkTableEntry T__Drive_Joystick_Y__Entry;
         nt::NetworkTableEntry T__Drive_Joystick_Y_preRL__Entry;
-        nt::NetworkTableEntry T__Drive_Joystick_Z__Entry;
         nt::NetworkTableEntry T__Drive_Joystick_Z_Mode__Entry;
         nt::NetworkTableEntry T__Drive_Joystick_Z_preRL__Entry;
         nt::NetworkTableEntry T__Estimated_Hood_Pos__Entry;

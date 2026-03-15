@@ -136,23 +136,23 @@ namespace Constants
     {
         static const LimeLightCameraCreateInfo CameraOneCreateInfo
         {
-            "limelight-one", // Limelight Name
-            2.50/39.37008,   // X+ (Forward): Towards the front of the robot (in meters).
-            -2.875/39.37008, // Y+ (Right): Towards the right side of the robot (in meters).
-            19.90/39.37008,  // Z+ (Up): Towards the top of the robot (in meters).
-            0.0,             // Roll (degrees)
-            33,              // Pitch (degrees)
-            0.0              // Yaw (degrees)
+            "limelight-one", // Limelight Name - REAR FACING
+            -0.230,   // X+ (Forward): Towards the front of the robot (in meters).
+            0.273, // Y+ (Right): Towards the right side of the robot (in meters).
+            0.441,  // Z+ (Up): Towards the top of the robot (in meters).
+            0,             // Roll (degrees)
+            28,              // Pitch (degrees)
+            180              // Yaw (degrees)
         };
         static const LimeLightCameraCreateInfo CameraTwoCreateInfo
         {
-            "limelight-two", // Limelight Name
-            0.00/39.37008,   // X+ (Forward): Towards the front of the robot (in meters).
-            0.00/39.37008,   // Y+ (Right): Towards the right side of the robot (in meters).
-            0.00/39.37008,   // Z+ (Up): Towards the top of the robot (in meters).
-            0.0,             // Roll (degrees)
-            0.0,             // Pitch (degrees)
-            0.0              // Yaw (degrees)
+            "limelight-two", // Limelight Name - FRONT FACING
+            -0.103,   // X+ (Forward): Towards the front of the robot (in meters).
+            0.273,   // Y+ (Right): Towards the right side of the robot (in meters).
+            0.503,   // Z+ (Up): Towards the top of the robot (in meters).
+            90,             // Roll (degrees)
+            41,             // Pitch (degrees)
+            0              // Yaw (degrees)
         };
     };
 
@@ -161,7 +161,7 @@ namespace Constants
         static TalonFXMotorCreateInfo defaultShooterCreateInfo = TalonFXMotorCreateInfo::getDefaultCreateInfo()
                 .SetCanbus(*Constants::CANBuses::CANivoreBus)
                 .SetIsReversed(false)
-                .SetSupplyCurrentLimit(60)
+                .SetSupplyCurrentLimit(80)
                 .SetOpenLoopRampPeriod(0)
                 .SetEnableFOC(true)
                 .SetMotorType(TalonFXMotorType::KrakenX60);
@@ -190,10 +190,10 @@ namespace Constants
         static TalonFXMotorCreateInfo defaultFeederCreateInfo = TalonFXMotorCreateInfo::getDefaultCreateInfo()
                 .SetCanbus(*Constants::CANBuses::CANivoreBus)
                 .SetIsReversed(false)
-                .SetSupplyCurrentLimit(60)
+                .SetSupplyCurrentLimit(80)
                 .SetOpenLoopRampPeriod(0)
                 .SetEnableFOC(true)
-                .SetMotorType(TalonFXMotorType::KrakenX44);
+                .SetMotorType(TalonFXMotorType::KrakenX60);
         static const TalonFXMotorCreateInfo Feeder = defaultFeederCreateInfo
                 .SetCanID(13)
                 .SetDutyCycleCallback(&Robot_Control_Y.Feeder_Motor_DC)
@@ -226,27 +226,29 @@ namespace Constants
     namespace IntakeCreateInfo{
         static TalonFXMotorCreateInfo defaultIntakeCreateInfo = TalonFXMotorCreateInfo::getDefaultCreateInfo()
                 .SetCanbus(*Constants::CANBuses::CANivoreBus)
-                .SetSupplyCurrentLimit(60)
                 .SetOpenLoopRampPeriod(0)
-                .SetEnableFOC(true)
-                .SetMotorType(TalonFXMotorType::KrakenX44);
+                .SetEnableFOC(true);
         static const TalonFXMotorCreateInfo Intake_Arm = defaultIntakeCreateInfo
                 .SetCanID(15)
-                .SetIsReversed(true)                
+                .SetIsReversed(true)
+                .SetSupplyCurrentLimit(60)                
                 .SetDutyCycleCallback(&Robot_Control_Y.Intake_Arm_Motor_DC)
-                .SetDisplayName("Intake Arm");
+                .SetDisplayName("Intake Arm")
+                .SetMotorType(TalonFXMotorType::KrakenX44);                
         static const TalonFXMotorCreateInfo Intake_Roller = defaultIntakeCreateInfo
                 .SetCanID(16)
-                .SetIsReversed(false)                
+                .SetIsReversed(false)            
+                .SetSupplyCurrentLimit(80)                    
                 .SetDutyCycleCallback(&Robot_Control_Y.Intake_Roller_Motor_DC)
                 .SetVelocityCallback(&Robot_Control_U.Measured_Intake_Roller_Speed)
-                .SetDisplayName("Intake Roller");
+                .SetDisplayName("Intake Roller")
+                .SetMotorType(TalonFXMotorType::KrakenX60);                
     }
 
     namespace IntakeArmAngle{
         //Arm Angle 
         static constexpr int armThroughBoreEncoderID = 0;
-        static constexpr int armThroughBoreEncoderOffset = -105.2; // degrees
+        static constexpr int armThroughBoreEncoderOffset = 7.6; // degrees
     }
 
 };

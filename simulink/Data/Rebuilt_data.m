@@ -38,29 +38,16 @@ Rebuilt_Shoot_Motor_Max_Error = 100;    % rpm
 Rebuilt_Shoot_Hood_Pos_Max_Error = 0.03;    % pwm position
 
 % Check if Hub is Active for Scoring
-Time_TeleOp = 160 - 20;
-Time_offset = 3;
-Time_Transition = 10;
-Time_Shift_1 = 35;
-Time_Shift_2 = 60;
-Time_Shift_3 = 85;
-Time_Shift_4 = 110;
-Auto_Timer = 30;
-Shift_Timer = 25;
-End_Game_Timer = 30; 
-
-Rebuilt_Match_Time_TeleOp = Time_TeleOp;
-Rebuilt_Match_Time_Transition  = Time_Transition - Time_offset; 
-Rebuilt_Match_Time_Shift_1  = Time_Shift_1 - Time_offset; 
-Rebuilt_Match_Time_Shift_2  = Time_Shift_2 - Time_offset; 
-Rebuilt_Match_Time_Shift_3  = Time_Shift_3 - Time_offset;
-Rebuilt_Match_Time_Shift_4  = Time_Shift_4 - Time_offset;
-Rebuilt_Match_Time_Auto_Timer  = Auto_Timer - Time_offset;
-Rebuilt_Match_Time_Shift_Timer  = Shift_Timer;
-Rebuilt_Match_Time_End_Game_Timer = End_Game_Timer + Time_offset; 
-
-clear Time_TeleOp Time_offset Time_Transition Time_Shift_1 Time_Shift_2
-clear Time_Shift_3 Time_Shift_4 Auto_Timer Shift_Timer End_Game_Timer
+Rebuilt_Match_Time_TeleOp = 160-20;
+Rebuilt_Match_Time_Transition  = 10; 
+Rebuilt_Match_Time_Shift_1  = 35; 
+Rebuilt_Match_Time_Shift_2  = 60; 
+Rebuilt_Match_Time_Shift_3  = 85;
+Rebuilt_Match_Time_Shift_4  = 110;
+Rebuilt_Match_Time_Auto_Timer  = 30;
+Rebuilt_Match_Time_Shift_Timer  = 25;
+Rebuilt_Match_Time_End_Game_Timer = 30; 
+Rebuilt_Match_Time_Shoot_Early = 3;
 
 % Iteration error target threshold
 Rebuilt_Shoot_Target_Error_Thresh = 0.1;    % Meters
@@ -191,13 +178,13 @@ Rebuilt_Intake_Meas_In_Disable = -20;   % disable motor when angle is less than 
 Rebuilt_Intake_Meas_Out_Disable = 80;   % disable motor when angle is more than this value and the desired anle is the out angle
 Rebuilt_Intake_Des_Angle_Out = 90;
 
-Rebuilt_Intake_Cycle_Angle_In = 0;
-Rebuilt_Intake_Cycle_Angle_Out = 70;
+Rebuilt_Intake_Cycle_Angle_In = -10;
+Rebuilt_Intake_Cycle_Angle_Out = 10;
 
-Rebuilt_Intake_RL_Inc =  3;
-Rebuilt_Intake_RL_Dec = -3;
+Rebuilt_Intake_RL_Inc =  2;
+Rebuilt_Intake_RL_Dec = -2;
 
-Rebuilt_Intake_Arm_Gain_P = 0.01*0;
+Rebuilt_Intake_Arm_Gain_P = 0.005;
 Rebuilt_Intake_Arm_Gain_D = 0;
 
 Rebuilt_Roller_Desired_Speed = 4500;

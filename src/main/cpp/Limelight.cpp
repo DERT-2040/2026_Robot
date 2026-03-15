@@ -109,24 +109,34 @@ void Limelight::PreStepCallback() {
             if (CameraOneLLScore > CameraTwoLLScore) {
                 Robot_Control_U.Vision_RobotPoseFieldSpace_X = CameraOneLLMeasurement.pose.X().value();
                 Robot_Control_U.Vision_RobotPoseFieldSpace_Y = CameraOneLLMeasurement.pose.Y().value();
+                Odometry_U.Vision_Gyro_Angle = CameraOneLLMeasurement.pose.Rotation().Degrees().value(); //Get the robot's orientation from the Limelight's pose estimation in degrees
+                Odometry_U.Vision_Gyro_Angle_Status = !((CameraOneLLAvgTagArea > TagAreaTrustThreshold) && (CameraOneLLTagCount > 0));
             } else if (CameraTwoLLScore > CameraOneLLScore) {
                 Robot_Control_U.Vision_RobotPoseFieldSpace_X = CameraTwoLLMeasurement.pose.X().value();
                 Robot_Control_U.Vision_RobotPoseFieldSpace_Y = CameraTwoLLMeasurement.pose.Y().value();
+                Odometry_U.Vision_Gyro_Angle = CameraTwoLLMeasurement.pose.Rotation().Degrees().value(); //Get the robot's orientation from the Limelight's pose estimation in degrees
+                Odometry_U.Vision_Gyro_Angle_Status = !((CameraTwoLLAvgTagArea > TagAreaTrustThreshold) && (CameraTwoLLTagCount > 0));                
             } else if (CameraTwoLLScore == CameraOneLLScore) {
                 Robot_Control_U.Vision_RobotPoseFieldSpace_X = (CameraTwoLLMeasurement.pose.X().value() + CameraOneLLMeasurement.pose.X().value())/2;
                 Robot_Control_U.Vision_RobotPoseFieldSpace_Y = (CameraTwoLLMeasurement.pose.Y().value() + CameraOneLLMeasurement.pose.Y().value())/2;
+                Odometry_U.Vision_Gyro_Angle = (CameraOneLLMeasurement.pose.Rotation().Degrees().value()+CameraTwoLLMeasurement.pose.Rotation().Degrees().value())/2; //Get the robot's orientation from the Limelight's pose estimation in degrees
+                Odometry_U.Vision_Gyro_Angle_Status = !(((CameraOneLLAvgTagArea > TagAreaTrustThreshold) && (CameraOneLLTagCount > 0)) || ((CameraTwoLLAvgTagArea > TagAreaTrustThreshold) && (CameraTwoLLTagCount > 0)));                
             }
         } else if (CameraOneLLTagCount > CameraTwoLLTagCount) {
                 Robot_Control_U.Vision_RobotPoseFieldSpace_X = CameraOneLLMeasurement.pose.X().value();
                 Robot_Control_U.Vision_RobotPoseFieldSpace_Y = CameraOneLLMeasurement.pose.Y().value();
+                Odometry_U.Vision_Gyro_Angle = CameraOneLLMeasurement.pose.Rotation().Degrees().value(); //Get the robot's orientation from the Limelight's pose estimation in degrees
+                Odometry_U.Vision_Gyro_Angle_Status = !((CameraOneLLAvgTagArea > TagAreaTrustThreshold) && (CameraOneLLTagCount > 0));                
         } else if (CameraOneLLTagCount < CameraTwoLLTagCount) {
                 Robot_Control_U.Vision_RobotPoseFieldSpace_X = CameraTwoLLMeasurement.pose.X().value();
                 Robot_Control_U.Vision_RobotPoseFieldSpace_Y = CameraTwoLLMeasurement.pose.Y().value();
+                Odometry_U.Vision_Gyro_Angle = CameraTwoLLMeasurement.pose.Rotation().Degrees().value(); //Get the robot's orientation from the Limelight's pose estimation in degrees
+                Odometry_U.Vision_Gyro_Angle_Status = !((CameraTwoLLAvgTagArea > TagAreaTrustThreshold) && (CameraTwoLLTagCount > 0));                  
         }
         
         // Provide gyro angle reset value and status to Odometry to consider resetting the field coordinate gyro angle
-        Odometry_U.Vision_Gyro_Angle = CameraOneLLMeasurement.pose.Rotation().Degrees().value(); //Get the robot's orientation from the Limelight's pose estimation in degrees
-        Odometry_U.Vision_Gyro_Angle_Status = !((CameraOneLLAvgTagArea > TagAreaTrustThreshold) && (CameraOneLLTagCount > 0));
+        //Odometry_U.Vision_Gyro_Angle = CameraOneLLMeasurement.pose.Rotation().Degrees().value(); //Get the robot's orientation from the Limelight's pose estimation in degrees
+        //Odometry_U.Vision_Gyro_Angle_Status = !((CameraOneLLAvgTagArea > TagAreaTrustThreshold) && (CameraOneLLTagCount > 0));
 
         // Robot Pose Relative to Tag
         std::vector<double> c1TargetPoseRobotSpace = LimelightHelpers::getTargetPose_RobotSpace(nsLimelight::CameraOneCreateInfo.LimelightName);
