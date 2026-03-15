@@ -33,6 +33,7 @@ private:
         nt::NetworkTableEntry P__Drive_Motor_Control_I_UL__Entry;
         nt::NetworkTableEntry P__Drive_Motor_Control_P__Entry;
         nt::NetworkTableEntry P__Drive_Motor_Control_Sign_Change_Deadband__Entry;
+        nt::NetworkTableEntry P__Feeder_Max_Pulsetime__Entry;
         nt::NetworkTableEntry P__Field_BlueAllianceZoneX__Entry;
         nt::NetworkTableEntry P__Field_Blue_Hub_X__Entry;
         nt::NetworkTableEntry P__Field_Blue_Pass_X__Entry;

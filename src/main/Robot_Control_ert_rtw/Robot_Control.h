@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.474
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sun Mar 15 00:17:02 2026
+ * C/C++ source code generated on : Sun Mar 15 13:17:52 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -247,6 +247,7 @@ typedef struct {
   real_T UnitDelay_DSTATE_c;           /* '<S170>/Unit Delay' */
   real_T UnitDelay_DSTATE_lc;          /* '<S165>/Unit Delay' */
   real_T UnitDelay_DSTATE_bb;          /* '<S146>/Unit Delay' */
+  real_T Feeder_Loops_Shooting;      /* '<S12>/Shooter_Transfer_Feeder Chart' */
   void *MatrixConcatenate_PWORK;       /* '<S215>/Matrix Concatenate' */
   int32_T Selector5_DIMS1[2];          /* '<S215>/Selector5' */
   int32_T MatrixConcatenate_DIMS1[2];  /* '<S215>/Matrix Concatenate' */
@@ -575,6 +576,9 @@ extern real_T Drive_Motor_Control_Sign_Change_Deadband;
                             *   '<S306>/Constant'
                             *   '<S327>/Constant'
                             */
+extern real_T Feeder_Max_Pulsetime;    /* Variable: Feeder_Max_Pulsetime
+                                        * Referenced by: '<S12>/Shooter_Transfer_Feeder Chart'
+                                        */
 extern real_T Field_BlueAllianceZoneX; /* Variable: Field_BlueAllianceZoneX
                                         * Referenced by:
                                         *   '<S178>/BlueAllianceZoneX'

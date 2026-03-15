@@ -75,6 +75,10 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     NTinst.AddListener(P__Drive_Motor_Control_Sign_Change_Deadband__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Motor_Control_Sign_Change_Deadband = event.GetValueEventData()->value.GetDouble();});
     P__Drive_Motor_Control_Sign_Change_Deadband__Entry.SetDouble(7000);
  
+    P__Feeder_Max_Pulsetime__Entry = NTtable_Tune->GetEntry("Feeder_Max_Pulsetime");
+    NTinst.AddListener(P__Feeder_Max_Pulsetime__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Feeder_Max_Pulsetime = event.GetValueEventData()->value.GetDouble();});
+    P__Feeder_Max_Pulsetime__Entry.SetDouble(2);
+ 
     P__Field_BlueAllianceZoneX__Entry = NTtable_Tune->GetEntry("Field_BlueAllianceZoneX");
     NTinst.AddListener(P__Field_BlueAllianceZoneX__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Field_BlueAllianceZoneX = event.GetValueEventData()->value.GetDouble();});
     P__Field_BlueAllianceZoneX__Entry.SetDouble(4.6256);
@@ -1103,6 +1107,7 @@ void SimulinkNetworkTables1::PostStepCallback()
     P__Drive_Motor_Control_I_UL__Entry.SetDouble(Drive_Motor_Control_I_UL);
     P__Drive_Motor_Control_P__Entry.SetDouble(Drive_Motor_Control_P);
     P__Drive_Motor_Control_Sign_Change_Deadband__Entry.SetDouble(Drive_Motor_Control_Sign_Change_Deadband);
+    P__Feeder_Max_Pulsetime__Entry.SetDouble(Feeder_Max_Pulsetime);
     P__Field_BlueAllianceZoneX__Entry.SetDouble(Field_BlueAllianceZoneX);
     P__Field_Blue_Hub_X__Entry.SetDouble(Field_Blue_Hub_X);
     P__Field_Blue_Pass_X__Entry.SetDouble(Field_Blue_Pass_X);
