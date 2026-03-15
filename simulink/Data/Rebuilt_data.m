@@ -11,7 +11,7 @@ TEST_Intake_Arm_Motor_DC_OV = 0;
 TEST_Intake_Roller_Motor_DC_OV = 0;
 
 %% Field Element Position Data
-Field_BlueAllianceZoneX = 182.11*0.0254;            % Meters
+Field_BlueAllianceZoneX = 182.11*0.0254;             % Meters
 Field_RedAllianceZoneX  = (651.22-182.11)*0.0254;    % Meters
 Field_Blue_Hub_X        = 182.11*0.0254;             % Meters
 Field_Hub_Y             = 158.84*0.0254;             % Meters
@@ -25,9 +25,10 @@ Field_Red_Pass_X        = (651.22-((156.61/2)))*0.0254;
 % Targets
 Rebuilt_Transfer_Minimum_Factor = 0.8;
 Rebuilt_Target_Transfer_Speed = 4000;   % rpm
-Rebuilt_Negative_Feeder_Speed = -1000;
-Rebuilt_Target_Feeder_Speed = Rebuilt_Target_Transfer_Speed*0.84;  % rpm
-% (the 0.84 factor sets feeder belt linear speed to match transfer wheel surface linear speed)
+Rebuilt_Negative_Feeder_Speed = -3000;  % this was -1000 with a 1:1 gear ratio
+Rebuilt_Target_Feeder_Speed = 3*Rebuilt_Target_Transfer_Speed*0.84;  % rpm
+% The 3 factor is for the 3:1 gear box.
+% The 0.84 factor sets feeder belt linear speed to match transfer wheel surface linear speed
 % Assumes 4 inch diameter transfer wheels and 24 tooth pulleys driving the belts
 
 Rebuilt_Shot_Init_Time = 0.4; % Seconds
@@ -154,7 +155,7 @@ Rebuilt_Shoot_Gyro_Err_7 = 2;
     clear plot_dist plot_shooter plot_hood plot_tof plot_gyro_err
 
 % Control Parameters to Calculate Duty Cycle
-Rebuilt_Feeder_Motor_Gain_FF = 1/7854;
+Rebuilt_Feeder_Motor_Gain_FF = 1/6048;
 
 Rebuilt_Transfer_Motor_Gain_FF = 1/7854;
 Rebuilt_Transfer_Motor_Gain_P = 0.0001;
@@ -188,7 +189,7 @@ Rebuilt_Intake_Arm_Gain_P = 0.005;
 Rebuilt_Intake_Arm_Gain_D = 0;
 
 Rebuilt_Roller_Desired_Speed = 4500;
-Rebuilt_Roller_Motor_Gain_FF = 1/7854;
+Rebuilt_Roller_Motor_Gain_FF = 1/6048;
 Rebuilt_Roller_Motor_Gain_P = 0.0001;
 Rebuilt_Roller_Motor_Gain_I = 0.001*0.02;
 Rebuilt_Roller_Error_Integral_Enable = 300;

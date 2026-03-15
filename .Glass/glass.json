@@ -12,6 +12,7 @@
       "/FMSInfo": "FMSInfo",
       "/SmartDashboard/ALARM PANIC": "Alerts",
       "/SmartDashboard/Auto Modes": "String Chooser",
+      "/SmartDashboard/Auto Path Starting Position": "String Chooser",
       "/SmartDashboard/CAN Connection Alerts": "Alerts"
     }
   },

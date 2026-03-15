@@ -113,8 +113,11 @@ Steering_Heading_Control_D_LL = -Steering_Heading_Control_D_UL;
 Steering_Heading_Control_Total_UL = 2.5;  % m/sec
 Steering_Heading_Control_Total_LL = -Steering_Heading_Control_Total_UL;
 
-Steering_Heading_Control_Deadzone = 0.01;
-
+Steering_Heading_Dither_Thresh_On = 5;    % degrees of error to enable dither
+Steering_Heading_Dither_Thresh_Off = 1;   % degrees of error to disable dither
+Steering_Heading_Dither_Gain = 2;      % PID output command multiplier
+Steering_Heading_Dither_Period = 0.1;  % seconds
+Steering_Heading_Control_Deadzone = 0.01;  % PID command level threshold
 
 clear Derivative_low_pass_filter_freq
 

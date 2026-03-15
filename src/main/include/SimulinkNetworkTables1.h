@@ -45,12 +45,9 @@ private:
         nt::NetworkTableEntry P__Field_Translation_Control_Gain__Entry;
         nt::NetworkTableEntry P__Field_Translation_Speed_Max__Entry;
         nt::NetworkTableEntry P__KF_Enable__Entry;
-        nt::NetworkTableEntry P__Rate_Limit_Max_X__Entry;
-        nt::NetworkTableEntry P__Rate_Limit_Max_Y__Entry;
-        nt::NetworkTableEntry P__Rate_Limit_Max_Z__Entry;
-        nt::NetworkTableEntry P__Rate_Limit_Min_X__Entry;
-        nt::NetworkTableEntry P__Rate_Limit_Min_Y__Entry;
-        nt::NetworkTableEntry P__Rate_Limit_Min_Z__Entry;
+        nt::NetworkTableEntry P__Rate_Limit_X__Entry;
+        nt::NetworkTableEntry P__Rate_Limit_Y__Entry;
+        nt::NetworkTableEntry P__Rate_Limit_Z__Entry;
         nt::NetworkTableEntry P__Rebuilt_Des_Gyro_Shoot_Offset__Entry;
         nt::NetworkTableEntry P__Rebuilt_Feeder_Motor_Gain_FF__Entry;
         nt::NetworkTableEntry P__Rebuilt_Hood_Servo_Pos_Max__Entry;
@@ -174,6 +171,10 @@ private:
         nt::NetworkTableEntry P__Steering_Heading_Control_P__Entry;
         nt::NetworkTableEntry P__Steering_Heading_Control_Total_LL__Entry;
         nt::NetworkTableEntry P__Steering_Heading_Control_Total_UL__Entry;
+        nt::NetworkTableEntry P__Steering_Heading_Dither_Gain__Entry;
+        nt::NetworkTableEntry P__Steering_Heading_Dither_Period__Entry;
+        nt::NetworkTableEntry P__Steering_Heading_Dither_Thresh_Off__Entry;
+        nt::NetworkTableEntry P__Steering_Heading_Dither_Thresh_On__Entry;
         nt::NetworkTableEntry P__Steering_Motor_Control_D__Entry;
         nt::NetworkTableEntry P__Steering_Motor_Control_D_FilterCoeff__Entry;
         nt::NetworkTableEntry P__Steering_Motor_Control_D_LL__Entry;
@@ -442,8 +443,8 @@ private:
         nt::NetworkTableEntry T__Steering_Abs_Gyro__Entry;
         nt::NetworkTableEntry T__Steering_Abs_Gyro_Latch__Entry;
         nt::NetworkTableEntry T__Steering_Heading_Error_deg__Entry;
+        nt::NetworkTableEntry T__Steering_Heading_PID__Entry;
         nt::NetworkTableEntry T__Steering_Localized_Cmd__Entry;
-        nt::NetworkTableEntry T__Steering_Localized_PID__Entry;
         nt::NetworkTableEntry T__Steering_Rel_Cmd__Entry;
         nt::NetworkTableEntry T__Steering_Rel_Cmd_SPF__Entry;
         nt::NetworkTableEntry T__Swerve_Drive_Integral_Enable__Entry;
@@ -461,5 +462,6 @@ private:
         nt::NetworkTableEntry T__Vision_c1_Object_Corr_Y_inch__Entry;
         nt::NetworkTableEntry T__Vision_c1_Object_Corr_Yaw_deg__Entry;
         nt::NetworkTableEntry T__WhileIterator__Entry;
+        nt::NetworkTableEntry T__abs_Cmd_Out__Entry;
         nt::NetworkTableEntry T__loop_counter_robot_control__Entry;
 };

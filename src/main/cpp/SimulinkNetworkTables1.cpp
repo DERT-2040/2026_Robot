@@ -123,29 +123,17 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     NTinst.AddListener(P__KF_Enable__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {KF_Enable = event.GetValueEventData()->value.GetDouble();});
     P__KF_Enable__Entry.SetDouble(1);
  
-    P__Rate_Limit_Max_X__Entry = NTtable_Tune->GetEntry("Rate_Limit_Max_X");
-    NTinst.AddListener(P__Rate_Limit_Max_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rate_Limit_Max_X = event.GetValueEventData()->value.GetDouble();});
-    P__Rate_Limit_Max_X__Entry.SetDouble(0.02);
+    P__Rate_Limit_X__Entry = NTtable_Tune->GetEntry("Rate_Limit_X");
+    NTinst.AddListener(P__Rate_Limit_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rate_Limit_X = event.GetValueEventData()->value.GetDouble();});
+    P__Rate_Limit_X__Entry.SetDouble(0.02);
  
-    P__Rate_Limit_Max_Y__Entry = NTtable_Tune->GetEntry("Rate_Limit_Max_Y");
-    NTinst.AddListener(P__Rate_Limit_Max_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rate_Limit_Max_Y = event.GetValueEventData()->value.GetDouble();});
-    P__Rate_Limit_Max_Y__Entry.SetDouble(0.02);
+    P__Rate_Limit_Y__Entry = NTtable_Tune->GetEntry("Rate_Limit_Y");
+    NTinst.AddListener(P__Rate_Limit_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rate_Limit_Y = event.GetValueEventData()->value.GetDouble();});
+    P__Rate_Limit_Y__Entry.SetDouble(0.02);
  
-    P__Rate_Limit_Max_Z__Entry = NTtable_Tune->GetEntry("Rate_Limit_Max_Z");
-    NTinst.AddListener(P__Rate_Limit_Max_Z__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rate_Limit_Max_Z = event.GetValueEventData()->value.GetDouble();});
-    P__Rate_Limit_Max_Z__Entry.SetDouble(0.02);
- 
-    P__Rate_Limit_Min_X__Entry = NTtable_Tune->GetEntry("Rate_Limit_Min_X");
-    NTinst.AddListener(P__Rate_Limit_Min_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rate_Limit_Min_X = event.GetValueEventData()->value.GetDouble();});
-    P__Rate_Limit_Min_X__Entry.SetDouble(-0.02);
- 
-    P__Rate_Limit_Min_Y__Entry = NTtable_Tune->GetEntry("Rate_Limit_Min_Y");
-    NTinst.AddListener(P__Rate_Limit_Min_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rate_Limit_Min_Y = event.GetValueEventData()->value.GetDouble();});
-    P__Rate_Limit_Min_Y__Entry.SetDouble(-0.02);
- 
-    P__Rate_Limit_Min_Z__Entry = NTtable_Tune->GetEntry("Rate_Limit_Min_Z");
-    NTinst.AddListener(P__Rate_Limit_Min_Z__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rate_Limit_Min_Z = event.GetValueEventData()->value.GetDouble();});
-    P__Rate_Limit_Min_Z__Entry.SetDouble(-0.02);
+    P__Rate_Limit_Z__Entry = NTtable_Tune->GetEntry("Rate_Limit_Z");
+    NTinst.AddListener(P__Rate_Limit_Z__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rate_Limit_Z = event.GetValueEventData()->value.GetDouble();});
+    P__Rate_Limit_Z__Entry.SetDouble(0.02);
  
     P__Rebuilt_Des_Gyro_Shoot_Offset__Entry = NTtable_Tune->GetEntry("Rebuilt_Des_Gyro_Shoot_Offset");
     NTinst.AddListener(P__Rebuilt_Des_Gyro_Shoot_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Des_Gyro_Shoot_Offset = event.GetValueEventData()->value.GetDouble();});
@@ -153,7 +141,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Feeder_Motor_Gain_FF__Entry = NTtable_Tune->GetEntry("Rebuilt_Feeder_Motor_Gain_FF");
     NTinst.AddListener(P__Rebuilt_Feeder_Motor_Gain_FF__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Feeder_Motor_Gain_FF = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Feeder_Motor_Gain_FF__Entry.SetDouble(0.00012732);
+    P__Rebuilt_Feeder_Motor_Gain_FF__Entry.SetDouble(0.00016534);
  
     P__Rebuilt_Hood_Servo_Pos_Max__Entry = NTtable_Tune->GetEntry("Rebuilt_Hood_Servo_Pos_Max");
     NTinst.AddListener(P__Rebuilt_Hood_Servo_Pos_Max__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Hood_Servo_Pos_Max = event.GetValueEventData()->value.GetDouble();});
@@ -253,7 +241,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Negative_Feeder_Speed__Entry = NTtable_Tune->GetEntry("Rebuilt_Negative_Feeder_Speed");
     NTinst.AddListener(P__Rebuilt_Negative_Feeder_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Negative_Feeder_Speed = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Negative_Feeder_Speed__Entry.SetDouble(-1000);
+    P__Rebuilt_Negative_Feeder_Speed__Entry.SetDouble(-3000);
  
     P__Rebuilt_Roller_Desired_Speed__Entry = NTtable_Tune->GetEntry("Rebuilt_Roller_Desired_Speed");
     NTinst.AddListener(P__Rebuilt_Roller_Desired_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Roller_Desired_Speed = event.GetValueEventData()->value.GetDouble();});
@@ -265,7 +253,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Roller_Motor_Gain_FF__Entry = NTtable_Tune->GetEntry("Rebuilt_Roller_Motor_Gain_FF");
     NTinst.AddListener(P__Rebuilt_Roller_Motor_Gain_FF__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Roller_Motor_Gain_FF = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Roller_Motor_Gain_FF__Entry.SetDouble(0.00012732);
+    P__Rebuilt_Roller_Motor_Gain_FF__Entry.SetDouble(0.00016534);
  
     P__Rebuilt_Roller_Motor_Gain_I__Entry = NTtable_Tune->GetEntry("Rebuilt_Roller_Motor_Gain_I");
     NTinst.AddListener(P__Rebuilt_Roller_Motor_Gain_I__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Roller_Motor_Gain_I = event.GetValueEventData()->value.GetDouble();});
@@ -505,7 +493,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Target_Feeder_Speed__Entry = NTtable_Tune->GetEntry("Rebuilt_Target_Feeder_Speed");
     NTinst.AddListener(P__Rebuilt_Target_Feeder_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Target_Feeder_Speed = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Target_Feeder_Speed__Entry.SetDouble(3360);
+    P__Rebuilt_Target_Feeder_Speed__Entry.SetDouble(10080);
  
     P__Rebuilt_Target_Transfer_Speed__Entry = NTtable_Tune->GetEntry("Rebuilt_Target_Transfer_Speed");
     NTinst.AddListener(P__Rebuilt_Target_Transfer_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Target_Transfer_Speed = event.GetValueEventData()->value.GetDouble();});
@@ -638,6 +626,22 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     P__Steering_Heading_Control_Total_UL__Entry = NTtable_Tune->GetEntry("Steering_Heading_Control_Total_UL");
     NTinst.AddListener(P__Steering_Heading_Control_Total_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Heading_Control_Total_UL = event.GetValueEventData()->value.GetDouble();});
     P__Steering_Heading_Control_Total_UL__Entry.SetDouble(2.5);
+ 
+    P__Steering_Heading_Dither_Gain__Entry = NTtable_Tune->GetEntry("Steering_Heading_Dither_Gain");
+    NTinst.AddListener(P__Steering_Heading_Dither_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Heading_Dither_Gain = event.GetValueEventData()->value.GetDouble();});
+    P__Steering_Heading_Dither_Gain__Entry.SetDouble(2);
+ 
+    P__Steering_Heading_Dither_Period__Entry = NTtable_Tune->GetEntry("Steering_Heading_Dither_Period");
+    NTinst.AddListener(P__Steering_Heading_Dither_Period__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Heading_Dither_Period = event.GetValueEventData()->value.GetDouble();});
+    P__Steering_Heading_Dither_Period__Entry.SetDouble(0.1);
+ 
+    P__Steering_Heading_Dither_Thresh_Off__Entry = NTtable_Tune->GetEntry("Steering_Heading_Dither_Thresh_Off");
+    NTinst.AddListener(P__Steering_Heading_Dither_Thresh_Off__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Heading_Dither_Thresh_Off = event.GetValueEventData()->value.GetDouble();});
+    P__Steering_Heading_Dither_Thresh_Off__Entry.SetDouble(1);
+ 
+    P__Steering_Heading_Dither_Thresh_On__Entry = NTtable_Tune->GetEntry("Steering_Heading_Dither_Thresh_On");
+    NTinst.AddListener(P__Steering_Heading_Dither_Thresh_On__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Heading_Dither_Thresh_On = event.GetValueEventData()->value.GetDouble();});
+    P__Steering_Heading_Dither_Thresh_On__Entry.SetDouble(5);
  
     P__Steering_Motor_Control_D__Entry = NTtable_Tune->GetEntry("Steering_Motor_Control_D");
     NTinst.AddListener(P__Steering_Motor_Control_D__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Motor_Control_D = event.GetValueEventData()->value.GetDouble();});
@@ -1060,8 +1064,8 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__Steering_Abs_Gyro__Entry = NTtable_TPoint->GetEntry("Steering_Abs_Gyro");
     T__Steering_Abs_Gyro_Latch__Entry = NTtable_TPoint->GetEntry("Steering_Abs_Gyro_Latch");
     T__Steering_Heading_Error_deg__Entry = NTtable_TPoint->GetEntry("Steering_Heading_Error_deg");
+    T__Steering_Heading_PID__Entry = NTtable_TPoint->GetEntry("Steering_Heading_PID");
     T__Steering_Localized_Cmd__Entry = NTtable_TPoint->GetEntry("Steering_Localized_Cmd");
-    T__Steering_Localized_PID__Entry = NTtable_TPoint->GetEntry("Steering_Localized_PID");
     T__Steering_Rel_Cmd__Entry = NTtable_TPoint->GetEntry("Steering_Rel_Cmd");
     T__Steering_Rel_Cmd_SPF__Entry = NTtable_TPoint->GetEntry("Steering_Rel_Cmd_SPF");
     T__Swerve_Drive_Integral_Enable__Entry = NTtable_TPoint->GetEntry("Swerve_Drive_Integral_Enable");
@@ -1079,6 +1083,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__Vision_c1_Object_Corr_Y_inch__Entry = NTtable_TPoint->GetEntry("Vision_c1_Object_Corr_Y_inch");
     T__Vision_c1_Object_Corr_Yaw_deg__Entry = NTtable_TPoint->GetEntry("Vision_c1_Object_Corr_Yaw_deg");
     T__WhileIterator__Entry = NTtable_TPoint->GetEntry("WhileIterator");
+    T__abs_Cmd_Out__Entry = NTtable_TPoint->GetEntry("abs_Cmd_Out");
     T__loop_counter_robot_control__Entry = NTtable_TPoint->GetEntry("loop_counter_robot_control");
 }
  
@@ -1115,12 +1120,9 @@ void SimulinkNetworkTables1::PostStepCallback()
     P__Field_Translation_Control_Gain__Entry.SetDouble(Field_Translation_Control_Gain);
     P__Field_Translation_Speed_Max__Entry.SetDouble(Field_Translation_Speed_Max);
     P__KF_Enable__Entry.SetDouble(KF_Enable);
-    P__Rate_Limit_Max_X__Entry.SetDouble(Rate_Limit_Max_X);
-    P__Rate_Limit_Max_Y__Entry.SetDouble(Rate_Limit_Max_Y);
-    P__Rate_Limit_Max_Z__Entry.SetDouble(Rate_Limit_Max_Z);
-    P__Rate_Limit_Min_X__Entry.SetDouble(Rate_Limit_Min_X);
-    P__Rate_Limit_Min_Y__Entry.SetDouble(Rate_Limit_Min_Y);
-    P__Rate_Limit_Min_Z__Entry.SetDouble(Rate_Limit_Min_Z);
+    P__Rate_Limit_X__Entry.SetDouble(Rate_Limit_X);
+    P__Rate_Limit_Y__Entry.SetDouble(Rate_Limit_Y);
+    P__Rate_Limit_Z__Entry.SetDouble(Rate_Limit_Z);
     P__Rebuilt_Des_Gyro_Shoot_Offset__Entry.SetDouble(Rebuilt_Des_Gyro_Shoot_Offset);
     P__Rebuilt_Feeder_Motor_Gain_FF__Entry.SetDouble(Rebuilt_Feeder_Motor_Gain_FF);
     P__Rebuilt_Hood_Servo_Pos_Max__Entry.SetDouble(Rebuilt_Hood_Servo_Pos_Max);
@@ -1244,6 +1246,10 @@ void SimulinkNetworkTables1::PostStepCallback()
     P__Steering_Heading_Control_P__Entry.SetDouble(Steering_Heading_Control_P);
     P__Steering_Heading_Control_Total_LL__Entry.SetDouble(Steering_Heading_Control_Total_LL);
     P__Steering_Heading_Control_Total_UL__Entry.SetDouble(Steering_Heading_Control_Total_UL);
+    P__Steering_Heading_Dither_Gain__Entry.SetDouble(Steering_Heading_Dither_Gain);
+    P__Steering_Heading_Dither_Period__Entry.SetDouble(Steering_Heading_Dither_Period);
+    P__Steering_Heading_Dither_Thresh_Off__Entry.SetDouble(Steering_Heading_Dither_Thresh_Off);
+    P__Steering_Heading_Dither_Thresh_On__Entry.SetDouble(Steering_Heading_Dither_Thresh_On);
     P__Steering_Motor_Control_D__Entry.SetDouble(Steering_Motor_Control_D);
     P__Steering_Motor_Control_D_FilterCoeff__Entry.SetDouble(Steering_Motor_Control_D_FilterCoeff);
     P__Steering_Motor_Control_D_LL__Entry.SetDouble(Steering_Motor_Control_D_LL);
@@ -1510,8 +1516,8 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__Steering_Abs_Gyro__Entry.SetDouble(Robot_Control_B.Steering_Abs_Gyro);
     T__Steering_Abs_Gyro_Latch__Entry.SetDouble(Robot_Control_B.Steering_Abs_Gyro_Latch);
     T__Steering_Heading_Error_deg__Entry.SetDouble(Robot_Control_B.Steering_Heading_Error_deg);
+    T__Steering_Heading_PID__Entry.SetDouble(Robot_Control_B.Steering_Heading_PID);
     T__Steering_Localized_Cmd__Entry.SetDouble(Robot_Control_B.Steering_Localized_Cmd);
-    T__Steering_Localized_PID__Entry.SetDouble(Robot_Control_B.Steering_Localized_PID);
     T__Steering_Rel_Cmd__Entry.SetDouble(Robot_Control_B.Steering_Rel_Cmd);
     T__Steering_Rel_Cmd_SPF__Entry.SetDouble(Robot_Control_B.Steering_Rel_Cmd_SPF);
     T__Swerve_Drive_Integral_Enable__Entry.SetDouble(Robot_Control_B.Swerve_Drive_Integral_Enable);
@@ -1529,6 +1535,7 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__Vision_c1_Object_Corr_Y_inch__Entry.SetDouble(Robot_Control_B.Vision_c1_Object_Corr_Y_inch);
     T__Vision_c1_Object_Corr_Yaw_deg__Entry.SetDouble(Robot_Control_B.Vision_c1_Object_Corr_Yaw_deg);
     T__WhileIterator__Entry.SetDouble(Robot_Control_B.WhileIterator);
+    T__abs_Cmd_Out__Entry.SetDouble(Robot_Control_B.abs_Cmd_Out);
     T__loop_counter_robot_control__Entry.SetDouble(Robot_Control_B.loop_counter_robot_control);
 }
 // Why are you reading to the bottom of an autogen file?
