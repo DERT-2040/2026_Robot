@@ -16,8 +16,8 @@ Field_RedAllianceZoneX  = (651.22-182.11)*0.0254;    % Meters
 Field_Blue_Hub_X        = 182.11*0.0254;             % Meters
 Field_Hub_Y             = 158.84*0.0254;             % Meters
 Field_Red_Hub_X         = (651.22-182.11)*0.0254;    % Meters
-Field_Pass_Y_Top        = (317.69-(49.84/2))*0.0254;
-Field_Pass_Y_Bottom     = (49.84/2)*0.0254;
+Field_Pass_Y_Top        = (317.69-(96))*0.0254;
+Field_Pass_Y_Bottom     = (96)*0.0254;
 Field_Blue_Pass_X       = (156.61/2)*0.0254;
 Field_Red_Pass_X        = (651.22-((156.61/2)))*0.0254;
 
@@ -183,10 +183,10 @@ Rebuilt_Intake_Des_Angle_Out = 90;
 Rebuilt_Intake_Cycle_Angle_In = -10;
 Rebuilt_Intake_Cycle_Angle_Out = 10;
 
-Rebuilt_Intake_RL_Inc =  2;
-Rebuilt_Intake_RL_Dec = -2;
+Rebuilt_Intake_RL_Inc =  3;
+Rebuilt_Intake_RL_Dec = -3;
 
-Rebuilt_Intake_Arm_Gain_P = 0.005;
+Rebuilt_Intake_Arm_Gain_P = 0.008;
 Rebuilt_Intake_Arm_Gain_D = 0;
 
 Rebuilt_Roller_Desired_Speed = 4500;

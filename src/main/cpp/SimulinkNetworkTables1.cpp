@@ -11,13 +11,17 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     auto NTtable_Outport = NTinst.GetTable("Simulink Top Level Ports");
     auto NTtable_TPoint = NTinst.GetTable("Simulink Test Points");
  
+    P__Auto_Deploy_Intake_Time__Entry = NTtable_Tune->GetEntry("Auto_Deploy_Intake_Time");
+    NTinst.AddListener(P__Auto_Deploy_Intake_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Deploy_Intake_Time = event.GetValueEventData()->value.GetDouble();});
+    P__Auto_Deploy_Intake_Time__Entry.SetDouble(1);
+ 
     P__Auto_Path_Chooser__Entry = NTtable_Tune->GetEntry("Auto_Path_Chooser");
     NTinst.AddListener(P__Auto_Path_Chooser__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Path_Chooser = event.GetValueEventData()->value.GetDouble();});
     P__Auto_Path_Chooser__Entry.SetDouble(1);
  
     P__Auto_Shoot_Time__Entry = NTtable_Tune->GetEntry("Auto_Shoot_Time");
     NTinst.AddListener(P__Auto_Shoot_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Shoot_Time = event.GetValueEventData()->value.GetDouble();});
-    P__Auto_Shoot_Time__Entry.SetDouble(3);
+    P__Auto_Shoot_Time__Entry.SetDouble(4);
  
     P__Boost_Trigger_Decreasing_Limit__Entry = NTtable_Tune->GetEntry("Boost_Trigger_Decreasing_Limit");
     NTinst.AddListener(P__Boost_Trigger_Decreasing_Limit__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Decreasing_Limit = event.GetValueEventData()->value.GetDouble();});
@@ -97,11 +101,11 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Field_Pass_Y_Bottom__Entry = NTtable_Tune->GetEntry("Field_Pass_Y_Bottom");
     NTinst.AddListener(P__Field_Pass_Y_Bottom__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Field_Pass_Y_Bottom = event.GetValueEventData()->value.GetDouble();});
-    P__Field_Pass_Y_Bottom__Entry.SetDouble(0.63297);
+    P__Field_Pass_Y_Bottom__Entry.SetDouble(2.4384);
  
     P__Field_Pass_Y_Top__Entry = NTtable_Tune->GetEntry("Field_Pass_Y_Top");
     NTinst.AddListener(P__Field_Pass_Y_Top__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Field_Pass_Y_Top = event.GetValueEventData()->value.GetDouble();});
-    P__Field_Pass_Y_Top__Entry.SetDouble(7.4364);
+    P__Field_Pass_Y_Top__Entry.SetDouble(5.6309);
  
     P__Field_RedAllianceZoneX__Entry = NTtable_Tune->GetEntry("Field_RedAllianceZoneX");
     NTinst.AddListener(P__Field_RedAllianceZoneX__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Field_RedAllianceZoneX = event.GetValueEventData()->value.GetDouble();});
@@ -129,15 +133,15 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rate_Limit_X__Entry = NTtable_Tune->GetEntry("Rate_Limit_X");
     NTinst.AddListener(P__Rate_Limit_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rate_Limit_X = event.GetValueEventData()->value.GetDouble();});
-    P__Rate_Limit_X__Entry.SetDouble(0.02);
+    P__Rate_Limit_X__Entry.SetDouble(100);
  
     P__Rate_Limit_Y__Entry = NTtable_Tune->GetEntry("Rate_Limit_Y");
     NTinst.AddListener(P__Rate_Limit_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rate_Limit_Y = event.GetValueEventData()->value.GetDouble();});
-    P__Rate_Limit_Y__Entry.SetDouble(0.02);
+    P__Rate_Limit_Y__Entry.SetDouble(100);
  
     P__Rate_Limit_Z__Entry = NTtable_Tune->GetEntry("Rate_Limit_Z");
     NTinst.AddListener(P__Rate_Limit_Z__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rate_Limit_Z = event.GetValueEventData()->value.GetDouble();});
-    P__Rate_Limit_Z__Entry.SetDouble(0.02);
+    P__Rate_Limit_Z__Entry.SetDouble(100);
  
     P__Rebuilt_Des_Gyro_Shoot_Offset__Entry = NTtable_Tune->GetEntry("Rebuilt_Des_Gyro_Shoot_Offset");
     NTinst.AddListener(P__Rebuilt_Des_Gyro_Shoot_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Des_Gyro_Shoot_Offset = event.GetValueEventData()->value.GetDouble();});
@@ -169,7 +173,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Intake_Arm_Gain_P__Entry = NTtable_Tune->GetEntry("Rebuilt_Intake_Arm_Gain_P");
     NTinst.AddListener(P__Rebuilt_Intake_Arm_Gain_P__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_Arm_Gain_P = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Intake_Arm_Gain_P__Entry.SetDouble(0.005);
+    P__Rebuilt_Intake_Arm_Gain_P__Entry.SetDouble(0.008);
  
     P__Rebuilt_Intake_Cycle_Angle_In__Entry = NTtable_Tune->GetEntry("Rebuilt_Intake_Cycle_Angle_In");
     NTinst.AddListener(P__Rebuilt_Intake_Cycle_Angle_In__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_Cycle_Angle_In = event.GetValueEventData()->value.GetDouble();});
@@ -197,11 +201,11 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Intake_RL_Dec__Entry = NTtable_Tune->GetEntry("Rebuilt_Intake_RL_Dec");
     NTinst.AddListener(P__Rebuilt_Intake_RL_Dec__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_RL_Dec = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Intake_RL_Dec__Entry.SetDouble(-2);
+    P__Rebuilt_Intake_RL_Dec__Entry.SetDouble(-3);
  
     P__Rebuilt_Intake_RL_Inc__Entry = NTtable_Tune->GetEntry("Rebuilt_Intake_RL_Inc");
     NTinst.AddListener(P__Rebuilt_Intake_RL_Inc__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_RL_Inc = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Intake_RL_Inc__Entry.SetDouble(2);
+    P__Rebuilt_Intake_RL_Inc__Entry.SetDouble(3);
  
     P__Rebuilt_Match_Time_Auto_Timer__Entry = NTtable_Tune->GetEntry("Rebuilt_Match_Time_Auto_Timer");
     NTinst.AddListener(P__Rebuilt_Match_Time_Auto_Timer__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_Auto_Timer = event.GetValueEventData()->value.GetDouble();});
@@ -1096,6 +1100,7 @@ void SimulinkNetworkTables1::PreStepCallback() {}
 void SimulinkNetworkTables1::PostStepCallback()
 {
     // Tunable Parameters
+    P__Auto_Deploy_Intake_Time__Entry.SetDouble(Auto_Deploy_Intake_Time);
     P__Auto_Path_Chooser__Entry.SetDouble(Auto_Path_Chooser);
     P__Auto_Shoot_Time__Entry.SetDouble(Auto_Shoot_Time);
     P__Boost_Trigger_Decreasing_Limit__Entry.SetDouble(Boost_Trigger_Decreasing_Limit);

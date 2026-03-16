@@ -17,6 +17,7 @@ public:
     void PostStepCallback() override;
 private:
         // Parameters
+        nt::NetworkTableEntry P__Auto_Deploy_Intake_Time__Entry;
         nt::NetworkTableEntry P__Auto_Path_Chooser__Entry;
         nt::NetworkTableEntry P__Auto_Shoot_Time__Entry;
         nt::NetworkTableEntry P__Boost_Trigger_Decreasing_Limit__Entry;

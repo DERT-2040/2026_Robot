@@ -11,7 +11,7 @@ Not_Tunable_List = {'t_sample',...
     'Spline_Num_Poses_default','Spline_Ref_Poses_default',...
     'All_Paths_Ref_Poses_Blue','All_Paths_Ref_Poses_Red',...
     'All_Paths_Num_Poses','Auto_Path_01','Auto_Path_02','Auto_Path_03',...
-    'Auto_Path_04','Auto_Path_05','Auto_Path_06','Auto_Path_07','Auto_Path_08'...
+    'Auto_Path_04','Auto_Path_05','Auto_Path_06','Auto_Path_07'...
 };
 
 % sample time model
@@ -40,9 +40,9 @@ Rebuilt_data
 Rebuilt_Auto_Paths
 
 %Rate Limit for Shooting
-Rate_Limit_X =  1*t_sample;
-Rate_Limit_Y =  1*t_sample;
-Rate_Limit_Z =  1*t_sample;
+Rate_Limit_X =  100;
+Rate_Limit_Y =  100;
+Rate_Limit_Z =  100;
 
 
 
