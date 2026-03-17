@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.477
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sun Mar 15 21:59:14 2026
+ * C/C++ source code generated on : Mon Mar 16 20:38:10 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -157,7 +157,7 @@ real_T Drive_Motor_Control_Sign_Change_Deadband = 7000.0;
                             *   '<S306>/Constant'
                             *   '<S327>/Constant'
                             */
-real_T Feeder_Max_Pulsetime = 2.0;     /* Variable: Feeder_Max_Pulsetime
+real_T Feeder_Max_Pulsetime = 1000.0;  /* Variable: Feeder_Max_Pulsetime
                                         * Referenced by: '<S12>/Shooter_Transfer_Feeder Chart'
                                         */
 real_T Field_BlueAllianceZoneX = 4.6256;/* Variable: Field_BlueAllianceZoneX
@@ -205,13 +205,13 @@ real_T KF_Enable = 1.0;                /* Variable: KF_Enable
                                         *   '<S8>/Constant1'
                                         *   '<S8>/Constant2'
                                         */
-real_T Rate_Limit_X = 100.0;           /* Variable: Rate_Limit_X
+real_T Rate_Limit_X = 1000.0;          /* Variable: Rate_Limit_X
                                         * Referenced by: '<S39>/Constant3'
                                         */
-real_T Rate_Limit_Y = 100.0;           /* Variable: Rate_Limit_Y
+real_T Rate_Limit_Y = 1000.0;          /* Variable: Rate_Limit_Y
                                         * Referenced by: '<S40>/Constant3'
                                         */
-real_T Rate_Limit_Z = 100.0;           /* Variable: Rate_Limit_Z
+real_T Rate_Limit_Z = 1000.0;          /* Variable: Rate_Limit_Z
                                         * Referenced by: '<S41>/Constant3'
                                         */
 real_T Rebuilt_Des_Gyro_Shoot_Offset = 0.0;
@@ -281,7 +281,9 @@ real_T Rebuilt_Match_Time_Auto_Timer = 30.0;
                                        */
 real_T Rebuilt_Match_Time_End_Game_Timer = 30.0;
                                   /* Variable: Rebuilt_Match_Time_End_Game_Timer
-                                   * Referenced by: '<S170>/Unit Delay'
+                                   * Referenced by:
+                                   *   '<S169>/Constant3'
+                                   *   '<S170>/Unit Delay'
                                    */
 real_T Rebuilt_Match_Time_Shift_1 = 35.0;/* Variable: Rebuilt_Match_Time_Shift_1
                                           * Referenced by: '<S161>/Constant'
@@ -306,6 +308,10 @@ real_T Rebuilt_Match_Time_Shift_Timer = 25.0;
 real_T Rebuilt_Match_Time_Shoot_Early = 3.0;
                                      /* Variable: Rebuilt_Match_Time_Shoot_Early
                                       * Referenced by:
+                                      *   '<S166>/Constant2'
+                                      *   '<S167>/Constant2'
+                                      *   '<S168>/Constant2'
+                                      *   '<S169>/Constant2'
                                       *   '<S171>/Constant'
                                       *   '<S172>/Constant'
                                       *   '<S173>/Constant'
@@ -380,10 +386,10 @@ real_T Rebuilt_Shoot_Gyro_Err_4 = 2.0; /* Variable: Rebuilt_Shoot_Gyro_Err_4
 real_T Rebuilt_Shoot_Gyro_Err_5 = 2.0; /* Variable: Rebuilt_Shoot_Gyro_Err_5
                                         * Referenced by: '<S144>/Constant10'
                                         */
-real_T Rebuilt_Shoot_Gyro_Err_6 = 2.0; /* Variable: Rebuilt_Shoot_Gyro_Err_6
+real_T Rebuilt_Shoot_Gyro_Err_6 = 10.0;/* Variable: Rebuilt_Shoot_Gyro_Err_6
                                         * Referenced by: '<S144>/Constant2'
                                         */
-real_T Rebuilt_Shoot_Gyro_Err_7 = 2.0; /* Variable: Rebuilt_Shoot_Gyro_Err_7
+real_T Rebuilt_Shoot_Gyro_Err_7 = 10.0;/* Variable: Rebuilt_Shoot_Gyro_Err_7
                                         * Referenced by: '<S144>/Constant1'
                                         */
 real_T Rebuilt_Shoot_Hood_Pos_0 = 0.05;/* Variable: Rebuilt_Shoot_Hood_Pos_0
@@ -914,11 +920,11 @@ void Robot_C_IfActionSubsystem1_Init(DW_IfActionSubsystem1_Robot_C_T *localDW)
  *    '<S133>/If Action Subsystem1'
  *    '<S133>/If Action Subsystem3'
  */
-void Robot_Contro_IfActionSubsystem1(boolean_T rtu_IsBlueInactiveFirst,
-  boolean_T *rty_IsBlueActive, boolean_T *rty_IsRedActive, real_T
-  *rty_Time_Remaining, DW_IfActionSubsystem1_Robot_C_T *localDW)
+void Robot_Contro_IfActionSubsystem1(real_T rtu_IsBlueInactiveFirst, real_T
+  rtu_IsBlueAlliance, boolean_T *rty_IsBlueActive, boolean_T *rty_IsRedActive,
+  real_T *rty_Time_Remaining, DW_IfActionSubsystem1_Robot_C_T *localDW)
 {
-  boolean_T rtb_Compare_pp;
+  boolean_T rtb_Compare_nn;
 
   /* RelationalOperator: '<S171>/Compare' incorporates:
    *  Constant: '<S166>/Constant1'
@@ -926,80 +932,38 @@ void Robot_Contro_IfActionSubsystem1(boolean_T rtu_IsBlueInactiveFirst,
    *  Sum: '<S166>/Sum'
    *  UnitDelay: '<S166>/Unit Delay'
    */
-  rtb_Compare_pp = ((localDW->UnitDelay_DSTATE - 0.02) <=
+  rtb_Compare_nn = ((localDW->UnitDelay_DSTATE - 0.02) <=
                     Rebuilt_Match_Time_Shoot_Early);
 
   /* Logic: '<S166>/Logical Operator' incorporates:
    *  Logic: '<S166>/NOT'
    */
-  *rty_IsBlueActive = ((!rtu_IsBlueInactiveFirst) || rtb_Compare_pp);
+  *rty_IsBlueActive = ((!(rtu_IsBlueInactiveFirst != 0.0)) || rtb_Compare_nn);
 
   /* Logic: '<S166>/Logical Operator1' */
-  *rty_IsRedActive = (rtu_IsBlueInactiveFirst || rtb_Compare_pp);
+  *rty_IsRedActive = ((rtu_IsBlueInactiveFirst != 0.0) || rtb_Compare_nn);
 
-  /* SignalConversion: '<S166>/Signal Copy' incorporates:
+  /* Switch: '<S166>/Switch' incorporates:
    *  Constant: '<S166>/Constant1'
+   *  Constant: '<S166>/Constant2'
+   *  Logic: '<S166>/Logical Operator2'
+   *  Sum: '<S166>/Subtract'
    *  Sum: '<S166>/Sum'
    *  UnitDelay: '<S166>/Unit Delay'
    */
-  *rty_Time_Remaining = localDW->UnitDelay_DSTATE - 0.02;
+  if ((boolean_T)((rtu_IsBlueInactiveFirst != 0.0) ^ (rtu_IsBlueAlliance != 0.0)))
+  {
+    *rty_Time_Remaining = localDW->UnitDelay_DSTATE - 0.02;
+  } else {
+    *rty_Time_Remaining = (localDW->UnitDelay_DSTATE - 0.02) -
+      Rebuilt_Match_Time_Shoot_Early;
+  }
+
+  /* End of Switch: '<S166>/Switch' */
 
   /* Update for UnitDelay: '<S166>/Unit Delay' incorporates:
    *  Constant: '<S166>/Constant1'
    *  Sum: '<S166>/Sum'
-   */
-  localDW->UnitDelay_DSTATE -= 0.02;
-}
-
-/*
- * System initialize for action system:
- *    '<S133>/If Action Subsystem2'
- *    '<S133>/If Action Subsystem4'
- */
-void Robot_C_IfActionSubsystem2_Init(DW_IfActionSubsystem2_Robot_C_T *localDW)
-{
-  /* InitializeConditions for UnitDelay: '<S167>/Unit Delay' */
-  localDW->UnitDelay_DSTATE = Rebuilt_Match_Time_Shift_Timer;
-}
-
-/*
- * Output and update for action system:
- *    '<S133>/If Action Subsystem2'
- *    '<S133>/If Action Subsystem4'
- */
-void Robot_Contro_IfActionSubsystem2(boolean_T rtu_IsBlueInactiveFirst,
-  boolean_T *rty_IsBlueActive, boolean_T *rty_IsRedActive, real_T
-  *rty_Time_Remaining, DW_IfActionSubsystem2_Robot_C_T *localDW)
-{
-  boolean_T rtb_Compare_cb;
-
-  /* RelationalOperator: '<S172>/Compare' incorporates:
-   *  Constant: '<S167>/Constant1'
-   *  Constant: '<S172>/Constant'
-   *  Sum: '<S167>/Sum'
-   *  UnitDelay: '<S167>/Unit Delay'
-   */
-  rtb_Compare_cb = ((localDW->UnitDelay_DSTATE - 0.02) <=
-                    Rebuilt_Match_Time_Shoot_Early);
-
-  /* Logic: '<S167>/Logical Operator' */
-  *rty_IsBlueActive = (rtu_IsBlueInactiveFirst || rtb_Compare_cb);
-
-  /* Logic: '<S167>/Logical Operator1' incorporates:
-   *  Logic: '<S167>/NOT1'
-   */
-  *rty_IsRedActive = ((!rtu_IsBlueInactiveFirst) || rtb_Compare_cb);
-
-  /* SignalConversion: '<S167>/Signal Copy' incorporates:
-   *  Constant: '<S167>/Constant1'
-   *  Sum: '<S167>/Sum'
-   *  UnitDelay: '<S167>/Unit Delay'
-   */
-  *rty_Time_Remaining = localDW->UnitDelay_DSTATE - 0.02;
-
-  /* Update for UnitDelay: '<S167>/Unit Delay' incorporates:
-   *  Constant: '<S167>/Constant1'
-   *  Sum: '<S167>/Sum'
    */
   localDW->UnitDelay_DSTATE -= 0.02;
 }
@@ -1095,8 +1059,8 @@ void Robot_Control_step(void)
   boolean_T rtb_AND4;
   boolean_T rtb_Button_Shoot_Enable;
   boolean_T rtb_Button_Spinup_Enable;
-  boolean_T rtb_Compare_lg;
-  boolean_T rtb_Compare_mga;
+  boolean_T rtb_Compare_lq;
+  boolean_T rtb_Compare_ps;
   boolean_T rtb_Disable_Wheels;
   boolean_T rtb_Enable_Wheels;
   boolean_T rtb_Intake_Arm_Cycle;
@@ -1760,7 +1724,7 @@ void Robot_Control_step(void)
      *  Constant: '<S23>/Constant'
      *  UnitDelay: '<S19>/Unit Delay1'
      */
-    rtb_Compare_mga = (Robot_Control_DW.UnitDelay1_DSTATE_k == 2.0);
+    rtb_Compare_ps = (Robot_Control_DW.UnitDelay1_DSTATE_k == 2.0);
 
     /* Switch: '<S19>/Switch1' incorporates:
      *  Constant: '<S19>/Constant1'
@@ -1774,7 +1738,7 @@ void Robot_Control_step(void)
      *
      *  Store in Global RAM
      */
-    if (((int32_T)rtb_Compare_mga) > ((int32_T)
+    if (((int32_T)rtb_Compare_ps) > ((int32_T)
          Robot_Control_DW.DelayInput1_DSTATE_kb)) {
       rtb_Init_o = 0.0;
     } else {
@@ -1787,7 +1751,7 @@ void Robot_Control_step(void)
      *  Constant: '<S25>/Constant'
      *  UnitDelay: '<S19>/Unit Delay1'
      */
-    rtb_Compare_lg = (Robot_Control_DW.UnitDelay1_DSTATE_k == 4.0);
+    rtb_Compare_lq = (Robot_Control_DW.UnitDelay1_DSTATE_k == 4.0);
 
     /* Switch: '<S19>/Switch2' incorporates:
      *  Constant: '<S19>/Constant3'
@@ -1801,7 +1765,7 @@ void Robot_Control_step(void)
      *
      *  Store in Global RAM
      */
-    if (((int32_T)rtb_Compare_lg) > ((int32_T)
+    if (((int32_T)rtb_Compare_lq) > ((int32_T)
          Robot_Control_DW.DelayInput1_DSTATE_h)) {
       rtb_Sin4 = 0.0;
     } else {
@@ -1815,9 +1779,9 @@ void Robot_Control_step(void)
      *  RelationalOperator: '<S24>/Compare'
      *  Switch: '<S19>/Switch3'
      */
-    if (rtb_Compare_mga) {
+    if (rtb_Compare_ps) {
       rtb_Shooter_Active_prev = (rtb_Init_o >= Auto_Shoot_Time);
-    } else if (rtb_Compare_lg) {
+    } else if (rtb_Compare_lq) {
       /* Switch: '<S19>/Switch3' incorporates:
        *  Constant: '<S26>/Constant'
        *  RelationalOperator: '<S26>/Compare'
@@ -2218,7 +2182,7 @@ void Robot_Control_step(void)
      *
      *  Store in Global RAM
      */
-    Robot_Control_DW.DelayInput1_DSTATE_kb = rtb_Compare_mga;
+    Robot_Control_DW.DelayInput1_DSTATE_kb = rtb_Compare_ps;
 
     /* Update for UnitDelay: '<S19>/Unit Delay' */
     Robot_Control_DW.UnitDelay_DSTATE_b = rtb_Init_o;
@@ -2229,7 +2193,7 @@ void Robot_Control_step(void)
      *
      *  Store in Global RAM
      */
-    Robot_Control_DW.DelayInput1_DSTATE_h = rtb_Compare_lg;
+    Robot_Control_DW.DelayInput1_DSTATE_h = rtb_Compare_lq;
 
     /* Update for UnitDelay: '<S19>/Unit Delay2' */
     Robot_Control_DW.UnitDelay2_DSTATE_d = rtb_Sin4;
@@ -2371,7 +2335,7 @@ void Robot_Control_step(void)
     /* RelationalOperator: '<S416>/Compare' incorporates:
      *  Constant: '<S416>/Constant'
      */
-    rtb_Compare_mga = (rtb_Switch1_m == 0.0);
+    rtb_Compare_ps = (rtb_Switch1_m == 0.0);
 
     /* Logic: '<S414>/AND2' incorporates:
      *  RelationalOperator: '<S417>/FixPt Relational Operator'
@@ -2412,18 +2376,18 @@ void Robot_Control_step(void)
      *  Logic: '<S414>/AND3'
      *  UnitDelay: '<S414>/Unit Delay2'
      */
-    rtb_Compare_lg = (rtb_Compare_mga && (rtb_Intake_Arm_Cycle ||
+    rtb_Compare_lq = (rtb_Compare_ps && (rtb_Intake_Arm_Cycle ||
       (Robot_Control_DW.UnitDelay2_DSTATE_l)));
 
     /* Logic: '<S414>/AND4' incorporates:
      *  Logic: '<S414>/AND8'
      *  UnitDelay: '<S414>/Unit Delay4'
      */
-    rtb_AND4 = ((rtb_Compare_mga && (!rtb_Intake_Arm_Cycle)) &&
+    rtb_AND4 = ((rtb_Compare_ps && (!rtb_Intake_Arm_Cycle)) &&
                 (Robot_Control_DW.UnitDelay4_DSTATE));
 
     /* Logic: '<S414>/AND6' */
-    Robot_Control_B.Steering_Abs_Angle_Active = (rtb_Compare_lg || rtb_AND4);
+    Robot_Control_B.Steering_Abs_Angle_Active = (rtb_Compare_lq || rtb_AND4);
 
     /* Switch: '<S414>/Switch8' incorporates:
      *  Constant: '<S423>/Constant'
@@ -2439,7 +2403,7 @@ void Robot_Control_step(void)
      *  Store in Global RAM
      */
     if ((((Robot_Control_B.Steering_Abs_Angle_Active) || (((int32_T)
-            rtb_Compare_mga) > ((int32_T)Robot_Control_DW.DelayInput1_DSTATE_j)))
+            rtb_Compare_ps) > ((int32_T)Robot_Control_DW.DelayInput1_DSTATE_j)))
          || (Robot_Control_B.Active_GameState != 2)) ||
         (Robot_Control_B.RB_Shooter_Active)) {
       /* Switch: '<S414>/Switch8' incorporates:
@@ -2540,7 +2504,7 @@ void Robot_Control_step(void)
     if (TEST_Swerve_Mode_Override_Flag != 0.0) {
       rtb_Is_Absolute_Steering = (TEST_Swerve_Mode_Steering != 0.0);
     } else {
-      rtb_Is_Absolute_Steering = rtb_Compare_mga;
+      rtb_Is_Absolute_Steering = rtb_Compare_ps;
     }
 
     /* End of Switch: '<S413>/Switch1' */
@@ -2919,7 +2883,7 @@ void Robot_Control_step(void)
      *
      *  Store in Global RAM
      */
-    Robot_Control_DW.DelayInput1_DSTATE_j = rtb_Compare_mga;
+    Robot_Control_DW.DelayInput1_DSTATE_j = rtb_Compare_ps;
 
     /* Update for UnitDelay: '<S421>/Delay Input1' incorporates:
      *  Constant: '<S15>/Constant5'
@@ -2963,7 +2927,7 @@ void Robot_Control_step(void)
     Robot_Control_DW.DelayInput1_DSTATE_g2 = Robot_Control_B.Face_Right_Driver;
 
     /* Update for UnitDelay: '<S414>/Unit Delay2' */
-    Robot_Control_DW.UnitDelay2_DSTATE_l = rtb_Compare_lg;
+    Robot_Control_DW.UnitDelay2_DSTATE_l = rtb_Compare_lq;
 
     /* Update for UnitDelay: '<S414>/Unit Delay4' */
     Robot_Control_DW.UnitDelay4_DSTATE = rtb_AND4;
@@ -3320,17 +3284,17 @@ void Robot_Control_step(void)
   Robot_Control_DW.If_ActiveSubsystem = rtAction;
   if ((rtPrevAction != rtAction) && (rtPrevAction == 0)) {
     /* Disable for If: '<S198>/If' */
-    if (Robot_Control_DW.If_ActiveSubsystem_hk == 0) {
+    if (Robot_Control_DW.If_ActiveSubsystem_h == 0) {
       /* Disable for If: '<S201>/If' */
       if (Robot_Control_DW.If_ActiveSubsystem_o == 0) {
         /* Disable for If: '<S203>/If' */
-        Robot_Control_DW.If_ActiveSubsystem_d = -1;
+        Robot_Control_DW.If_ActiveSubsystem_d0 = -1;
       }
 
       Robot_Control_DW.If_ActiveSubsystem_o = -1;
     }
 
-    Robot_Control_DW.If_ActiveSubsystem_hk = -1;
+    Robot_Control_DW.If_ActiveSubsystem_h = -1;
 
     /* End of Disable for If: '<S198>/If' */
   }
@@ -3387,15 +3351,15 @@ void Robot_Control_step(void)
      *  RelationalOperator: '<S198>/ '
      *  UnitDelay: '<S194>/Unit Delay'
      */
-    rtPrevAction = Robot_Control_DW.If_ActiveSubsystem_hk;
+    rtPrevAction = Robot_Control_DW.If_ActiveSubsystem_h;
     rtAction = (int8_T)(!(Robot_Control_DW.UnitDelay_DSTATE_gh <=
                           Robot_Control_B.Spline_Num_Poses));
-    Robot_Control_DW.If_ActiveSubsystem_hk = rtAction;
+    Robot_Control_DW.If_ActiveSubsystem_h = rtAction;
     if ((rtPrevAction != rtAction) && (rtPrevAction == 0)) {
       /* Disable for If: '<S201>/If' */
       if (Robot_Control_DW.If_ActiveSubsystem_o == 0) {
         /* Disable for If: '<S203>/If' */
-        Robot_Control_DW.If_ActiveSubsystem_d = -1;
+        Robot_Control_DW.If_ActiveSubsystem_d0 = -1;
       }
 
       Robot_Control_DW.If_ActiveSubsystem_o = -1;
@@ -3484,7 +3448,7 @@ void Robot_Control_step(void)
       Robot_Control_DW.If_ActiveSubsystem_o = rtAction;
       if ((rtPrevAction != rtAction) && (rtPrevAction == 0)) {
         /* Disable for If: '<S203>/If' */
-        Robot_Control_DW.If_ActiveSubsystem_d = -1;
+        Robot_Control_DW.If_ActiveSubsystem_d0 = -1;
       }
 
       switch (rtAction) {
@@ -3495,10 +3459,10 @@ void Robot_Control_step(void)
         /* If: '<S203>/If' incorporates:
          *  RelationalOperator: '<S203>/Equal'
          */
-        rtPrevAction = Robot_Control_DW.If_ActiveSubsystem_d;
+        rtPrevAction = Robot_Control_DW.If_ActiveSubsystem_d0;
         rtAction = (int8_T)(!(Robot_Control_DW.UnitDelay_DSTATE_gh ==
                               Robot_Control_B.Spline_Num_Poses));
-        Robot_Control_DW.If_ActiveSubsystem_d = rtAction;
+        Robot_Control_DW.If_ActiveSubsystem_d0 = rtAction;
         if (rtAction == 0) {
           /* InitializeConditions for IfAction SubSystem: '<S203>/Is_Last_Point' incorporates:
            *  ActionPort: '<S206>/Action Port'
@@ -3520,11 +3484,11 @@ void Robot_Control_step(void)
            *  RelationalOperator: '<S208>/Compare'
            *  UnitDelay: '<S206>/Unit Delay'
            */
-          rtb_Compare_lg = ((Robot_Control_DW.UnitDelay_DSTATE_nu) ||
+          rtb_Compare_lq = ((Robot_Control_DW.UnitDelay_DSTATE_nu) ||
                             (rtb_Init_o <= Spline_Stop_Radius));
 
           /* If: '<S206>/If' */
-          if (rtb_Compare_lg) {
+          if (rtb_Compare_lq) {
             /* Outputs for IfAction SubSystem: '<S206>/Robot_Is_At_Destination' incorporates:
              *  ActionPort: '<S209>/Action Port'
              */
@@ -3537,7 +3501,7 @@ void Robot_Control_step(void)
             /* SignalConversion generated from: '<S209>/Make_Staight_Line_To_End' incorporates:
              *  Constant: '<S209>/Constant1'
              */
-            rtb_Compare_mga = false;
+            rtb_Compare_ps = false;
 
             /* End of Outputs for SubSystem: '<S206>/Robot_Is_At_Destination' */
           } else {
@@ -3553,7 +3517,7 @@ void Robot_Control_step(void)
             /* SignalConversion generated from: '<S210>/Make_Staight_Line_To_End' incorporates:
              *  Constant: '<S210>/Constant1'
              */
-            rtb_Compare_mga = true;
+            rtb_Compare_ps = true;
 
             /* End of Outputs for SubSystem: '<S206>/Straight_Line_Path_To_End' */
           }
@@ -3567,7 +3531,7 @@ void Robot_Control_step(void)
             Robot_Control_DW.UnitDelay_DSTATE_gh;
 
           /* Update for UnitDelay: '<S206>/Unit Delay' */
-          Robot_Control_DW.UnitDelay_DSTATE_nu = rtb_Compare_lg;
+          Robot_Control_DW.UnitDelay_DSTATE_nu = rtb_Compare_lq;
 
           /* End of Outputs for SubSystem: '<S203>/Is_Last_Point' */
         } else {
@@ -3583,7 +3547,7 @@ void Robot_Control_step(void)
           /* SignalConversion generated from: '<S205>/Make_Staight_Line_To_End' incorporates:
            *  Constant: '<S205>/Constant1'
            */
-          rtb_Compare_mga = false;
+          rtb_Compare_ps = false;
 
           /* Merge: '<S198>/Merge4' incorporates:
            *  Constant: '<S207>/FixPt Constant'
@@ -3747,7 +3711,7 @@ void Robot_Control_step(void)
          *  DotProduct: '<S212>/Dot Product1'
          *  Sum: '<S212>/Minus'
          */
-        rtb_Compare_mga = (rtb_Sin4 <= ((rtb_Switch2_c3 * rtb_Switch2_c3) +
+        rtb_Compare_ps = (rtb_Sin4 <= ((rtb_Switch2_c3 * rtb_Switch2_c3) +
           rtb_Switch2_p2));
 
         /* DotProduct: '<S212>/Dot Product2' incorporates:
@@ -3767,7 +3731,7 @@ void Robot_Control_step(void)
          *  Sum: '<S212>/Minus4'
          */
         Robot_Control_B.Spline_Follow_Index = ((real_T)
-          (((rtb_Is_Absolute_Steering && rtb_Compare_mga) && (rtb_Sin4 >= 0.0)) &&
+          (((rtb_Is_Absolute_Steering && rtb_Compare_ps) && (rtb_Sin4 >= 0.0)) &&
            (rtb_Sin4 <= ((rtb_Minus_k_idx_0 * rtb_Minus_k_idx_0) +
                          rtb_MatrixConcatenate_b_idx_0)))) +
           Robot_Control_DW.UnitDelay_DSTATE_gh;
@@ -3781,7 +3745,7 @@ void Robot_Control_step(void)
         /* SignalConversion generated from: '<S204>/Make_Staight_Line_To_End' incorporates:
          *  Constant: '<S204>/Constant1'
          */
-        rtb_Compare_mga = false;
+        rtb_Compare_ps = false;
 
         /* End of Outputs for SubSystem: '<S201>/Increment_If_Rectangle_Check' */
         break;
@@ -3799,7 +3763,7 @@ void Robot_Control_step(void)
         /* SignalConversion generated from: '<S202>/Make_Staight_Line_To_End' incorporates:
          *  Constant: '<S202>/Constant1'
          */
-        rtb_Compare_mga = false;
+        rtb_Compare_ps = false;
 
         /* Merge: '<S198>/Merge4' incorporates:
          *  SignalConversion generated from: '<S202>/Current_Index'
@@ -3840,7 +3804,7 @@ void Robot_Control_step(void)
       /* SignalConversion generated from: '<S200>/Make_Staight_Line_To_End' incorporates:
        *  Constant: '<S200>/Constant2'
        */
-      rtb_Compare_mga = false;
+      rtb_Compare_ps = false;
 
       /* Merge: '<S198>/Merge4' incorporates:
        *  SignalConversion generated from: '<S200>/Current_Index'
@@ -3853,7 +3817,7 @@ void Robot_Control_step(void)
     /* End of If: '<S198>/If' */
 
     /* If: '<S194>/If1' */
-    if (!rtb_Compare_mga) {
+    if (!rtb_Compare_ps) {
       /* Outputs for IfAction SubSystem: '<S194>/Make_Knots_and_Path_Planning' incorporates:
        *  ActionPort: '<S199>/Action Port'
        */
@@ -4362,14 +4326,14 @@ void Robot_Control_step(void)
     /* End of Switch: '<S248>/Switch' */
 
     /* Logic: '<S196>/OR' */
-    rtb_Compare_mga = (rtb_Is_Absolute_Steering ||
-                       (Robot_Control_B.Spline_Out_Of_Bounds));
+    rtb_Compare_ps = (rtb_Is_Absolute_Steering ||
+                      (Robot_Control_B.Spline_Out_Of_Bounds));
 
     /* Switch: '<S196>/Switch1' incorporates:
      *  Switch: '<S196>/Switch'
      *  UnitDelay: '<S196>/Unit Delay'
      */
-    if (rtb_Compare_mga) {
+    if (rtb_Compare_ps) {
       /* Merge: '<S13>/Merge2' incorporates:
        *  Constant: '<S196>/Constant3'
        *  SignalConversion: '<S196>/Signal Copy1'
@@ -4411,7 +4375,7 @@ void Robot_Control_step(void)
      *  Trigonometry: '<S252>/Atan2'
      *  UnitDelay: '<S196>/Unit Delay1'
      */
-    if (rtb_Compare_mga) {
+    if (rtb_Compare_ps) {
       rtb_Modulation_Drv = Robot_Control_DW.UnitDelay1_DSTATE_kc;
     } else {
       rtb_Modulation_Drv = rt_atan2d_snf(Robot_Control_B.Spline_Target_Y -
@@ -4794,6 +4758,7 @@ void Robot_Control_step(void)
    *  Constant: '<S162>/Constant'
    *  Constant: '<S163>/Constant'
    *  Constant: '<S164>/Constant'
+   *  Inport: '<Root>/IsBlueAlliance'
    *  Inport: '<Root>/IsBlueInactiveFirst'
    *  RelationalOperator: '<S159>/Compare'
    *  RelationalOperator: '<S160>/Compare'
@@ -4802,7 +4767,7 @@ void Robot_Control_step(void)
    *  RelationalOperator: '<S163>/Compare'
    *  RelationalOperator: '<S164>/Compare'
    */
-  rtPrevAction = Robot_Control_DW.If_ActiveSubsystem_h;
+  rtPrevAction = Robot_Control_DW.If_ActiveSubsystem_d;
   if ((rtb_GameState == 1) || (rtb_Sin4 <= Rebuilt_Match_Time_Transition)) {
     rtAction = 0;
   } else if (rtb_Sin4 <= Rebuilt_Match_Time_Shift_1) {
@@ -4817,7 +4782,7 @@ void Robot_Control_step(void)
     rtAction = 5;
   }
 
-  Robot_Control_DW.If_ActiveSubsystem_h = rtAction;
+  Robot_Control_DW.If_ActiveSubsystem_d = rtAction;
   switch (rtAction) {
    case 0:
     if (rtAction != rtPrevAction) {
@@ -4827,7 +4792,7 @@ void Robot_Control_step(void)
       /* InitializeConditions for If: '<S133>/If' incorporates:
        *  UnitDelay: '<S165>/Unit Delay'
        */
-      Robot_Control_DW.UnitDelay_DSTATE_lc = Rebuilt_Match_Time_Auto_Timer;
+      Robot_Control_DW.UnitDelay_DSTATE_ms = Rebuilt_Match_Time_Auto_Timer;
 
       /* End of InitializeConditions for SubSystem: '<S133>/If Action Subsystem' */
     }
@@ -4851,7 +4816,7 @@ void Robot_Control_step(void)
      *  Constant: '<S165>/Constant1'
      *  UnitDelay: '<S165>/Unit Delay'
      */
-    rtb_Merge1 = Robot_Control_DW.UnitDelay_DSTATE_lc - 0.02;
+    rtb_Merge1 = Robot_Control_DW.UnitDelay_DSTATE_ms - 0.02;
 
     /* Merge: '<S133>/Merge2' incorporates:
      *  SignalConversion: '<S165>/Signal Copy'
@@ -4859,7 +4824,7 @@ void Robot_Control_step(void)
     Robot_Control_B.RB_Shift_Time_Remaining = rtb_Merge1;
 
     /* Update for UnitDelay: '<S165>/Unit Delay' */
-    Robot_Control_DW.UnitDelay_DSTATE_lc = rtb_Merge1;
+    Robot_Control_DW.UnitDelay_DSTATE_ms = rtb_Merge1;
 
     /* End of Outputs for SubSystem: '<S133>/If Action Subsystem' */
     break;
@@ -4869,8 +4834,8 @@ void Robot_Control_step(void)
      *  ActionPort: '<S166>/Action Port'
      */
     Robot_Contro_IfActionSubsystem1(Robot_Control_U.IsBlueInactiveFirst,
-      &Robot_Control_B.RB_IsBlueActive, &Robot_Control_B.RB_IsRedActive,
-      &Robot_Control_B.RB_Shift_Time_Remaining,
+      Robot_Control_U.IsBlueAlliance, &Robot_Control_B.RB_IsBlueActive,
+      &Robot_Control_B.RB_IsRedActive, &Robot_Control_B.RB_Shift_Time_Remaining,
       &Robot_Control_DW.IfActionSubsystem1);
 
     /* End of Outputs for SubSystem: '<S133>/If Action Subsystem1' */
@@ -4880,10 +4845,55 @@ void Robot_Control_step(void)
     /* Outputs for IfAction SubSystem: '<S133>/If Action Subsystem2' incorporates:
      *  ActionPort: '<S167>/Action Port'
      */
-    Robot_Contro_IfActionSubsystem2(Robot_Control_U.IsBlueInactiveFirst,
-      &Robot_Control_B.RB_IsBlueActive, &Robot_Control_B.RB_IsRedActive,
-      &Robot_Control_B.RB_Shift_Time_Remaining,
-      &Robot_Control_DW.IfActionSubsystem2);
+    /* Sum: '<S167>/Sum' incorporates:
+     *  Constant: '<S167>/Constant1'
+     *  UnitDelay: '<S167>/Unit Delay'
+     */
+    rtb_Merge1 = Robot_Control_DW.UnitDelay_DSTATE_m - 0.02;
+
+    /* RelationalOperator: '<S172>/Compare' incorporates:
+     *  Constant: '<S172>/Constant'
+     */
+    rtb_Is_Absolute_Translation_g = (rtb_Merge1 <=
+      Rebuilt_Match_Time_Shoot_Early);
+
+    /* Merge: '<S133>/Merge' incorporates:
+     *  Inport: '<Root>/IsBlueInactiveFirst'
+     *  Logic: '<S167>/Logical Operator'
+     */
+    Robot_Control_B.RB_IsBlueActive = ((Robot_Control_U.IsBlueInactiveFirst !=
+      0.0) || rtb_Is_Absolute_Translation_g);
+
+    /* Merge: '<S133>/Merge1' incorporates:
+     *  Inport: '<Root>/IsBlueInactiveFirst'
+     *  Logic: '<S167>/Logical Operator1'
+     *  Logic: '<S167>/NOT1'
+     */
+    Robot_Control_B.RB_IsRedActive = ((!(Robot_Control_U.IsBlueInactiveFirst !=
+      0.0)) || rtb_Is_Absolute_Translation_g);
+
+    /* Switch: '<S167>/Switch' incorporates:
+     *  Inport: '<Root>/IsBlueAlliance'
+     *  Inport: '<Root>/IsBlueInactiveFirst'
+     *  Logic: '<S167>/Logical Operator2'
+     */
+    if ((boolean_T)((Robot_Control_U.IsBlueInactiveFirst != 0.0) ^
+                    (Robot_Control_U.IsBlueAlliance != 0.0))) {
+      /* Merge: '<S133>/Merge2' incorporates:
+       *  Constant: '<S167>/Constant2'
+       *  Sum: '<S167>/Subtract'
+       */
+      Robot_Control_B.RB_Shift_Time_Remaining = rtb_Merge1 -
+        Rebuilt_Match_Time_Shoot_Early;
+    } else {
+      /* Merge: '<S133>/Merge2' */
+      Robot_Control_B.RB_Shift_Time_Remaining = rtb_Merge1;
+    }
+
+    /* End of Switch: '<S167>/Switch' */
+
+    /* Update for UnitDelay: '<S167>/Unit Delay' */
+    Robot_Control_DW.UnitDelay_DSTATE_m = rtb_Merge1;
 
     /* End of Outputs for SubSystem: '<S133>/If Action Subsystem2' */
     break;
@@ -4893,8 +4903,8 @@ void Robot_Control_step(void)
      *  ActionPort: '<S168>/Action Port'
      */
     Robot_Contro_IfActionSubsystem1(Robot_Control_U.IsBlueInactiveFirst,
-      &Robot_Control_B.RB_IsBlueActive, &Robot_Control_B.RB_IsRedActive,
-      &Robot_Control_B.RB_Shift_Time_Remaining,
+      Robot_Control_U.IsBlueAlliance, &Robot_Control_B.RB_IsBlueActive,
+      &Robot_Control_B.RB_IsRedActive, &Robot_Control_B.RB_Shift_Time_Remaining,
       &Robot_Control_DW.IfActionSubsystem3);
 
     /* End of Outputs for SubSystem: '<S133>/If Action Subsystem3' */
@@ -4904,10 +4914,59 @@ void Robot_Control_step(void)
     /* Outputs for IfAction SubSystem: '<S133>/If Action Subsystem4' incorporates:
      *  ActionPort: '<S169>/Action Port'
      */
-    Robot_Contro_IfActionSubsystem2(Robot_Control_U.IsBlueInactiveFirst,
-      &Robot_Control_B.RB_IsBlueActive, &Robot_Control_B.RB_IsRedActive,
-      &Robot_Control_B.RB_Shift_Time_Remaining,
-      &Robot_Control_DW.IfActionSubsystem4);
+    /* Sum: '<S169>/Sum' incorporates:
+     *  Constant: '<S169>/Constant1'
+     *  UnitDelay: '<S169>/Unit Delay'
+     */
+    rtb_Merge1 = Robot_Control_DW.UnitDelay_DSTATE_n - 0.02;
+
+    /* RelationalOperator: '<S174>/Compare' incorporates:
+     *  Constant: '<S174>/Constant'
+     */
+    rtb_Is_Absolute_Translation_g = (rtb_Merge1 <=
+      Rebuilt_Match_Time_Shoot_Early);
+
+    /* Merge: '<S133>/Merge' incorporates:
+     *  Inport: '<Root>/IsBlueInactiveFirst'
+     *  Logic: '<S169>/Logical Operator'
+     */
+    Robot_Control_B.RB_IsBlueActive = ((Robot_Control_U.IsBlueInactiveFirst !=
+      0.0) || rtb_Is_Absolute_Translation_g);
+
+    /* Merge: '<S133>/Merge1' incorporates:
+     *  Inport: '<Root>/IsBlueInactiveFirst'
+     *  Logic: '<S169>/Logical Operator1'
+     *  Logic: '<S169>/NOT1'
+     */
+    Robot_Control_B.RB_IsRedActive = ((!(Robot_Control_U.IsBlueInactiveFirst !=
+      0.0)) || rtb_Is_Absolute_Translation_g);
+
+    /* Switch: '<S169>/Switch' incorporates:
+     *  Inport: '<Root>/IsBlueAlliance'
+     *  Inport: '<Root>/IsBlueInactiveFirst'
+     *  Logic: '<S169>/Logical Operator2'
+     */
+    if ((boolean_T)((Robot_Control_U.IsBlueInactiveFirst != 0.0) ^
+                    (Robot_Control_U.IsBlueAlliance != 0.0))) {
+      /* Merge: '<S133>/Merge2' incorporates:
+       *  Constant: '<S169>/Constant2'
+       *  Sum: '<S169>/Subtract'
+       */
+      Robot_Control_B.RB_Shift_Time_Remaining = rtb_Merge1 -
+        Rebuilt_Match_Time_Shoot_Early;
+    } else {
+      /* Merge: '<S133>/Merge2' incorporates:
+       *  Constant: '<S169>/Constant3'
+       *  Sum: '<S169>/Subtract1'
+       */
+      Robot_Control_B.RB_Shift_Time_Remaining = rtb_Merge1 +
+        Rebuilt_Match_Time_End_Game_Timer;
+    }
+
+    /* End of Switch: '<S169>/Switch' */
+
+    /* Update for UnitDelay: '<S169>/Unit Delay' */
+    Robot_Control_DW.UnitDelay_DSTATE_n = rtb_Merge1;
 
     /* End of Outputs for SubSystem: '<S133>/If Action Subsystem4' */
     break;
@@ -4932,7 +4991,7 @@ void Robot_Control_step(void)
      *  Constant: '<S170>/Constant1'
      *  UnitDelay: '<S170>/Unit Delay'
      */
-    rtb_Merge1 = Robot_Control_DW.UnitDelay_DSTATE_c - 0.02;
+    rtb_Merge1 = Robot_Control_DW.UnitDelay_DSTATE_ht - 0.02;
 
     /* Merge: '<S133>/Merge2' incorporates:
      *  SignalConversion: '<S170>/Signal Copy'
@@ -4940,7 +4999,7 @@ void Robot_Control_step(void)
     Robot_Control_B.RB_Shift_Time_Remaining = rtb_Merge1;
 
     /* Update for UnitDelay: '<S170>/Unit Delay' */
-    Robot_Control_DW.UnitDelay_DSTATE_c = rtb_Merge1;
+    Robot_Control_DW.UnitDelay_DSTATE_ht = rtb_Merge1;
 
     /* End of Outputs for SubSystem: '<S133>/If Action Subsystem5' */
     break;
@@ -8219,7 +8278,7 @@ void Robot_Control_step(void)
     rtb_Button_Shoot_Enable = true;
   } else {
     rtb_Button_Shoot_Enable = (rtb_LogicalOperator1_n &&
-      (Robot_Control_DW.UnitDelay_DSTATE_n));
+      (Robot_Control_DW.UnitDelay_DSTATE_nh));
   }
 
   /* End of Switch: '<S56>/Switch1' */
@@ -9144,7 +9203,7 @@ void Robot_Control_step(void)
   Robot_Control_DW.UnitDelay_DSTATE_dl = rtb_Error_n;
 
   /* Update for UnitDelay: '<S56>/Unit Delay' */
-  Robot_Control_DW.UnitDelay_DSTATE_n = rtb_Button_Shoot_Enable;
+  Robot_Control_DW.UnitDelay_DSTATE_nh = rtb_Button_Shoot_Enable;
 
   /* Update for UnitDelay: '<S53>/Delay Input1'
    *
@@ -9209,7 +9268,7 @@ void Robot_Control_initialize(void)
   Robot_Control_DW.If_ActiveSubsystem = -1;
 
   /* Start for If: '<S133>/If' */
-  Robot_Control_DW.If_ActiveSubsystem_h = -1;
+  Robot_Control_DW.If_ActiveSubsystem_d = -1;
 
   /* InitializeConditions for UnitDelay: '<S44>/FixPt Unit Delay2' */
   Robot_Control_DW.FixPtUnitDelay2_DSTATE = 1U;
@@ -9249,7 +9308,7 @@ void Robot_Control_initialize(void)
 
   /* SystemInitialize for IfAction SubSystem: '<S13>/Spline Path Following Enabled' */
   /* Start for If: '<S198>/If' */
-  Robot_Control_DW.If_ActiveSubsystem_hk = -1;
+  Robot_Control_DW.If_ActiveSubsystem_h = -1;
 
   /* InitializeConditions for UnitDelay: '<S194>/Unit Delay' */
   Robot_Control_DW.UnitDelay_DSTATE_gh = 2.0;
@@ -9260,7 +9319,7 @@ void Robot_Control_initialize(void)
 
   /* SystemInitialize for IfAction SubSystem: '<S201>/Circle_Check_Valid' */
   /* Start for If: '<S203>/If' */
-  Robot_Control_DW.If_ActiveSubsystem_d = -1;
+  Robot_Control_DW.If_ActiveSubsystem_d0 = -1;
 
   /* End of SystemInitialize for SubSystem: '<S201>/Circle_Check_Valid' */
   /* End of SystemInitialize for SubSystem: '<S198>/Robot_Index_Is_Valid' */
@@ -9268,7 +9327,7 @@ void Robot_Control_initialize(void)
 
   /* SystemInitialize for IfAction SubSystem: '<S133>/If Action Subsystem' */
   /* InitializeConditions for UnitDelay: '<S165>/Unit Delay' */
-  Robot_Control_DW.UnitDelay_DSTATE_lc = Rebuilt_Match_Time_Auto_Timer;
+  Robot_Control_DW.UnitDelay_DSTATE_ms = Rebuilt_Match_Time_Auto_Timer;
 
   /* End of SystemInitialize for SubSystem: '<S133>/If Action Subsystem' */
 
@@ -9278,7 +9337,8 @@ void Robot_Control_initialize(void)
   /* End of SystemInitialize for SubSystem: '<S133>/If Action Subsystem1' */
 
   /* SystemInitialize for IfAction SubSystem: '<S133>/If Action Subsystem2' */
-  Robot_C_IfActionSubsystem2_Init(&Robot_Control_DW.IfActionSubsystem2);
+  /* InitializeConditions for UnitDelay: '<S167>/Unit Delay' */
+  Robot_Control_DW.UnitDelay_DSTATE_m = Rebuilt_Match_Time_Shift_Timer;
 
   /* End of SystemInitialize for SubSystem: '<S133>/If Action Subsystem2' */
 
@@ -9288,13 +9348,14 @@ void Robot_Control_initialize(void)
   /* End of SystemInitialize for SubSystem: '<S133>/If Action Subsystem3' */
 
   /* SystemInitialize for IfAction SubSystem: '<S133>/If Action Subsystem4' */
-  Robot_C_IfActionSubsystem2_Init(&Robot_Control_DW.IfActionSubsystem4);
+  /* InitializeConditions for UnitDelay: '<S169>/Unit Delay' */
+  Robot_Control_DW.UnitDelay_DSTATE_n = Rebuilt_Match_Time_Shift_Timer;
 
   /* End of SystemInitialize for SubSystem: '<S133>/If Action Subsystem4' */
 
   /* SystemInitialize for IfAction SubSystem: '<S133>/If Action Subsystem5' */
   /* InitializeConditions for UnitDelay: '<S170>/Unit Delay' */
-  Robot_Control_DW.UnitDelay_DSTATE_c = Rebuilt_Match_Time_End_Game_Timer;
+  Robot_Control_DW.UnitDelay_DSTATE_ht = Rebuilt_Match_Time_End_Game_Timer;
 
   /* End of SystemInitialize for SubSystem: '<S133>/If Action Subsystem5' */
 }

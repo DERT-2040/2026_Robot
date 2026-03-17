@@ -68,13 +68,11 @@ private:
   dlib::Chooser Auto_Path_Starting_Position_Chooser {
     "Auto Path Starting Position",
       {
-        {"Auto_Path_01", 1},
-        {"Auto_Path_02", 2},
-        {"Auto_Path_03", 3},
-        {"Auto_Path_04", 4},
-        {"Auto_Path_06", 5},
-        {"Auto_Path_06", 6},
-        {"Auto_Path_07", 7}        
+        {"Left Trench *FULL*", 1},
+        {"Right Trench *FULL*", 2},
+        {"Left Trench half", 3},
+        {"Right Trench half", 4},
+        {"Right Ramp Outpost", 5}       
       },
     &Auto_Path_Chooser //Simulink parameter name
   };

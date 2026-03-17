@@ -37,7 +37,7 @@ Rebuilt_Shot_Init_Time = 0.4; % Seconds
 Rebuilt_Shoot_Robot_Velocity_Max = 1.7;   % meter/second
 Rebuilt_Shoot_Motor_Max_Error = 100;    % rpm
 Rebuilt_Shoot_Hood_Pos_Max_Error = 0.03;    % pwm position
-Feeder_Max_Pulsetime = 2; % seconds
+Feeder_Max_Pulsetime = 1000; % seconds
 
 % Check if Hub is Active for Scoring
 Rebuilt_Match_Time_TeleOp = 160-20;
@@ -113,8 +113,8 @@ Rebuilt_Shoot_Gyro_Err_2 = 3.5;
 Rebuilt_Shoot_Gyro_Err_3 = 2.7;
 Rebuilt_Shoot_Gyro_Err_4 = 2;
 Rebuilt_Shoot_Gyro_Err_5 = 2;
-Rebuilt_Shoot_Gyro_Err_6 = 2;
-Rebuilt_Shoot_Gyro_Err_7 = 2;
+Rebuilt_Shoot_Gyro_Err_6 = 10;
+Rebuilt_Shoot_Gyro_Err_7 = 10;
 
 % PLOT TABLES
     plot_dist     = [Rebuilt_Shoot_Dist_0 Rebuilt_Shoot_Dist_1 Rebuilt_Shoot_Dist_2 Rebuilt_Shoot_Dist_3 Rebuilt_Shoot_Dist_4 Rebuilt_Shoot_Dist_5 Rebuilt_Shoot_Dist_6 Rebuilt_Shoot_Dist_7];

@@ -40,9 +40,9 @@ Rebuilt_data
 Rebuilt_Auto_Paths
 
 %Rate Limit for Shooting
-Rate_Limit_X =  100;
-Rate_Limit_Y =  100;
-Rate_Limit_Z =  100;
+Rate_Limit_X =  1000;
+Rate_Limit_Y =  1000;
+Rate_Limit_Z =  1000;
 
 
 

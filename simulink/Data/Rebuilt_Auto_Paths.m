@@ -139,12 +139,12 @@ Path_RH_NZ_RH(6,4) =   0 *D2R;
 Path_RH_NZ_RH(7,4) =   0 *D2R;
 Path_RH_NZ_RH(8,4) =  30 *D2R;
 
-% Start Location: Right Trench
+% Start Location: Right Ramp
 % Finish Location: Outpost
-Path_RT_OP = [
-    3.51, 0.62, 1.5, 180 *D2R, 0, 0;
-    0.75, 0.73, 1.0, 180 *D2R, 0, 3;
-    0,0,0,0,0,0;
+Path_RR_OP = [
+    3.51, 2.50, 1.0, -150 *D2R, 4, 0;
+    2.50, 0.80, 1.0, 180 *D2R, 4, 0;
+    0.75, 0.73, 1.0, 180 *D2R, 4, 3;
     0,0,0,0,0,0; 
     0,0,0,0,0,0;
     0,0,0,0,0,0; 
@@ -154,10 +154,10 @@ Path_RT_OP = [
     0,0,0,0,0,0];
 
 % Start Location: Outpost
-% Finish Location: Right Hub
-Path_OP_RH = [
-    0.75, 0.73, 1.5, 180 *D2R, 0, 0;
-    1.30, 1.30, 1.5, 180 *D2R, 0, 3;
+% Finish Location: Center Hub
+Path_OP_CH = [
+    0.75, 0.73, 1.5, 180 *D2R, 4, 0;
+    1.30, 1.30, 1.5, 180 *D2R, 4, 3;
     3.10, 3.90, 1.0, 0   *D2R, 2, 0;
     0,0,0,0,0,0; 
     0,0,0,0,0,0;
@@ -221,8 +221,8 @@ All_Paths_Ref_Poses_Blue = cat(3, ...
     Path_LH_NZ_LH, ...   % 6  
     Path_RT_NZ_RH, ...   % 7
     Path_RH_NZ_RH, ...   % 8
-    Path_RT_OP, ...      % 9
-    Path_OP_RH, ...      % 10
+    Path_RR_OP, ...      % 9
+    Path_OP_CH, ...      % 10
     Path_LR_DP, ...      % 11
     Path_DP_LH, ...      % 12
     Path_DP_OP ...       % 13
@@ -240,8 +240,8 @@ All_Paths_Ref_Poses_Red = cat(3, ...
     MirrorPath(Path_LH_NZ_LH, field_width, field_length), ...   % 6   
     MirrorPath(Path_RT_NZ_RH, field_width, field_length), ...   % 7
     MirrorPath(Path_RH_NZ_RH, field_width, field_length), ...   % 8     
-    MirrorPath(Path_RT_OP, field_width, field_length), ...      % 9
-    MirrorPath(Path_OP_RH, field_width, field_length), ...      % 10
+    MirrorPath(Path_RR_OP, field_width, field_length), ...      % 9
+    MirrorPath(Path_OP_CH, field_width, field_length), ...      % 10
     MirrorPath(Path_LR_DP, field_width, field_length), ...      % 11
     MirrorPath(Path_DP_LH, field_width, field_length), ...      % 12
     MirrorPath(Path_DP_OP, field_width, field_length) ...       % 13
@@ -259,15 +259,15 @@ All_Paths_Num_Poses = [
     nnz(Path_LH_NZ_LH(:,1));    % 6    
     nnz(Path_RT_NZ_RH(:,1));    % 7
     nnz(Path_RH_NZ_RH(:,1));    % 8     
-    nnz(Path_RT_OP(:,1));       % 9
-    nnz(Path_OP_RH(:,1));       % 10
+    nnz(Path_RR_OP(:,1));       % 9
+    nnz(Path_OP_CH(:,1));       % 10
     nnz(Path_LR_DP(:,1));       % 11
     nnz(Path_DP_LH(:,1));       % 12
     nnz(Path_DP_OP(:,1));       % 13
     ];
 
 clear Path_LT_NZ_RH Path_RT_NZ_LH Path_LH_NZ_RH Path_RH_NZ_LH Path_LT_NZ_LH
-clear Path_LH_NZ_LH Path_RT_NZ_RH Path_RH_NZ_RH Path_RT_OP Path_OP_RH
+clear Path_LH_NZ_LH Path_RT_NZ_RH Path_RH_NZ_RH Path_RR_OP Path_OP_CH
 clear Path_LR_DP Path_DP_LH Path_DP_OP
 
 % Define complete auto paths (fill with zeros so all are the same length)

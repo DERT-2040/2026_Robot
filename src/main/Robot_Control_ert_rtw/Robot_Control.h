@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.477
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sun Mar 15 21:59:14 2026
+ * C/C++ source code generated on : Mon Mar 16 20:38:10 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -42,11 +42,6 @@
 typedef struct {
   real_T UnitDelay_DSTATE;             /* '<S166>/Unit Delay' */
 } DW_IfActionSubsystem1_Robot_C_T;
-
-/* Block states (default storage) for system '<S133>/If Action Subsystem2' */
-typedef struct {
-  real_T UnitDelay_DSTATE;             /* '<S167>/Unit Delay' */
-} DW_IfActionSubsystem2_Robot_C_T;
 
 /* Block signals (default storage) */
 typedef struct {
@@ -246,8 +241,10 @@ typedef struct {
   real_T UnitDelay_DSTATE_g4;          /* '<S246>/Unit Delay' */
   real_T UnitDelay_DSTATE_le;          /* '<S196>/Unit Delay' */
   real_T UnitDelay1_DSTATE_kc;         /* '<S196>/Unit Delay1' */
-  real_T UnitDelay_DSTATE_c;           /* '<S170>/Unit Delay' */
-  real_T UnitDelay_DSTATE_lc;          /* '<S165>/Unit Delay' */
+  real_T UnitDelay_DSTATE_ht;          /* '<S170>/Unit Delay' */
+  real_T UnitDelay_DSTATE_n;           /* '<S169>/Unit Delay' */
+  real_T UnitDelay_DSTATE_m;           /* '<S167>/Unit Delay' */
+  real_T UnitDelay_DSTATE_ms;          /* '<S165>/Unit Delay' */
   real_T UnitDelay_DSTATE_bb;          /* '<S146>/Unit Delay' */
   real_T counter;                      /* '<S20>/Chart' */
   real_T timer;                        /* '<S356>/Add dither' */
@@ -267,7 +264,7 @@ typedef struct {
   uint8_T FixPtUnitDelay2_DSTATE_a;    /* '<S432>/FixPt Unit Delay2' */
   boolean_T UnitDelay_DSTATE_ll;       /* '<S7>/Unit Delay' */
   boolean_T UnitDelay_DSTATE_ki;       /* '<S138>/Unit Delay' */
-  boolean_T UnitDelay_DSTATE_n;        /* '<S56>/Unit Delay' */
+  boolean_T UnitDelay_DSTATE_nh;       /* '<S56>/Unit Delay' */
   boolean_T DelayInput1_DSTATE_c;      /* '<S53>/Delay Input1' */
   boolean_T UnitDelay1_DSTATE_ea;      /* '<S136>/Unit Delay1' */
   boolean_T UnitDelay_DSTATE_db;       /* '<S136>/Unit Delay' */
@@ -286,10 +283,10 @@ typedef struct {
   boolean_T UnitDelay_DSTATE_nu;       /* '<S206>/Unit Delay' */
   int8_T SwitchCase_ActiveSubsystem;   /* '<S1>/Switch Case' */
   int8_T If_ActiveSubsystem;           /* '<S13>/If' */
-  int8_T If_ActiveSubsystem_h;         /* '<S133>/If' */
-  int8_T If_ActiveSubsystem_hk;        /* '<S198>/If' */
+  int8_T If_ActiveSubsystem_d;         /* '<S133>/If' */
+  int8_T If_ActiveSubsystem_h;         /* '<S198>/If' */
   int8_T If_ActiveSubsystem_o;         /* '<S201>/If' */
-  int8_T If_ActiveSubsystem_d;         /* '<S203>/If' */
+  int8_T If_ActiveSubsystem_d0;        /* '<S203>/If' */
   uint8_T is_active_c6_Robot_Control;  /* '<S20>/Chart' */
   uint8_T is_c6_Robot_Control;         /* '<S20>/Chart' */
   uint8_T is_active_c7_Robot_Control;  /* '<S356>/Add dither' */
@@ -306,9 +303,7 @@ typedef struct {
   boolean_T Relay_Mode;                /* '<S228>/Relay' */
   boolean_T EnabledSubsystem_MODE;     /* '<S100>/Enabled Subsystem' */
   boolean_T MeasurementUpdate_MODE;    /* '<S93>/MeasurementUpdate' */
-  DW_IfActionSubsystem2_Robot_C_T IfActionSubsystem4;/* '<S133>/If Action Subsystem4' */
   DW_IfActionSubsystem1_Robot_C_T IfActionSubsystem3;/* '<S133>/If Action Subsystem3' */
-  DW_IfActionSubsystem2_Robot_C_T IfActionSubsystem2;/* '<S133>/If Action Subsystem2' */
   DW_IfActionSubsystem1_Robot_C_T IfActionSubsystem1;/* '<S133>/If Action Subsystem1' */
 } DW_Robot_Control_T;
 
@@ -430,7 +425,7 @@ typedef struct {
                                     /* '<Root>/Measured_Shooter_Speed_Center' */
   real_T Measured_Shooter_Speed_Right;
                                      /* '<Root>/Measured_Shooter_Speed_Right' */
-  boolean_T IsBlueInactiveFirst;       /* '<Root>/IsBlueInactiveFirst' */
+  real_T IsBlueInactiveFirst;          /* '<Root>/IsBlueInactiveFirst' */
   real_T Measured_Feeder_Speed;        /* '<Root>/Measured_Feeder_Speed' */
   real_T Measured_Intake_Arm_Angle;    /* '<Root>/Measured_Intake_Arm_Angle' */
   real_T Measured_Intake_Roller_Speed;
@@ -711,7 +706,9 @@ extern real_T Rebuilt_Match_Time_Auto_Timer;
                                        */
 extern real_T Rebuilt_Match_Time_End_Game_Timer;
                                   /* Variable: Rebuilt_Match_Time_End_Game_Timer
-                                   * Referenced by: '<S170>/Unit Delay'
+                                   * Referenced by:
+                                   *   '<S169>/Constant3'
+                                   *   '<S170>/Unit Delay'
                                    */
 extern real_T Rebuilt_Match_Time_Shift_1;/* Variable: Rebuilt_Match_Time_Shift_1
                                           * Referenced by: '<S161>/Constant'
@@ -736,6 +733,10 @@ extern real_T Rebuilt_Match_Time_Shift_Timer;
 extern real_T Rebuilt_Match_Time_Shoot_Early;
                                      /* Variable: Rebuilt_Match_Time_Shoot_Early
                                       * Referenced by:
+                                      *   '<S166>/Constant2'
+                                      *   '<S167>/Constant2'
+                                      *   '<S168>/Constant2'
+                                      *   '<S169>/Constant2'
                                       *   '<S171>/Constant'
                                       *   '<S172>/Constant'
                                       *   '<S173>/Constant'

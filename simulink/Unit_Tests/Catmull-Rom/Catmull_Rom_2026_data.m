@@ -21,11 +21,11 @@ plot_robot_rectangle = 1;  % 0 = off, 1 = on
 %test_cases = [2,3];
 %test_cases = [5,6];
 %test_cases = [7,8];
-%test_cases = [9,10];
+test_cases = [9,10];
 %test_cases = [11,12];
 %test_cases = [11,13,10];
 
-%test_cases = 6;
+%test_cases = 3;
 
 for m = 1:length(test_cases)
 

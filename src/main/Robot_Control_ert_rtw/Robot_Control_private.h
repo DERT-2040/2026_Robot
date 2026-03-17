@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.477
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sun Mar 15 21:59:14 2026
+ * C/C++ source code generated on : Mon Mar 16 20:38:10 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -26,9 +26,9 @@
 extern const real_T rtCP_pooled_mZW03emckTZz[4];
 extern const real_T rtCP_pooled_Por1fGzmcW36[4];
 extern const real_T rtCP_pooled_INwGxsZyA2TK[4];
-extern const real_T rtCP_pooled_75iMdaf51h5u[780];
-extern const real_T rtCP_pooled_7J8tXlIHlBxp[780];
-extern const real_T rtCP_pooled_WFMuKAVdvC3D[13];
+extern const real_T rtCP_pooled_BjOjY1hiuYcd[780];
+extern const real_T rtCP_pooled_33o233Zg48YH[780];
+extern const real_T rtCP_pooled_0QbCPVYx7Xol[13];
 extern const real_T rtCP_pooled_mVxns4hAKRNf[21];
 extern const real_T rtCP_pooled_wsH2dcaSihoN[21];
 extern const real_T rtCP_pooled_MtklTCiS35sn[21];
@@ -48,13 +48,13 @@ extern const real_T rtCP_pooled_Ha5Ct2ozjCBu[2];
 #define rtCP_LookaheadDistance_bp01Data rtCP_pooled_Por1fGzmcW36 /* Expression: Spline_Velocity_Axis
                                                                   * Referenced by: '<S193>/Lookahead Distance'
                                                                   */
-#define rtCP_Constant_Value_c          rtCP_pooled_75iMdaf51h5u  /* Expression: All_Paths_Ref_Poses_Blue
+#define rtCP_Constant_Value_c          rtCP_pooled_BjOjY1hiuYcd  /* Expression: All_Paths_Ref_Poses_Blue
                                                                   * Referenced by: '<S20>/Constant'
                                                                   */
-#define rtCP_Constant1_Value_bc        rtCP_pooled_7J8tXlIHlBxp  /* Expression: All_Paths_Ref_Poses_Red
+#define rtCP_Constant1_Value_bc        rtCP_pooled_33o233Zg48YH  /* Expression: All_Paths_Ref_Poses_Red
                                                                   * Referenced by: '<S20>/Constant1'
                                                                   */
-#define rtCP_uDLookupTable_tableData   rtCP_pooled_WFMuKAVdvC3D  /* Expression: All_Paths_Num_Poses
+#define rtCP_uDLookupTable_tableData   rtCP_pooled_0QbCPVYx7Xol  /* Expression: All_Paths_Num_Poses
                                                                   * Referenced by: '<S20>/1-D Lookup Table'
                                                                   */
 #define rtCP_Modulation_Str_Y_Rel_table rtCP_pooled_mVxns4hAKRNf /* Expression: Steering_Mod_Str_Rel_out
@@ -96,14 +96,10 @@ extern const real_T rtCP_pooled_Ha5Ct2ozjCBu[2];
 
 extern void Robot_C_IfActionSubsystem1_Init(DW_IfActionSubsystem1_Robot_C_T
   *localDW);
-extern void Robot_Contro_IfActionSubsystem1(boolean_T rtu_IsBlueInactiveFirst,
-  boolean_T *rty_IsBlueActive, boolean_T *rty_IsRedActive, real_T
-  *rty_Time_Remaining, DW_IfActionSubsystem1_Robot_C_T *localDW);
-extern void Robot_C_IfActionSubsystem2_Init(DW_IfActionSubsystem2_Robot_C_T
-  *localDW);
-extern void Robot_Contro_IfActionSubsystem2(boolean_T rtu_IsBlueInactiveFirst,
-  boolean_T *rty_IsBlueActive, boolean_T *rty_IsRedActive, real_T
-  *rty_Time_Remaining, DW_IfActionSubsystem2_Robot_C_T *localDW);
+extern void Robot_Contro_IfActionSubsystem1(real_T rtu_IsBlueInactiveFirst,
+  real_T rtu_IsBlueAlliance, boolean_T *rty_IsBlueActive, boolean_T
+  *rty_IsRedActive, real_T *rty_Time_Remaining, DW_IfActionSubsystem1_Robot_C_T *
+  localDW);
 
 #endif                                 /* RTW_HEADER_Robot_Control_private_h_ */
 

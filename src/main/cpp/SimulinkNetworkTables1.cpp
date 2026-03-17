@@ -81,7 +81,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Feeder_Max_Pulsetime__Entry = NTtable_Tune->GetEntry("Feeder_Max_Pulsetime");
     NTinst.AddListener(P__Feeder_Max_Pulsetime__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Feeder_Max_Pulsetime = event.GetValueEventData()->value.GetDouble();});
-    P__Feeder_Max_Pulsetime__Entry.SetDouble(2);
+    P__Feeder_Max_Pulsetime__Entry.SetDouble(1000);
  
     P__Field_BlueAllianceZoneX__Entry = NTtable_Tune->GetEntry("Field_BlueAllianceZoneX");
     NTinst.AddListener(P__Field_BlueAllianceZoneX__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Field_BlueAllianceZoneX = event.GetValueEventData()->value.GetDouble();});
@@ -133,15 +133,15 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rate_Limit_X__Entry = NTtable_Tune->GetEntry("Rate_Limit_X");
     NTinst.AddListener(P__Rate_Limit_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rate_Limit_X = event.GetValueEventData()->value.GetDouble();});
-    P__Rate_Limit_X__Entry.SetDouble(100);
+    P__Rate_Limit_X__Entry.SetDouble(1000);
  
     P__Rate_Limit_Y__Entry = NTtable_Tune->GetEntry("Rate_Limit_Y");
     NTinst.AddListener(P__Rate_Limit_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rate_Limit_Y = event.GetValueEventData()->value.GetDouble();});
-    P__Rate_Limit_Y__Entry.SetDouble(100);
+    P__Rate_Limit_Y__Entry.SetDouble(1000);
  
     P__Rate_Limit_Z__Entry = NTtable_Tune->GetEntry("Rate_Limit_Z");
     NTinst.AddListener(P__Rate_Limit_Z__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rate_Limit_Z = event.GetValueEventData()->value.GetDouble();});
-    P__Rate_Limit_Z__Entry.SetDouble(100);
+    P__Rate_Limit_Z__Entry.SetDouble(1000);
  
     P__Rebuilt_Des_Gyro_Shoot_Offset__Entry = NTtable_Tune->GetEntry("Rebuilt_Des_Gyro_Shoot_Offset");
     NTinst.AddListener(P__Rebuilt_Des_Gyro_Shoot_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Des_Gyro_Shoot_Offset = event.GetValueEventData()->value.GetDouble();});
@@ -329,11 +329,11 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Shoot_Gyro_Err_6__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Gyro_Err_6");
     NTinst.AddListener(P__Rebuilt_Shoot_Gyro_Err_6__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Gyro_Err_6 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Gyro_Err_6__Entry.SetDouble(2);
+    P__Rebuilt_Shoot_Gyro_Err_6__Entry.SetDouble(10);
  
     P__Rebuilt_Shoot_Gyro_Err_7__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Gyro_Err_7");
     NTinst.AddListener(P__Rebuilt_Shoot_Gyro_Err_7__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Gyro_Err_7 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Gyro_Err_7__Entry.SetDouble(2);
+    P__Rebuilt_Shoot_Gyro_Err_7__Entry.SetDouble(10);
  
     P__Rebuilt_Shoot_Hood_Pos_0__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Hood_Pos_0");
     NTinst.AddListener(P__Rebuilt_Shoot_Hood_Pos_0__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Hood_Pos_0 = event.GetValueEventData()->value.GetDouble();});
