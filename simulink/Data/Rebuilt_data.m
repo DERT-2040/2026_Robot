@@ -64,7 +64,7 @@ Rebuilt_Shoot_Dist_3 = 3.692;
 Rebuilt_Shoot_Dist_4 = 4.353;
 Rebuilt_Shoot_Dist_5 = 4.884;
 Rebuilt_Shoot_Dist_6 = 5.6;
-Rebuilt_Shoot_Dist_7 = 9.0;;
+Rebuilt_Shoot_Dist_7 = 9.0;
 
 % Desired_Shooter_Motor_Speed Init (rpm)
 Rebuilt_Shoot_Shooter_Spd_I_0 = 2900;
@@ -77,13 +77,13 @@ Rebuilt_Shoot_Shooter_Spd_I_6 = 4150;
 Rebuilt_Shoot_Shooter_Spd_I_7 = 4500;
 
 % Desired_Shooter_Motor_Speed (rpm)
-Rebuilt_Shoot_Shooter_Spd_0 = 2700;
-Rebuilt_Shoot_Shooter_Spd_1 = 2900;
-Rebuilt_Shoot_Shooter_Spd_2 = 3150;
-Rebuilt_Shoot_Shooter_Spd_3 = 3300;
-Rebuilt_Shoot_Shooter_Spd_4 = 3500;  %3525
-Rebuilt_Shoot_Shooter_Spd_5 = 3650;
-Rebuilt_Shoot_Shooter_Spd_6 = 3850;
+Rebuilt_Shoot_Shooter_Spd_0 = 2725;
+Rebuilt_Shoot_Shooter_Spd_1 = 2975;
+Rebuilt_Shoot_Shooter_Spd_2 = 3265;
+Rebuilt_Shoot_Shooter_Spd_3 = 3425;
+Rebuilt_Shoot_Shooter_Spd_4 = 3625;  %3525
+Rebuilt_Shoot_Shooter_Spd_5 = 3775;
+Rebuilt_Shoot_Shooter_Spd_6 = 3975;
 Rebuilt_Shoot_Shooter_Spd_7 = 4500;
 
 % Desired Hood Position (pwm)

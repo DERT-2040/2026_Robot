@@ -248,7 +248,7 @@ namespace Constants
     namespace IntakeArmAngle{
         //Arm Angle 
         static constexpr int armThroughBoreEncoderID = 0;
-        static constexpr int armThroughBoreEncoderOffset = 7.6; // degrees
+        static constexpr int armThroughBoreEncoderOffset = 77.1; // degrees
     }
 
 };
