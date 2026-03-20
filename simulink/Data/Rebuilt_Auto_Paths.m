@@ -31,8 +31,8 @@ Auto_Intake_Arm_Cycle_Delay_Time = 2;  % seconds
 % Middle Location: Neutral Zone
 % Finish Location: Right Hub
 Path_LT_NZ_RH = [
-    3.51, 7.45, 2.5,   0 *D2R, 4, 0;
-    5.50, 7.45, 2.5,   0 *D2R, 4, 3;
+    3.51, 7.45, 3.5,   0 *D2R, 4, 0;
+    5.50, 7.45, 3.5,   0 *D2R, 4, 3;
     7.00, 7.31, 2.5, -60 *D2R, 0, 3;
     7.70, 4.77, 2.0, -90 *D2R, 0, 3;
     7.60, 2.00, 2.0, -90 *D2R, 0, 3;
@@ -88,9 +88,9 @@ Path_RH_NZ_LH(8,4) = -30 *D2R;
 % Middle Location: Neutral Zone Loop Back
 % Finish Location: Left Hub
 Path_LT_NZ_LH = [
-    3.51, 7.35, 2.5,   0 *D2R, 4, 0;
-    5.50, 7.35, 2.5,   0 *D2R, 4, 3;    
-    7.50, 7.31, 2.0, -60 *D2R, 0, 3;
+    3.51, 7.35, 3.5,   0 *D2R, 4, 0;
+    5.50, 7.35, 3.5,   0 *D2R, 4, 3;    
+    7.50, 7.31, 2.5, -60 *D2R, 0, 3;
     7.70, 4.77, 2.0, -90 *D2R, 0, 3;
     6.50, 5.00, 2.0,  90 *D2R, 0, 3;
     6.00, 7.35, 1.0,   0 *D2R, 0, 3;

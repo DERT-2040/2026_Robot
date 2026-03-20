@@ -241,7 +241,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Match_Time_Shoot_Early__Entry = NTtable_Tune->GetEntry("Rebuilt_Match_Time_Shoot_Early");
     NTinst.AddListener(P__Rebuilt_Match_Time_Shoot_Early__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_Shoot_Early = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Match_Time_Shoot_Early__Entry.SetDouble(3);
+    P__Rebuilt_Match_Time_Shoot_Early__Entry.SetDouble(2);
  
     P__Rebuilt_Match_Time_TeleOp__Entry = NTtable_Tune->GetEntry("Rebuilt_Match_Time_TeleOp");
     NTinst.AddListener(P__Rebuilt_Match_Time_TeleOp__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_TeleOp = event.GetValueEventData()->value.GetDouble();});

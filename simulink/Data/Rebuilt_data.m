@@ -49,7 +49,7 @@ Rebuilt_Match_Time_Shift_4  = 110;
 Rebuilt_Match_Time_Auto_Timer  = 30;
 Rebuilt_Match_Time_Shift_Timer  = 25;
 Rebuilt_Match_Time_End_Game_Timer = 30; 
-Rebuilt_Match_Time_Shoot_Early = 3;
+Rebuilt_Match_Time_Shoot_Early = 2;
 
 % Iteration error target threshold
 Rebuilt_Shoot_Target_Error_Thresh = 0.1;    % Meters
