@@ -34,7 +34,7 @@ Steering_Relative_Gain = 5;
 
 % Boost Trigger
 Boost_Trigger_High_Speed = 5.0; % 3.658; % m/s
-Boost_Trigger_Low_Speed = 1.5; % m/s
+Boost_Trigger_Low_Speed = 2.0; % m/s
 
 Boost_Trigger_Increasing_Limit = (Boost_Trigger_High_Speed-Boost_Trigger_Low_Speed)/0.02*t_sample;
 Boost_Trigger_Decreasing_Limit = -(Boost_Trigger_High_Speed-Boost_Trigger_Low_Speed)/0.25*t_sample;
