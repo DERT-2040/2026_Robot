@@ -29,7 +29,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Boost_Trigger_Decreasing_Limit__Entry = NTtable_Tune->GetEntry("Boost_Trigger_Decreasing_Limit");
     NTinst.AddListener(P__Boost_Trigger_Decreasing_Limit__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Decreasing_Limit = event.GetValueEventData()->value.GetDouble();});
-    P__Boost_Trigger_Decreasing_Limit__Entry.SetDouble(-0.28);
+    P__Boost_Trigger_Decreasing_Limit__Entry.SetDouble(-0.24);
  
     P__Boost_Trigger_High_Speed__Entry = NTtable_Tune->GetEntry("Boost_Trigger_High_Speed");
     NTinst.AddListener(P__Boost_Trigger_High_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_High_Speed = event.GetValueEventData()->value.GetDouble();});
@@ -37,11 +37,11 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Boost_Trigger_Increasing_Limit__Entry = NTtable_Tune->GetEntry("Boost_Trigger_Increasing_Limit");
     NTinst.AddListener(P__Boost_Trigger_Increasing_Limit__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Increasing_Limit = event.GetValueEventData()->value.GetDouble();});
-    P__Boost_Trigger_Increasing_Limit__Entry.SetDouble(3.5);
+    P__Boost_Trigger_Increasing_Limit__Entry.SetDouble(3);
  
     P__Boost_Trigger_Low_Speed__Entry = NTtable_Tune->GetEntry("Boost_Trigger_Low_Speed");
     NTinst.AddListener(P__Boost_Trigger_Low_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Low_Speed = event.GetValueEventData()->value.GetDouble();});
-    P__Boost_Trigger_Low_Speed__Entry.SetDouble(1.5);
+    P__Boost_Trigger_Low_Speed__Entry.SetDouble(2);
  
     P__Drive_Motor_Control_D__Entry = NTtable_Tune->GetEntry("Drive_Motor_Control_D");
     NTinst.AddListener(P__Drive_Motor_Control_D__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Motor_Control_D = event.GetValueEventData()->value.GetDouble();});
@@ -1007,10 +1007,6 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__FR_Desired_Module_Angle__Entry = NTtable_TPoint->GetEntry("FR_Desired_Module_Angle");
     T__FR_Desired_Wheel_Speed__Entry = NTtable_TPoint->GetEntry("FR_Desired_Wheel_Speed");
     T__FR_Desired_Wheel_Speed_in__Entry = NTtable_TPoint->GetEntry("FR_Desired_Wheel_Speed_in");
-    T__Face_Away_Driver__Entry = NTtable_TPoint->GetEntry("Face_Away_Driver");
-    T__Face_Left_Driver__Entry = NTtable_TPoint->GetEntry("Face_Left_Driver");
-    T__Face_Right_Driver__Entry = NTtable_TPoint->GetEntry("Face_Right_Driver");
-    T__Face_Toward_Driver__Entry = NTtable_TPoint->GetEntry("Face_Toward_Driver");
     T__Feeder_Motor_Speed_tp__Entry = NTtable_TPoint->GetEntry("Feeder_Motor_Speed_tp");
     T__Gyro_Angle_SPF__Entry = NTtable_TPoint->GetEntry("Gyro_Angle_SPF");
     T__Is_Absolute_Steering_SPF__Entry = NTtable_TPoint->GetEntry("Is_Absolute_Steering_SPF");
@@ -1462,10 +1458,6 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__FR_Desired_Module_Angle__Entry.SetDouble(Robot_Control_B.FR_Desired_Module_Angle);
     T__FR_Desired_Wheel_Speed__Entry.SetDouble(Robot_Control_B.FR_Desired_Wheel_Speed);
     T__FR_Desired_Wheel_Speed_in__Entry.SetDouble(Robot_Control_B.FR_Desired_Wheel_Speed_in);
-    T__Face_Away_Driver__Entry.SetDouble(Robot_Control_B.Face_Away_Driver);
-    T__Face_Left_Driver__Entry.SetDouble(Robot_Control_B.Face_Left_Driver);
-    T__Face_Right_Driver__Entry.SetDouble(Robot_Control_B.Face_Right_Driver);
-    T__Face_Toward_Driver__Entry.SetDouble(Robot_Control_B.Face_Toward_Driver);
     T__Feeder_Motor_Speed_tp__Entry.SetDouble(Robot_Control_B.Feeder_Motor_Speed_tp);
     T__Gyro_Angle_SPF__Entry.SetDouble(Robot_Control_B.Gyro_Angle_SPF);
     T__Is_Absolute_Steering_SPF__Entry.SetDouble(Robot_Control_B.Is_Absolute_Steering_SPF);

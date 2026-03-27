@@ -377,10 +377,6 @@ private:
         nt::NetworkTableEntry T__FR_Desired_Module_Angle__Entry;
         nt::NetworkTableEntry T__FR_Desired_Wheel_Speed__Entry;
         nt::NetworkTableEntry T__FR_Desired_Wheel_Speed_in__Entry;
-        nt::NetworkTableEntry T__Face_Away_Driver__Entry;
-        nt::NetworkTableEntry T__Face_Left_Driver__Entry;
-        nt::NetworkTableEntry T__Face_Right_Driver__Entry;
-        nt::NetworkTableEntry T__Face_Toward_Driver__Entry;
         nt::NetworkTableEntry T__Feeder_Motor_Speed_tp__Entry;
         nt::NetworkTableEntry T__Gyro_Angle_SPF__Entry;
         nt::NetworkTableEntry T__Is_Absolute_Steering_SPF__Entry;
