@@ -243,10 +243,6 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     NTinst.AddListener(P__Rebuilt_Match_Time_Shoot_Early__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_Shoot_Early = event.GetValueEventData()->value.GetDouble();});
     P__Rebuilt_Match_Time_Shoot_Early__Entry.SetDouble(2);
  
-    P__Rebuilt_Match_Time_TeleOp__Entry = NTtable_Tune->GetEntry("Rebuilt_Match_Time_TeleOp");
-    NTinst.AddListener(P__Rebuilt_Match_Time_TeleOp__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_TeleOp = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Match_Time_TeleOp__Entry.SetDouble(140);
- 
     P__Rebuilt_Match_Time_Transition__Entry = NTtable_Tune->GetEntry("Rebuilt_Match_Time_Transition");
     NTinst.AddListener(P__Rebuilt_Match_Time_Transition__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Match_Time_Transition = event.GetValueEventData()->value.GetDouble();});
     P__Rebuilt_Match_Time_Transition__Entry.SetDouble(10);
@@ -1047,7 +1043,6 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__RB_Shoot_Target_X__Entry = NTtable_TPoint->GetEntry("RB_Shoot_Target_X");
     T__RB_Shoot_Target_Y__Entry = NTtable_TPoint->GetEntry("RB_Shoot_Target_Y");
     T__RB_Shooter_Active__Entry = NTtable_TPoint->GetEntry("RB_Shooter_Active");
-    T__RB_Shooter_Motor_PID_DC__Entry = NTtable_TPoint->GetEntry("RB_Shooter_Motor_PID_DC");
     T__RB_Transfer_Init__Entry = NTtable_TPoint->GetEntry("RB_Transfer_Init");
     T__RB_Transfer_Motor_PID_DC__Entry = NTtable_TPoint->GetEntry("RB_Transfer_Motor_PID_DC");
     T__Relative_Enable__Entry = NTtable_TPoint->GetEntry("Relative_Enable");
@@ -1158,7 +1153,6 @@ void SimulinkNetworkTables1::PostStepCallback()
     P__Rebuilt_Match_Time_Shift_4__Entry.SetDouble(Rebuilt_Match_Time_Shift_4);
     P__Rebuilt_Match_Time_Shift_Timer__Entry.SetDouble(Rebuilt_Match_Time_Shift_Timer);
     P__Rebuilt_Match_Time_Shoot_Early__Entry.SetDouble(Rebuilt_Match_Time_Shoot_Early);
-    P__Rebuilt_Match_Time_TeleOp__Entry.SetDouble(Rebuilt_Match_Time_TeleOp);
     P__Rebuilt_Match_Time_Transition__Entry.SetDouble(Rebuilt_Match_Time_Transition);
     P__Rebuilt_Negative_Feeder_Speed__Entry.SetDouble(Rebuilt_Negative_Feeder_Speed);
     P__Rebuilt_Roller_Desired_Speed__Entry.SetDouble(Rebuilt_Roller_Desired_Speed);
@@ -1498,7 +1492,6 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__RB_Shoot_Target_X__Entry.SetDouble(Robot_Control_B.RB_Shoot_Target_X);
     T__RB_Shoot_Target_Y__Entry.SetDouble(Robot_Control_B.RB_Shoot_Target_Y);
     T__RB_Shooter_Active__Entry.SetDouble(Robot_Control_B.RB_Shooter_Active);
-    T__RB_Shooter_Motor_PID_DC__Entry.SetDouble(Robot_Control_B.RB_Shooter_Motor_PID_DC);
     T__RB_Transfer_Init__Entry.SetDouble(Robot_Control_B.RB_Transfer_Init);
     T__RB_Transfer_Motor_PID_DC__Entry.SetDouble(Robot_Control_B.RB_Transfer_Motor_PID_DC);
     T__Relative_Enable__Entry.SetDouble(Robot_Control_B.Relative_Enable);

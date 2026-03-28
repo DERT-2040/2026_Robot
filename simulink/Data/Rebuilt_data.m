@@ -40,7 +40,6 @@ Rebuilt_Shoot_Hood_Pos_Max_Error = 0.03;    % pwm position
 Feeder_Max_Pulsetime = 1000; % seconds
 
 % Check if Hub is Active for Scoring
-Rebuilt_Match_Time_TeleOp = 160-20;
 Rebuilt_Match_Time_Transition  = 10; 
 Rebuilt_Match_Time_Shift_1  = 35; 
 Rebuilt_Match_Time_Shift_2  = 60; 

@@ -75,7 +75,6 @@ private:
         nt::NetworkTableEntry P__Rebuilt_Match_Time_Shift_4__Entry;
         nt::NetworkTableEntry P__Rebuilt_Match_Time_Shift_Timer__Entry;
         nt::NetworkTableEntry P__Rebuilt_Match_Time_Shoot_Early__Entry;
-        nt::NetworkTableEntry P__Rebuilt_Match_Time_TeleOp__Entry;
         nt::NetworkTableEntry P__Rebuilt_Match_Time_Transition__Entry;
         nt::NetworkTableEntry P__Rebuilt_Negative_Feeder_Speed__Entry;
         nt::NetworkTableEntry P__Rebuilt_Roller_Desired_Speed__Entry;
@@ -417,7 +416,6 @@ private:
         nt::NetworkTableEntry T__RB_Shoot_Target_X__Entry;
         nt::NetworkTableEntry T__RB_Shoot_Target_Y__Entry;
         nt::NetworkTableEntry T__RB_Shooter_Active__Entry;
-        nt::NetworkTableEntry T__RB_Shooter_Motor_PID_DC__Entry;
         nt::NetworkTableEntry T__RB_Transfer_Init__Entry;
         nt::NetworkTableEntry T__RB_Transfer_Motor_PID_DC__Entry;
         nt::NetworkTableEntry T__Relative_Enable__Entry;
