@@ -2,9 +2,8 @@
 TEST_Output_Override_Flag = 0;
 TEST_Transfer_Motor_DC_OV = 0;
 TEST_Feeder_Motor_DC_OV = 0;
-TEST_Shooter_Motor_DC_Left_OV = 0;
-TEST_Shooter_Motor_DC_Center_OV = 0;
-TEST_Shooter_Motor_DC_Right_OV = 0;
+TEST_Desired_Shooter_Speed_OV = 0;
+TEST_Desired_Shooter_FF_DC_OV = 0;
 TEST_Desired_Hood_Enable_OV = 0;
 TEST_Desired_Hood_Pos_OV = 0.05;
 TEST_Intake_Arm_Motor_DC_OV = 0;
@@ -163,9 +162,9 @@ Rebuilt_Transfer_Motor_Gain_I = 0.001*0.02;
 Rebuilt_Transfer_Error_Integral_Enable = 300;
 
 Rebuilt_Shooter_Motor_Gain_FF = 1/6048;
-Rebuilt_Shooter_Motor_Gain_P = 0.001;
-Rebuilt_Shooter_Motor_Gain_I = 0.001*0.02;
-Rebuilt_Shooter_Error_Integral_Enable = 300;
+% Rebuilt_Shooter_Motor_Gain_P = 0.001;
+% Rebuilt_Shooter_Motor_Gain_I = 0.001*0.02;
+% Rebuilt_Shooter_Error_Integral_Enable = 300;
 
 % Hood Position Servo Properties
 Rebuilt_Hood_Servo_Pos_Min = 0.05;

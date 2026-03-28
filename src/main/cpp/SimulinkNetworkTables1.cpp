@@ -479,21 +479,9 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     NTinst.AddListener(P__Rebuilt_Shoot_Target_Error_Thresh__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Target_Error_Thresh = event.GetValueEventData()->value.GetDouble();});
     P__Rebuilt_Shoot_Target_Error_Thresh__Entry.SetDouble(0.1);
  
-    P__Rebuilt_Shooter_Error_Integral_Enable__Entry = NTtable_Tune->GetEntry("Rebuilt_Shooter_Error_Integral_Enable");
-    NTinst.AddListener(P__Rebuilt_Shooter_Error_Integral_Enable__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shooter_Error_Integral_Enable = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shooter_Error_Integral_Enable__Entry.SetDouble(300);
- 
     P__Rebuilt_Shooter_Motor_Gain_FF__Entry = NTtable_Tune->GetEntry("Rebuilt_Shooter_Motor_Gain_FF");
     NTinst.AddListener(P__Rebuilt_Shooter_Motor_Gain_FF__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shooter_Motor_Gain_FF = event.GetValueEventData()->value.GetDouble();});
     P__Rebuilt_Shooter_Motor_Gain_FF__Entry.SetDouble(0.00016534);
- 
-    P__Rebuilt_Shooter_Motor_Gain_I__Entry = NTtable_Tune->GetEntry("Rebuilt_Shooter_Motor_Gain_I");
-    NTinst.AddListener(P__Rebuilt_Shooter_Motor_Gain_I__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shooter_Motor_Gain_I = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shooter_Motor_Gain_I__Entry.SetDouble(2e-05);
- 
-    P__Rebuilt_Shooter_Motor_Gain_P__Entry = NTtable_Tune->GetEntry("Rebuilt_Shooter_Motor_Gain_P");
-    NTinst.AddListener(P__Rebuilt_Shooter_Motor_Gain_P__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shooter_Motor_Gain_P = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shooter_Motor_Gain_P__Entry.SetDouble(0.001);
  
     P__Rebuilt_Shot_Init_Time__Entry = NTtable_Tune->GetEntry("Rebuilt_Shot_Init_Time");
     NTinst.AddListener(P__Rebuilt_Shot_Init_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shot_Init_Time = event.GetValueEventData()->value.GetDouble();});
@@ -723,6 +711,14 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     NTinst.AddListener(P__TEST_Desired_Hood_Pos_OV__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Desired_Hood_Pos_OV = event.GetValueEventData()->value.GetDouble();});
     P__TEST_Desired_Hood_Pos_OV__Entry.SetDouble(0.05);
  
+    P__TEST_Desired_Shooter_FF_DC_OV__Entry = NTtable_Tune->GetEntry("TEST_Desired_Shooter_FF_DC_OV");
+    NTinst.AddListener(P__TEST_Desired_Shooter_FF_DC_OV__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Desired_Shooter_FF_DC_OV = event.GetValueEventData()->value.GetDouble();});
+    P__TEST_Desired_Shooter_FF_DC_OV__Entry.SetDouble(0);
+ 
+    P__TEST_Desired_Shooter_Speed_OV__Entry = NTtable_Tune->GetEntry("TEST_Desired_Shooter_Speed_OV");
+    NTinst.AddListener(P__TEST_Desired_Shooter_Speed_OV__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Desired_Shooter_Speed_OV = event.GetValueEventData()->value.GetDouble();});
+    P__TEST_Desired_Shooter_Speed_OV__Entry.SetDouble(0);
+ 
     P__TEST_Feeder_Motor_DC_OV__Entry = NTtable_Tune->GetEntry("TEST_Feeder_Motor_DC_OV");
     NTinst.AddListener(P__TEST_Feeder_Motor_DC_OV__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Feeder_Motor_DC_OV = event.GetValueEventData()->value.GetDouble();});
     P__TEST_Feeder_Motor_DC_OV__Entry.SetDouble(0);
@@ -742,18 +738,6 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     P__TEST_Pipeline__Entry = NTtable_Tune->GetEntry("TEST_Pipeline");
     NTinst.AddListener(P__TEST_Pipeline__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Pipeline = event.GetValueEventData()->value.GetDouble();});
     P__TEST_Pipeline__Entry.SetDouble(0);
- 
-    P__TEST_Shooter_Motor_DC_Center_OV__Entry = NTtable_Tune->GetEntry("TEST_Shooter_Motor_DC_Center_OV");
-    NTinst.AddListener(P__TEST_Shooter_Motor_DC_Center_OV__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Shooter_Motor_DC_Center_OV = event.GetValueEventData()->value.GetDouble();});
-    P__TEST_Shooter_Motor_DC_Center_OV__Entry.SetDouble(0);
- 
-    P__TEST_Shooter_Motor_DC_Left_OV__Entry = NTtable_Tune->GetEntry("TEST_Shooter_Motor_DC_Left_OV");
-    NTinst.AddListener(P__TEST_Shooter_Motor_DC_Left_OV__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Shooter_Motor_DC_Left_OV = event.GetValueEventData()->value.GetDouble();});
-    P__TEST_Shooter_Motor_DC_Left_OV__Entry.SetDouble(0);
- 
-    P__TEST_Shooter_Motor_DC_Right_OV__Entry = NTtable_Tune->GetEntry("TEST_Shooter_Motor_DC_Right_OV");
-    NTinst.AddListener(P__TEST_Shooter_Motor_DC_Right_OV__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Shooter_Motor_DC_Right_OV = event.GetValueEventData()->value.GetDouble();});
-    P__TEST_Shooter_Motor_DC_Right_OV__Entry.SetDouble(0);
  
     P__TEST_Swerve_Mode_Override_Flag__Entry = NTtable_Tune->GetEntry("TEST_Swerve_Mode_Override_Flag");
     NTinst.AddListener(P__TEST_Swerve_Mode_Override_Flag__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Swerve_Mode_Override_Flag = event.GetValueEventData()->value.GetDouble();});
@@ -959,6 +943,8 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     O__BackRight_Steer_DutyCycle__Entry = NTtable_Outport->GetEntry("BackRight_Steer_DutyCycle");
     O__Desired_Hood_Enable__Entry = NTtable_Outport->GetEntry("Desired_Hood_Enable");
     O__Desired_Hood_Pos__Entry = NTtable_Outport->GetEntry("Desired_Hood_Pos");
+    O__Desired_Shooter_FF_DC__Entry = NTtable_Outport->GetEntry("Desired_Shooter_FF_DC");
+    O__Desired_Shooter_Speed__Entry = NTtable_Outport->GetEntry("Desired_Shooter_Speed");
     O__Disable_Wheels__Entry = NTtable_Outport->GetEntry("Disable_Wheels");
     O__Enable_Wheels__Entry = NTtable_Outport->GetEntry("Enable_Wheels");
     O__Feeder_Motor_DC__Entry = NTtable_Outport->GetEntry("Feeder_Motor_DC");
@@ -969,9 +955,6 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     O__Intake_Arm_Motor_DC__Entry = NTtable_Outport->GetEntry("Intake_Arm_Motor_DC");
     O__Intake_Roller_Motor_DC__Entry = NTtable_Outport->GetEntry("Intake_Roller_Motor_DC");
     O__Reset_Wheel_Offsets__Entry = NTtable_Outport->GetEntry("Reset_Wheel_Offsets");
-    O__Shooter_Motor_DC_Center__Entry = NTtable_Outport->GetEntry("Shooter_Motor_DC_Center");
-    O__Shooter_Motor_DC_Left__Entry = NTtable_Outport->GetEntry("Shooter_Motor_DC_Left");
-    O__Shooter_Motor_DC_Right__Entry = NTtable_Outport->GetEntry("Shooter_Motor_DC_Right");
     O__Swerve_Motors_Disabled__Entry = NTtable_Outport->GetEntry("Swerve_Motors_Disabled");
     O__Transfer_Motor_DC__Entry = NTtable_Outport->GetEntry("Transfer_Motor_DC");
     O__Vision_Desired_Pipeline__Entry = NTtable_Outport->GetEntry("Vision_Desired_Pipeline");
@@ -1212,10 +1195,7 @@ void SimulinkNetworkTables1::PostStepCallback()
     P__Rebuilt_Shoot_TOF_6__Entry.SetDouble(Rebuilt_Shoot_TOF_6);
     P__Rebuilt_Shoot_TOF_7__Entry.SetDouble(Rebuilt_Shoot_TOF_7);
     P__Rebuilt_Shoot_Target_Error_Thresh__Entry.SetDouble(Rebuilt_Shoot_Target_Error_Thresh);
-    P__Rebuilt_Shooter_Error_Integral_Enable__Entry.SetDouble(Rebuilt_Shooter_Error_Integral_Enable);
     P__Rebuilt_Shooter_Motor_Gain_FF__Entry.SetDouble(Rebuilt_Shooter_Motor_Gain_FF);
-    P__Rebuilt_Shooter_Motor_Gain_I__Entry.SetDouble(Rebuilt_Shooter_Motor_Gain_I);
-    P__Rebuilt_Shooter_Motor_Gain_P__Entry.SetDouble(Rebuilt_Shooter_Motor_Gain_P);
     P__Rebuilt_Shot_Init_Time__Entry.SetDouble(Rebuilt_Shot_Init_Time);
     P__Rebuilt_Target_Feeder_Speed__Entry.SetDouble(Rebuilt_Target_Feeder_Speed);
     P__Rebuilt_Target_Transfer_Speed__Entry.SetDouble(Rebuilt_Target_Transfer_Speed);
@@ -1273,14 +1253,13 @@ void SimulinkNetworkTables1::PostStepCallback()
     P__Steering_Twist_Gain__Entry.SetDouble(Steering_Twist_Gain);
     P__TEST_Desired_Hood_Enable_OV__Entry.SetDouble(TEST_Desired_Hood_Enable_OV);
     P__TEST_Desired_Hood_Pos_OV__Entry.SetDouble(TEST_Desired_Hood_Pos_OV);
+    P__TEST_Desired_Shooter_FF_DC_OV__Entry.SetDouble(TEST_Desired_Shooter_FF_DC_OV);
+    P__TEST_Desired_Shooter_Speed_OV__Entry.SetDouble(TEST_Desired_Shooter_Speed_OV);
     P__TEST_Feeder_Motor_DC_OV__Entry.SetDouble(TEST_Feeder_Motor_DC_OV);
     P__TEST_Intake_Arm_Motor_DC_OV__Entry.SetDouble(TEST_Intake_Arm_Motor_DC_OV);
     P__TEST_Intake_Roller_Motor_DC_OV__Entry.SetDouble(TEST_Intake_Roller_Motor_DC_OV);
     P__TEST_Output_Override_Flag__Entry.SetDouble(TEST_Output_Override_Flag);
     P__TEST_Pipeline__Entry.SetDouble(TEST_Pipeline);
-    P__TEST_Shooter_Motor_DC_Center_OV__Entry.SetDouble(TEST_Shooter_Motor_DC_Center_OV);
-    P__TEST_Shooter_Motor_DC_Left_OV__Entry.SetDouble(TEST_Shooter_Motor_DC_Left_OV);
-    P__TEST_Shooter_Motor_DC_Right_OV__Entry.SetDouble(TEST_Shooter_Motor_DC_Right_OV);
     P__TEST_Swerve_Mode_Override_Flag__Entry.SetDouble(TEST_Swerve_Mode_Override_Flag);
     P__TEST_Swerve_Mode_Steering__Entry.SetDouble(TEST_Swerve_Mode_Steering);
     P__TEST_Swerve_Mode_Translation__Entry.SetDouble(TEST_Swerve_Mode_Translation);
@@ -1409,6 +1388,8 @@ void SimulinkNetworkTables1::PostStepCallback()
     O__BackRight_Steer_DutyCycle__Entry.SetDouble(Robot_Control_Y.BackRight_Steer_DutyCycle);
     O__Desired_Hood_Enable__Entry.SetDouble(Robot_Control_Y.Desired_Hood_Enable);
     O__Desired_Hood_Pos__Entry.SetDouble(Robot_Control_Y.Desired_Hood_Pos);
+    O__Desired_Shooter_FF_DC__Entry.SetDouble(Robot_Control_Y.Desired_Shooter_FF_DC);
+    O__Desired_Shooter_Speed__Entry.SetDouble(Robot_Control_Y.Desired_Shooter_Speed);
     O__Disable_Wheels__Entry.SetDouble(Robot_Control_Y.Disable_Wheels);
     O__Enable_Wheels__Entry.SetDouble(Robot_Control_Y.Enable_Wheels);
     O__Feeder_Motor_DC__Entry.SetDouble(Robot_Control_Y.Feeder_Motor_DC);
@@ -1419,9 +1400,6 @@ void SimulinkNetworkTables1::PostStepCallback()
     O__Intake_Arm_Motor_DC__Entry.SetDouble(Robot_Control_Y.Intake_Arm_Motor_DC);
     O__Intake_Roller_Motor_DC__Entry.SetDouble(Robot_Control_Y.Intake_Roller_Motor_DC);
     O__Reset_Wheel_Offsets__Entry.SetDouble(Robot_Control_Y.Reset_Wheel_Offsets);
-    O__Shooter_Motor_DC_Center__Entry.SetDouble(Robot_Control_Y.Shooter_Motor_DC_Center);
-    O__Shooter_Motor_DC_Left__Entry.SetDouble(Robot_Control_Y.Shooter_Motor_DC_Left);
-    O__Shooter_Motor_DC_Right__Entry.SetDouble(Robot_Control_Y.Shooter_Motor_DC_Right);
     O__Swerve_Motors_Disabled__Entry.SetDouble(Robot_Control_Y.Swerve_Motors_Disabled);
     O__Transfer_Motor_DC__Entry.SetDouble(Robot_Control_Y.Transfer_Motor_DC);
     O__Vision_Desired_Pipeline__Entry.SetDouble(Robot_Control_Y.Vision_Desired_Pipeline);
