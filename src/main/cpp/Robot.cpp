@@ -18,7 +18,7 @@ void Robot::RobotInit()
     }
     if(HighFrequencyCount == 2)
     {
-      for (auto group : dlib::TalonFXMotorGroup::allTalonFXMotorGroups)
+      for (auto group : dlib::TalonFX::TalonFXMotorGroup::allTalonFXMotorGroups)
       {
         group->UpdateMotorCANConnectionAlerts();
       }

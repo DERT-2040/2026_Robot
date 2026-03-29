@@ -3,7 +3,7 @@
 //Local
 #include "DertLib/include/Component.h"
 #include "Robot_Control_ert_rtw/Robot_Control.h"
-#include "DertLib/include/TalonFXMotorGroup.h"
+#include "DertLib/include/TalonFX/TalonFXMotorGroup.h"
 #include "Constants.h"
 #include "DertLib/include/Chooser.h"
 
@@ -30,28 +30,28 @@ private:
   // Servos for hood linear actuator  
   frc::Servo HoodServo_Left{nsHood::Hood_Servo_PWM_Left_ID};
   frc::Servo HoodServo_Right{nsHood::Hood_Servo_PWM_Right_ID};
-    dlib::TalonFXMotorGroup ShooterMotors
+    dlib::TalonFX::TalonFXMotorGroup ShooterMotors
   {
     {
       nsShooter::Left, nsShooter::Center, nsShooter::Right
     }
   };
 
-  dlib::TalonFXMotorGroup FeederMotors
+  dlib::TalonFX::TalonFXMotorGroup FeederMotors
   {
     {
       nsFeeder::Feeder
     }
   };
    
-  dlib::TalonFXMotorGroup TransferMotors
+  dlib::TalonFX::TalonFXMotorGroup TransferMotors
   {
     {
       nsTransfer::Transfer
     }
   };
   
-  dlib::TalonFXMotorGroup IntakeMotors
+  dlib::TalonFX::TalonFXMotorGroup IntakeMotors
   {
     {
       nsIntake::Intake_Roller, nsIntake::Intake_Arm

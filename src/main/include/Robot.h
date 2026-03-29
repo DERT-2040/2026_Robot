@@ -5,7 +5,7 @@
 #include "Odometry_ert_rtw\Odometry.h"
 #include "DertLib/include/Component.h"
 #include "DertLib/include/HighFrequencyComponent.h"
-#include "DertLib/include/TalonFXMotorGroup.h"
+#include "DertLib/include/TalonFX/TalonFXMotorGroup.h"
 #include "DertLib/include/SparkMaxMotorGroup.h"
 #include "include/HIDs.h"
 #include "include/IMU.h"
