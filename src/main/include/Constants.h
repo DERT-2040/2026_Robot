@@ -176,8 +176,8 @@ namespace Constants
                 .SetFF(&Robot_Control_Y.Desired_Shooter_FF_DC)
                 .SetupdatePID(&updatePID)
                 .SetUseTimeSync(false)
-                .SetTargetVelocity(&Robot_Control_Y.Desired_Shooter_Speed);
-                // .SetUpdateFrequency()
+                .SetTargetVelocity(&Robot_Control_Y.Desired_Shooter_Speed)
+                .SetUpdateFrequency(1000);
                 // .velocityCallback();
         static const TalonFX::MotorCreateInfo Left = defaultShooterCreateInfo.Clone()
                 .SetCanID(10)

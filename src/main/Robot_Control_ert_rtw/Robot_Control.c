@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.480
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Mar 28 16:27:35 2026
+ * C/C++ source code generated on : Sat Mar 28 20:54:26 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -453,31 +453,31 @@ real_T Rebuilt_Shoot_Shooter_Spd_6 = 3975.0;/* Variable: Rebuilt_Shoot_Shooter_S
 real_T Rebuilt_Shoot_Shooter_Spd_7 = 4500.0;/* Variable: Rebuilt_Shoot_Shooter_Spd_7
                                              * Referenced by: '<S158>/Constant1'
                                              */
-real_T Rebuilt_Shoot_Shooter_Spd_I_0 = 2900.0;
+real_T Rebuilt_Shoot_Shooter_Spd_I_0 = 2825.0;
                                       /* Variable: Rebuilt_Shoot_Shooter_Spd_I_0
                                        * Referenced by: '<S157>/Constant5'
                                        */
-real_T Rebuilt_Shoot_Shooter_Spd_I_1 = 3150.0;
+real_T Rebuilt_Shoot_Shooter_Spd_I_1 = 3075.0;
                                       /* Variable: Rebuilt_Shoot_Shooter_Spd_I_1
                                        * Referenced by: '<S157>/Constant6'
                                        */
-real_T Rebuilt_Shoot_Shooter_Spd_I_2 = 3450.0;
+real_T Rebuilt_Shoot_Shooter_Spd_I_2 = 3365.0;
                                       /* Variable: Rebuilt_Shoot_Shooter_Spd_I_2
                                        * Referenced by: '<S157>/Constant7'
                                        */
-real_T Rebuilt_Shoot_Shooter_Spd_I_3 = 3600.0;
+real_T Rebuilt_Shoot_Shooter_Spd_I_3 = 3525.0;
                                       /* Variable: Rebuilt_Shoot_Shooter_Spd_I_3
                                        * Referenced by: '<S157>/Constant8'
                                        */
-real_T Rebuilt_Shoot_Shooter_Spd_I_4 = 3800.0;
+real_T Rebuilt_Shoot_Shooter_Spd_I_4 = 3725.0;
                                       /* Variable: Rebuilt_Shoot_Shooter_Spd_I_4
                                        * Referenced by: '<S157>/Constant9'
                                        */
-real_T Rebuilt_Shoot_Shooter_Spd_I_5 = 3950.0;
+real_T Rebuilt_Shoot_Shooter_Spd_I_5 = 3875.0;
                                       /* Variable: Rebuilt_Shoot_Shooter_Spd_I_5
                                        * Referenced by: '<S157>/Constant10'
                                        */
-real_T Rebuilt_Shoot_Shooter_Spd_I_6 = 4150.0;
+real_T Rebuilt_Shoot_Shooter_Spd_I_6 = 4075.0;
                                       /* Variable: Rebuilt_Shoot_Shooter_Spd_I_6
                                        * Referenced by: '<S157>/Constant2'
                                        */
@@ -513,7 +513,7 @@ real_T Rebuilt_Shoot_Target_Error_Thresh = 0.1;
                                   /* Variable: Rebuilt_Shoot_Target_Error_Thresh
                                    * Referenced by: '<S155>/Constant'
                                    */
-real_T Rebuilt_Shooter_Motor_Gain_FF = 0.00016534;
+real_T Rebuilt_Shooter_Motor_Gain_FF = 0.00015;
                                       /* Variable: Rebuilt_Shooter_Motor_Gain_FF
                                        * Referenced by: '<S12>/Constant1'
                                        */
