@@ -3,7 +3,7 @@
 //local
 #include "include/Constants.h"
 #include "DertLib/include/HighFrequencyComponent.h"
-#include "DertLib/include/TalonFXMotorGroup.h"
+#include "DertLib/include/TalonFX/TalonFXMotorGroup.h"
 #include "Robot_Control_ert_rtw/Robot_Control.h"
 #include "Odometry_ert_rtw/Odometry.h"
 //frc
@@ -28,7 +28,7 @@ public:
   void HighFrequencyPreStepCallback() override;
   void HighFrequencyPostStepCallback() override;
 
-  dlib::TalonFXMotorGroup swerveDriveMotors
+  dlib::TalonFX::TalonFXMotorGroup swerveDriveMotors
   {
     {
       nsDrive::frontLeft, nsDrive::frontRight,
@@ -36,7 +36,7 @@ public:
     }
   };
   
-  dlib::TalonFXMotorGroup swerveSteerMotors
+  dlib::TalonFX::TalonFXMotorGroup swerveSteerMotors
   {
     {
       nsSteer::frontLeft, nsSteer::frontRight,

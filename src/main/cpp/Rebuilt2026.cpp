@@ -41,10 +41,15 @@ void Rebuilt2026::PreStepCallback()
 
 void Rebuilt2026::PostStepCallback()
 {
-	ShooterMotors.FetchMotorCommandsFromSL();
     FeederMotors.FetchMotorCommandsFromSL();
     TransferMotors.FetchMotorCommandsFromSL();
     IntakeMotors.FetchMotorCommandsFromSL();
+    
+    if(-1e-6 < Robot_Control_Y.Desired_Shooter_Speed && Robot_Control_Y.Desired_Shooter_Speed < 1e-6)
+        ShooterMotors.Stop();
+    else
+	    ShooterMotors.FetchMotorCommandsFromSL();
+
 
     // Only set the servo positions if enabled from Simulink
     if(Robot_Control_Y.Desired_Hood_Enable)  // boolean from Simulink
