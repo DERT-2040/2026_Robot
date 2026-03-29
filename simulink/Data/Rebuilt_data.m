@@ -64,25 +64,27 @@ Rebuilt_Shoot_Dist_5 = 4.884;
 Rebuilt_Shoot_Dist_6 = 5.6;
 Rebuilt_Shoot_Dist_7 = 9.0;
 
-% Desired_Shooter_Motor_Speed Init (rpm)
-Rebuilt_Shoot_Shooter_Spd_I_0 = 2900;
-Rebuilt_Shoot_Shooter_Spd_I_1 = 3150;
-Rebuilt_Shoot_Shooter_Spd_I_2 = 3450;
-Rebuilt_Shoot_Shooter_Spd_I_3 = 3600;
-Rebuilt_Shoot_Shooter_Spd_I_4 = 3800;  %3850
-Rebuilt_Shoot_Shooter_Spd_I_5 = 3950;
-Rebuilt_Shoot_Shooter_Spd_I_6 = 4150;
-Rebuilt_Shoot_Shooter_Spd_I_7 = 4500;
-
 % Desired_Shooter_Motor_Speed (rpm)
 Rebuilt_Shoot_Shooter_Spd_0 = 2725;
 Rebuilt_Shoot_Shooter_Spd_1 = 2975;
 Rebuilt_Shoot_Shooter_Spd_2 = 3265;
 Rebuilt_Shoot_Shooter_Spd_3 = 3425;
-Rebuilt_Shoot_Shooter_Spd_4 = 3625;  %3525
+Rebuilt_Shoot_Shooter_Spd_4 = 3625;
 Rebuilt_Shoot_Shooter_Spd_5 = 3775;
 Rebuilt_Shoot_Shooter_Spd_6 = 3975;
 Rebuilt_Shoot_Shooter_Spd_7 = 4500;
+
+delta = 100;
+% Desired_Shooter_Motor_Speed Init (rpm)
+Rebuilt_Shoot_Shooter_Spd_I_0 = Rebuilt_Shoot_Shooter_Spd_0+delta;
+Rebuilt_Shoot_Shooter_Spd_I_1 = Rebuilt_Shoot_Shooter_Spd_1+delta;
+Rebuilt_Shoot_Shooter_Spd_I_2 = Rebuilt_Shoot_Shooter_Spd_2+delta;
+Rebuilt_Shoot_Shooter_Spd_I_3 = Rebuilt_Shoot_Shooter_Spd_3+delta;
+Rebuilt_Shoot_Shooter_Spd_I_4 = Rebuilt_Shoot_Shooter_Spd_4+delta;
+Rebuilt_Shoot_Shooter_Spd_I_5 = Rebuilt_Shoot_Shooter_Spd_5+delta;
+Rebuilt_Shoot_Shooter_Spd_I_6 = Rebuilt_Shoot_Shooter_Spd_6+delta;
+Rebuilt_Shoot_Shooter_Spd_I_7 = Rebuilt_Shoot_Shooter_Spd_7;
+clear delta
 
 % Desired Hood Position (pwm)
 Rebuilt_Shoot_Hood_Pos_0 = 0.05;
@@ -161,7 +163,7 @@ Rebuilt_Transfer_Motor_Gain_P = 0.0001;
 Rebuilt_Transfer_Motor_Gain_I = 0.001*0.02;
 Rebuilt_Transfer_Error_Integral_Enable = 300;
 
-Rebuilt_Shooter_Motor_Gain_FF = 1/6048;
+Rebuilt_Shooter_Motor_Gain_FF = 1.5e-4; %1/6048;
 % Rebuilt_Shooter_Motor_Gain_P = 0.001;
 % Rebuilt_Shooter_Motor_Gain_I = 0.001*0.02;
 % Rebuilt_Shooter_Error_Integral_Enable = 300;
