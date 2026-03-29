@@ -19,7 +19,14 @@ Field_Pass_Y_Top        = (317.69-(96))*0.0254;
 Field_Pass_Y_Bottom     = (96)*0.0254;
 Field_Blue_Pass_X       = (156.61/2)*0.0254;
 Field_Red_Pass_X        = (651.22-((156.61/2)))*0.0254;
-
+Blue_Hub_LeftX = 5.1717;
+Blue_Hub_RightX = 5.1717;
+Blue_Hub_RightY = 4.548;
+Blue_Hub_LeftY = 3.354;
+Red_Hub_LeftX = 11.369;
+Red_Hub_RightX = 11.369;
+Red_Hub_RightY = 3.354;
+Red_Hub_LeftY = 4.548;
 %% Shooting Control Data
 % Targets
 Rebuilt_Transfer_Minimum_Factor = 0.8;
