@@ -21,6 +21,10 @@ private:
         nt::NetworkTableEntry P__Auto_Intake_Arm_Cycle_Delay_Time__Entry;
         nt::NetworkTableEntry P__Auto_Path_Chooser__Entry;
         nt::NetworkTableEntry P__Auto_Shoot_Time__Entry;
+        nt::NetworkTableEntry P__Blue_Hub_LeftX__Entry;
+        nt::NetworkTableEntry P__Blue_Hub_LeftY__Entry;
+        nt::NetworkTableEntry P__Blue_Hub_RightX__Entry;
+        nt::NetworkTableEntry P__Blue_Hub_RightY__Entry;
         nt::NetworkTableEntry P__Boost_Trigger_Decreasing_Limit__Entry;
         nt::NetworkTableEntry P__Boost_Trigger_High_Speed__Entry;
         nt::NetworkTableEntry P__Boost_Trigger_Increasing_Limit__Entry;
@@ -40,6 +44,7 @@ private:
         nt::NetworkTableEntry P__Field_Blue_Hub_X__Entry;
         nt::NetworkTableEntry P__Field_Blue_Pass_X__Entry;
         nt::NetworkTableEntry P__Field_Hub_Y__Entry;
+        nt::NetworkTableEntry P__Field_Length__Entry;
         nt::NetworkTableEntry P__Field_Pass_Y_Bottom__Entry;
         nt::NetworkTableEntry P__Field_Pass_Y_Top__Entry;
         nt::NetworkTableEntry P__Field_RedAllianceZoneX__Entry;
@@ -47,6 +52,7 @@ private:
         nt::NetworkTableEntry P__Field_Red_Pass_X__Entry;
         nt::NetworkTableEntry P__Field_Translation_Control_Gain__Entry;
         nt::NetworkTableEntry P__Field_Translation_Speed_Max__Entry;
+        nt::NetworkTableEntry P__Field_Width__Entry;
         nt::NetworkTableEntry P__KF_Enable__Entry;
         nt::NetworkTableEntry P__Rate_Limit_X__Entry;
         nt::NetworkTableEntry P__Rate_Limit_Y__Entry;
@@ -143,6 +149,10 @@ private:
         nt::NetworkTableEntry P__Rebuilt_Transfer_Motor_Gain_FF__Entry;
         nt::NetworkTableEntry P__Rebuilt_Transfer_Motor_Gain_I__Entry;
         nt::NetworkTableEntry P__Rebuilt_Transfer_Motor_Gain_P__Entry;
+        nt::NetworkTableEntry P__Red_Hub_LeftX__Entry;
+        nt::NetworkTableEntry P__Red_Hub_LeftY__Entry;
+        nt::NetworkTableEntry P__Red_Hub_RightX__Entry;
+        nt::NetworkTableEntry P__Red_Hub_RightY__Entry;
         nt::NetworkTableEntry P__Relative_Steering_Error_Angle_Gain__Entry;
         nt::NetworkTableEntry P__Relative_Steering_Error_Angle_Gain_Object_Factor__Entry;
         nt::NetworkTableEntry P__Relative_Steering_Speed_Max__Entry;
@@ -360,6 +370,7 @@ private:
         nt::NetworkTableEntry T__Button_Disable_Wheels__Entry;
         nt::NetworkTableEntry T__Button_Enable_Wheels__Entry;
         nt::NetworkTableEntry T__Button_Reset_Wheel_Offsets__Entry;
+        nt::NetworkTableEntry T__Can_Pass__Entry;
         nt::NetworkTableEntry T__Drive_Joystick_X_preRL__Entry;
         nt::NetworkTableEntry T__Drive_Joystick_Y_preRL__Entry;
         nt::NetworkTableEntry T__Drive_Joystick_Z_Mode__Entry;
