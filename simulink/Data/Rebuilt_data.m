@@ -29,6 +29,7 @@ Red_Hub_RightY = 3.354;
 Red_Hub_LeftY = 4.548;
 Field_Width = 317.69 * 0.0254;
 Field_Length = 691.22 * 0.0254;
+Field_Length_Half = (Field_Length)/2;
 %% Shooting Control Data
 % Targets
 Rebuilt_Transfer_Minimum_Factor = 0.8;
