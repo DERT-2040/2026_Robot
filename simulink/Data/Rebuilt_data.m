@@ -27,6 +27,7 @@ Red_Hub_LeftX = 11.369;
 Red_Hub_RightX = 11.369;
 Red_Hub_RightY = 3.354;
 Red_Hub_LeftY = 4.548;
+
 %% Shooting Control Data
 % Targets
 Rebuilt_Transfer_Minimum_Factor = 0.8;
@@ -195,6 +196,8 @@ Rebuilt_Intake_RL_Dec = -3;
 
 Rebuilt_Intake_Arm_Gain_P = 0.008;
 Rebuilt_Intake_Arm_Gain_D = 0;
+
+Rebuilt_Roller_Intake_In_Delay = 2; % sec
 
 Rebuilt_Roller_Desired_Speed = 4500;
 Rebuilt_Roller_Motor_Gain_FF = 1/6048;
