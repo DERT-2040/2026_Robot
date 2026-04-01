@@ -99,6 +99,41 @@ Path_LT_NZ_LH = [
     0,0,0,0,0,0;
     0,0,0,0,0,0];
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Start Location: Left Trench
+% Middle Location: Neutral Zone to Ramp
+% Finish Location: Left Hub
+Path_LT_NR_LH = [
+    3.51, 7.35, 3.5,   0 *D2R, 4, 0;
+    5.50, 7.35, 3.5,   0 *D2R, 4, 3;    
+    7.50, 7.31, 2.5, -60 *D2R, 0, 3;
+    7.70, 4.77, 2.0, -90 *D2R, 0, 3;
+    6.50, 5.00, 2.0, -60 *D2R, 0, 3;
+    5.50, 5.5,  2.0, -45 *D2R, 0, 3;
+    3.30, 5.4,  2.0, -45 *D2R, 2, 0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0];
+
+% Start Location: Left Hub
+% Middle Location: Neutral Zone to Ramp
+% Finish Location: Left Hub
+Path_LH_RNR_LH = [
+    3.30, 5.4,  2.0, -135 *D2R, 2, 0;
+    5.50, 5.5,  2.0, -135 *D2R, 0, 3;   
+    6.50, 4.50, 2.0, 0 *D2R, 0, 3;
+    7.80, 5.50, 2.0, 90 *D2R, 0, 3;
+    6.70, 6.50, 2.0, 180 *D2R, 0, 3;
+    5.50, 5.5,  2.0, -45 *D2R, 0, 3;
+    3.30, 5.4,  2.0, -45 *D2R, 2, 0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0;    
+    0,0,0,0,0,0];
+
+
+
+
 % Start Location: Left Hub
 % Middle Location: Neutral Zone Loop Back
 % Finish Location: Left Hub
@@ -226,7 +261,9 @@ All_Paths_Ref_Poses_Blue = cat(3, ...
     Path_OP_CH, ...      % 10
     Path_LR_DP, ...      % 11
     Path_DP_LH, ...      % 12
-    Path_DP_OP ...       % 13
+    Path_DP_OP, ...       % 13
+    Path_LT_NR_LH, ...    % 14
+    Path_LH_RNR_LH ...   % 15
   ); 
 
 % Run this function to mirron paths from blue to red sides of the field
@@ -245,7 +282,9 @@ All_Paths_Ref_Poses_Red = cat(3, ...
     MirrorPath(Path_OP_CH, field_width, field_length), ...      % 10
     MirrorPath(Path_LR_DP, field_width, field_length), ...      % 11
     MirrorPath(Path_DP_LH, field_width, field_length), ...      % 12
-    MirrorPath(Path_DP_OP, field_width, field_length) ...       % 13
+    MirrorPath(Path_DP_OP, field_width, field_length), ...       % 13
+    MirrorPath(Path_LT_NR_LH, field_width, field_length), ...       % 14
+    MirrorPath(Path_LH_RNR_LH, field_width, field_length) ...       % 15    
   ); 
 
 clear field_width field_length
@@ -265,6 +304,8 @@ All_Paths_Num_Poses = [
     nnz(Path_LR_DP(:,1));       % 11
     nnz(Path_DP_LH(:,1));       % 12
     nnz(Path_DP_OP(:,1));       % 13
+    nnz(Path_LT_NR_LH(:,1));       % 14
+    nnz(Path_LH_RNR_LH(:,1));       % 15    
     ];
 
 clear Path_LT_NZ_RH Path_RT_NZ_LH Path_LH_NZ_RH Path_RH_NZ_LH Path_LT_NZ_LH
@@ -278,6 +319,6 @@ Auto_Path_03 = [5,6,0];
 Auto_Path_04 = [7,8,0];
 Auto_Path_05 = [9,10,0];
 Auto_Path_06 = [11,12,0];
-Auto_Path_07 = [11,13,10];
-
+%Auto_Path_07 = [11,13,10];
+Auto_Path_07 = [14,15,0];
 

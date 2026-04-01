@@ -1,9 +1,6 @@
 {
   "NetworkTables": {
     "transitory": {
-      "Simulink Test Points": {
-        "open": true
-      },
       "Simulink Tunable Params": {
         "open": true
       },

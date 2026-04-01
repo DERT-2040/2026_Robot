@@ -72,7 +72,8 @@ private:
         {"Right Trench *FULL*", 2},
         {"Left Trench half", 3},
         {"Right Trench half", 4},
-        {"Right Ramp Outpost", 5}       
+        {"Right Ramp Outpost", 5},
+        {"Left Ramp half", 7}   
       },
     &Auto_Path_Chooser //Simulink parameter name
   };
