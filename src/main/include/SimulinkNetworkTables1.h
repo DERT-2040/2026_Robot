@@ -45,6 +45,7 @@ private:
         nt::NetworkTableEntry P__Field_Blue_Pass_X__Entry;
         nt::NetworkTableEntry P__Field_Hub_Y__Entry;
         nt::NetworkTableEntry P__Field_Length__Entry;
+        nt::NetworkTableEntry P__Field_Length_Half__Entry;
         nt::NetworkTableEntry P__Field_Pass_Y_Bottom__Entry;
         nt::NetworkTableEntry P__Field_Pass_Y_Top__Entry;
         nt::NetworkTableEntry P__Field_RedAllianceZoneX__Entry;
@@ -85,6 +86,7 @@ private:
         nt::NetworkTableEntry P__Rebuilt_Negative_Feeder_Speed__Entry;
         nt::NetworkTableEntry P__Rebuilt_Roller_Desired_Speed__Entry;
         nt::NetworkTableEntry P__Rebuilt_Roller_Error_Integral_Enable__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Roller_Intake_In_Delay__Entry;
         nt::NetworkTableEntry P__Rebuilt_Roller_Motor_Gain_FF__Entry;
         nt::NetworkTableEntry P__Rebuilt_Roller_Motor_Gain_I__Entry;
         nt::NetworkTableEntry P__Rebuilt_Roller_Motor_Gain_P__Entry;
