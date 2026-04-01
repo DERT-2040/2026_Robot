@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.482
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Tue Mar 31 22:21:26 2026
+ * C/C++ source code generated on : Tue Mar 31 23:42:45 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -1736,6 +1736,7 @@ void Robot_Control_step(void)
      *  Constant: '<S21>/Constant17'
      *  Constant: '<S21>/Constant2'
      *  Constant: '<S21>/Constant3'
+     *  Constant: '<S21>/Constant4'
      *  Constant: '<S21>/Constant9'
      */
     switch ((int32_T)Auto_Path_Chooser) {
@@ -1764,20 +1765,26 @@ void Robot_Control_step(void)
       break;
 
      case 5:
-      rtb_MultiportSwitch1[0] = 9;
-      rtb_MultiportSwitch1[1] = 10;
+      rtb_MultiportSwitch1[0] = 14;
+      rtb_MultiportSwitch1[1] = 15;
       rtb_MultiportSwitch1[2] = 0;
       break;
 
      case 6:
-      rtb_MultiportSwitch1[0] = 11;
-      rtb_MultiportSwitch1[1] = 12;
+      rtb_MultiportSwitch1[0] = 16;
+      rtb_MultiportSwitch1[1] = 17;
+      rtb_MultiportSwitch1[2] = 0;
+      break;
+
+     case 7:
+      rtb_MultiportSwitch1[0] = 18;
+      rtb_MultiportSwitch1[1] = 18;
       rtb_MultiportSwitch1[2] = 0;
       break;
 
      default:
-      rtb_MultiportSwitch1[0] = 14;
-      rtb_MultiportSwitch1[1] = 15;
+      rtb_MultiportSwitch1[0] = 19;
+      rtb_MultiportSwitch1[1] = 19;
       rtb_MultiportSwitch1[2] = 0;
       break;
     }
@@ -1996,7 +2003,7 @@ void Robot_Control_step(void)
      */
     Robot_Control_B.Spline_Num_Poses =
       rtCP_uDLookupTable_tableData[plook_u32d_evencka
-      (Robot_Control_B.Auto_Path_ID, 1.0, 1.0, 14U)];
+      (Robot_Control_B.Auto_Path_ID, 1.0, 1.0, 18U)];
 
     /* Merge: '<S9>/Merge7' incorporates:
      *  SignalConversion: '<S18>/Signal Copy'
