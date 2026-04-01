@@ -142,7 +142,10 @@ private:
         nt::NetworkTableEntry P__Rebuilt_Shoot_TOF_6__Entry;
         nt::NetworkTableEntry P__Rebuilt_Shoot_TOF_7__Entry;
         nt::NetworkTableEntry P__Rebuilt_Shoot_Target_Error_Thresh__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Shooter_Error_Integral_Enable__Entry;
         nt::NetworkTableEntry P__Rebuilt_Shooter_Motor_Gain_FF__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Shooter_Motor_Gain_I__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Shooter_Motor_Gain_P__Entry;
         nt::NetworkTableEntry P__Rebuilt_Shot_Init_Time__Entry;
         nt::NetworkTableEntry P__Rebuilt_Target_Feeder_Speed__Entry;
         nt::NetworkTableEntry P__Rebuilt_Target_Transfer_Speed__Entry;
@@ -352,6 +355,9 @@ private:
         nt::NetworkTableEntry O__Intake_Arm_Motor_DC__Entry;
         nt::NetworkTableEntry O__Intake_Roller_Motor_DC__Entry;
         nt::NetworkTableEntry O__Reset_Wheel_Offsets__Entry;
+        nt::NetworkTableEntry O__Shooter_Motor_Gain_Change__Entry;
+        nt::NetworkTableEntry O__Shooter_Motor_Gain_Ki__Entry;
+        nt::NetworkTableEntry O__Shooter_Motor_Gain_Kp__Entry;
         nt::NetworkTableEntry O__Swerve_Motors_Disabled__Entry;
         nt::NetworkTableEntry O__Transfer_Motor_DC__Entry;
         nt::NetworkTableEntry O__Vision_Desired_Pipeline__Entry;

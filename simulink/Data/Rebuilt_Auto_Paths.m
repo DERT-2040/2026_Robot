@@ -9,7 +9,7 @@ field_length = 651.22 * 0.0254;
 
 Auto_Path_Chooser = 1; % default chooser path sequence number
 Auto_Deploy_Intake_Time = 1; % seconds
-Auto_Shoot_Time = 4.5;   % seconds
+Auto_Shoot_Time = 3.0;   % seconds
 Auto_Intake_Arm_Cycle_Delay_Time = 2;  % seconds
 
 % [x, y, velocity, angle, action at path point, action during path segment]

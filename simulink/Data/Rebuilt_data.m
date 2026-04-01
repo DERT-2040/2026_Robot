@@ -174,9 +174,9 @@ Rebuilt_Transfer_Motor_Gain_I = 0.001*0.02;
 Rebuilt_Transfer_Error_Integral_Enable = 300;
 
 Rebuilt_Shooter_Motor_Gain_FF = 1.5e-4; %1/6048;
-% Rebuilt_Shooter_Motor_Gain_P = 0.001;
-% Rebuilt_Shooter_Motor_Gain_I = 0.001*0.02;
-% Rebuilt_Shooter_Error_Integral_Enable = 300;
+Rebuilt_Shooter_Motor_Gain_P = 0.02;
+Rebuilt_Shooter_Motor_Gain_I = 0.02;
+Rebuilt_Shooter_Error_Integral_Enable = 300;
 
 % Hood Position Servo Properties
 Rebuilt_Hood_Servo_Pos_Min = 0.05;

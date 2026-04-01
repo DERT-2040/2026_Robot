@@ -158,9 +158,6 @@ namespace Constants
 // Desired_Shooter_FF_DC
     namespace ShooterCreateInfo
     {
-        static double updatePID = 0;
-        static double p = 0.02;
-        static double i = 0.02;
         static double d = 0;
         static TalonFX::VelocityCreateInfo defaultShooterCreateInfo = TalonFX::GetNewVelocityCreateInfo()
                 .SetCanbus(*Constants::CANBuses::CANivoreBus)
@@ -170,11 +167,11 @@ namespace Constants
                 .SetEnableFOC(true)
                 .SetMotorType(TalonFX::MotorType::KrakenX60)
                 .SetAcceleration(1000)
-                .SetPGain(&p)
-                .SetIGain(&i)
+                .SetPGain(&Robot_Control_Y.Shooter_Motor_Gain_Kp)
+                .SetIGain(&Robot_Control_Y.Shooter_Motor_Gain_Ki)
                 .SetDGain(&d)
                 .SetFF(&Robot_Control_Y.Desired_Shooter_FF_DC)
-                .SetupdatePID(&updatePID)
+                .SetupdatePID(&Robot_Control_Y.Shooter_Motor_Gain_Change)
                 .SetUseTimeSync(false)
                 .SetTargetVelocity(&Robot_Control_Y.Desired_Shooter_Speed)
                 .SetUpdateFrequency(1000);
