@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.482
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Apr  1 21:22:28 2026
+ * C/C++ source code generated on : Thu Apr  2 17:32:13 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -1742,6 +1742,8 @@ void Robot_Control_step(void)
      *  Constant: '<S21>/Constant2'
      *  Constant: '<S21>/Constant3'
      *  Constant: '<S21>/Constant4'
+     *  Constant: '<S21>/Constant5'
+     *  Constant: '<S21>/Constant6'
      *  Constant: '<S21>/Constant9'
      */
     switch ((int32_T)Auto_Path_Chooser) {
@@ -1787,9 +1789,21 @@ void Robot_Control_step(void)
       rtb_MultiportSwitch1[2] = 0;
       break;
 
-     default:
+     case 8:
       rtb_MultiportSwitch1[0] = 19;
       rtb_MultiportSwitch1[1] = 19;
+      rtb_MultiportSwitch1[2] = 0;
+      break;
+
+     case 9:
+      rtb_MultiportSwitch1[0] = 14;
+      rtb_MultiportSwitch1[1] = 6;
+      rtb_MultiportSwitch1[2] = 0;
+      break;
+
+     default:
+      rtb_MultiportSwitch1[0] = 16;
+      rtb_MultiportSwitch1[1] = 8;
       rtb_MultiportSwitch1[2] = 0;
       break;
     }

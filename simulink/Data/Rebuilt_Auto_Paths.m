@@ -266,8 +266,6 @@ Path_RH_RNR_RH(6,4) =  45 *D2R;
 Path_RH_RNR_RH(7,4) =  45 *D2R;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Start Location: Left Trench
 % Middle Location: Neutral Zone Loop Back
 % Finish Location: Left Trench
@@ -387,6 +385,8 @@ Auto_Path_05 = [14,15,0];
 Auto_Path_06 = [16,17,0];
 Auto_Path_07 = [18,18,0];
 Auto_Path_08 = [19,19,0];
+Auto_Path_09 = [14,6,0];
+Auto_Path_10 = [16,8,0];
 
 %Auto_Path_05 = [9,10,0];
 %Auto_Path_06 = [11,12,0];
