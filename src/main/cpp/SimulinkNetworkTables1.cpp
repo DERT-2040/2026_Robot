@@ -25,7 +25,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Auto_Shoot_Time__Entry = NTtable_Tune->GetEntry("Auto_Shoot_Time");
     NTinst.AddListener(P__Auto_Shoot_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Shoot_Time = event.GetValueEventData()->value.GetDouble();});
-    P__Auto_Shoot_Time__Entry.SetDouble(3);
+    P__Auto_Shoot_Time__Entry.SetDouble(4.5);
  
     P__Blue_Hub_LeftX__Entry = NTtable_Tune->GetEntry("Blue_Hub_LeftX");
     NTinst.AddListener(P__Blue_Hub_LeftX__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Blue_Hub_LeftX = event.GetValueEventData()->value.GetDouble();});
@@ -413,31 +413,31 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Shoot_Shooter_Spd_0__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Shooter_Spd_0");
     NTinst.AddListener(P__Rebuilt_Shoot_Shooter_Spd_0__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Shooter_Spd_0 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Shooter_Spd_0__Entry.SetDouble(2680);
+    P__Rebuilt_Shoot_Shooter_Spd_0__Entry.SetDouble(2725);
  
     P__Rebuilt_Shoot_Shooter_Spd_1__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Shooter_Spd_1");
     NTinst.AddListener(P__Rebuilt_Shoot_Shooter_Spd_1__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Shooter_Spd_1 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Shooter_Spd_1__Entry.SetDouble(2930);
+    P__Rebuilt_Shoot_Shooter_Spd_1__Entry.SetDouble(2975);
  
     P__Rebuilt_Shoot_Shooter_Spd_2__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Shooter_Spd_2");
     NTinst.AddListener(P__Rebuilt_Shoot_Shooter_Spd_2__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Shooter_Spd_2 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Shooter_Spd_2__Entry.SetDouble(3220);
+    P__Rebuilt_Shoot_Shooter_Spd_2__Entry.SetDouble(3265);
  
     P__Rebuilt_Shoot_Shooter_Spd_3__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Shooter_Spd_3");
     NTinst.AddListener(P__Rebuilt_Shoot_Shooter_Spd_3__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Shooter_Spd_3 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Shooter_Spd_3__Entry.SetDouble(3380);
+    P__Rebuilt_Shoot_Shooter_Spd_3__Entry.SetDouble(3425);
  
     P__Rebuilt_Shoot_Shooter_Spd_4__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Shooter_Spd_4");
     NTinst.AddListener(P__Rebuilt_Shoot_Shooter_Spd_4__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Shooter_Spd_4 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Shooter_Spd_4__Entry.SetDouble(3580);
+    P__Rebuilt_Shoot_Shooter_Spd_4__Entry.SetDouble(3625);
  
     P__Rebuilt_Shoot_Shooter_Spd_5__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Shooter_Spd_5");
     NTinst.AddListener(P__Rebuilt_Shoot_Shooter_Spd_5__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Shooter_Spd_5 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Shooter_Spd_5__Entry.SetDouble(3730);
+    P__Rebuilt_Shoot_Shooter_Spd_5__Entry.SetDouble(3775);
  
     P__Rebuilt_Shoot_Shooter_Spd_6__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Shooter_Spd_6");
     NTinst.AddListener(P__Rebuilt_Shoot_Shooter_Spd_6__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Shooter_Spd_6 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Shooter_Spd_6__Entry.SetDouble(3930);
+    P__Rebuilt_Shoot_Shooter_Spd_6__Entry.SetDouble(3975);
  
     P__Rebuilt_Shoot_Shooter_Spd_7__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Shooter_Spd_7");
     NTinst.AddListener(P__Rebuilt_Shoot_Shooter_Spd_7__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Shooter_Spd_7 = event.GetValueEventData()->value.GetDouble();});
@@ -445,31 +445,31 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Shoot_Shooter_Spd_I_0__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Shooter_Spd_I_0");
     NTinst.AddListener(P__Rebuilt_Shoot_Shooter_Spd_I_0__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Shooter_Spd_I_0 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Shooter_Spd_I_0__Entry.SetDouble(2780);
+    P__Rebuilt_Shoot_Shooter_Spd_I_0__Entry.SetDouble(2825);
  
     P__Rebuilt_Shoot_Shooter_Spd_I_1__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Shooter_Spd_I_1");
     NTinst.AddListener(P__Rebuilt_Shoot_Shooter_Spd_I_1__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Shooter_Spd_I_1 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Shooter_Spd_I_1__Entry.SetDouble(3030);
+    P__Rebuilt_Shoot_Shooter_Spd_I_1__Entry.SetDouble(3075);
  
     P__Rebuilt_Shoot_Shooter_Spd_I_2__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Shooter_Spd_I_2");
     NTinst.AddListener(P__Rebuilt_Shoot_Shooter_Spd_I_2__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Shooter_Spd_I_2 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Shooter_Spd_I_2__Entry.SetDouble(3320);
+    P__Rebuilt_Shoot_Shooter_Spd_I_2__Entry.SetDouble(3365);
  
     P__Rebuilt_Shoot_Shooter_Spd_I_3__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Shooter_Spd_I_3");
     NTinst.AddListener(P__Rebuilt_Shoot_Shooter_Spd_I_3__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Shooter_Spd_I_3 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Shooter_Spd_I_3__Entry.SetDouble(3480);
+    P__Rebuilt_Shoot_Shooter_Spd_I_3__Entry.SetDouble(3525);
  
     P__Rebuilt_Shoot_Shooter_Spd_I_4__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Shooter_Spd_I_4");
     NTinst.AddListener(P__Rebuilt_Shoot_Shooter_Spd_I_4__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Shooter_Spd_I_4 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Shooter_Spd_I_4__Entry.SetDouble(3680);
+    P__Rebuilt_Shoot_Shooter_Spd_I_4__Entry.SetDouble(3725);
  
     P__Rebuilt_Shoot_Shooter_Spd_I_5__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Shooter_Spd_I_5");
     NTinst.AddListener(P__Rebuilt_Shoot_Shooter_Spd_I_5__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Shooter_Spd_I_5 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Shooter_Spd_I_5__Entry.SetDouble(3830);
+    P__Rebuilt_Shoot_Shooter_Spd_I_5__Entry.SetDouble(3875);
  
     P__Rebuilt_Shoot_Shooter_Spd_I_6__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Shooter_Spd_I_6");
     NTinst.AddListener(P__Rebuilt_Shoot_Shooter_Spd_I_6__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Shooter_Spd_I_6 = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shoot_Shooter_Spd_I_6__Entry.SetDouble(4030);
+    P__Rebuilt_Shoot_Shooter_Spd_I_6__Entry.SetDouble(4075);
  
     P__Rebuilt_Shoot_Shooter_Spd_I_7__Entry = NTtable_Tune->GetEntry("Rebuilt_Shoot_Shooter_Spd_I_7");
     NTinst.AddListener(P__Rebuilt_Shoot_Shooter_Spd_I_7__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shoot_Shooter_Spd_I_7 = event.GetValueEventData()->value.GetDouble();});
@@ -521,11 +521,15 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Shooter_Motor_Gain_I__Entry = NTtable_Tune->GetEntry("Rebuilt_Shooter_Motor_Gain_I");
     NTinst.AddListener(P__Rebuilt_Shooter_Motor_Gain_I__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shooter_Motor_Gain_I = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shooter_Motor_Gain_I__Entry.SetDouble(0.02);
+    P__Rebuilt_Shooter_Motor_Gain_I__Entry.SetDouble(0.03);
+ 
+    P__Rebuilt_Shooter_Motor_Gain_I_Low__Entry = NTtable_Tune->GetEntry("Rebuilt_Shooter_Motor_Gain_I_Low");
+    NTinst.AddListener(P__Rebuilt_Shooter_Motor_Gain_I_Low__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shooter_Motor_Gain_I_Low = event.GetValueEventData()->value.GetDouble();});
+    P__Rebuilt_Shooter_Motor_Gain_I_Low__Entry.SetDouble(0);
  
     P__Rebuilt_Shooter_Motor_Gain_P__Entry = NTtable_Tune->GetEntry("Rebuilt_Shooter_Motor_Gain_P");
     NTinst.AddListener(P__Rebuilt_Shooter_Motor_Gain_P__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shooter_Motor_Gain_P = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Shooter_Motor_Gain_P__Entry.SetDouble(0.02);
+    P__Rebuilt_Shooter_Motor_Gain_P__Entry.SetDouble(0.06);
  
     P__Rebuilt_Shot_Init_Time__Entry = NTtable_Tune->GetEntry("Rebuilt_Shot_Init_Time");
     NTinst.AddListener(P__Rebuilt_Shot_Init_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Shot_Init_Time = event.GetValueEventData()->value.GetDouble();});
@@ -1270,6 +1274,7 @@ void SimulinkNetworkTables1::PostStepCallback()
     P__Rebuilt_Shooter_Error_Integral_Enable__Entry.SetDouble(Rebuilt_Shooter_Error_Integral_Enable);
     P__Rebuilt_Shooter_Motor_Gain_FF__Entry.SetDouble(Rebuilt_Shooter_Motor_Gain_FF);
     P__Rebuilt_Shooter_Motor_Gain_I__Entry.SetDouble(Rebuilt_Shooter_Motor_Gain_I);
+    P__Rebuilt_Shooter_Motor_Gain_I_Low__Entry.SetDouble(Rebuilt_Shooter_Motor_Gain_I_Low);
     P__Rebuilt_Shooter_Motor_Gain_P__Entry.SetDouble(Rebuilt_Shooter_Motor_Gain_P);
     P__Rebuilt_Shot_Init_Time__Entry.SetDouble(Rebuilt_Shot_Init_Time);
     P__Rebuilt_Target_Feeder_Speed__Entry.SetDouble(Rebuilt_Target_Feeder_Speed);

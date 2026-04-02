@@ -145,6 +145,7 @@ private:
         nt::NetworkTableEntry P__Rebuilt_Shooter_Error_Integral_Enable__Entry;
         nt::NetworkTableEntry P__Rebuilt_Shooter_Motor_Gain_FF__Entry;
         nt::NetworkTableEntry P__Rebuilt_Shooter_Motor_Gain_I__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Shooter_Motor_Gain_I_Low__Entry;
         nt::NetworkTableEntry P__Rebuilt_Shooter_Motor_Gain_P__Entry;
         nt::NetworkTableEntry P__Rebuilt_Shot_Init_Time__Entry;
         nt::NetworkTableEntry P__Rebuilt_Target_Feeder_Speed__Entry;
