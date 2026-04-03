@@ -62,10 +62,10 @@ Field_Translation_Speed_Max = 5.0;  % meter/second
 Drive_Motor_Control_FF= 1/Drive_Motor_Max_Speed;  % 1 DC / Max Speed RPM;
 Drive_Motor_Control_P = 0.000005;
 
-Drive_Motor_Control_I = 0.000001;
+% Drive_Motor_Control_I = 0.000001;
 
-Drive_Motor_Control_I_UL = 0.03;
-Drive_Motor_Control_I_LL = -Drive_Motor_Control_I_UL;
+% Drive_Motor_Control_I_UL = 0.03;
+% Drive_Motor_Control_I_LL = -Drive_Motor_Control_I_UL;
 
 Drive_Motor_Control_D = 0.000002/t_sample;
 

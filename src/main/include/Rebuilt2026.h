@@ -68,16 +68,16 @@ private:
   dlib::Chooser Auto_Path_Starting_Position_Chooser {
     "Auto Path Starting Position",
       {
-        {"01 - Left Trench - Right Trench - Hub - Right Trench", 1},
-        {"02 - Right Trench - Left Trench - Hub - Left Trench", 2},
-        {"03 - Left Trench - Trench - Hub - Trench", 3},
-        {"04 - Right Trench - Trench - Hub - Trench", 4},
-        {"05 - Left Trench - Ramp - Hub - Ramp", 5},
-        {"06 - Right Trench - Ramp - Hub - Ramp", 6},  
-        {"07 - Left Trench - Trench - Long Shoot - Trench", 7},
-        {"08 - Right Trench - Trench - Long Shoot - Trench", 8},
-        {"09 - Left Trench - Ramp - Hub - Trench", 9},
-        {"10 - Right Trench - Ramp - Hub - Trench", 10}       
+        {"01 - Left - NZ - Left - Hub - Left - NZ", 3},
+        {"02 - Left - NZ - Left - Long - Left - NZ", 7},
+        {"03 - Left - NZ - Ramp - Hub - Left - NZ", 9},
+        {"04 - Left - NZ - Ramp - Hub - Ramp - NZ (beached!)", 5},
+        {"05 - Left - NZ - Right - Hub - Right - NZ", 1},
+        {"06 - Right - NZ - Right - Hub - Right - NZ", 4},
+        {"07 - Right - NZ - Right - Long - Right - NZ", 8},
+        {"08 - Right - NZ - Ramp - Hub - Right - NZ", 10},
+        {"09 - Right - NZ - Ramp - Hub - Ramp - NZ (beached!)", 6}, 
+        {"10 - Right - NZ - Left - Hub - Left - NZ", 2}     
       },
     &Auto_Path_Chooser //Simulink parameter name
   };

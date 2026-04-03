@@ -79,18 +79,6 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     NTinst.AddListener(P__Drive_Motor_Control_FF__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Motor_Control_FF = event.GetValueEventData()->value.GetDouble();});
     P__Drive_Motor_Control_FF__Entry.SetDouble(0.00016129);
  
-    P__Drive_Motor_Control_I__Entry = NTtable_Tune->GetEntry("Drive_Motor_Control_I");
-    NTinst.AddListener(P__Drive_Motor_Control_I__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Motor_Control_I = event.GetValueEventData()->value.GetDouble();});
-    P__Drive_Motor_Control_I__Entry.SetDouble(1e-06);
- 
-    P__Drive_Motor_Control_I_LL__Entry = NTtable_Tune->GetEntry("Drive_Motor_Control_I_LL");
-    NTinst.AddListener(P__Drive_Motor_Control_I_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Motor_Control_I_LL = event.GetValueEventData()->value.GetDouble();});
-    P__Drive_Motor_Control_I_LL__Entry.SetDouble(-0.03);
- 
-    P__Drive_Motor_Control_I_UL__Entry = NTtable_Tune->GetEntry("Drive_Motor_Control_I_UL");
-    NTinst.AddListener(P__Drive_Motor_Control_I_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Motor_Control_I_UL = event.GetValueEventData()->value.GetDouble();});
-    P__Drive_Motor_Control_I_UL__Entry.SetDouble(0.03);
- 
     P__Drive_Motor_Control_P__Entry = NTtable_Tune->GetEntry("Drive_Motor_Control_P");
     NTinst.AddListener(P__Drive_Motor_Control_P__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Motor_Control_P = event.GetValueEventData()->value.GetDouble();});
     P__Drive_Motor_Control_P__Entry.SetDouble(5e-06);
@@ -1162,9 +1150,6 @@ void SimulinkNetworkTables1::PostStepCallback()
     P__Drive_Motor_Control_D_LL__Entry.SetDouble(Drive_Motor_Control_D_LL);
     P__Drive_Motor_Control_D_UL__Entry.SetDouble(Drive_Motor_Control_D_UL);
     P__Drive_Motor_Control_FF__Entry.SetDouble(Drive_Motor_Control_FF);
-    P__Drive_Motor_Control_I__Entry.SetDouble(Drive_Motor_Control_I);
-    P__Drive_Motor_Control_I_LL__Entry.SetDouble(Drive_Motor_Control_I_LL);
-    P__Drive_Motor_Control_I_UL__Entry.SetDouble(Drive_Motor_Control_I_UL);
     P__Drive_Motor_Control_P__Entry.SetDouble(Drive_Motor_Control_P);
     P__Drive_Motor_Control_Sign_Change_Deadband__Entry.SetDouble(Drive_Motor_Control_Sign_Change_Deadband);
     P__Feeder_Max_Pulsetime__Entry.SetDouble(Feeder_Max_Pulsetime);
