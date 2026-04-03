@@ -13,7 +13,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Auto_Deploy_Intake_Time__Entry = NTtable_Tune->GetEntry("Auto_Deploy_Intake_Time");
     NTinst.AddListener(P__Auto_Deploy_Intake_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Deploy_Intake_Time = event.GetValueEventData()->value.GetDouble();});
-    P__Auto_Deploy_Intake_Time__Entry.SetDouble(1);
+    P__Auto_Deploy_Intake_Time__Entry.SetDouble(1.5);
  
     P__Auto_Intake_Arm_Cycle_Delay_Time__Entry = NTtable_Tune->GetEntry("Auto_Intake_Arm_Cycle_Delay_Time");
     NTinst.AddListener(P__Auto_Intake_Arm_Cycle_Delay_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Intake_Arm_Cycle_Delay_Time = event.GetValueEventData()->value.GetDouble();});
@@ -1122,7 +1122,6 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__Steering_Localized_Cmd__Entry = NTtable_TPoint->GetEntry("Steering_Localized_Cmd");
     T__Steering_Rel_Cmd__Entry = NTtable_TPoint->GetEntry("Steering_Rel_Cmd");
     T__Steering_Rel_Cmd_SPF__Entry = NTtable_TPoint->GetEntry("Steering_Rel_Cmd_SPF");
-    T__Swerve_Drive_Integral_Enable__Entry = NTtable_TPoint->GetEntry("Swerve_Drive_Integral_Enable");
     T__Test_Mode__Entry = NTtable_TPoint->GetEntry("Test_Mode");
     T__Translation_Angle__Entry = NTtable_TPoint->GetEntry("Translation_Angle");
     T__Translation_Angle_SPF__Entry = NTtable_TPoint->GetEntry("Translation_Angle_SPF");
@@ -1586,7 +1585,6 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__Steering_Localized_Cmd__Entry.SetDouble(Robot_Control_B.Steering_Localized_Cmd);
     T__Steering_Rel_Cmd__Entry.SetDouble(Robot_Control_B.Steering_Rel_Cmd);
     T__Steering_Rel_Cmd_SPF__Entry.SetDouble(Robot_Control_B.Steering_Rel_Cmd_SPF);
-    T__Swerve_Drive_Integral_Enable__Entry.SetDouble(Robot_Control_B.Swerve_Drive_Integral_Enable);
     T__Test_Mode__Entry.SetDouble(Robot_Control_B.Test_Mode);
     T__Translation_Angle__Entry.SetDouble(Robot_Control_B.Translation_Angle);
     T__Translation_Angle_SPF__Entry.SetDouble(Robot_Control_B.Translation_Angle_SPF);

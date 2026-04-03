@@ -459,7 +459,6 @@ private:
         nt::NetworkTableEntry T__Steering_Localized_Cmd__Entry;
         nt::NetworkTableEntry T__Steering_Rel_Cmd__Entry;
         nt::NetworkTableEntry T__Steering_Rel_Cmd_SPF__Entry;
-        nt::NetworkTableEntry T__Swerve_Drive_Integral_Enable__Entry;
         nt::NetworkTableEntry T__Test_Mode__Entry;
         nt::NetworkTableEntry T__Translation_Angle__Entry;
         nt::NetworkTableEntry T__Translation_Angle_SPF__Entry;
