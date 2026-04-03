@@ -158,6 +158,20 @@
               "data_type": "double",
               "show_submit_button": false
             }
+          },
+          {
+            "title": "Measured_Intake_Arm_Angle",
+            "x": 256.0,
+            "y": 0.0,
+            "width": 256.0,
+            "height": 128.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/Simulink Top Level Ports/Measured_Intake_Arm_Angle",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": false
+            }
           }
         ]
       }
@@ -183,7 +197,7 @@
             "title": "Auto Path Starting Position",
             "x": 256.0,
             "y": 0.0,
-            "width": 256.0,
+            "width": 640.0,
             "height": 128.0,
             "type": "ComboBox Chooser",
             "properties": {
@@ -195,9 +209,9 @@
           {
             "title": "limelight-two",
             "x": 512.0,
-            "y": 0.0,
+            "y": 128.0,
             "width": 384.0,
-            "height": 640.0,
+            "height": 512.0,
             "type": "Camera Stream",
             "properties": {
               "topic": "/CameraPublisher/limelight-two",
@@ -208,7 +222,7 @@
           {
             "title": "limelight-one",
             "x": 896.0,
-            "y": 0.0,
+            "y": 128.0,
             "width": 640.0,
             "height": 512.0,
             "type": "Camera Stream",
