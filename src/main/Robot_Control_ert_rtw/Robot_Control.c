@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.482
+ * Model version                  : 2.483
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Apr  2 17:32:13 2026
+ * C/C++ source code generated on : Thu Apr  2 21:16:36 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -5453,9 +5453,10 @@ void Robot_Control_step(void)
        case Robot_Control_IN_Feeder:
         Robot_Control_B.RB_Desired_Feeder_Speed = Rebuilt_Target_Feeder_Speed;
         Robot_Control_B.RB_Transfer_Init = 0.0;
-        if ((rtb_Compare_pb && rtb_LogicalOperator5) ||
-            ((Robot_Control_DW.Feeder_Loops_Shooting * 0.02) >
-             Feeder_Max_Pulsetime)) {
+        if (((rtb_Compare_pb && rtb_LogicalOperator5) ||
+             ((Robot_Control_DW.Feeder_Loops_Shooting * 0.02) >
+              Feeder_Max_Pulsetime)) || ((!Robot_Control_B.RB_Ready_to_Score) &&
+             (!Robot_Control_B.RB_Ready_to_Pass))) {
           Robot_Control_DW.is_Shooting = Robot_Control_IN_Spinning_Up;
           Robot_Control_B.RB_Desired_Transfer_Speed = 0.0;
           Robot_Control_B.RB_Desired_Feeder_Speed = 0.0;
@@ -5490,9 +5491,11 @@ void Robot_Control_step(void)
           Robot_Control_B.RB_Desired_Feeder_Speed = Rebuilt_Target_Feeder_Speed;
           Robot_Control_B.RB_Transfer_Init = 0.0;
           Robot_Control_DW.Feeder_Loops_Shooting = 0.0;
-        } else if ((rtb_Compare_pb && rtb_LogicalOperator5) ||
-                   ((Robot_Control_DW.Feeder_Loops_Shooting * 0.02) >
-                    Feeder_Max_Pulsetime)) {
+        } else if (((rtb_Compare_pb && rtb_LogicalOperator5) ||
+                    ((Robot_Control_DW.Feeder_Loops_Shooting * 0.02) >
+                     Feeder_Max_Pulsetime)) ||
+                   ((!Robot_Control_B.RB_Ready_to_Score) &&
+                    (!Robot_Control_B.RB_Ready_to_Pass))) {
           Robot_Control_DW.is_Shooting = Robot_Control_IN_Spinning_Up;
           Robot_Control_B.RB_Desired_Transfer_Speed = 0.0;
           Robot_Control_B.RB_Desired_Feeder_Speed = 0.0;

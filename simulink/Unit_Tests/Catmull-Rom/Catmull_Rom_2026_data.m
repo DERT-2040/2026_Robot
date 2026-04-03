@@ -21,10 +21,13 @@ plot_robot_rectangle = 1;  % 0 = off, 1 = on
 %test_cases = [2,3];
 %test_cases = [5,6];
 %test_cases = [7,8];
-%test_cases = [14,15,0];
-%test_cases = [16,17,0];
-%test_cases = [18,18,0];
-%test_cases = [19,19,0];
+%test_cases = [14,15];
+%test_cases = [16,17];
+%test_cases = [18,18];
+%test_cases = [19,19];
+%test_cases = [14,6];
+%test_cases = [16,8];
+
 %test_cases = [9,10];
 %test_cases = [11,12];
 %test_cases = [11,13,10];
