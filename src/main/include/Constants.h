@@ -46,7 +46,7 @@ namespace Constants
     {
         namespace Drive
         {
-            static TalonFX::DutyCycleCreateInfo defaultDriveCreateInfo = TalonFX::GetNewDutyCycleCreateInfo()
+            static TalonFX::MotorCreateInfo defaultDriveCreateInfo = TalonFX::GetNewDutyCycleCreateInfo()
                 .SetCanbus(*Constants::CANBuses::CANivoreBus)
                 .SetIsReversed(true)
                 .SetSupplyCurrentLimit(80)
@@ -86,7 +86,7 @@ namespace Constants
         
         namespace Steer
         {
-            static TalonFX::DutyCycleCreateInfo defaultSteerCreateInfo = TalonFX::GetNewDutyCycleCreateInfo()
+            static TalonFX::MotorCreateInfo defaultSteerCreateInfo = TalonFX::GetNewDutyCycleCreateInfo()
                 .SetCanbus(*Constants::CANBuses::CANivoreBus)
                 .SetIsReversed(false)
                 .SetSupplyCurrentLimit(60)
@@ -159,7 +159,7 @@ namespace Constants
     namespace ShooterCreateInfo
     {
         static double d = 0;
-        static TalonFX::VelocityCreateInfo defaultShooterCreateInfo = TalonFX::GetNewVelocityCreateInfo()
+        static TalonFX::MotorCreateInfo defaultShooterCreateInfo = TalonFX::GetNewVelocityCreateInfo()
                 .SetCanbus(*Constants::CANBuses::CANivoreBus)
                 .SetIsReversed(false)
                 .SetSupplyCurrentLimit(80)
@@ -167,11 +167,13 @@ namespace Constants
                 .SetEnableFOC(true)
                 .SetMotorType(TalonFX::MotorType::KrakenX60)
                 .SetAcceleration(1000)
-                .SetPGain(&Robot_Control_Y.Shooter_Motor_Gain_Kp)
-                .SetIGain(&Robot_Control_Y.Shooter_Motor_Gain_Ki)
-                .SetDGain(&d)
+                .EditPIDSlot(0)
+                    .SetPGain(&Robot_Control_Y.Shooter_Motor_Gain_Kp)
+                    .SetIGain(&Robot_Control_Y.Shooter_Motor_Gain_Ki)
+                    .SetDGain(&d)
+                    .SetupdatePID(&Robot_Control_Y.Shooter_Motor_Gain_Change)
+                .ExitPidConfig()
                 .SetFF(&Robot_Control_Y.Desired_Shooter_FF_DC)
-                .SetupdatePID(&Robot_Control_Y.Shooter_Motor_Gain_Change)
                 .SetUseTimeSync(false)
                 .SetTargetVelocity(&Robot_Control_Y.Desired_Shooter_Speed)
                 .SetUpdateFrequency(1000);
@@ -198,14 +200,14 @@ namespace Constants
 
     namespace FeederCreateInfo
     {
-        static TalonFX::DutyCycleCreateInfo defaultFeederCreateInfo = TalonFX::GetNewDutyCycleCreateInfo()
+        static TalonFX::MotorCreateInfo defaultFeederCreateInfo = TalonFX::GetNewDutyCycleCreateInfo()
                 .SetCanbus(*Constants::CANBuses::CANivoreBus)
                 .SetIsReversed(false)
                 .SetSupplyCurrentLimit(80)
                 .SetOpenLoopRampPeriod(0)
                 .SetEnableFOC(true)
                 .SetMotorType(TalonFX::MotorType::KrakenX60);
-        static const TalonFX::MotorCreateInfo Feeder = defaultFeederCreateInfo
+        static const TalonFX::MotorCreateInfo Feeder = defaultFeederCreateInfo.Clone()
                 .SetCanID(13)
                 .SetDutyCycleCallback(&Robot_Control_Y.Feeder_Motor_DC)
                 .SetVelocityCallback(&Robot_Control_U.Measured_Feeder_Speed)
@@ -214,14 +216,14 @@ namespace Constants
      
     namespace TransferCreateInfo
     {
-        static TalonFX::DutyCycleCreateInfo defaultTransferCreateInfo = TalonFX::GetNewDutyCycleCreateInfo()
+        static TalonFX::MotorCreateInfo defaultTransferCreateInfo = TalonFX::GetNewDutyCycleCreateInfo()
                 .SetCanbus(*Constants::CANBuses::CANivoreBus)
                 .SetIsReversed(false)
                 .SetSupplyCurrentLimit(60)
                 .SetOpenLoopRampPeriod(0)
                 .SetEnableFOC(true)
                 .SetMotorType(TalonFX::MotorType::KrakenX44);
-        static const TalonFX::MotorCreateInfo Transfer = defaultTransferCreateInfo
+        static const TalonFX::MotorCreateInfo Transfer = defaultTransferCreateInfo.Clone()
                 .SetCanID(14)
                 .SetDutyCycleCallback(&Robot_Control_Y.Transfer_Motor_DC)
                 .SetVelocityCallback(&Robot_Control_U.Measured_Transfer_Speed)
@@ -235,18 +237,18 @@ namespace Constants
     }
     
     namespace IntakeCreateInfo{
-        static TalonFX::DutyCycleCreateInfo defaultIntakeCreateInfo = TalonFX::GetNewDutyCycleCreateInfo()
+        static TalonFX::MotorCreateInfo defaultIntakeCreateInfo = TalonFX::GetNewDutyCycleCreateInfo()
                 .SetCanbus(*Constants::CANBuses::CANivoreBus)
                 .SetOpenLoopRampPeriod(0)
                 .SetEnableFOC(true);
-        static const TalonFX::MotorCreateInfo Intake_Arm = defaultIntakeCreateInfo
+        static const TalonFX::MotorCreateInfo Intake_Arm = defaultIntakeCreateInfo.Clone() 
                 .SetCanID(15)
                 .SetIsReversed(true)
                 .SetSupplyCurrentLimit(60)                
                 .SetDutyCycleCallback(&Robot_Control_Y.Intake_Arm_Motor_DC)
                 .SetDisplayName("Intake Arm")
                 .SetMotorType(TalonFX::MotorType::KrakenX44);                
-        static const TalonFX::MotorCreateInfo Intake_Roller = defaultIntakeCreateInfo
+        static const TalonFX::MotorCreateInfo Intake_Roller = defaultIntakeCreateInfo.Clone()
                 .SetCanID(16)
                 .SetIsReversed(false)            
                 .SetSupplyCurrentLimit(80)                    

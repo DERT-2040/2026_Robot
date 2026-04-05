@@ -1,0 +1,14 @@
+CompileFlags:
+  CompilationDatabase: build/TargetedCompileCommands/linuxathenadebug
+  Add: [-std=c++20]
+
+Index:
+  Background: Build
+
+---
+If:
+  PathMatch: .*\.tpp
+CompileFlags:
+  Add: [-x, c++-header]
+
+  #./gradlew generateCompileCommands
