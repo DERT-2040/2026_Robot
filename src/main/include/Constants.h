@@ -173,6 +173,7 @@ namespace Constants
                     .SetDGain(&d)
                     .SetupdatePID(&Robot_Control_Y.Shooter_Motor_Gain_Change)
                 .ExitPidConfig()
+                .SetSelectedSlot(0)
                 .SetFF(&Robot_Control_Y.Desired_Shooter_FF_DC)
                 .SetUseTimeSync(false)
                 .SetTargetVelocity(&Robot_Control_Y.Desired_Shooter_Speed)
