@@ -188,7 +188,7 @@ Rebuilt_Hood_Servo_Rate_Limit_Dec = -Rebuilt_Hood_Servo_Rate_Limit_Inc;
 %% Intake
 Rebuilt_Intake_Des_Angle_In = -40;
 Rebuilt_Intake_Meas_In_Disable = -20;   % disable motor when angle is less than this value and the desired anle is the in angle
-Rebuilt_Intake_Meas_Out_Disable = 80;   % disable motor when angle is more than this value and the desired anle is the out angle
+Rebuilt_Intake_Meas_Out_Disable = 40;   % disable motor when angle is more than this value and the desired anle is the out angle
 Rebuilt_Intake_Des_Angle_Out = 90;
 
 Rebuilt_Intake_Cycle_Angle_In = -10;

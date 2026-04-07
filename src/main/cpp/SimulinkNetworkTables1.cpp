@@ -217,7 +217,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Intake_Meas_Out_Disable__Entry = NTtable_Tune->GetEntry("Rebuilt_Intake_Meas_Out_Disable");
     NTinst.AddListener(P__Rebuilt_Intake_Meas_Out_Disable__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_Meas_Out_Disable = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Intake_Meas_Out_Disable__Entry.SetDouble(80);
+    P__Rebuilt_Intake_Meas_Out_Disable__Entry.SetDouble(40);
  
     P__Rebuilt_Intake_RL_Dec__Entry = NTtable_Tune->GetEntry("Rebuilt_Intake_RL_Dec");
     NTinst.AddListener(P__Rebuilt_Intake_RL_Dec__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Intake_RL_Dec = event.GetValueEventData()->value.GetDouble();});

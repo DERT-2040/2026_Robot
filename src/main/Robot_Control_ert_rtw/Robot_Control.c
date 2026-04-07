@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.484
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Apr  3 08:15:00 2026
+ * C/C++ source code generated on : Mon Apr  6 21:48:12 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -272,7 +272,7 @@ real_T Rebuilt_Intake_Meas_In_Disable = -20.0;
                                      /* Variable: Rebuilt_Intake_Meas_In_Disable
                                       * Referenced by: '<S62>/Constant'
                                       */
-real_T Rebuilt_Intake_Meas_Out_Disable = 80.0;
+real_T Rebuilt_Intake_Meas_Out_Disable = 40.0;
                                     /* Variable: Rebuilt_Intake_Meas_Out_Disable
                                      * Referenced by: '<S63>/Constant'
                                      */
