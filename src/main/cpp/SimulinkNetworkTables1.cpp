@@ -143,10 +143,6 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     NTinst.AddListener(P__Field_Translation_Speed_Max__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Field_Translation_Speed_Max = event.GetValueEventData()->value.GetDouble();});
     P__Field_Translation_Speed_Max__Entry.SetDouble(5);
  
-    P__Field_Width__Entry = NTtable_Tune->GetEntry("Field_Width");
-    NTinst.AddListener(P__Field_Width__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Field_Width = event.GetValueEventData()->value.GetDouble();});
-    P__Field_Width__Entry.SetDouble(8.0693);
- 
     P__Field_Width_Pass__Entry = NTtable_Tune->GetEntry("Field_Width_Pass");
     NTinst.AddListener(P__Field_Width_Pass__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Field_Width_Pass = event.GetValueEventData()->value.GetDouble();});
     P__Field_Width_Pass__Entry.SetDouble(7.0692);
@@ -1170,7 +1166,6 @@ void SimulinkNetworkTables1::PostStepCallback()
     P__Field_Red_Pass_X__Entry.SetDouble(Field_Red_Pass_X);
     P__Field_Translation_Control_Gain__Entry.SetDouble(Field_Translation_Control_Gain);
     P__Field_Translation_Speed_Max__Entry.SetDouble(Field_Translation_Speed_Max);
-    P__Field_Width__Entry.SetDouble(Field_Width);
     P__Field_Width_Pass__Entry.SetDouble(Field_Width_Pass);
     P__KF_Enable__Entry.SetDouble(KF_Enable);
     P__Rate_Limit_X__Entry.SetDouble(Rate_Limit_X);

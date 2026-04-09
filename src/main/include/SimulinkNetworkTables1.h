@@ -50,7 +50,6 @@ private:
         nt::NetworkTableEntry P__Field_Red_Pass_X__Entry;
         nt::NetworkTableEntry P__Field_Translation_Control_Gain__Entry;
         nt::NetworkTableEntry P__Field_Translation_Speed_Max__Entry;
-        nt::NetworkTableEntry P__Field_Width__Entry;
         nt::NetworkTableEntry P__Field_Width_Pass__Entry;
         nt::NetworkTableEntry P__KF_Enable__Entry;
         nt::NetworkTableEntry P__Rate_Limit_X__Entry;
