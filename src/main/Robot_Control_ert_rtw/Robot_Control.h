@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.484
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Mon Apr  6 21:48:12 2026
+ * C/C++ source code generated on : Wed Apr  8 21:33:02 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -627,7 +627,7 @@ extern real_T Field_Translation_Control_Gain;
 extern real_T Field_Translation_Speed_Max;/* Variable: Field_Translation_Speed_Max
                                            * Referenced by: '<S432>/Constant5'
                                            */
-extern real_T Field_Width;             /* Variable: Field_Width
+extern real_T Field_Width_Pass;        /* Variable: Field_Width_Pass
                                         * Referenced by: '<S152>/Constant11'
                                         */
 extern real_T KF_Enable;               /* Variable: KF_Enable

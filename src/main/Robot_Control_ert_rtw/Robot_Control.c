@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.484
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Mon Apr  6 21:48:12 2026
+ * C/C++ source code generated on : Wed Apr  8 21:33:02 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -60,7 +60,7 @@
 #define Robot_Control_IN_Start_Action  ((uint8_T)3U)
 
 /* Exported block parameters */
-real_T Auto_Deploy_Intake_Time = 1.5;  /* Variable: Auto_Deploy_Intake_Time
+real_T Auto_Deploy_Intake_Time = 0.0;  /* Variable: Auto_Deploy_Intake_Time
                                         * Referenced by: '<S26>/Constant'
                                         */
 real_T Auto_Intake_Arm_Cycle_Delay_Time = 2.0;
@@ -203,7 +203,7 @@ real_T Field_Translation_Control_Gain = 10.0;
 real_T Field_Translation_Speed_Max = 5.0;/* Variable: Field_Translation_Speed_Max
                                           * Referenced by: '<S432>/Constant5'
                                           */
-real_T Field_Width = 8.0693;           /* Variable: Field_Width
+real_T Field_Width_Pass = 7.0692;      /* Variable: Field_Width_Pass
                                         * Referenced by: '<S152>/Constant11'
                                         */
 real_T KF_Enable = 1.0;                /* Variable: KF_Enable
@@ -5868,7 +5868,7 @@ void Robot_Control_step(void)
      *  Sum: '<S164>/Subtract3'
      *  Sum: '<S164>/Subtract4'
      */
-    rtb_Switch_cn = rt_atan2d_snf(0.0 - Robot_Control_B.KF_Position_Y, 0.0 -
+    rtb_Switch_cn = rt_atan2d_snf(1.0 - Robot_Control_B.KF_Position_Y, 0.0 -
       Robot_Control_B.KF_Position_X);
 
     /* Math: '<S164>/Mod' incorporates:
@@ -5887,7 +5887,7 @@ void Robot_Control_step(void)
      *  Sum: '<S164>/Subtract1'
      *  Sum: '<S164>/Subtract2'
      */
-    rtb_Switch_cn = rt_atan2d_snf(0.0 - Robot_Control_B.KF_Position_Y, rtb_Init);
+    rtb_Switch_cn = rt_atan2d_snf(1.0 - Robot_Control_B.KF_Position_Y, rtb_Init);
 
     /* Math: '<S164>/Mod1' incorporates:
      *  Constant: '<S164>/Constant5'
@@ -5898,7 +5898,7 @@ void Robot_Control_step(void)
      *  Constant: '<S152>/Constant11'
      *  Sum: '<S164>/Subtract7'
      */
-    rtb_Switch2_i = Field_Width - Robot_Control_B.KF_Position_Y;
+    rtb_Switch2_i = Field_Width_Pass - Robot_Control_B.KF_Position_Y;
 
     /* Trigonometry: '<S164>/Atan3' incorporates:
      *  Constant: '<S164>/Constant3'

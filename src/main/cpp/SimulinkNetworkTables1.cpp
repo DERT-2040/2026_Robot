@@ -13,7 +13,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Auto_Deploy_Intake_Time__Entry = NTtable_Tune->GetEntry("Auto_Deploy_Intake_Time");
     NTinst.AddListener(P__Auto_Deploy_Intake_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Deploy_Intake_Time = event.GetValueEventData()->value.GetDouble();});
-    P__Auto_Deploy_Intake_Time__Entry.SetDouble(1.5);
+    P__Auto_Deploy_Intake_Time__Entry.SetDouble(0);
  
     P__Auto_Intake_Arm_Cycle_Delay_Time__Entry = NTtable_Tune->GetEntry("Auto_Intake_Arm_Cycle_Delay_Time");
     NTinst.AddListener(P__Auto_Intake_Arm_Cycle_Delay_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Intake_Arm_Cycle_Delay_Time = event.GetValueEventData()->value.GetDouble();});
@@ -146,6 +146,10 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     P__Field_Width__Entry = NTtable_Tune->GetEntry("Field_Width");
     NTinst.AddListener(P__Field_Width__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Field_Width = event.GetValueEventData()->value.GetDouble();});
     P__Field_Width__Entry.SetDouble(8.0693);
+ 
+    P__Field_Width_Pass__Entry = NTtable_Tune->GetEntry("Field_Width_Pass");
+    NTinst.AddListener(P__Field_Width_Pass__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Field_Width_Pass = event.GetValueEventData()->value.GetDouble();});
+    P__Field_Width_Pass__Entry.SetDouble(7.0692);
  
     P__KF_Enable__Entry = NTtable_Tune->GetEntry("KF_Enable");
     NTinst.AddListener(P__KF_Enable__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {KF_Enable = event.GetValueEventData()->value.GetDouble();});
@@ -1167,6 +1171,7 @@ void SimulinkNetworkTables1::PostStepCallback()
     P__Field_Translation_Control_Gain__Entry.SetDouble(Field_Translation_Control_Gain);
     P__Field_Translation_Speed_Max__Entry.SetDouble(Field_Translation_Speed_Max);
     P__Field_Width__Entry.SetDouble(Field_Width);
+    P__Field_Width_Pass__Entry.SetDouble(Field_Width_Pass);
     P__KF_Enable__Entry.SetDouble(KF_Enable);
     P__Rate_Limit_X__Entry.SetDouble(Rate_Limit_X);
     P__Rate_Limit_Y__Entry.SetDouble(Rate_Limit_Y);
