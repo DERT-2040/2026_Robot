@@ -28,6 +28,7 @@ Red_Hub_RightX = 11.369;
 Red_Hub_RightY = 3.354;
 Red_Hub_LeftY = 4.548;
 Field_Width = 317.69 * 0.0254;
+Field_Width_Pass = (317.69 - 39.375) * 0.0254;
 Field_Length = 691.22 * 0.0254;
 Field_Length_Half = (Field_Length)/2;
 %% Shooting Control Data
