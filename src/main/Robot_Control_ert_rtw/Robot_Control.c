@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.484
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Apr  9 11:36:31 2026
+ * C/C++ source code generated on : Thu Apr  9 16:35:43 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -60,7 +60,7 @@
 #define Robot_Control_IN_Start_Action  ((uint8_T)3U)
 
 /* Exported block parameters */
-real_T Auto_Deploy_Intake_Time = 0.0;  /* Variable: Auto_Deploy_Intake_Time
+real_T Auto_Deploy_Intake_Time = 0.5;  /* Variable: Auto_Deploy_Intake_Time
                                         * Referenced by: '<S26>/Constant'
                                         */
 real_T Auto_Intake_Arm_Cycle_Delay_Time = 2.0;

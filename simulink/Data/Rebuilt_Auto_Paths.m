@@ -8,7 +8,7 @@ field_length = 651.22 * 0.0254;
 %Chooser
 
 Auto_Path_Chooser = 1; % default chooser path sequence number
-Auto_Deploy_Intake_Time = 0.0; % seconds
+Auto_Deploy_Intake_Time = 0.5; % seconds
 Auto_Shoot_Time = 4.5;   % seconds
 Auto_Intake_Arm_Cycle_Delay_Time = 2;  % seconds
 
@@ -118,13 +118,13 @@ Path_LH_NZ_LH = [
 % Middle Location: Neutral Zone Over Ramp
 % Finish Location: Left Hub
 Path_LH_LT_NR_LH = [
-    3.30, 5.4,  3.5, -45 *D2R, 0, 0;    
+    3.00, 5.7,  3.5, -45 *D2R, 0, 0;    
     3.20, 7.35, 2.0,   0 *D2R, 0, 3;
     5.00, 7.35, 2.0,   0 *D2R, 0, 3;    
     6.50, 7.31, 3.5, -90 *D2R, 0, 3;
     6.50, 5.50, 3.5, -60 *D2R, 0, 3;
-    5.50, 5.5,  2.5, -45 *D2R, 0, 3;
-    3.30, 5.4,  2.5, -45 *D2R, 2, 0;   
+    5.50, 5.5,  2.8, -45 *D2R, 0, 3;
+    3.00, 5.7,  2.8, -45 *D2R, 2, 0;   
     0,0,0,0,0,0;
     0,0,0,0,0,0;
     0,0,0,0,0,0];
@@ -248,8 +248,8 @@ Path_LT_NR_LH = [
     7.50, 7.31, 2.0, -60 *D2R, 0, 3;
     7.90, 4.77, 3.5, -90 *D2R, 0, 3;
     6.50, 5.00, 3.5, -60 *D2R, 0, 3;
-    5.50, 5.5,  2.5, -45 *D2R, 0, 3;
-    3.30, 5.4,  2.5, -45 *D2R, 2, 0;
+    5.50, 5.5,  2.8, -45 *D2R, 0, 3;
+    3.00, 5.7,  2.8, -45 *D2R, 2, 0;
     0,0,0,0,0,0;
     0,0,0,0,0,0;
     0,0,0,0,0,0];

@@ -197,7 +197,7 @@
             "title": "Auto Path Starting Position",
             "x": 256.0,
             "y": 0.0,
-            "width": 640.0,
+            "width": 256.0,
             "height": 128.0,
             "type": "ComboBox Chooser",
             "properties": {

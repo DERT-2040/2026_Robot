@@ -68,16 +68,16 @@ private:
   dlib::Chooser Auto_Path_Starting_Position_Chooser {
     "Auto Path Starting Position",
       {
-        {"01 - Left - NZ - Left - Hub - Left - NZ - Left - Hub", 3},
-        {"02 - Left - NZ - Left - Long - Left - NZ - Left - Long", 7},
-        {"03 - Left - NZ - Ramp - Hub - Left - NZ - Ramp - Hub", 9},
-        {"04 - Left - NZ - Ramp - Hub - Ramp - NZ (beached!) - Ramp - Hub", 5},
-        {"05 - Left - NZ - Right - Hub - Right - NZ - Left - Hub", 1},
-        {"06 - Right - NZ - Right - Hub - Right - NZ - Right - Hub", 4},
-        {"07 - Right - NZ - Right - Long - Right - NZ - Right - Long", 8},
-        {"08 - Right - NZ - Ramp - Hub - Right - NZ - Ramp - Hub", 10},
-        {"09 - Right - NZ - Ramp - Hub - Ramp - NZ (beached!) - Ramp - Hub", 6}, 
-        {"10 - Right - NZ - Left - Hub - Left - NZ - Right - Hub", 2}     
+        {"Auto Path 01", 3},
+        {"Auto Path 02", 7},
+        {"Auto Path 03", 9},
+        {"Auto Path 04", 5},
+        {"Auto Path 05", 1},
+        {"Auto Path 06", 4},
+        {"Auto Path 07", 8},
+        {"Auto Path 08", 10},
+        {"Auto Path 09", 6}, 
+        {"Auto Path 10", 2}     
       },
     &Auto_Path_Chooser //Simulink parameter name
   };
