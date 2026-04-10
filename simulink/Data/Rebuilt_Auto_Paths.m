@@ -8,7 +8,8 @@ field_length = 651.22 * 0.0254;
 %Chooser
 
 Auto_Path_Chooser = 3; % default chooser path sequence number
-Auto_Deploy_Intake_Time = 0.5; % seconds
+Auto_Deploy_Intake_Time = 1.5; % seconds (part 1 of auto)
+%Auto_Deploy_Intake_Time2 = 0.5; % seconds (part 2 of auto)
 Auto_Shoot_Time = 4.5;   % seconds
 Auto_Intake_Arm_Cycle_Delay_Time = 2;  % seconds
 
@@ -26,13 +27,14 @@ Auto_Intake_Arm_Cycle_Delay_Time = 2;  % seconds
 % 2 = Shooting
 % 3 = Gather Fuel from Floor
 % 4 = Startup delay to deploy intake
+% 5 = Startup delay to deploy intake
 
 % Start Location:  Left Trench
 % Middle Location: Neutral Zone
 % Finish Location: Right Hub
 Path_LT_NZ_RH = [
-    3.51, 7.45, 3.5,-180 *D2R, 4, 0;
-    5.50, 7.45, 3.5,-180 *D2R, 4, 3;
+    3.51, 7.45, 3.5,   0 *D2R, 4, 0;
+    5.50, 7.45, 3.5,   0 *D2R, 4, 3;
     7.00, 7.31, 3.5, -60 *D2R, 0, 3;
     7.70, 4.77, 3.5, -90 *D2R, 0, 3;
     7.60, 2.00, 3.5, -90 *D2R, 0, 3;
@@ -46,8 +48,8 @@ Path_LT_NZ_RH = [
 % Middle Location: Neutral Zone
 % Finish Location: Left Hub
 Path_RT_NZ_LH = MirrorPathSameSide(Path_LT_NZ_RH,field_width);
-Path_RT_NZ_LH(1,4) = 180 *D2R;
-Path_RT_NZ_LH(2,4) = 180 *D2R;
+Path_RT_NZ_LH(1,4) =   0 *D2R;
+Path_RT_NZ_LH(2,4) =   0 *D2R;
 Path_RT_NZ_LH(3,4) =  60 *D2R;
 Path_RT_NZ_LH(4,4) =  90 *D2R;
 Path_RT_NZ_LH(5,4) =  90 *D2R;
@@ -88,8 +90,8 @@ Path_RH_NZ_LH(8,4) = -30 *D2R;
 % Middle Location: Neutral Zone Loop Back
 % Finish Location: Left Hub
 Path_LT_NZ_LH = [
-    3.51, 7.35, 3.5,-180 *D2R, 4, 0;
-    5.50, 7.35, 3.5,-180 *D2R, 0, 3;    
+    3.51, 7.35, 3.5,   0 *D2R, 4, 0;
+    5.50, 7.35, 3.5,   0 *D2R, 0, 3;    
     7.50, 7.31, 3.5, -60 *D2R, 0, 3;
     7.70, 4.77, 3.5, -90 *D2R, 0, 3;
     6.50, 5.00, 3.5,  90 *D2R, 0, 3;
@@ -134,8 +136,8 @@ Path_LH_LT_NR_LH = [
 % Middle Location: Neutral Zone Loop Back
 % Finish Location: Right Hub
 Path_RT_NZ_RH = MirrorPathSameSide(Path_LT_NZ_LH,field_width);
-Path_RT_NZ_RH(1,4) = 180 *D2R;
-Path_RT_NZ_RH(2,4) = 180 *D2R;
+Path_RT_NZ_RH(1,4) =   0 *D2R;
+Path_RT_NZ_RH(2,4) =   0 *D2R;
 Path_RT_NZ_RH(3,4) =  60 *D2R;
 Path_RT_NZ_RH(4,4) =  90 *D2R;
 Path_RT_NZ_RH(5,4) = -90 *D2R;
@@ -244,8 +246,8 @@ Path_DP_OP = [
 % Middle Location: Neutral Zone to Ramp
 % Finish Location: Left Hub
 Path_LT_NR_LH = [
-    3.51, 7.35, 3.5,-180 *D2R, 4, 0;
-    5.50, 7.35, 3.5,-180 *D2R, 0, 3;    
+    3.51, 7.35, 3.5,   0 *D2R, 4, 0;
+    5.50, 7.35, 3.5,   0 *D2R, 0, 3;    
     7.50, 7.31, 2.0, -60 *D2R, 0, 3;
     7.90, 4.77, 3.5, -90 *D2R, 0, 3;
     6.50, 5.00, 3.5, -60 *D2R, 0, 3;
@@ -274,8 +276,8 @@ Path_LH_RNR_LH = [
 % Middle Location: Neutral Zone to Ramp
 % Finish Location: Right Hub
 Path_RT_NR_RH = MirrorPathSameSide(Path_LT_NR_LH,field_width);
-Path_RT_NR_RH(1,4) = 180 *D2R;
-Path_RT_NR_RH(2,4) = 180 *D2R;
+Path_RT_NR_RH(1,4) =   0 *D2R;
+Path_RT_NR_RH(2,4) =   0 *D2R;
 Path_RT_NR_RH(3,4) =  60 *D2R;
 Path_RT_NR_RH(4,4) =  90 *D2R;
 Path_RT_NR_RH(5,4) =  60 *D2R;
@@ -299,8 +301,8 @@ Path_RH_RNR_RH(7,4) =  45 *D2R;
 % Middle Location: Neutral Zone Loop Back
 % Finish Location: Left Trench
 Path_LT_NZ_LT = [
-    3.51, 7.35, 3.5,-180 *D2R, 4, 0;
-    5.50, 7.35, 3.5,-180 *D2R, 0, 3;    
+    3.51, 7.35, 3.5,   0 *D2R, 4, 0;
+    5.50, 7.35, 3.5,   0 *D2R, 0, 3;    
     7.50, 7.31, 3.5, -60 *D2R, 0, 3;
     7.70, 4.77, 3.5, -90 *D2R, 0, 3;
     6.50, 5.00, 3.5,  90 *D2R, 0, 3;
@@ -329,8 +331,8 @@ Path_LT_NZ_LT_part2 = [
 % Middle Location: Neutral Zone Loop Back
 % Finish Location: Right Trench
 Path_RT_NZ_RT = MirrorPathSameSide(Path_LT_NZ_LT,field_width);
-Path_RT_NZ_RT(1,4) = 180 *D2R;
-Path_RT_NZ_RT(2,4) = 180 *D2R;
+Path_RT_NZ_RT(1,4) =   0 *D2R;
+Path_RT_NZ_RT(2,4) =   0 *D2R;
 Path_RT_NZ_RT(3,4) =  60 *D2R;
 Path_RT_NZ_RT(4,4) =  90 *D2R;
 Path_RT_NZ_RT(5,4) = -90 *D2R;
