@@ -23,8 +23,8 @@ plot_robot_rectangle = 1;  % 0 = off, 1 = on
 %test_cases = [7,8];
 %test_cases = [14,15];
 %test_cases = [16,17];
-%test_cases = [18,18];
-%test_cases = [19,19];
+%test_cases = [18,22];
+%test_cases = [19,23];
 %test_cases = [14,20];
 %test_cases = [16,21];
 
@@ -32,7 +32,7 @@ plot_robot_rectangle = 1;  % 0 = off, 1 = on
 %test_cases = [11,12];
 %test_cases = [11,13,10];
 
-test_cases = [19];
+test_cases = [23];
 
 for m = 1:length(test_cases)
 

@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.485
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Apr 10 10:11:00 2026
+ * C/C++ source code generated on : Fri Apr 10 12:38:18 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -1759,13 +1759,13 @@ void Robot_Control_step(void)
 
      case 7:
       rtb_MultiportSwitch1[0] = 18;
-      rtb_MultiportSwitch1[1] = 18;
+      rtb_MultiportSwitch1[1] = 22;
       rtb_MultiportSwitch1[2] = 0;
       break;
 
      case 8:
       rtb_MultiportSwitch1[0] = 19;
-      rtb_MultiportSwitch1[1] = 19;
+      rtb_MultiportSwitch1[1] = 23;
       rtb_MultiportSwitch1[2] = 0;
       break;
 
@@ -1996,7 +1996,7 @@ void Robot_Control_step(void)
      */
     Robot_Control_B.Spline_Num_Poses =
       rtCP_uDLookupTable_tableData[plook_u32d_evencka
-      (Robot_Control_B.Auto_Path_ID, 1.0, 1.0, 20U)];
+      (Robot_Control_B.Auto_Path_ID, 1.0, 1.0, 22U)];
 
     /* Merge: '<S9>/Merge7' incorporates:
      *  SignalConversion: '<S18>/Signal Copy'
