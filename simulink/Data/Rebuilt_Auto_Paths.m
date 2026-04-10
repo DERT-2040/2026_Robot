@@ -412,16 +412,16 @@ clear Path_LT_NR_LH Path_LH_RNR_LH Path_RT_NR_RH Path_RH_RNR_RH
 clear Path_LT_NZ_LT Path_RT_NZ_RT Path_LH_LT_NR_LH Path_RH_RT_NR_RH
 
 % Define complete auto paths (fill with zeros so all are the same length)
-Auto_Path_01 = [1,4,0];     % Chooser 05 (using the full field - left)
-Auto_Path_02 = [2,3,0];     % Chooser 10 (using the full field - right)
-Auto_Path_03 = [5,6,0];     % Chooser 01 (similar to CIR - left)
-Auto_Path_04 = [7,8,0];     % Chooser 06 (similar to CIR - right)
-Auto_Path_05 = [14,15,0];   % Chooser 04 (trench start then ramp only - left)
-Auto_Path_06 = [16,17,0];   % Chooser 09 (trench start then ramp only - right)
-Auto_Path_07 = [18,18,0];   % Chooser 02 (long shot - left)
-Auto_Path_08 = [19,19,0];   % Chooser 07 (long shot - right)
-Auto_Path_09 = [14,20,0];   % Chooser 03 (Kansas City practice day - left)
-Auto_Path_10 = [16,21,0];   % Chooser 08 (Kansas City practice day - right)
+Auto_Path_01 = [1,4,0];     % Chooser 1 Left  (using the full field)
+Auto_Path_02 = [2,3,0];     % Chooser 1 Right (using the full field)
+Auto_Path_03 = [5,6,0];     % Chooser 2 Left  (similar to CIR)
+Auto_Path_04 = [7,8,0];     % Chooser 2 Right (similar to CIR)
+Auto_Path_05 = [14,15,0];   % Chooser 3 Left  (trench start then ramp only)
+Auto_Path_06 = [16,17,0];   % Chooser 3 Right (trench start then ramp only)
+Auto_Path_07 = [18,18,0];   % Chooser 4 Left  (long shot)
+Auto_Path_08 = [19,19,0];   % Chooser 4 Right (long shot)
+Auto_Path_09 = [14,20,0];   % Chooser 5 Left  (Kansas City practice day)
+Auto_Path_10 = [16,21,0];   % Chooser 5 Right (Kansas City practice day)
 
 %Auto_Path_05 = [9,10,0];
 %Auto_Path_06 = [11,12,0];

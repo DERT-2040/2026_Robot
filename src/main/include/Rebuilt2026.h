@@ -68,16 +68,16 @@ private:
   dlib::Chooser Auto_Path_Starting_Position_Chooser {
     "Auto Path Starting Position",
       {
-        {"Auto Path 01", 3},
-        {"Auto Path 02", 7},
-        {"Auto Path 03", 9},
-        {"Auto Path 04", 5},
-        {"Auto Path 05", 1},
-        {"Auto Path 06", 4},
-        {"Auto Path 07", 8},
-        {"Auto Path 08", 10},
-        {"Auto Path 09", 6}, 
-        {"Auto Path 10", 2}     
+        {"Auto 1 - Left  (1)", 1},
+        {"Auto 1 - Right (2)", 2},
+        {"Auto 2 - Left  (3)", 3},
+        {"Auto 2 - Right (4)", 4},
+        {"Auto 3 - Left  (5)", 5},
+        {"Auto 3 - Right (6)", 6},
+        {"Auto 4 - Left  (7)", 7},
+        {"Auto 4 - Right (8)", 8},
+        {"Auto 5 - Left  (9)", 9}, 
+        {"Auto 5 - Right (10)", 10}     
       },
     &Auto_Path_Chooser //Simulink parameter name
   };
