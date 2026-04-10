@@ -15,6 +15,10 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     NTinst.AddListener(P__Auto_Deploy_Intake_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Deploy_Intake_Time = event.GetValueEventData()->value.GetDouble();});
     P__Auto_Deploy_Intake_Time__Entry.SetDouble(1.5);
  
+    P__Auto_Deploy_Intake_Time2__Entry = NTtable_Tune->GetEntry("Auto_Deploy_Intake_Time2");
+    NTinst.AddListener(P__Auto_Deploy_Intake_Time2__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Deploy_Intake_Time2 = event.GetValueEventData()->value.GetDouble();});
+    P__Auto_Deploy_Intake_Time2__Entry.SetDouble(0.5);
+ 
     P__Auto_Intake_Arm_Cycle_Delay_Time__Entry = NTtable_Tune->GetEntry("Auto_Intake_Arm_Cycle_Delay_Time");
     NTinst.AddListener(P__Auto_Intake_Arm_Cycle_Delay_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Intake_Arm_Cycle_Delay_Time = event.GetValueEventData()->value.GetDouble();});
     P__Auto_Intake_Arm_Cycle_Delay_Time__Entry.SetDouble(2);
@@ -1134,6 +1138,7 @@ void SimulinkNetworkTables1::PostStepCallback()
 {
     // Tunable Parameters
     P__Auto_Deploy_Intake_Time__Entry.SetDouble(Auto_Deploy_Intake_Time);
+    P__Auto_Deploy_Intake_Time2__Entry.SetDouble(Auto_Deploy_Intake_Time2);
     P__Auto_Intake_Arm_Cycle_Delay_Time__Entry.SetDouble(Auto_Intake_Arm_Cycle_Delay_Time);
     P__Auto_Path_Chooser__Entry.SetDouble(Auto_Path_Chooser);
     P__Auto_Shoot_Time__Entry.SetDouble(Auto_Shoot_Time);
