@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.485
+ * Model version                  : 2.486
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Apr 10 14:06:53 2026
+ * C/C++ source code generated on : Fri Apr 10 16:33:47 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -5457,9 +5457,12 @@ void Robot_Control_step(void)
   Robot_Control_B.RB_Ready_to_Pass = ((Robot_Control_B.RB_Logic_Outside_Zone) &&
     rtb_Compare_pb);
 
+  /* Logic: '<S144>/AND4' */
+  rtb_LogicalOperator5 = ((Robot_Control_B.RB_Logic_Shooter_Speed) &&
+    (Robot_Control_B.RB_Logic_Hood_Pos));
+
   /* Chart: '<S12>/Shooter_Transfer_Feeder Chart' incorporates:
    *  Inport: '<Root>/Measured_Transfer_Speed'
-   *  Logic: '<S144>/AND4'
    */
   if (Robot_Control_DW.is_active_c2_Robot_Control == 0U) {
     Robot_Control_DW.is_active_c2_Robot_Control = 1U;
@@ -5485,9 +5488,8 @@ void Robot_Control_step(void)
     /* case IN_Shooting: */
     Robot_Control_B.RB_Shooter_Active = true;
     rtb_Compare_ky = !rtb_Button_Shoot_Enable;
-    rtb_LogicalOperator5 = !rtb_LogicalOperator1;
-    if (((!rtb_Button_Spinup_Enable) && rtb_Compare_ky) && rtb_LogicalOperator5)
-    {
+    rtb_Compare_mq = !rtb_LogicalOperator1;
+    if (((!rtb_Button_Spinup_Enable) && rtb_Compare_ky) && rtb_Compare_mq) {
       Robot_Control_DW.is_Shooting = Robot_Contro_IN_NO_ACTIVE_CHILD;
       Robot_Control_DW.is_c2_Robot_Control = Robot_Control_IN_Not_Shooting;
       Robot_Control_B.RB_Shooter_Active = false;
@@ -5499,10 +5501,11 @@ void Robot_Control_step(void)
        case Robot_Control_IN_Feeder:
         Robot_Control_B.RB_Desired_Feeder_Speed = Rebuilt_Target_Feeder_Speed;
         Robot_Control_B.RB_Transfer_Init = 0.0;
-        if (((rtb_Compare_ky && rtb_LogicalOperator5) ||
+        if (((rtb_Compare_ky && rtb_Compare_mq) ||
              ((Robot_Control_DW.Feeder_Loops_Shooting * 0.02) >
-              Feeder_Max_Pulsetime)) || ((!Robot_Control_B.RB_Ready_to_Score) &&
-             (!Robot_Control_B.RB_Ready_to_Pass))) {
+              Feeder_Max_Pulsetime)) || (((!Robot_Control_B.RB_Ready_to_Score) &&
+              (!Robot_Control_B.RB_Ready_to_Pass)) && (!rtb_LogicalOperator5)))
+        {
           Robot_Control_DW.is_Shooting = Robot_Control_IN_Spinning_Up;
           Robot_Control_B.RB_Desired_Transfer_Speed = 0.0;
           Robot_Control_B.RB_Desired_Feeder_Speed = 0.0;
@@ -5517,8 +5520,7 @@ void Robot_Control_step(void)
         Robot_Control_B.RB_Transfer_Init = 1.0;
         if ((rtb_Button_Shoot_Enable && ((Robot_Control_B.RB_Ready_to_Score) ||
               (Robot_Control_B.RB_Ready_to_Pass))) || (rtb_LogicalOperator1 &&
-             ((Robot_Control_B.RB_Logic_Shooter_Speed) &&
-              (Robot_Control_B.RB_Logic_Hood_Pos)))) {
+             rtb_LogicalOperator5)) {
           Robot_Control_DW.is_Shooting = Robot_Control_IN_Transfer;
           Robot_Control_B.RB_Desired_Feeder_Speed =
             Rebuilt_Negative_Feeder_Speed;
@@ -5537,11 +5539,12 @@ void Robot_Control_step(void)
           Robot_Control_B.RB_Desired_Feeder_Speed = Rebuilt_Target_Feeder_Speed;
           Robot_Control_B.RB_Transfer_Init = 0.0;
           Robot_Control_DW.Feeder_Loops_Shooting = 0.0;
-        } else if (((rtb_Compare_ky && rtb_LogicalOperator5) ||
+        } else if (((rtb_Compare_ky && rtb_Compare_mq) ||
                     ((Robot_Control_DW.Feeder_Loops_Shooting * 0.02) >
                      Feeder_Max_Pulsetime)) ||
-                   ((!Robot_Control_B.RB_Ready_to_Score) &&
-                    (!Robot_Control_B.RB_Ready_to_Pass))) {
+                   (((!Robot_Control_B.RB_Ready_to_Score) &&
+                     (!Robot_Control_B.RB_Ready_to_Pass)) &&
+                    (!rtb_LogicalOperator5))) {
           Robot_Control_DW.is_Shooting = Robot_Control_IN_Spinning_Up;
           Robot_Control_B.RB_Desired_Transfer_Speed = 0.0;
           Robot_Control_B.RB_Desired_Feeder_Speed = 0.0;
@@ -8536,7 +8539,7 @@ void Robot_Control_step(void)
    *  Constant: '<S206>/Constant'
    *  RelationalOperator: '<S206>/Compare'
    */
-  rtb_Button_Shoot_Enable = !(Robot_Control_B.RB_Desired_Transfer_Speed == 0.0);
+  rtb_LogicalOperator5 = !(Robot_Control_B.RB_Desired_Transfer_Speed == 0.0);
 
   /* Switch: '<S147>/Switch1' incorporates:
    *  Abs: '<S147>/Abs'
@@ -8548,10 +8551,10 @@ void Robot_Control_step(void)
    *  UnitDelay: '<S147>/Unit Delay'
    */
   if ((fabs(rtb_Integral_c3) < Rebuilt_Transfer_Error_Integral_Enable) &&
-      rtb_Button_Shoot_Enable) {
+      rtb_LogicalOperator5) {
     rtb_LogicalOperator1 = true;
   } else {
-    rtb_LogicalOperator1 = (rtb_Button_Shoot_Enable &&
+    rtb_LogicalOperator1 = (rtb_LogicalOperator5 &&
       (Robot_Control_DW.UnitDelay_DSTATE_ki));
   }
 
@@ -8616,7 +8619,7 @@ void Robot_Control_step(void)
   /* Switch: '<S147>/Switch2' incorporates:
    *  Logic: '<S147>/Logical Operator1'
    */
-  if (rtb_Button_Shoot_Enable) {
+  if (rtb_LogicalOperator5) {
     /* Sum: '<S207>/Add1' */
     rtb_Add_mw = rtb_MatrixConcatenate_b_idx_0 + rtb_Integral_c3;
 
