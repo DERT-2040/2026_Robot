@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.484
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Apr  9 16:35:43 2026
+ * C/C++ source code generated on : Thu Apr  9 21:00:44 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -67,7 +67,7 @@ real_T Auto_Intake_Arm_Cycle_Delay_Time = 2.0;
                                    /* Variable: Auto_Intake_Arm_Cycle_Delay_Time
                                     * Referenced by: '<S30>/Constant'
                                     */
-real_T Auto_Path_Chooser = 1.0;        /* Variable: Auto_Path_Chooser
+real_T Auto_Path_Chooser = 3.0;        /* Variable: Auto_Path_Chooser
                                         * Referenced by: '<S21>/Constant17'
                                         */
 real_T Auto_Shoot_Time = 4.5;          /* Variable: Auto_Shoot_Time

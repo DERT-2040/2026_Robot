@@ -7,7 +7,7 @@ field_length = 651.22 * 0.0254;
 
 %Chooser
 
-Auto_Path_Chooser = 1; % default chooser path sequence number
+Auto_Path_Chooser = 3; % default chooser path sequence number
 Auto_Deploy_Intake_Time = 0.5; % seconds
 Auto_Shoot_Time = 4.5;   % seconds
 Auto_Intake_Arm_Cycle_Delay_Time = 2;  % seconds
@@ -90,22 +90,7 @@ Path_RH_NZ_LH(8,4) = -30 *D2R;
 Path_LT_NZ_LH = [
     3.51, 7.35, 3.5, 180 *D2R, 4, 0;
     5.50, 7.35, 3.5, 180 *D2R, 0, 3;    
-    7.50, 7.31, 2.0, -60 *D2R, 0, 3;
-    7.70, 4.77, 1.5, -90 *D2R, 0, 3;
-    6.50, 5.00, 1.5,  90 *D2R, 0, 3;
-    6.00, 7.35, 2.0,   0 *D2R, 0, 3;
-    3.50, 7.35, 2.0,   0 *D2R, 0, 3;
-    3.20, 4.97, 2.5, -30 *D2R, 2, 0;
-    0,0,0,0,0,0;
-    0,0,0,0,0,0];
-
-% Start Location: Left Hub
-% Middle Location: Neutral Zone Loop Back
-% Finish Location: Left Hub
-Path_LH_NZ_LH = [
-    3.20, 4.97, 3.5, -30 *D2R, 0, 0;    
-    3.20, 7.35, 2.0,   0 *D2R, 0, 3;
-    7.50, 7.31, 2.0, -60 *D2R, 0, 3;
+    7.50, 7.31, 3.5, -60 *D2R, 0, 3;
     7.70, 4.77, 3.5, -90 *D2R, 0, 3;
     6.50, 5.00, 3.5,  90 *D2R, 0, 3;
     6.00, 7.35, 2.0,   0 *D2R, 0, 3;
@@ -114,17 +99,32 @@ Path_LH_NZ_LH = [
     0,0,0,0,0,0;
     0,0,0,0,0,0];
 
+% Start Location: Left Hub
+% Middle Location: Neutral Zone Loop Back
+% Finish Location: Left Hub
+Path_LH_NZ_LH = [
+    3.20, 4.97, 3.5, -30 *D2R, 0, 0;  
+    3.20, 7.35, 2.0,   0 *D2R, 0, 3;
+    5.20, 7.35, 2.0,   0 *D2R, 0, 3;      
+    7.50, 7.10, 3.5, -60 *D2R, 0, 3;
+    7.70, 4.77, 3.5, -90 *D2R, 0, 3;
+    6.50, 5.00, 3.5,  90 *D2R, 0, 3;
+    6.00, 7.35, 2.0,   0 *D2R, 0, 3;
+    3.50, 7.35, 2.0,   0 *D2R, 0, 3;
+    3.20, 4.97, 3.5, -30 *D2R, 2, 0;
+    0,0,0,0,0,0];
+
 % Start Location: Left Hub to Left Trench
 % Middle Location: Neutral Zone Over Ramp
 % Finish Location: Left Hub
 Path_LH_LT_NR_LH = [
-    3.00, 5.7,  3.5, -45 *D2R, 0, 0;    
+    3.00, 5.55, 3.5, -45 *D2R, 0, 0;    
     3.20, 7.35, 2.0,   0 *D2R, 0, 3;
     5.00, 7.35, 2.0,   0 *D2R, 0, 3;    
     6.50, 7.31, 3.5, -90 *D2R, 0, 3;
-    6.50, 5.50, 3.5, -60 *D2R, 0, 3;
+    6.50, 5.70, 3.5, -60 *D2R, 0, 3;
     5.50, 5.5,  2.8, -45 *D2R, 0, 3;
-    3.00, 5.7,  2.8, -45 *D2R, 2, 0;   
+    3.00, 5.55, 2.8, -45 *D2R, 2, 0;   
     0,0,0,0,0,0;
     0,0,0,0,0,0;
     0,0,0,0,0,0];
@@ -161,12 +161,13 @@ Path_RH_RT_NR_RH(7,4) = 45 *D2R;
 Path_RH_NZ_RH = MirrorPathSameSide(Path_LH_NZ_LH,field_width);
 Path_RH_NZ_RH(1,4) =  30 *D2R;
 Path_RH_NZ_RH(2,4) =   0 *D2R;
-Path_RH_NZ_RH(3,4) =  60 *D2R;
-Path_RH_NZ_RH(4,4) =  90 *D2R;
-Path_RH_NZ_RH(5,4) = -90 *D2R;
-Path_RH_NZ_RH(6,4) =   0 *D2R;
+Path_RH_NZ_RH(3,4) =   0 *D2R;
+Path_RH_NZ_RH(4,4) =  60 *D2R;
+Path_RH_NZ_RH(5,4) =  90 *D2R;
+Path_RH_NZ_RH(6,4) = -90 *D2R;
 Path_RH_NZ_RH(7,4) =   0 *D2R;
-Path_RH_NZ_RH(8,4) =  30 *D2R;
+Path_RH_NZ_RH(8,4) =   0 *D2R;
+Path_RH_NZ_RH(9,4) =  30 *D2R;
 
 % Start Location: Right Ramp
 % Finish Location: Outpost
@@ -249,7 +250,7 @@ Path_LT_NR_LH = [
     7.90, 4.77, 3.5, -90 *D2R, 0, 3;
     6.50, 5.00, 3.5, -60 *D2R, 0, 3;
     5.50, 5.5,  2.8, -45 *D2R, 0, 3;
-    3.00, 5.7,  2.8, -45 *D2R, 2, 0;
+    3.00, 5.55, 2.8, -45 *D2R, 2, 0;
     0,0,0,0,0,0;
     0,0,0,0,0,0;
     0,0,0,0,0,0];
@@ -300,9 +301,9 @@ Path_RH_RNR_RH(7,4) =  45 *D2R;
 Path_LT_NZ_LT = [
     3.51, 7.35, 3.5, 180 *D2R, 4, 0;
     5.50, 7.35, 3.5, 180 *D2R, 0, 3;    
-    7.50, 7.31, 2.0, -60 *D2R, 0, 3;
-    7.70, 4.77, 1.5, -90 *D2R, 0, 3;
-    6.50, 5.00, 1.5,  90 *D2R, 0, 3;
+    7.50, 7.31, 3.5, -60 *D2R, 0, 3;
+    7.70, 4.77, 3.5, -90 *D2R, 0, 3;
+    6.50, 5.00, 3.5,  90 *D2R, 0, 3;
     6.00, 7.35, 2.0,   0 *D2R, 0, 3;
     3.00, 7.20, 2.0,   0 *D2R, 2, 0;
     0,0,0,0,0,0;
@@ -408,19 +409,19 @@ clear Path_LT_NZ_RH Path_RT_NZ_LH Path_LH_NZ_RH Path_RH_NZ_LH Path_LT_NZ_LH
 clear Path_LH_NZ_LH Path_RT_NZ_RH Path_RH_NZ_RH Path_RR_OP Path_OP_CH
 clear Path_LR_DP Path_DP_LH Path_DP_OP
 clear Path_LT_NR_LH Path_LH_RNR_LH Path_RT_NR_RH Path_RH_RNR_RH
-clear Path_LT_NZ_LT Path_RT_NZ_RT
+clear Path_LT_NZ_LT Path_RT_NZ_RT Path_LH_LT_NR_LH Path_RH_RT_NR_RH
 
 % Define complete auto paths (fill with zeros so all are the same length)
-Auto_Path_01 = [1,4,0];
-Auto_Path_02 = [2,3,0];
-Auto_Path_03 = [5,6,0];
-Auto_Path_04 = [7,8,0];
-Auto_Path_05 = [14,15,0];
-Auto_Path_06 = [16,17,0];
-Auto_Path_07 = [18,18,0];
-Auto_Path_08 = [19,19,0];
-Auto_Path_09 = [14,20,0];
-Auto_Path_10 = [16,21,0];
+Auto_Path_01 = [1,4,0];     % Chooser 05 (using the full field - left)
+Auto_Path_02 = [2,3,0];     % Chooser 10 (using the full field - right)
+Auto_Path_03 = [5,6,0];     % Chooser 01 (similar to CIR - left)
+Auto_Path_04 = [7,8,0];     % Chooser 06 (similar to CIR - right)
+Auto_Path_05 = [14,15,0];   % Chooser 04 (trench start then ramp only - left)
+Auto_Path_06 = [16,17,0];   % Chooser 09 (trench start then ramp only - right)
+Auto_Path_07 = [18,18,0];   % Chooser 02 (long shot - left)
+Auto_Path_08 = [19,19,0];   % Chooser 07 (long shot - left)
+Auto_Path_09 = [14,20,0];   % Chooser 03 (Kansas City practice day - left)
+Auto_Path_10 = [16,21,0];   % Chooser 08 (Kansas City practice day - right)
 
 %Auto_Path_05 = [9,10,0];
 %Auto_Path_06 = [11,12,0];
