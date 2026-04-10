@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.484
+ * Model version                  : 2.485
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Apr  9 21:00:44 2026
+ * C/C++ source code generated on : Fri Apr 10 10:11:00 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -8804,9 +8804,11 @@ void Robot_Control_step(void)
     Robot_Control_DW.is_c4_Robot_Control = Robot_Contro_IN_Wait_for_Button;
     Robot_Control_B.RB_Des_Intake_Arm_Angle =
       Robot_Control_B.RB_Intake_Arm_Angle_Mod;
+    rtb_Compare_pb = false;
   } else {
     switch (Robot_Control_DW.is_c4_Robot_Control) {
      case Robot_Con_IN_Move_Intake_Arm_In:
+      rtb_Compare_pb = true;
       if ((rtb_Intake_Arm_Move_Out || (rtb_Intake_Arm_Cycle &&
             (Robot_Control_B.RB_Intake_Arm_Angle_Mod <
              Rebuilt_Intake_Cycle_Angle_In))) || (((int32_T)rtb_Intake_Arm_Cycle)
@@ -8817,6 +8819,7 @@ void Robot_Control_step(void)
       break;
 
      case Robot_Co_IN_Move_Intake_Arm_Out:
+      rtb_Compare_pb = true;
       if (rtb_Intake_Arm_Move_In || (rtb_Intake_Arm_Cycle &&
            (Robot_Control_B.RB_Intake_Arm_Angle_Mod >
             Rebuilt_Intake_Cycle_Angle_Out))) {
@@ -8827,12 +8830,15 @@ void Robot_Control_step(void)
 
      default:
       /* case IN_Wait_for_Button: */
+      rtb_Compare_pb = false;
       if (rtb_Intake_Arm_Move_In || rtb_Intake_Arm_Cycle) {
         Robot_Control_DW.is_c4_Robot_Control = Robot_Con_IN_Move_Intake_Arm_In;
         Robot_Control_B.RB_Des_Intake_Arm_Angle = Rebuilt_Intake_Des_Angle_In;
+        rtb_Compare_pb = true;
       } else if (rtb_Intake_Arm_Move_Out) {
         Robot_Control_DW.is_c4_Robot_Control = Robot_Co_IN_Move_Intake_Arm_Out;
         Robot_Control_B.RB_Des_Intake_Arm_Angle = Rebuilt_Intake_Des_Angle_Out;
+        rtb_Compare_pb = true;
       }
       break;
     }
@@ -9019,16 +9025,25 @@ void Robot_Control_step(void)
 
   /* Switch: '<S10>/Switch7' incorporates:
    *  Constant: '<S10>/Constant'
+   *  Switch: '<S6>/Switch1'
    */
   if (TEST_Output_Override_Flag != 0.0) {
     /* Outport: '<Root>/Intake_Arm_Motor_DC' incorporates:
      *  Constant: '<S10>/Constant9'
      */
     Robot_Control_Y.Intake_Arm_Motor_DC = TEST_Intake_Arm_Motor_DC_OV;
-  } else {
-    /* Outport: '<Root>/Intake_Arm_Motor_DC' */
+  } else if (rtb_Compare_pb) {
+    /* Switch: '<S6>/Switch1' incorporates:
+     *  Outport: '<Root>/Intake_Arm_Motor_DC'
+     */
     Robot_Control_Y.Intake_Arm_Motor_DC =
       Robot_Control_B.RB_Intake_Arm_Motor_PID_DC;
+  } else {
+    /* Outport: '<Root>/Intake_Arm_Motor_DC' incorporates:
+     *  Constant: '<S6>/Constant2'
+     *  Switch: '<S6>/Switch1'
+     */
+    Robot_Control_Y.Intake_Arm_Motor_DC = 0.0;
   }
 
   /* End of Switch: '<S10>/Switch7' */
