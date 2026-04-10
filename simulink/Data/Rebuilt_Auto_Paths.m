@@ -419,7 +419,7 @@ Auto_Path_04 = [7,8,0];     % Chooser 06 (similar to CIR - right)
 Auto_Path_05 = [14,15,0];   % Chooser 04 (trench start then ramp only - left)
 Auto_Path_06 = [16,17,0];   % Chooser 09 (trench start then ramp only - right)
 Auto_Path_07 = [18,18,0];   % Chooser 02 (long shot - left)
-Auto_Path_08 = [19,19,0];   % Chooser 07 (long shot - left)
+Auto_Path_08 = [19,19,0];   % Chooser 07 (long shot - right)
 Auto_Path_09 = [14,20,0];   % Chooser 03 (Kansas City practice day - left)
 Auto_Path_10 = [16,21,0];   % Chooser 08 (Kansas City practice day - right)
 
