@@ -8,8 +8,8 @@ field_length = 651.22 * 0.0254;
 %Chooser
 
 Auto_Path_Chooser = 3; % default chooser path sequence number
-Auto_Deploy_Intake_Time = 1.5; % seconds (part 1 of auto)
-Auto_Deploy_Intake_Time2 = 0.5; % seconds (part 2 of auto)
+Auto_Deploy_Intake_Time = 1.0; % seconds (part 1 of auto)
+Auto_Deploy_Intake_Time2 = 0;  % seconds (part 2 of auto)
 Auto_Shoot_Time = 4.5;   % seconds
 Auto_Intake_Arm_Cycle_Delay_Time = 2;  % seconds
 
@@ -41,7 +41,7 @@ Segment_01 = [
     7.60, 2.00, 2.0, -90 *D2R, 0, 3;
     6.40, 0.70, 2.0,   0 *D2R, 0, 0;
     3.50, 0.70, 2.0,   0 *D2R, 0, 0;
-    3.20, 3.10, 3.5,  30 *D2R, 2, 1;
+    3.20, 3.10, 3.5,  30 *D2R, 2, 0;
     0,0,0,0,0,0;
     0,0,0,0,0,0];
 
@@ -71,7 +71,7 @@ Segment_03 = [
     6.30, 2.40, 2.0, -90 *D2R, 0, 3;
     6.30, 0.70, 2.0,   0 *D2R, 0, 0;
     3.50, 0.70, 2.0,   0 *D2R, 0, 0;
-    3.20, 3.10, 3.5,  30 *D2R, 2, 1;
+    3.20, 3.10, 3.5,  30 *D2R, 2, 0;
     0,0,0,0,0,0;
     0,0,0,0,0,0];
 
@@ -101,7 +101,7 @@ Segment_05 = [
     6.50, 5.00, 2.0,  90 *D2R, 0, 3;
     6.00, 7.35, 2.0,   0 *D2R, 0, 3;
     3.50, 7.35, 2.0,   0 *D2R, 0, 3;
-    3.20, 4.97, 3.5, -30 *D2R, 2, 1;
+    3.20, 4.97, 3.5, -30 *D2R, 2, 0;
     0,0,0,0,0,0;
     0,0,0,0,0,0];
 
@@ -118,7 +118,7 @@ Segment_06 = [
     6.50, 5.00, 2.0,  90 *D2R, 0, 3;
     6.00, 7.35, 2.0,   0 *D2R, 0, 3;
     3.50, 7.35, 2.0,   0 *D2R, 0, 3;
-    3.20, 4.97, 3.5, -30 *D2R, 2, 1;
+    3.20, 4.97, 3.5, -30 *D2R, 2, 0;
     0,0,0,0,0,0];
 
 %% Segment 7

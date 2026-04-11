@@ -13,11 +13,11 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Auto_Deploy_Intake_Time__Entry = NTtable_Tune->GetEntry("Auto_Deploy_Intake_Time");
     NTinst.AddListener(P__Auto_Deploy_Intake_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Deploy_Intake_Time = event.GetValueEventData()->value.GetDouble();});
-    P__Auto_Deploy_Intake_Time__Entry.SetDouble(1.5);
+    P__Auto_Deploy_Intake_Time__Entry.SetDouble(1);
  
     P__Auto_Deploy_Intake_Time2__Entry = NTtable_Tune->GetEntry("Auto_Deploy_Intake_Time2");
     NTinst.AddListener(P__Auto_Deploy_Intake_Time2__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Deploy_Intake_Time2 = event.GetValueEventData()->value.GetDouble();});
-    P__Auto_Deploy_Intake_Time2__Entry.SetDouble(0.5);
+    P__Auto_Deploy_Intake_Time2__Entry.SetDouble(0);
  
     P__Auto_Intake_Arm_Cycle_Delay_Time__Entry = NTtable_Tune->GetEntry("Auto_Intake_Arm_Cycle_Delay_Time");
     NTinst.AddListener(P__Auto_Intake_Arm_Cycle_Delay_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Intake_Arm_Cycle_Delay_Time = event.GetValueEventData()->value.GetDouble();});
