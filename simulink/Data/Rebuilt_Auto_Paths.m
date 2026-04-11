@@ -26,13 +26,14 @@ Auto_Intake_Arm_Cycle_Delay_Time = 2;  % seconds
 % 1 = Spin up before shooting
 % 2 = Shooting
 % 3 = Gather Fuel from Floor
-% 4 = Startup delay to deploy intake
-% 5 = Startup delay to deploy intake
+% 4 = Startup delay to deploy intake - first path
+% 5 = Startup delay to deploy intake - second path
 
+%% Segment 1
 % Start Location:  Left Trench
 % Middle Location: Neutral Zone
 % Finish Location: Right Hub
-Path_LT_NZ_RH = [
+Segment_01 = [
     3.51, 7.45, 3.5,   0 *D2R, 4, 0;
     5.50, 7.45, 3.5,   0 *D2R, 4, 3;
     7.00, 7.31, 3.0, -60 *D2R, 0, 3;
@@ -40,27 +41,29 @@ Path_LT_NZ_RH = [
     7.60, 2.00, 2.0, -90 *D2R, 0, 3;
     6.40, 0.70, 2.0,   0 *D2R, 0, 0;
     3.50, 0.70, 2.0,   0 *D2R, 0, 0;
-    3.20, 3.10, 3.5,  30 *D2R, 2, 0;
+    3.20, 3.10, 3.5,  30 *D2R, 2, 1;
     0,0,0,0,0,0;
     0,0,0,0,0,0];
 
+%% Segment 2
 % Start Location:  Right Trench
 % Middle Location: Neutral Zone
 % Finish Location: Left Hub
-Path_RT_NZ_LH = MirrorPathSameSide(Path_LT_NZ_RH,field_width);
-Path_RT_NZ_LH(1,4) =   0 *D2R;
-Path_RT_NZ_LH(2,4) =   0 *D2R;
-Path_RT_NZ_LH(3,4) =  60 *D2R;
-Path_RT_NZ_LH(4,4) =  90 *D2R;
-Path_RT_NZ_LH(5,4) =  90 *D2R;
-Path_RT_NZ_LH(6,4) =   0 *D2R;
-Path_RT_NZ_LH(7,4) =   0 *D2R;
-Path_RT_NZ_LH(8,4) = -30 *D2R;
+Segment_02 = MirrorPathSameSide(Segment_01,field_width);
+Segment_02(1,4) =   0 *D2R;
+Segment_02(2,4) =   0 *D2R;
+Segment_02(3,4) =  60 *D2R;
+Segment_02(4,4) =  90 *D2R;
+Segment_02(5,4) =  90 *D2R;
+Segment_02(6,4) =   0 *D2R;
+Segment_02(7,4) =   0 *D2R;
+Segment_02(8,4) = -30 *D2R;
 
+%% Segment 3
 % Start Location:  Left Hub
 % Middle Location: Neutral Zone Close to Hub
 % Finish Location: Right Hub
-Path_LH_NZ_RH = [
+Segment_03 = [
     3.20, 4.97, 3.5, -30 *D2R, 0, 0;
     3.20, 7.45, 2.0,   0 *D2R, 0, 0;
     6.00, 7.45, 2.0, -60 *D2R, 0, 3;
@@ -68,28 +71,29 @@ Path_LH_NZ_RH = [
     6.30, 2.40, 2.0, -90 *D2R, 0, 3;
     6.30, 0.70, 2.0,   0 *D2R, 0, 0;
     3.50, 0.70, 2.0,   0 *D2R, 0, 0;
-    3.20, 3.10, 3.5,  30 *D2R, 2, 0;
+    3.20, 3.10, 3.5,  30 *D2R, 2, 1;
     0,0,0,0,0,0;
     0,0,0,0,0,0];
 
+%% Segment 4
 % Start Location:  Right Hub
 % Middle Location: Neutral Zone Close to Hub
 % Finish Location: Left Hub
-Path_RH_NZ_LH = MirrorPathSameSide(Path_LH_NZ_RH,field_width);
-Path_RH_NZ_LH(1,4) =  30 *D2R;
-Path_RH_NZ_LH(2,4) =   0 *D2R;
-Path_RH_NZ_LH(3,4) =  60 *D2R;
-Path_RH_NZ_LH(4,4) =  90 *D2R;
-Path_RH_NZ_LH(5,4) =  90 *D2R;
-Path_RH_NZ_LH(6,4) =   0 *D2R;
-Path_RH_NZ_LH(7,4) =   0 *D2R;
-Path_RH_NZ_LH(8,4) = -30 *D2R;
+Segment_04 = MirrorPathSameSide(Segment_03,field_width);
+Segment_04(1,4) =  30 *D2R;
+Segment_04(2,4) =   0 *D2R;
+Segment_04(3,4) =  60 *D2R;
+Segment_04(4,4) =  90 *D2R;
+Segment_04(5,4) =  90 *D2R;
+Segment_04(6,4) =   0 *D2R;
+Segment_04(7,4) =   0 *D2R;
+Segment_04(8,4) = -30 *D2R;
 
-
+%% Segment 5
 % Start Location: Left Trench
 % Middle Location: Neutral Zone Loop Back
 % Finish Location: Left Hub
-Path_LT_NZ_LH = [
+Segment_05 = [
     3.51, 7.35, 3.5,   0 *D2R, 4, 0;
     5.50, 7.35, 3.5,   0 *D2R, 0, 3;    
     7.50, 7.31, 3.0, -60 *D2R, 0, 3;
@@ -97,14 +101,15 @@ Path_LT_NZ_LH = [
     6.50, 5.00, 2.0,  90 *D2R, 0, 3;
     6.00, 7.35, 2.0,   0 *D2R, 0, 3;
     3.50, 7.35, 2.0,   0 *D2R, 0, 3;
-    3.20, 4.97, 3.5, -30 *D2R, 2, 0;
+    3.20, 4.97, 3.5, -30 *D2R, 2, 1;
     0,0,0,0,0,0;
     0,0,0,0,0,0];
 
+%% Segment 6
 % Start Location: Left Hub
 % Middle Location: Neutral Zone Loop Back
 % Finish Location: Left Hub
-Path_LH_NZ_LH = [
+Segment_06 = [
     3.20, 4.97, 3.5, -30 *D2R, 0, 0;  
     3.20, 7.35, 2.0,   0 *D2R, 0, 3;
     5.20, 7.35, 2.0,   0 *D2R, 0, 3;      
@@ -113,67 +118,43 @@ Path_LH_NZ_LH = [
     6.50, 5.00, 2.0,  90 *D2R, 0, 3;
     6.00, 7.35, 2.0,   0 *D2R, 0, 3;
     3.50, 7.35, 2.0,   0 *D2R, 0, 3;
-    3.20, 4.97, 3.5, -30 *D2R, 2, 0;
+    3.20, 4.97, 3.5, -30 *D2R, 2, 1;
     0,0,0,0,0,0];
 
-% Start Location: Left Hub to Left Trench
-% Middle Location: Neutral Zone Over Ramp
-% Finish Location: Left Hub
-Path_LH_LT_NR_LH = [
-    3.00, 5.55, 3.5, -45 *D2R, 0, 0;    
-    3.20, 7.35, 2.0,   0 *D2R, 0, 3;
-    5.00, 7.35, 2.0,   0 *D2R, 0, 3;    
-    6.50, 7.31, 2.0, -90 *D2R, 0, 3;
-    6.50, 5.70, 2.5, -60 *D2R, 0, 3;
-    5.50, 5.5,  2.5, -45 *D2R, 0, 3;
-    3.00, 5.55, 2.5, -45 *D2R, 2, 0;   
-    0,0,0,0,0,0;
-    0,0,0,0,0,0;
-    0,0,0,0,0,0];
-
-
+%% Segment 7
 % Start Location: Right Trench
 % Middle Location: Neutral Zone Loop Back
 % Finish Location: Right Hub
-Path_RT_NZ_RH = MirrorPathSameSide(Path_LT_NZ_LH,field_width);
-Path_RT_NZ_RH(1,4) =   0 *D2R;
-Path_RT_NZ_RH(2,4) =   0 *D2R;
-Path_RT_NZ_RH(3,4) =  60 *D2R;
-Path_RT_NZ_RH(4,4) =  90 *D2R;
-Path_RT_NZ_RH(5,4) = -90 *D2R;
-Path_RT_NZ_RH(6,4) =   0 *D2R;
-Path_RT_NZ_RH(7,4) =   0 *D2R;
-Path_RT_NZ_RH(8,4) =  30 *D2R;
+Segment_07 = MirrorPathSameSide(Segment_05,field_width);
+Segment_07(1,4) =   0 *D2R;
+Segment_07(2,4) =   0 *D2R;
+Segment_07(3,4) =  60 *D2R;
+Segment_07(4,4) =  90 *D2R;
+Segment_07(5,4) = -90 *D2R;
+Segment_07(6,4) =   0 *D2R;
+Segment_07(7,4) =   0 *D2R;
+Segment_07(8,4) =  30 *D2R;
 
-% Start Location: Left Hub to Left Trench
-% Middle Location: Neutral Zone Over Ramp
-% Finish Location: Left Hub
-Path_RH_RT_NR_RH = MirrorPathSameSide(Path_LH_LT_NR_LH,field_width);
-Path_RH_RT_NR_RH(1,4) = 45 *D2R;
-Path_RH_RT_NR_RH(2,4) =  0 *D2R;
-Path_RH_RT_NR_RH(3,4) =  0 *D2R;
-Path_RH_RT_NR_RH(4,4) = 90 *D2R;
-Path_RH_RT_NR_RH(5,4) = 60 *D2R;
-Path_RH_RT_NR_RH(6,4) = 45 *D2R;
-Path_RH_RT_NR_RH(7,4) = 45 *D2R;
 
+%% Segment 8
 % Start Location: Right Hub
 % Middle Location: Neutral Zone Loop Back
 % Finish Location: Right Hub
-Path_RH_NZ_RH = MirrorPathSameSide(Path_LH_NZ_LH,field_width);
-Path_RH_NZ_RH(1,4) =  30 *D2R;
-Path_RH_NZ_RH(2,4) =   0 *D2R;
-Path_RH_NZ_RH(3,4) =   0 *D2R;
-Path_RH_NZ_RH(4,4) =  60 *D2R;
-Path_RH_NZ_RH(5,4) =  90 *D2R;
-Path_RH_NZ_RH(6,4) = -90 *D2R;
-Path_RH_NZ_RH(7,4) =   0 *D2R;
-Path_RH_NZ_RH(8,4) =   0 *D2R;
-Path_RH_NZ_RH(9,4) =  30 *D2R;
+Segment_08 = MirrorPathSameSide(Segment_06,field_width);
+Segment_08(1,4) =  30 *D2R;
+Segment_08(2,4) =   0 *D2R;
+Segment_08(3,4) =   0 *D2R;
+Segment_08(4,4) =  60 *D2R;
+Segment_08(5,4) =  90 *D2R;
+Segment_08(6,4) = -90 *D2R;
+Segment_08(7,4) =   0 *D2R;
+Segment_08(8,4) =   0 *D2R;
+Segment_08(9,4) =  30 *D2R;
 
+%% Segment 9
 % Start Location: Right Ramp
 % Finish Location: Outpost
-Path_RR_OP = [
+Segment_09 = [
     3.51, 2.50, 1.0, -150 *D2R, 4, 0;
     2.50, 0.80, 1.0, 180 *D2R, 4, 0;
     0.75, 0.73, 1.0, 180 *D2R, 4, 3;
@@ -185,9 +166,10 @@ Path_RR_OP = [
     0,0,0,0,0,0;
     0,0,0,0,0,0];
 
+%% Segment 10
 % Start Location: Outpost
 % Finish Location: Center Hub
-Path_OP_CH = [
+Segment_10 = [
     0.75, 0.73, 1.5, 180 *D2R, 4, 0;
     1.30, 1.30, 1.5, 180 *D2R, 4, 3;
     3.10, 3.90, 1.0, 0   *D2R, 2, 0;
@@ -199,9 +181,10 @@ Path_OP_CH = [
     0,0,0,0,0,0;
     0,0,0,0,0,0];
 
+%% Segment 11
 % Start Location: Left Ramp
 % Finish Location: Depot
-Path_LR_DP = [
+Segment_11 = [
     3.75, 5.90, 1.5, 180 *D2R, 0, 0;
     0.71, 5.97, 1.0, 180 *D2R, 0, 3;
     0,0,0,0,0,0;
@@ -213,9 +196,10 @@ Path_LR_DP = [
     0,0,0,0,0,0;
     0,0,0,0,0,0];
 
+%% Segment 12
 % Start Location: Depot 
 % Finish Location: Left Hub
-Path_DP_LH = [
+Segment_12 = [
     0.71, 5.97, 1.5, 180 *D2R, 0, 0;
     1.35, 5.97, 1.5, 180 *D2R, 0, 3;
     3.10, 3.90, 1.0, 0   *D2R, 2, 0;
@@ -227,9 +211,10 @@ Path_DP_LH = [
     0,0,0,0,0,0;
     0,0,0,0,0,0];
 
+%% Segment 13
 % Start Location: Depot
 % Finish Location: Outpost
-Path_DP_OP = [
+Segment_13 = [
     0.71, 5.97, 1.5, 180 *D2R, 0, 0;
     2.50, 4.50, 1.5, -90 *D2R, 0, 3;
     2.50, 1.50, 1.5, 180 *D2R, 0, 3;
@@ -241,66 +226,69 @@ Path_DP_OP = [
     0,0,0,0,0,0;
     0,0,0,0,0,0];
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Segment 14
 % Start Location: Left Trench
 % Middle Location: Neutral Zone to Ramp
 % Finish Location: Left Hub
-Path_LT_NR_LH = [
+Segment_14 = [
     3.51, 7.35, 3.5,   0 *D2R, 4, 0;
     5.50, 7.35, 3.5,   0 *D2R, 0, 3;    
     7.50, 7.31, 3.0, -60 *D2R, 0, 3;
     7.90, 4.77, 2.0, -90 *D2R, 0, 3;
     6.50, 5.00, 2.5, -60 *D2R, 0, 3;
-    5.50, 5.5,  2.5, -45 *D2R, 0, 3;
-    3.00, 5.55, 2.5, -45 *D2R, 2, 0;
+    5.50, 5.55, 2.5, -45 *D2R, 0, 3;
+    2.50, 5.55, 2.5, -45 *D2R, 2, 0;
     0,0,0,0,0,0;
     0,0,0,0,0,0;
     0,0,0,0,0,0];
 
+%% Segment 15
 % Start Location: Left Hub
 % Middle Location: Neutral Zone to Ramp to Neutral Zone
 % Finish Location: Left Hub
-Path_LH_RNR_LH = [
-    3.30, 5.4, 2.5, -135 *D2R, 0, 0;
+Segment_15 = [
+    2.50, 5.55,2.5, -135 *D2R, 0, 0;
     5.80, 5.7, 2.5, -135 *D2R, 0, 3;   
     6.00, 4.0, 2.0,  -90 *D2R, 0, 3;
     7.00, 4.0, 2.0,   90 *D2R, 0, 3;
     7.00, 5.5, 2.0,   90 *D2R, 0, 3;
-    5.50, 5.5, 2.5,  -45 *D2R, 0, 3;
-    3.30, 5.5, 2.5,  -45 *D2R, 2, 0;
+    5.50, 5.55,2.5,  -45 *D2R, 0, 3;
+    2.50, 5.55,2.5,  -45 *D2R, 2, 0;
     0,0,0,0,0,0;
     0,0,0,0,0,0;    
     0,0,0,0,0,0];
 
+%% Segment 16
 % Start Location: Right Trench
 % Middle Location: Neutral Zone to Ramp
 % Finish Location: Right Hub
-Path_RT_NR_RH = MirrorPathSameSide(Path_LT_NR_LH,field_width);
-Path_RT_NR_RH(1,4) =   0 *D2R;
-Path_RT_NR_RH(2,4) =   0 *D2R;
-Path_RT_NR_RH(3,4) =  60 *D2R;
-Path_RT_NR_RH(4,4) =  90 *D2R;
-Path_RT_NR_RH(5,4) =  60 *D2R;
-Path_RT_NR_RH(6,4) =  45 *D2R;
-Path_RT_NR_RH(7,4) =  45 *D2R;
+Segment_16 = MirrorPathSameSide(Segment_14,field_width);
+Segment_16(1,4) =   0 *D2R;
+Segment_16(2,4) =   0 *D2R;
+Segment_16(3,4) =  60 *D2R;
+Segment_16(4,4) =  90 *D2R;
+Segment_16(5,4) =  60 *D2R;
+Segment_16(6,4) =  45 *D2R;
+Segment_16(7,4) =  45 *D2R;
 
+%% Segment 17
 % Start Location: Right Hub
 % Middle Location: Neutral Zone to Ramp to Neutral Zone
 % Finish Location: Right Hub
-Path_RH_RNR_RH = MirrorPathSameSide(Path_LH_RNR_LH,field_width);
-Path_RH_RNR_RH(1,4) = 135 *D2R;
-Path_RH_RNR_RH(2,4) = 135 *D2R;
-Path_RH_RNR_RH(3,4) =  90 *D2R;
-Path_RH_RNR_RH(4,4) = -90 *D2R;
-Path_RH_RNR_RH(5,4) = -90 *D2R;
-Path_RH_RNR_RH(6,4) =  45 *D2R;
-Path_RH_RNR_RH(7,4) =  45 *D2R;
+Segment_17 = MirrorPathSameSide(Segment_15,field_width);
+Segment_17(1,4) = 135 *D2R;
+Segment_17(2,4) = 135 *D2R;
+Segment_17(3,4) =  90 *D2R;
+Segment_17(4,4) = -90 *D2R;
+Segment_17(5,4) = -90 *D2R;
+Segment_17(6,4) =  45 *D2R;
+Segment_17(7,4) =  45 *D2R;
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Segment 18
 % Start Location: Left Trench
 % Middle Location: Neutral Zone Loop Back
 % Finish Location: Left Trench
-Path_LT_NZ_LT = [
+Segment_18 = [
     3.51, 7.35, 3.5,   0 *D2R, 4, 0;
     5.50, 7.35, 3.5,   0 *D2R, 0, 3;    
     7.50, 7.31, 3.0, -60 *D2R, 0, 3;
@@ -312,10 +300,53 @@ Path_LT_NZ_LT = [
     0,0,0,0,0,0;
     0,0,0,0,0,0];
 
+%% Segment 19
+% Start Location: Right Trench
+% Middle Location: Neutral Zone Loop Back
+% Finish Location: Right Trench
+Segment_19 = MirrorPathSameSide(Segment_18,field_width);
+Segment_19(1,4) =   0 *D2R;
+Segment_19(2,4) =   0 *D2R;
+Segment_19(3,4) =  60 *D2R;
+Segment_19(4,4) =  90 *D2R;
+Segment_19(5,4) = -90 *D2R;
+Segment_19(6,4) =   0 *D2R;
+Segment_19(7,4) =   0 *D2R;
+
+%% Segment 20
+% Start Location: Left Hub to Left Trench
+% Middle Location: Neutral Zone Over Ramp
+% Finish Location: Left Hub
+Segment_20 = [
+    2.50, 5.55, 3.5, -45 *D2R, 0, 0;    
+    3.20, 7.35, 2.0,   0 *D2R, 0, 3;
+    5.00, 7.35, 2.0,   0 *D2R, 0, 3;    
+    6.50, 7.31, 2.0, -90 *D2R, 0, 3;
+    6.50, 5.70, 2.5, -60 *D2R, 0, 3;
+    5.50, 5.55, 2.5, -45 *D2R, 0, 3;
+    2.50, 5.55, 2.5, -45 *D2R, 2, 0;   
+    0,0,0,0,0,0;
+    0,0,0,0,0,0;
+    0,0,0,0,0,0];
+
+%% Segment 21
+% Start Location: Left Hub to Left Trench
+% Middle Location: Neutral Zone Over Ramp
+% Finish Location: Left Hub
+Segment_21 = MirrorPathSameSide(Segment_20,field_width);
+Segment_21(1,4) = 45 *D2R;
+Segment_21(2,4) =  0 *D2R;
+Segment_21(3,4) =  0 *D2R;
+Segment_21(4,4) = 90 *D2R;
+Segment_21(5,4) = 60 *D2R;
+Segment_21(6,4) = 45 *D2R;
+Segment_21(7,4) = 45 *D2R;
+
+%% Segment 22
 % Start Location: Left Trench
 % Middle Location: Neutral Zone Loop Back
 % Finish Location: Left Trench
-Path_LT_NZ_LT_part2 = [
+Segment_22 = [
     3.51, 7.35, 3.5,   0 *D2R, 4, 0;
     5.50, 7.35, 3.5,   0 *D2R, 0, 3;    
     7.50, 7.31, 3.0, -60 *D2R, 0, 3;
@@ -327,126 +358,111 @@ Path_LT_NZ_LT_part2 = [
     0,0,0,0,0,0;
     0,0,0,0,0,0];
 
+%% Segment 23
 % Start Location: Right Trench
 % Middle Location: Neutral Zone Loop Back
 % Finish Location: Right Trench
-Path_RT_NZ_RT = MirrorPathSameSide(Path_LT_NZ_LT,field_width);
-Path_RT_NZ_RT(1,4) =   0 *D2R;
-Path_RT_NZ_RT(2,4) =   0 *D2R;
-Path_RT_NZ_RT(3,4) =  60 *D2R;
-Path_RT_NZ_RT(4,4) =  90 *D2R;
-Path_RT_NZ_RT(5,4) = -90 *D2R;
-Path_RT_NZ_RT(6,4) =   0 *D2R;
-Path_RT_NZ_RT(7,4) =   0 *D2R;
-
-% Start Location: Right Trench
-% Middle Location: Neutral Zone Loop Back
-% Finish Location: Right Trench
-Path_RT_NZ_RT_part2 = MirrorPathSameSide(Path_LT_NZ_LT_part2,field_width);
-Path_RT_NZ_RT_part2(1,4) =   0 *D2R;
-Path_RT_NZ_RT_part2(2,4) =   0 *D2R;
-Path_RT_NZ_RT_part2(3,4) =  60 *D2R;
-Path_RT_NZ_RT_part2(4,4) =  90 *D2R;
-Path_RT_NZ_RT_part2(5,4) = -90 *D2R;
-Path_RT_NZ_RT_part2(6,4) =   0 *D2R;
-Path_RT_NZ_RT_part2(7,4) =   0 *D2R;
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+Segment_23 = MirrorPathSameSide(Segment_22,field_width);
+Segment_23(1,4) =   0 *D2R;
+Segment_23(2,4) =   0 *D2R;
+Segment_23(3,4) =  60 *D2R;
+Segment_23(4,4) =  90 *D2R;
+Segment_23(5,4) = -90 *D2R;
+Segment_23(6,4) =   0 *D2R;
+Segment_23(7,4) =   0 *D2R;
 
 clear D2R
 
 % concatenate all of the paths into one multi-dimensional matrix
 All_Paths_Ref_Poses_Blue = cat(3, ...
-    Path_LT_NZ_RH, ...   % 1
-    Path_RT_NZ_LH, ...   % 2
-    Path_LH_NZ_RH, ...   % 3
-    Path_RH_NZ_LH, ...   % 4  
-    Path_LT_NZ_LH, ...   % 5
-    Path_LH_NZ_LH, ...   % 6  
-    Path_RT_NZ_RH, ...   % 7
-    Path_RH_NZ_RH, ...   % 8
-    Path_RR_OP, ...      % 9
-    Path_OP_CH, ...      % 10
-    Path_LR_DP, ...      % 11
-    Path_DP_LH, ...      % 12
-    Path_DP_OP, ...      % 13
-    Path_LT_NR_LH, ...   % 14
-    Path_LH_RNR_LH, ...  % 15
-    Path_RT_NR_RH, ...   % 16
-    Path_RH_RNR_RH, ...  % 17    
-    Path_LT_NZ_LT, ...   % 18
-    Path_RT_NZ_RT, ...   % 19    
-    Path_LH_LT_NR_LH, ...% 20
-    Path_RH_RT_NR_RH,... % 21
-    Path_LT_NZ_LT_part2, ...% 22
-    Path_RT_NZ_RT_part2 ... % 23
+    Segment_01, ...
+    Segment_02, ...
+    Segment_03, ...
+    Segment_04, ...
+    Segment_05, ...
+    Segment_06, ...
+    Segment_07, ...
+    Segment_08, ...
+    Segment_09, ...
+    Segment_10, ...
+    Segment_11, ...
+    Segment_12, ...
+    Segment_13, ...
+    Segment_14, ...
+    Segment_15, ...
+    Segment_16, ...
+    Segment_17, ...  
+    Segment_18, ...
+    Segment_19, ...  
+    Segment_20, ...
+    Segment_21, ...
+    Segment_22, ...
+    Segment_23 ...
   ); 
 
 % Run this function to mirron paths from blue to red sides of the field
 % Path_1_Red = MirrorPath(Path_1_Blue, field_width, field_length);
 
 All_Paths_Ref_Poses_Red = cat(3, ...
-    MirrorPath(Path_LT_NZ_RH, field_width, field_length), ...   % 1
-    MirrorPath(Path_RT_NZ_LH, field_width, field_length), ...   % 2
-    MirrorPath(Path_LH_NZ_RH, field_width, field_length), ...   % 3
-    MirrorPath(Path_RH_NZ_LH, field_width, field_length), ...   % 4  
-    MirrorPath(Path_LT_NZ_LH, field_width, field_length), ...   % 5
-    MirrorPath(Path_LH_NZ_LH, field_width, field_length), ...   % 6   
-    MirrorPath(Path_RT_NZ_RH, field_width, field_length), ...   % 7
-    MirrorPath(Path_RH_NZ_RH, field_width, field_length), ...   % 8     
-    MirrorPath(Path_RR_OP, field_width, field_length), ...      % 9
-    MirrorPath(Path_OP_CH, field_width, field_length), ...      % 10
-    MirrorPath(Path_LR_DP, field_width, field_length), ...      % 11
-    MirrorPath(Path_DP_LH, field_width, field_length), ...      % 12
-    MirrorPath(Path_DP_OP, field_width, field_length), ...      % 13
-    MirrorPath(Path_LT_NR_LH, field_width, field_length), ...   % 14
-    MirrorPath(Path_LH_RNR_LH, field_width, field_length), ...  % 15   
-    MirrorPath(Path_RT_NR_RH, field_width, field_length), ...   % 16
-    MirrorPath(Path_RH_RNR_RH, field_width, field_length), ...  % 17     
-    MirrorPath(Path_LT_NZ_LT, field_width, field_length), ...   % 18 
-    MirrorPath(Path_RT_NZ_RT, field_width, field_length), ...   % 19    
-    MirrorPath(Path_LH_LT_NR_LH, field_width, field_length),... % 20
-    MirrorPath(Path_RH_RT_NR_RH, field_width, field_length), ... % 21       
-    MirrorPath(Path_LT_NZ_LT_part2, field_width, field_length),... % 22     
-    MirrorPath(Path_RT_NZ_RT_part2, field_width, field_length) ... % 23      
+    MirrorPath(Segment_01, field_width, field_length), ...
+    MirrorPath(Segment_02, field_width, field_length), ...
+    MirrorPath(Segment_03, field_width, field_length), ...
+    MirrorPath(Segment_04, field_width, field_length), ...
+    MirrorPath(Segment_05, field_width, field_length), ...
+    MirrorPath(Segment_06, field_width, field_length), ...
+    MirrorPath(Segment_07, field_width, field_length), ...
+    MirrorPath(Segment_08, field_width, field_length), ... 
+    MirrorPath(Segment_09, field_width, field_length), ...
+    MirrorPath(Segment_10, field_width, field_length), ...
+    MirrorPath(Segment_11, field_width, field_length), ...
+    MirrorPath(Segment_12, field_width, field_length), ...
+    MirrorPath(Segment_13, field_width, field_length), ...
+    MirrorPath(Segment_14, field_width, field_length), ...
+    MirrorPath(Segment_15, field_width, field_length), ...
+    MirrorPath(Segment_16, field_width, field_length), ...
+    MirrorPath(Segment_17, field_width, field_length), ...
+    MirrorPath(Segment_18, field_width, field_length), ...
+    MirrorPath(Segment_19, field_width, field_length), ...
+    MirrorPath(Segment_20, field_width, field_length), ...
+    MirrorPath(Segment_21, field_width, field_length), ...
+    MirrorPath(Segment_22, field_width, field_length), ...
+    MirrorPath(Segment_23, field_width, field_length) ...
   ); 
 
 clear field_width field_length
 
 % collect the number of poses in each path
 All_Paths_Num_Poses = [
-    nnz(Path_LT_NZ_RH(:,1));    % 1
-    nnz(Path_RT_NZ_LH(:,1));    % 2
-    nnz(Path_LH_NZ_RH(:,1));    % 3
-    nnz(Path_RH_NZ_LH(:,1));    % 4  
-    nnz(Path_LT_NZ_LH(:,1));    % 5
-    nnz(Path_LH_NZ_LH(:,1));    % 6    
-    nnz(Path_RT_NZ_RH(:,1));    % 7
-    nnz(Path_RH_NZ_RH(:,1));    % 8     
-    nnz(Path_RR_OP(:,1));       % 9
-    nnz(Path_OP_CH(:,1));       % 10
-    nnz(Path_LR_DP(:,1));       % 11
-    nnz(Path_DP_LH(:,1));       % 12
-    nnz(Path_DP_OP(:,1));       % 13
-    nnz(Path_LT_NR_LH(:,1));    % 14
-    nnz(Path_LH_RNR_LH(:,1));   % 15
-    nnz(Path_RT_NR_RH(:,1));    % 16
-    nnz(Path_RH_RNR_RH(:,1));   % 17     
-    nnz(Path_LT_NZ_LT(:,1));    % 18 
-    nnz(Path_RT_NZ_RT(:,1));    % 19    
-    nnz(Path_LH_LT_NR_LH(:,1)); % 20
-    nnz(Path_RH_RT_NR_RH(:,1)); % 21
-    nnz(Path_LT_NZ_LT_part2(:,1)); % 22
-    nnz(Path_RT_NZ_RT_part2(:,1)); % 23             
+    nnz(Segment_01(:,1));
+    nnz(Segment_02(:,1));
+    nnz(Segment_03(:,1));
+    nnz(Segment_04(:,1));
+    nnz(Segment_05(:,1));
+    nnz(Segment_06(:,1));
+    nnz(Segment_07(:,1));
+    nnz(Segment_08(:,1));
+    nnz(Segment_09(:,1));
+    nnz(Segment_10(:,1));
+    nnz(Segment_11(:,1));
+    nnz(Segment_12(:,1));
+    nnz(Segment_13(:,1));
+    nnz(Segment_14(:,1));
+    nnz(Segment_15(:,1));
+    nnz(Segment_16(:,1));
+    nnz(Segment_17(:,1));
+    nnz(Segment_18(:,1));
+    nnz(Segment_19(:,1));
+    nnz(Segment_20(:,1));
+    nnz(Segment_21(:,1));
+    nnz(Segment_22(:,1));
+    nnz(Segment_23(:,1));      
     ];
 
-clear Path_LT_NZ_RH Path_RT_NZ_LH Path_LH_NZ_RH Path_RH_NZ_LH Path_LT_NZ_LH
-clear Path_LH_NZ_LH Path_RT_NZ_RH Path_RH_NZ_RH Path_RR_OP Path_OP_CH
-clear Path_LR_DP Path_DP_LH Path_DP_OP
-clear Path_LT_NR_LH Path_LH_RNR_LH Path_RT_NR_RH Path_RH_RNR_RH
-clear Path_LT_NZ_LT Path_RT_NZ_RT Path_LH_LT_NR_LH Path_RH_RT_NR_RH
-clear Path_LT_NZ_LT_part2 Path_RT_NZ_RT_part2
+clear Segment_01 Segment_02 Segment_03 Segment_04 Segment_05
+clear Segment_06 Segment_07 Segment_08 Segment_09 Segment_10
+clear Segment_11 Segment_12 Segment_13 Segment_14 Segment_15 
+clear Segment_16 Segment_17 Segment_18 Segment_19 Segment_20
+clear Segment_21 Segment_22 Segment_23
 
 % Define complete auto paths (fill with zeros so all are the same length)
 Auto_Path_01 = [1,4,0];     % Chooser 1 Left  (using the full field)

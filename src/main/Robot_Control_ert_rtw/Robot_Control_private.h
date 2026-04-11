@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.486
+ * Model version                  : 2.487
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Apr 10 16:33:47 2026
+ * C/C++ source code generated on : Sat Apr 11 06:02:57 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -26,8 +26,8 @@
 extern const real_T rtCP_pooled_mZW03emckTZz[4];
 extern const real_T rtCP_pooled_Por1fGzmcW36[4];
 extern const real_T rtCP_pooled_INwGxsZyA2TK[4];
-extern const real_T rtCP_pooled_lFjCwOpzleUW[1380];
-extern const real_T rtCP_pooled_c4MkaNlSOrp5[1380];
+extern const real_T rtCP_pooled_buFc0Q6KhFFw[1380];
+extern const real_T rtCP_pooled_01VuxCGtTjMM[1380];
 extern const real_T rtCP_pooled_043ALBncibah[23];
 extern const real_T rtCP_pooled_mVxns4hAKRNf[21];
 extern const real_T rtCP_pooled_wsH2dcaSihoN[21];
@@ -48,10 +48,10 @@ extern const real_T rtCP_pooled_Ha5Ct2ozjCBu[2];
 #define rtCP_LookaheadDistance_bp01Data rtCP_pooled_Por1fGzmcW36 /* Expression: Spline_Velocity_Axis
                                                                   * Referenced by: '<S212>/Lookahead Distance'
                                                                   */
-#define rtCP_Constant_Value_c          rtCP_pooled_lFjCwOpzleUW  /* Expression: All_Paths_Ref_Poses_Blue
+#define rtCP_Constant_Value_c          rtCP_pooled_buFc0Q6KhFFw  /* Expression: All_Paths_Ref_Poses_Blue
                                                                   * Referenced by: '<S20>/Constant'
                                                                   */
-#define rtCP_Constant1_Value_bc        rtCP_pooled_c4MkaNlSOrp5  /* Expression: All_Paths_Ref_Poses_Red
+#define rtCP_Constant1_Value_bc        rtCP_pooled_01VuxCGtTjMM  /* Expression: All_Paths_Ref_Poses_Red
                                                                   * Referenced by: '<S20>/Constant1'
                                                                   */
 #define rtCP_uDLookupTable_tableData   rtCP_pooled_043ALBncibah  /* Expression: All_Paths_Num_Poses
