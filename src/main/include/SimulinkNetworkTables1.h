@@ -58,6 +58,8 @@ private:
         nt::NetworkTableEntry P__Rate_Limit_Z__Entry;
         nt::NetworkTableEntry P__Rebuilt_Des_Gyro_Shoot_Offset__Entry;
         nt::NetworkTableEntry P__Rebuilt_Feeder_Motor_Gain_FF__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Feeder_Time_FWD__Entry;
+        nt::NetworkTableEntry P__Rebuilt_Feeder_Time_REV__Entry;
         nt::NetworkTableEntry P__Rebuilt_Hood_Servo_Pos_Max__Entry;
         nt::NetworkTableEntry P__Rebuilt_Hood_Servo_Pos_Min__Entry;
         nt::NetworkTableEntry P__Rebuilt_Hood_Servo_Rate_Limit_Dec__Entry;
@@ -378,6 +380,7 @@ private:
         nt::NetworkTableEntry T__Button_Enable_Wheels__Entry;
         nt::NetworkTableEntry T__Button_Reset_Wheel_Offsets__Entry;
         nt::NetworkTableEntry T__Can_Pass__Entry;
+        nt::NetworkTableEntry T__Desired_Feeder_Speed_Out__Entry;
         nt::NetworkTableEntry T__Drive_Joystick_X_preRL__Entry;
         nt::NetworkTableEntry T__Drive_Joystick_Y_preRL__Entry;
         nt::NetworkTableEntry T__Drive_Joystick_Z_Mode__Entry;

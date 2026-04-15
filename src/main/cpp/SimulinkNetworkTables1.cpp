@@ -175,6 +175,14 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     NTinst.AddListener(P__Rebuilt_Feeder_Motor_Gain_FF__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Feeder_Motor_Gain_FF = event.GetValueEventData()->value.GetDouble();});
     P__Rebuilt_Feeder_Motor_Gain_FF__Entry.SetDouble(0.00016534);
  
+    P__Rebuilt_Feeder_Time_FWD__Entry = NTtable_Tune->GetEntry("Rebuilt_Feeder_Time_FWD");
+    NTinst.AddListener(P__Rebuilt_Feeder_Time_FWD__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Feeder_Time_FWD = event.GetValueEventData()->value.GetDouble();});
+    P__Rebuilt_Feeder_Time_FWD__Entry.SetDouble(1.5);
+ 
+    P__Rebuilt_Feeder_Time_REV__Entry = NTtable_Tune->GetEntry("Rebuilt_Feeder_Time_REV");
+    NTinst.AddListener(P__Rebuilt_Feeder_Time_REV__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Feeder_Time_REV = event.GetValueEventData()->value.GetDouble();});
+    P__Rebuilt_Feeder_Time_REV__Entry.SetDouble(0.2);
+ 
     P__Rebuilt_Hood_Servo_Pos_Max__Entry = NTtable_Tune->GetEntry("Rebuilt_Hood_Servo_Pos_Max");
     NTinst.AddListener(P__Rebuilt_Hood_Servo_Pos_Max__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Hood_Servo_Pos_Max = event.GetValueEventData()->value.GetDouble();});
     P__Rebuilt_Hood_Servo_Pos_Max__Entry.SetDouble(1);
@@ -1035,6 +1043,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__Button_Enable_Wheels__Entry = NTtable_TPoint->GetEntry("Button_Enable_Wheels");
     T__Button_Reset_Wheel_Offsets__Entry = NTtable_TPoint->GetEntry("Button_Reset_Wheel_Offsets");
     T__Can_Pass__Entry = NTtable_TPoint->GetEntry("Can_Pass");
+    T__Desired_Feeder_Speed_Out__Entry = NTtable_TPoint->GetEntry("Desired_Feeder_Speed_Out");
     T__Drive_Joystick_X_preRL__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_X_preRL");
     T__Drive_Joystick_Y_preRL__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Y_preRL");
     T__Drive_Joystick_Z_Mode__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Z_Mode");
@@ -1178,6 +1187,8 @@ void SimulinkNetworkTables1::PostStepCallback()
     P__Rate_Limit_Z__Entry.SetDouble(Rate_Limit_Z);
     P__Rebuilt_Des_Gyro_Shoot_Offset__Entry.SetDouble(Rebuilt_Des_Gyro_Shoot_Offset);
     P__Rebuilt_Feeder_Motor_Gain_FF__Entry.SetDouble(Rebuilt_Feeder_Motor_Gain_FF);
+    P__Rebuilt_Feeder_Time_FWD__Entry.SetDouble(Rebuilt_Feeder_Time_FWD);
+    P__Rebuilt_Feeder_Time_REV__Entry.SetDouble(Rebuilt_Feeder_Time_REV);
     P__Rebuilt_Hood_Servo_Pos_Max__Entry.SetDouble(Rebuilt_Hood_Servo_Pos_Max);
     P__Rebuilt_Hood_Servo_Pos_Min__Entry.SetDouble(Rebuilt_Hood_Servo_Pos_Min);
     P__Rebuilt_Hood_Servo_Rate_Limit_Dec__Entry.SetDouble(Rebuilt_Hood_Servo_Rate_Limit_Dec);
@@ -1496,6 +1507,7 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__Button_Enable_Wheels__Entry.SetDouble(Robot_Control_B.Button_Enable_Wheels);
     T__Button_Reset_Wheel_Offsets__Entry.SetDouble(Robot_Control_B.Button_Reset_Wheel_Offsets);
     T__Can_Pass__Entry.SetDouble(Robot_Control_B.Can_Pass);
+    T__Desired_Feeder_Speed_Out__Entry.SetDouble(Robot_Control_B.Desired_Feeder_Speed_Out);
     T__Drive_Joystick_X_preRL__Entry.SetDouble(Robot_Control_B.Drive_Joystick_X_preRL);
     T__Drive_Joystick_Y_preRL__Entry.SetDouble(Robot_Control_B.Drive_Joystick_Y_preRL);
     T__Drive_Joystick_Z_Mode__Entry.SetDouble(Robot_Control_B.Drive_Joystick_Z_Mode);
