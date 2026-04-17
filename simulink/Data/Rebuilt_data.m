@@ -38,8 +38,8 @@ Rebuilt_Transfer_Minimum_Factor = 0.8;
 Rebuilt_Target_Transfer_Speed = 4000;   % rpm
 Rebuilt_Negative_Feeder_Speed = -3000;  % this was -1000 with a 1:1 gear ratio
 Rebuilt_Target_Feeder_Speed = 3*Rebuilt_Target_Transfer_Speed*0.84;  % rpm
-Rebuilt_Feeder_Time_FWD = 1.5;
-Rebuilt_Feeder_Time_REV = 0.2;
+Rebuilt_Feeder_Time_FWD = 0.5;
+Rebuilt_Feeder_Time_REV = 0.5;
 % The 3 factor is for the 3:1 gear box.
 % The 0.84 factor sets feeder belt linear speed to match transfer wheel surface linear speed
 % Assumes 4 inch diameter transfer wheels and 24 tooth pulleys driving the belts

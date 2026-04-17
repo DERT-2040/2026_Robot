@@ -177,11 +177,11 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Feeder_Time_FWD__Entry = NTtable_Tune->GetEntry("Rebuilt_Feeder_Time_FWD");
     NTinst.AddListener(P__Rebuilt_Feeder_Time_FWD__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Feeder_Time_FWD = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Feeder_Time_FWD__Entry.SetDouble(1.5);
+    P__Rebuilt_Feeder_Time_FWD__Entry.SetDouble(0.5);
  
     P__Rebuilt_Feeder_Time_REV__Entry = NTtable_Tune->GetEntry("Rebuilt_Feeder_Time_REV");
     NTinst.AddListener(P__Rebuilt_Feeder_Time_REV__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Feeder_Time_REV = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Feeder_Time_REV__Entry.SetDouble(0.2);
+    P__Rebuilt_Feeder_Time_REV__Entry.SetDouble(0.5);
  
     P__Rebuilt_Hood_Servo_Pos_Max__Entry = NTtable_Tune->GetEntry("Rebuilt_Hood_Servo_Pos_Max");
     NTinst.AddListener(P__Rebuilt_Hood_Servo_Pos_Max__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Hood_Servo_Pos_Max = event.GetValueEventData()->value.GetDouble();});
