@@ -281,7 +281,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Rebuilt_Roller_Desired_Speed__Entry = NTtable_Tune->GetEntry("Rebuilt_Roller_Desired_Speed");
     NTinst.AddListener(P__Rebuilt_Roller_Desired_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Roller_Desired_Speed = event.GetValueEventData()->value.GetDouble();});
-    P__Rebuilt_Roller_Desired_Speed__Entry.SetDouble(4500);
+    P__Rebuilt_Roller_Desired_Speed__Entry.SetDouble(6000);
  
     P__Rebuilt_Roller_Error_Integral_Enable__Entry = NTtable_Tune->GetEntry("Rebuilt_Roller_Error_Integral_Enable");
     NTinst.AddListener(P__Rebuilt_Roller_Error_Integral_Enable__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Rebuilt_Roller_Error_Integral_Enable = event.GetValueEventData()->value.GetDouble();});

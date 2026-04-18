@@ -206,7 +206,7 @@ Rebuilt_Intake_Arm_Gain_D = 0;
 
 Rebuilt_Roller_Intake_In_Delay = 2; % sec
 
-Rebuilt_Roller_Desired_Speed = 4500;
+Rebuilt_Roller_Desired_Speed = 6000;
 Rebuilt_Roller_Motor_Gain_FF = 1/6048;
 Rebuilt_Roller_Motor_Gain_P = 0.0001;
 Rebuilt_Roller_Motor_Gain_I = 0.001*0.02;

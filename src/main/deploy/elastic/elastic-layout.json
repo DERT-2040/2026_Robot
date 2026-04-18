@@ -283,6 +283,20 @@
               "period": 0.06,
               "data_type": "double"
             }
+          },
+          {
+            "title": "Auto_Path_Chooser",
+            "x": 512.0,
+            "y": 0.0,
+            "width": 128.0,
+            "height": 128.0,
+            "type": "Text Display",
+            "properties": {
+              "topic": "/Simulink Tunable Params/Auto_Path_Chooser",
+              "period": 0.06,
+              "data_type": "double",
+              "show_submit_button": false
+            }
           }
         ]
       }
@@ -349,7 +363,7 @@
           },
           {
             "title": "RB_Ready_to_Pass",
-            "x": 256.0,
+            "x": 1024.0,
             "y": 512.0,
             "width": 256.0,
             "height": 128.0,
@@ -371,6 +385,18 @@
               "topic": "/Simulink Test Points/RB_Ready_to_Score",
               "period": 0.06,
               "data_type": "double"
+            }
+          },
+          {
+            "title": "CAN Connection Alerts",
+            "x": 256.0,
+            "y": 384.0,
+            "width": 256.0,
+            "height": 384.0,
+            "type": "Alerts",
+            "properties": {
+              "topic": "/SmartDashboard/CAN Connection Alerts",
+              "period": 0.06
             }
           }
         ]

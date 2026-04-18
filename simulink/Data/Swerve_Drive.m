@@ -30,7 +30,7 @@ Steering_Mod_Str_Rel_out = [-fliplr(temp_y) 0 temp_y];
 clear temp_x temp_y
 
 % Steering Relative Gain
-Steering_Relative_Gain = 5;
+Steering_Relative_Gain = 2;
 
 % Boost Trigger
 Boost_Trigger_High_Speed = 5.0; % 3.658; % m/s

@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.489
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Apr 16 19:03:25 2026
+ * C/C++ source code generated on : Sat Apr 18 15:40:09 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -288,8 +288,8 @@ typedef struct {
   int8_T If_ActiveSubsystem_h;         /* '<S220>/If' */
   int8_T If_ActiveSubsystem_o;         /* '<S223>/If' */
   int8_T If_ActiveSubsystem_d;         /* '<S225>/If' */
-  uint8_T is_active_c1_Robot_Control;  /* '<S20>/Chart' */
-  uint8_T is_c1_Robot_Control;         /* '<S20>/Chart' */
+  uint8_T is_active_c5_Robot_Control;  /* '<S20>/Chart' */
+  uint8_T is_c5_Robot_Control;         /* '<S20>/Chart' */
   uint8_T is_active_c7_Robot_Control;  /* '<S378>/Add dither' */
   uint8_T is_c7_Robot_Control;         /* '<S378>/Add dither' */
   uint8_T is_Dither;                   /* '<S378>/Add dither' */
