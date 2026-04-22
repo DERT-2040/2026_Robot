@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.489
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Apr 18 15:40:09 2026
+ * C/C++ source code generated on : Wed Apr 22 07:46:02 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -72,7 +72,7 @@ real_T Auto_Deploy_Intake_Time = 1.0;  /* Variable: Auto_Deploy_Intake_Time
 real_T Auto_Deploy_Intake_Time2 = 0.0; /* Variable: Auto_Deploy_Intake_Time2
                                         * Referenced by: '<S28>/Constant'
                                         */
-real_T Auto_Intake_Arm_Cycle_Delay_Time = 2.0;
+real_T Auto_Intake_Arm_Cycle_Delay_Time = 1.5;
                                    /* Variable: Auto_Intake_Arm_Cycle_Delay_Time
                                     * Referenced by: '<S33>/Constant'
                                     */
@@ -1739,12 +1739,15 @@ void Robot_Control_step(void)
      *  Constant: '<S21>/Constant10'
      *  Constant: '<S21>/Constant11'
      *  Constant: '<S21>/Constant12'
+     *  Constant: '<S21>/Constant13'
      *  Constant: '<S21>/Constant17'
      *  Constant: '<S21>/Constant2'
      *  Constant: '<S21>/Constant3'
      *  Constant: '<S21>/Constant4'
      *  Constant: '<S21>/Constant5'
      *  Constant: '<S21>/Constant6'
+     *  Constant: '<S21>/Constant7'
+     *  Constant: '<S21>/Constant8'
      *  Constant: '<S21>/Constant9'
      */
     switch ((int32_T)Auto_Path_Chooser) {
@@ -1802,10 +1805,28 @@ void Robot_Control_step(void)
       rtb_MultiportSwitch1[2] = 0;
       break;
 
-     default:
+     case 10:
       rtb_MultiportSwitch1[0] = 16;
       rtb_MultiportSwitch1[1] = 21;
       rtb_MultiportSwitch1[2] = 0;
+      break;
+
+     case 11:
+      rtb_MultiportSwitch1[0] = 11;
+      rtb_MultiportSwitch1[1] = 12;
+      rtb_MultiportSwitch1[2] = 0;
+      break;
+
+     case 12:
+      rtb_MultiportSwitch1[0] = 9;
+      rtb_MultiportSwitch1[1] = 10;
+      rtb_MultiportSwitch1[2] = 0;
+      break;
+
+     default:
+      rtb_MultiportSwitch1[0] = 11;
+      rtb_MultiportSwitch1[1] = 13;
+      rtb_MultiportSwitch1[2] = 10;
       break;
     }
 

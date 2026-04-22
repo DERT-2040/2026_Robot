@@ -21,7 +21,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Auto_Intake_Arm_Cycle_Delay_Time__Entry = NTtable_Tune->GetEntry("Auto_Intake_Arm_Cycle_Delay_Time");
     NTinst.AddListener(P__Auto_Intake_Arm_Cycle_Delay_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Intake_Arm_Cycle_Delay_Time = event.GetValueEventData()->value.GetDouble();});
-    P__Auto_Intake_Arm_Cycle_Delay_Time__Entry.SetDouble(2);
+    P__Auto_Intake_Arm_Cycle_Delay_Time__Entry.SetDouble(1.5);
  
     P__Auto_Path_Chooser__Entry = NTtable_Tune->GetEntry("Auto_Path_Chooser");
     NTinst.AddListener(P__Auto_Path_Chooser__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Path_Chooser = event.GetValueEventData()->value.GetDouble();});
