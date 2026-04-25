@@ -11,7 +11,7 @@ Auto_Path_Chooser = 3; % default chooser path sequence number
 Auto_Deploy_Intake_Time = 1.0; % seconds (part 1 of auto)
 Auto_Deploy_Intake_Time2 = 0;  % seconds (part 2 of auto)
 Auto_Shoot_Time = 4.5;   % seconds
-Auto_Intake_Arm_Cycle_Delay_Time = 1.5;  % seconds
+Auto_Intake_Arm_Cycle_Delay_Time = 2.0;  % seconds
 
 % [x, y, velocity, angle, action at path point, action during path segment]
 %     Column 5 action defined in the current row is the action taken
@@ -185,9 +185,9 @@ Segment_10 = [
 % Start Location: Left Ramp
 % Finish Location: Depot
 Segment_11 = [
-    3.75, 5.90, 2.0, 180 *D2R, 0, 0;
-    0.71, 5.97, 2.0, 180 *D2R, 0, 3;
-    0,0,0,0,0,0;
+    3.55, 3.95, 2.0, 180 *D2R, 0, 3;
+    2.20, 5.90, 2.0, 180 *D2R, 0, 3;
+    0.50, 5.97, 1.0, 180 *D2R, 0, 3;
     0,0,0,0,0,0; 
     0,0,0,0,0,0;
     0,0,0,0,0,0; 
@@ -197,19 +197,20 @@ Segment_11 = [
     0,0,0,0,0,0];
 
 %% Segment 12
-% Start Location: Depot 
-% Finish Location: Center Hub
+% Start Location: Depot
+% Middle Location: Neutral Zone Loop Back
+% Finish Location: Left Hub
 Segment_12 = [
     0.71, 5.97, 2.0, 180 *D2R, 0, 0;
-    2.00, 5.80, 2.0, 180 *D2R, 0, 0;
-    2.90, 3.90, 2.0, 0   *D2R, 2, 0;
-    0,0,0,0,0,0; 
-    0,0,0,0,0,0;
-    0,0,0,0,0,0; 
-    0,0,0,0,0,0;
-    0,0,0,0,0,0; 
-    0,0,0,0,0,0;
-    0,0,0,0,0,0];
+    1.50, 5.97, 2.0, 180 *D2R, 0, 0;
+    2.20, 7.35, 1.0,   0 *D2R, 0, 3;
+    5.50, 7.35, 3.5,   0 *D2R, 0, 3;    
+    7.00, 7.31, 3.5, -60 *D2R, 0, 3;
+    8.00, 4.50, 3.5, -120 *D2R, 0, 3;
+    6.20, 4.50, 3.5, -255 *D2R, 0, 3;
+    6.00, 7.35, 2.0, -360 *D2R, 0, 3;
+    3.50, 7.35, 2.0, -360 *D2R, 0, 3;
+    1.50, 4.97, 3.5, -390 *D2R, 2, 0];
 
 %% Segment 13
 % Start Location: Depot
@@ -475,6 +476,6 @@ Auto_Path_07 = [18,22,0];   % Chooser 4 Left  (long shot)
 Auto_Path_08 = [19,23,0];   % Chooser 4 Right (long shot)
 Auto_Path_09 = [14,20,0];   % Chooser 5 Left  (Kansas City practice day)
 Auto_Path_10 = [16,21,0];   % Chooser 5 Right (Kansas City practice day)
-Auto_Path_11 = [11,12,0];   % Chooser 6 Left  Ramp-Depot-Hub
+Auto_Path_11 = [11,12,0];   % Chooser 6 Center Hub-Depot-Trench-Trench-Hub
 Auto_Path_12 = [9,10,0];    % Chooser 7 Right Ramp-Outpost-Hub
 Auto_Path_13 = [11,13,10];  % CHooser 8 Left  Ramp-Depot-Outpost-Hub

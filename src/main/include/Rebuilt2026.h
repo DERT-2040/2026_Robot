@@ -78,9 +78,7 @@ private:
         {"Auto 4 - Right (8)", 8},
         {"Auto 5 - Left  (9)", 9},
         {"Auto 5 - Right (10)", 10},
-        {"Auto 6 - Left  Ramp-Depot-Hub (11)", 11},
-        {"Auto 7 - Right Ramp-Outpost-Hub (12)", 12},
-        {"Auto 8 - Left  Ramp-Depot-Outpost-Hub (13)", 13}
+        {"Auto 6 - Center Hub-Depot-Trench-Trench-Hub (11)", 11}
       },
     &Auto_Path_Chooser //Simulink parameter name
   };
