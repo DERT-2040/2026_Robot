@@ -186,7 +186,7 @@ Segment_10 = [
 % Finish Location: Depot
 Segment_11 = [
     3.55, 3.95, 2.0, 180 *D2R, 0, 3;
-    2.20, 5.90, 2.0, 180 *D2R, 0, 3;
+    2.10, 5.90, 2.0, 180 *D2R, 0, 3;
     0.50, 5.97, 1.0, 180 *D2R, 0, 3;
     0,0,0,0,0,0; 
     0,0,0,0,0,0;
@@ -372,6 +372,36 @@ Segment_23(5,4) = -90 *D2R;
 Segment_23(6,4) =   0 *D2R;
 Segment_23(7,4) =   0 *D2R;
 
+%% Segment 24
+% Start Location: Depot
+% Finish Location: Hub Shoot
+Segment_24 = [
+    0.71, 5.97, 2.0, 180 *D2R, 0, 0;
+    2.00, 5.70, 2.0, 180 *D2R, 0, 0;
+    3.00, 3.90, 2.0,   0 *D2R, 2, 0;
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0;
+    0,0,0,0,0,0;     
+    0,0,0,0,0,0;
+    0,0,0,0,0,0];
+
+%% Segment 25
+% Start Location: Hub Shoot
+% Finish Location: Backup
+Segment_25 = [
+    3.00, 3.90, 1.0, 0 *D2R, 0, 0;
+    1.70, 3.90, 1.0, 0 *D2R, 0, 0;
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0; 
+    0,0,0,0,0,0;
+    0,0,0,0,0,0;     
+    0,0,0,0,0,0;
+    0,0,0,0,0,0];
+
 clear D2R
 
 % concatenate all of the paths into one multi-dimensional matrix
@@ -398,7 +428,9 @@ All_Paths_Ref_Poses_Blue = cat(3, ...
     Segment_20, ...
     Segment_21, ...
     Segment_22, ...
-    Segment_23 ...
+    Segment_23, ...
+    Segment_24, ...    
+    Segment_25 ...    
   ); 
 
 % Run this function to mirron paths from blue to red sides of the field
@@ -427,7 +459,9 @@ All_Paths_Ref_Poses_Red = cat(3, ...
     MirrorPath(Segment_20, field_width, field_length), ...
     MirrorPath(Segment_21, field_width, field_length), ...
     MirrorPath(Segment_22, field_width, field_length), ...
-    MirrorPath(Segment_23, field_width, field_length) ...
+    MirrorPath(Segment_23, field_width, field_length), ...
+    MirrorPath(Segment_24, field_width, field_length), ...
+    MirrorPath(Segment_25, field_width, field_length) ...
   ); 
 
 clear field_width field_length
@@ -457,13 +491,15 @@ All_Paths_Num_Poses = [
     nnz(Segment_21(:,1));
     nnz(Segment_22(:,1));
     nnz(Segment_23(:,1));      
+    nnz(Segment_24(:,1));   
+    nnz(Segment_25(:,1));      
     ];
 
 clear Segment_01 Segment_02 Segment_03 Segment_04 Segment_05
 clear Segment_06 Segment_07 Segment_08 Segment_09 Segment_10
 clear Segment_11 Segment_12 Segment_13 Segment_14 Segment_15 
 clear Segment_16 Segment_17 Segment_18 Segment_19 Segment_20
-clear Segment_21 Segment_22 Segment_23
+clear Segment_21 Segment_22 Segment_23 Segment_24 Segment_25
 
 % Define complete auto paths (fill with zeros so all are the same length)
 Auto_Path_01 = [1,4,0];     % Chooser 1 Left  (using the full field)
@@ -477,5 +513,7 @@ Auto_Path_08 = [19,23,0];   % Chooser 4 Right (long shot)
 Auto_Path_09 = [14,20,0];   % Chooser 5 Left  (Kansas City practice day)
 Auto_Path_10 = [16,21,0];   % Chooser 5 Right (Kansas City practice day)
 Auto_Path_11 = [11,12,0];   % Chooser 6 Center Hub-Depot-Trench-Trench-Hub
-Auto_Path_12 = [9,10,0];    % Chooser 7 Right Ramp-Outpost-Hub
-Auto_Path_13 = [11,13,10];  % CHooser 8 Left  Ramp-Depot-Outpost-Hub
+Auto_Path_12 = [11,24,25];
+Auto_Path_13 = Auto_Path_12
+% Auto_Path_12 = [9,10,0];    % Chooser 7 Right Ramp-Outpost-Hub
+% Auto_Path_13 = [11,13,10];  % CHooser 8 Left  Ramp-Depot-Outpost-Hub
