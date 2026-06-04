@@ -8,8 +8,8 @@
  * Code generated for Simulink model 'Robot_Control'.
  *
  * Model version                  : 2.489
- * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri May  1 07:46:03 2026
+ * Simulink Coder version         : 26.1 (R2026a) 20-Nov-2025
+ * C/C++ source code generated on : Wed Jun  3 21:12:34 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -17,15 +17,15 @@
  * Validation result: Not run
  */
 
-#ifndef RTW_HEADER_rtmodel_h_
-#define RTW_HEADER_rtmodel_h_
+#ifndef rtmodel_h_
+#define rtmodel_h_
 #include "Robot_Control.h"
 
 /* Macros generated for backwards compatibility  */
 #ifndef rtmGetStopRequested
 #define rtmGetStopRequested(rtm)       ((void*) 0)
 #endif
-#endif                                 /* RTW_HEADER_rtmodel_h_ */
+#endif                                 /* rtmodel_h_ */
 
 /*
  * File trailer for generated code.

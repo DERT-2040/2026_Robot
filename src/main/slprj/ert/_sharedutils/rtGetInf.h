@@ -7,13 +7,13 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.420
- * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Dec 13 19:32:09 2025
+ * Model version                  : 2.489
+ * Simulink Coder version         : 26.1 (R2026a) 20-Nov-2025
+ * C/C++ source code generated on : Wed Jun  3 21:12:34 2026
  */
 
-#ifndef RTW_HEADER_rtGetInf_h_
-#define RTW_HEADER_rtGetInf_h_
+#ifndef rtGetInf_h_
+#define rtGetInf_h_
 #include "rt_nonfinite.h"
 #include "rtwtypes.h"
 
@@ -22,7 +22,7 @@ extern real32_T rtGetInfF(void);
 extern real_T rtGetMinusInf(void);
 extern real32_T rtGetMinusInfF(void);
 
-#endif                                 /* RTW_HEADER_rtGetInf_h_ */
+#endif                                 /* rtGetInf_h_ */
 
 /*
  * File trailer for generated code.

@@ -8,8 +8,8 @@
  * Code generated for Simulink model 'Odometry'.
  *
  * Model version                  : 2.438
- * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sun Mar  8 17:56:27 2026
+ * Simulink Coder version         : 26.1 (R2026a) 20-Nov-2025
+ * C/C++ source code generated on : Wed Jun  3 21:14:52 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -17,13 +17,13 @@
  * Validation result: Not run
  */
 
-#ifndef RTW_HEADER_Odometry_types_h_
-#define RTW_HEADER_Odometry_types_h_
+#ifndef Odometry_types_h_
+#define Odometry_types_h_
 
 /* Forward declaration for rtModel */
 typedef struct tag_RTM_Odometry_T RT_MODEL_Odometry_T;
 
-#endif                                 /* RTW_HEADER_Odometry_types_h_ */
+#endif                                 /* Odometry_types_h_ */
 
 /*
  * File trailer for generated code.

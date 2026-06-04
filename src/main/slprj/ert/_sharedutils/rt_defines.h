@@ -7,13 +7,13 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.420
- * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Dec 13 19:32:09 2025
+ * Model version                  : 2.489
+ * Simulink Coder version         : 26.1 (R2026a) 20-Nov-2025
+ * C/C++ source code generated on : Wed Jun  3 21:12:34 2026
  */
 
-#ifndef RTW_HEADER_rt_defines_h_
-#define RTW_HEADER_rt_defines_h_
+#ifndef rt_defines_h_
+#define rt_defines_h_
 
 /*===========*
  * Constants *
@@ -44,7 +44,7 @@
 #define UNUSED_PARAMETER(x)            (void) (x)
 #endif
 #endif
-#endif                                 /* RTW_HEADER_rt_defines_h_ */
+#endif                                 /* rt_defines_h_ */
 
 /*
  * File trailer for generated code.

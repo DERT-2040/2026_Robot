@@ -8,8 +8,8 @@
  * Code generated for Simulink model 'Odometry'.
  *
  * Model version                  : 2.438
- * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sun Mar  8 17:56:27 2026
+ * Simulink Coder version         : 26.1 (R2026a) 20-Nov-2025
+ * C/C++ source code generated on : Wed Jun  3 21:14:52 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -17,16 +17,17 @@
  * Validation result: Not run
  */
 
-#ifndef RTW_HEADER_Odometry_h_
-#define RTW_HEADER_Odometry_h_
+#ifndef Odometry_h_
+#define Odometry_h_
 #ifndef Odometry_COMMON_INCLUDES_
 #define Odometry_COMMON_INCLUDES_
 #include "rtwtypes.h"
+#include "rt_nonfinite.h"
+#include "math.h"
 #endif                                 /* Odometry_COMMON_INCLUDES_ */
 
 #include "Odometry_types.h"
 #include "rtGetNaN.h"
-#include "rt_nonfinite.h"
 
 /* Macros for accessing real-time model data structure */
 #ifndef rtmGetErrorStatus
@@ -243,7 +244,7 @@ extern RT_MODEL_Odometry_T *const Odometry_M;
  * '<S32>'  : 'Odometry/Odometry/Steer_Module_Offset_Adjustments/Angle Modulus2'
  * '<S33>'  : 'Odometry/Odometry/Steer_Module_Offset_Adjustments/Angle Modulus3'
  */
-#endif                                 /* RTW_HEADER_Odometry_h_ */
+#endif                                 /* Odometry_h_ */
 
 /*
  * File trailer for generated code.

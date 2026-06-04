@@ -7,51 +7,24 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.420
- * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Dec 13 19:32:09 2025
+ * Model version                  : 2.489
+ * Simulink Coder version         : 26.1 (R2026a) 20-Nov-2025
+ * C/C++ source code generated on : Wed Jun  3 21:12:34 2026
  */
 
 #include "rtwtypes.h"
 #include "rtGetNaN.h"
-#include <stddef.h>
-#include "rt_nonfinite.h"
-#define NumBitsPerChar                 8U
 
-/*
- * Initialize rtNaN needed by the generated code.
- * NaN is initialized as non-signaling. Assumes IEEE.
- */
+/* Return rtNaN needed by the generated code. */
 real_T rtGetNaN(void)
 {
-  size_t bitsPerReal = sizeof(real_T) * (NumBitsPerChar);
-  real_T nan = 0.0;
-  if (bitsPerReal == 32U) {
-    nan = rtGetNaNF();
-  } else {
-    union {
-      LittleEndianIEEEDouble bitVal;
-      real_T fltVal;
-    } tmpVal;
-
-    tmpVal.bitVal.words.wordH = 0xFFF80000U;
-    tmpVal.bitVal.words.wordL = 0x00000000U;
-    nan = tmpVal.fltVal;
-  }
-
-  return nan;
+  return rtNaN;
 }
 
-/*
- * Initialize rtNaNF needed by the generated code.
- * NaN is initialized as non-signaling. Assumes IEEE.
- */
+/* Return rtNaNF needed by the generated code. */
 real32_T rtGetNaNF(void)
 {
-  IEEESingle nanF = { { 0.0F } };
-
-  nanF.wordL.wordLuint = 0xFFC00000U;
-  return nanF.wordL.wordLreal;
+  return rtNaNF;
 }
 
 /*

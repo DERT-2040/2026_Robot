@@ -514,6 +514,6 @@ Auto_Path_09 = [14,20,0];   % Chooser 5 Left  (Kansas City practice day)
 Auto_Path_10 = [16,21,0];   % Chooser 5 Right (Kansas City practice day)
 Auto_Path_11 = [11,12,0];   % Chooser 6 Center Hub-Depot-Trench-Trench-Hub
 Auto_Path_12 = [11,24,25];
-Auto_Path_13 = Auto_Path_12
+Auto_Path_13 = Auto_Path_12;
 % Auto_Path_12 = [9,10,0];    % Chooser 7 Right Ramp-Outpost-Hub
 % Auto_Path_13 = [11,13,10];  % CHooser 8 Left  Ramp-Depot-Outpost-Hub
