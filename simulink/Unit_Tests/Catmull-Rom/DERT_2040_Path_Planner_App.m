@@ -26,7 +26,7 @@ classdef DERT_2040_Path_Planner_App < handle
         RobotWidth = 0.9
         RobotOffset_Length = -0.1
         RobotOffset_Width = 0;
-        Field = struct('length', 16.4592, 'width', 8.2296)
+        Field = struct('length', 16.541, 'width', 8.06933)
         SimulationCommand = 'out = sim(''Catmull_Rom_2026'');'
     end
 
@@ -78,24 +78,146 @@ classdef DERT_2040_Path_Planner_App < handle
 
         % This function will need to be modified each year to represent the specific field
         function drawFieldBackground(app)
-            fieldL = app.Field.length;
-            fieldW = app.Field.width;
-            % Field surface
-            patch(app.UIAxes, [0 fieldL fieldL 0], [0 0 fieldW fieldW], [0.08 0.35 0.08], 'FaceAlpha', 1.0, 'EdgeColor', 'none', 'HitTest', 'off', 'PickableParts', 'none');
-            % Field border
-            plot(app.UIAxes, [0 fieldL], [0 0], '-w', 'LineWidth', 4, 'HitTest', 'off', 'PickableParts', 'none');
-            plot(app.UIAxes, [0 fieldL], [fieldW fieldW], '-w', 'LineWidth', 4, 'HitTest', 'off', 'PickableParts', 'none');
-            plot(app.UIAxes, [0 0], [0 fieldW], '-w', 'LineWidth', 4, 'HitTest', 'off', 'PickableParts', 'none');
-            plot(app.UIAxes, [fieldL fieldL], [0 fieldW], '-w', 'LineWidth', 4, 'HitTest', 'off', 'PickableParts', 'none');
-            % Center line
-            plot(app.UIAxes, [fieldL/2 fieldL/2], [0 fieldW], '--w', 'LineWidth', 2, 'HitTest', 'off', 'PickableParts', 'none');
-            % Hubs / target zones
-            targetWidth = fieldW * 0.48;
-            plot(app.UIAxes, [0 0], [fieldW*0.26 fieldW*0.74], '-w', 'LineWidth', 4, 'HitTest', 'off', 'PickableParts', 'none');
-            plot(app.UIAxes, [fieldL fieldL], [fieldW*0.26 fieldW*0.74], '-w', 'LineWidth', 4, 'HitTest', 'off', 'PickableParts', 'none');
-            % Field dimensions label
-            xlim(app.UIAxes, [0 fieldL]);
-            ylim(app.UIAxes, [0 fieldW]);
+          %% FIELD DIMENSIONS
+%% FIELD DIMENSIONS
+in2m = 0.0254;
+
+fieldL = app.Field.length;          % Provided by your app (should be ~651.22*in2m)
+fieldW = 317.69 * in2m;             % Fixed width
+
+%% CLEAR AXES
+cla(app.UIAxes);
+hold(app.UIAxes, 'on');
+
+%% FIELD SURFACE
+patch(app.UIAxes, ...
+    [0 fieldL fieldL 0], ...
+    [0 0 fieldW fieldW], ...
+    [0.08 0.35 0.08], ...
+    'FaceAlpha', 1.0, ...
+    'EdgeColor', 'none', ...
+    'HitTest', 'off', ...
+    'PickableParts', 'none');
+
+%% FIELD BORDER
+plot(app.UIAxes, [0 fieldL], [0 0], '-w', 'LineWidth', 4);
+plot(app.UIAxes, [0 fieldL], [fieldW fieldW], '-w', 'LineWidth', 4);
+plot(app.UIAxes, [0 0], [0 fieldW], '-w', 'LineWidth', 4);
+plot(app.UIAxes, [fieldL fieldL], [0 fieldW], '-w', 'LineWidth', 4);
+
+%% CENTER LINE
+plot(app.UIAxes, [fieldL/2 fieldL/2], [0 fieldW], '--w', 'LineWidth', 2);
+
+%% -----------------------------
+%  HUBS (2026 FRC – Blue + Red)
+%% -----------------------------
+% Blue hub – exact 2026 coordinates (meters)
+blue_x1 = 3.97789;
+blue_y1 = 3.35382;
+blue_w  = 5.17169 - 3.97789;   % 1.1938 m
+blue_h  = 4.54762 - 3.35382;   % 1.1938 m
+
+rectangle(app.UIAxes, ...
+    'Position', [blue_x1 blue_y1 blue_w blue_h], ...
+    'EdgeColor', 'b', ...
+    'LineWidth', 3, ...
+    'Curvature', 0.15);
+
+% Red hub – mirrored across field length
+red_x1 = fieldL - 5.17169;     % mirror the right edge of blue hub
+red_y1 = blue_y1;
+red_w  = blue_w;
+red_h  = blue_h;
+
+rectangle(app.UIAxes, ...
+    'Position', [red_x1 red_y1 red_w red_h], ...
+    'EdgeColor', 'r', ...
+    'LineWidth', 3, ...
+    'Curvature', 0.15);
+
+%% -----------------------------
+%  LEGACY HUB Y (used by trench)
+%% -----------------------------
+% Keep this so your trench/bump math still works
+hub_y = (317.69 - 65.65 - 73) * in2m;
+
+%% -----------------------------
+%  TRENCH + BUMP
+%% -----------------------------
+trench_x_blue = 156.61 * in2m;
+trench_len    = 44.40 * in2m;
+bump_x_offset = 22.2 * in2m;
+
+% Blue trench
+plot(app.UIAxes, [trench_x_blue trench_x_blue+trench_len], [hub_y hub_y], 'b');
+plot(app.UIAxes, [trench_x_blue trench_x_blue+trench_len], [hub_y+73*in2m hub_y+73*in2m], 'b');
+plot(app.UIAxes, [trench_x_blue trench_x_blue+trench_len], [65.65*in2m 65.65*in2m], 'b');
+
+% Blue bump
+plot(app.UIAxes, [trench_x_blue+bump_x_offset trench_x_blue+bump_x_offset], ...
+    [0 fieldW], 'b');
+
+% Red trench
+trench_x_red = (651.22 - 156.61) * in2m;
+plot(app.UIAxes, [trench_x_red trench_x_red - trench_len], [hub_y hub_y], 'r');
+plot(app.UIAxes, [trench_x_red trench_x_red - trench_len], [hub_y+73*in2m hub_y+73*in2m], 'r');
+plot(app.UIAxes, [trench_x_red trench_x_red - trench_len], [65.65*in2m 65.65*in2m], 'r');
+
+% Red bump
+plot(app.UIAxes, [trench_x_red - bump_x_offset trench_x_red - bump_x_offset], ...
+    [0 fieldW], 'r');
+
+%% -----------------------------
+%  CLIMBER
+%% -----------------------------
+climb_w    = (40 + 3.510) * in2m;
+climb_half = 23.5 * in2m;
+
+% Blue climber
+cy_blue = (26.62 + 121.24) * in2m;
+plot(app.UIAxes, [climb_w climb_w], [cy_blue - climb_half, cy_blue + climb_half], 'b');
+plot(app.UIAxes, [0 climb_w], [cy_blue + climb_half, cy_blue + climb_half], 'b');
+plot(app.UIAxes, [0 climb_w], [cy_blue - climb_half, cy_blue - climb_half], 'b');
+
+% Red climber
+climb_x_red = (650.12 - 40 - 3.510) * in2m;
+cy_red      = (82.42 + 87.46) * in2m;
+plot(app.UIAxes, [climb_x_red climb_x_red], [cy_red - climb_half, cy_red + climb_half], 'r');
+plot(app.UIAxes, [650.12*in2m climb_x_red], [cy_red - climb_half, cy_red - climb_half], 'r');
+plot(app.UIAxes, [650.12*in2m climb_x_red], [cy_red + climb_half, cy_red + climb_half], 'r');
+
+%% -----------------------------
+%  DEPOT
+%% -----------------------------
+depot_half = 21 * in2m;
+
+% Blue depot
+dx_blue = 27 * in2m;
+dy_blue = (158.84 + 75.93) * in2m;
+plot(app.UIAxes, [dx_blue dx_blue], [dy_blue - depot_half, dy_blue + depot_half], 'b');
+plot(app.UIAxes, [0 dx_blue], [dy_blue + depot_half, dy_blue + depot_half], 'b');
+plot(app.UIAxes, [0 dx_blue], [dy_blue - depot_half, dy_blue - depot_half], 'b');
+
+% Red depot
+dx_red = (650.12 - 27) * in2m;
+dy_red = (158.84 - 75.93) * in2m;
+plot(app.UIAxes, [dx_red dx_red], [dy_red - depot_half, dy_red + depot_half], 'r');
+plot(app.UIAxes, [650.12*in2m dx_red], [dy_red + depot_half, dy_red + depot_half], 'r');
+plot(app.UIAxes, [650.12*in2m dx_red], [dy_red - depot_half, dy_red - depot_half], 'r');
+
+%% -----------------------------
+%  HUMAN PLAYER STATIONS
+%% -----------------------------
+plot(app.UIAxes, [0 0], [0 49.32*in2m], 'b', 'LineWidth', 3);
+plot(app.UIAxes, [650.12*in2m 650.12*in2m], ...
+    [316.69*in2m 316.69*in2m - 49.32*in2m], 'r', 'LineWidth', 3);
+
+%% AXIS LIMITS
+xlim(app.UIAxes, [0 fieldL]);
+ylim(app.UIAxes, [0 fieldW]);
+axis(app.UIAxes, 'equal');
+
+
         end
 
         function createComponents(app)
@@ -915,6 +1037,7 @@ classdef DERT_2040_Path_Planner_App < handle
             matrix = matrix(1:lastNonZeroRow, :);
             tableData = table((1:size(matrix,1))', matrix(:,1), matrix(:,2), matrix(:,4), matrix(:,3), matrix(:,5), matrix(:,6), ...
                 'VariableNames', {'id','x','y','heading','velocity','actionStatic','actionDynamic'});
+
         end
     end
 end
