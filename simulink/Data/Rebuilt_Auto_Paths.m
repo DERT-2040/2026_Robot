@@ -412,7 +412,7 @@ end
 
 clear matrix D2R
 
-% comment out these clear lines if you want these to be imported into the DERT 2949 Path Planner App
+% comment out these clear lines if you want these to be imported into the DERT 2040 Path Planner App
 clear Segment_01 Segment_02 Segment_03 Segment_04 Segment_05
 clear Segment_06 Segment_07 Segment_08 Segment_09 Segment_10
 clear Segment_11 Segment_12 Segment_13 Segment_14 Segment_15 
