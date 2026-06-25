@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.489
  * Simulink Coder version         : 26.1 (R2026a) 20-Nov-2025
- * C/C++ source code generated on : Wed Jun  3 21:12:34 2026
+ * C/C++ source code generated on : Wed Jun 24 22:38:02 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -286,16 +286,16 @@ typedef struct {
   int8_T If_ActiveSubsystem_h;         /* '<S226>/If' */
   int8_T If_ActiveSubsystem_o;         /* '<S229>/If' */
   int8_T If_ActiveSubsystem_d;         /* '<S231>/If' */
-  uint8_T is_active_c6_Robot_Control;  /* '<S20>/Chart' */
-  uint8_T is_c6_Robot_Control;         /* '<S20>/Chart' */
-  uint8_T is_active_c8_Robot_Control;  /* '<S384>/Add dither' */
-  uint8_T is_c8_Robot_Control;         /* '<S384>/Add dither' */
+  uint8_T is_active_c1_Robot_Control;  /* '<S20>/Chart' */
+  uint8_T is_c1_Robot_Control;         /* '<S20>/Chart' */
+  uint8_T is_active_c7_Robot_Control;  /* '<S384>/Add dither' */
+  uint8_T is_c7_Robot_Control;         /* '<S384>/Add dither' */
   uint8_T is_Dither;                   /* '<S384>/Add dither' */
   uint8_T is_active_c2_Robot_Control;/* '<S12>/Shooter_Transfer_Feeder Chart' */
   uint8_T is_c2_Robot_Control;       /* '<S12>/Shooter_Transfer_Feeder Chart' */
   uint8_T is_Shooting;               /* '<S12>/Shooter_Transfer_Feeder Chart' */
-  uint8_T is_active_c1_Robot_Control;  /* '<S12>/Chart' */
-  uint8_T is_c1_Robot_Control;         /* '<S12>/Chart' */
+  uint8_T is_active_c6_Robot_Control;  /* '<S12>/Chart' */
+  uint8_T is_c6_Robot_Control;         /* '<S12>/Chart' */
   uint8_T is_if_forward;               /* '<S12>/Chart' */
   uint8_T is_active_c9_Robot_Control;  /* '<S11>/Chart' */
   uint8_T is_c9_Robot_Control;         /* '<S11>/Chart' */

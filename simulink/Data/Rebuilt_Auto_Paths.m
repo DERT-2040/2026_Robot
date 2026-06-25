@@ -410,7 +410,7 @@ for k = 1:25
     assignin('base',['Segment_',num2str(k,'%02d'),'_rad'],matrix);
 end
 
-clear matrix D2R
+clear matrix D2R k
 
 % comment out these clear lines if you want these to be imported into the DERT 2040 Path Planner App
 clear Segment_01 Segment_02 Segment_03 Segment_04 Segment_05

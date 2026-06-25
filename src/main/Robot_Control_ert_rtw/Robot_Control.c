@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.489
  * Simulink Coder version         : 26.1 (R2026a) 20-Nov-2025
- * C/C++ source code generated on : Wed Jun  3 21:12:34 2026
+ * C/C++ source code generated on : Wed Jun 24 22:38:02 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -1651,8 +1651,8 @@ void Robot_Control_step(void)
       Robot_Control_B.Auto_Desired_Dynamic_Action = 0.0;
       Robot_Control_B.Auto_Path_Counter = 0.0;
       Robot_Control_DW.counter = 0.0;
-      Robot_Control_DW.is_active_c6_Robot_Control = 0U;
-      Robot_Control_DW.is_c6_Robot_Control = Robot_Contro_IN_NO_ACTIVE_CHILD;
+      Robot_Control_DW.is_active_c1_Robot_Control = 0U;
+      Robot_Control_DW.is_c1_Robot_Control = Robot_Contro_IN_NO_ACTIVE_CHILD;
 
       /* End of SystemReset for SubSystem: '<S1>/Autonomous' */
     }
@@ -1892,17 +1892,17 @@ void Robot_Control_step(void)
      *  UnitDelay: '<S20>/Unit Delay1'
      *  UnitDelay: '<S7>/Unit Delay'
      */
-    if (Robot_Control_DW.is_active_c6_Robot_Control == 0) {
-      Robot_Control_DW.is_active_c6_Robot_Control = 1U;
+    if (Robot_Control_DW.is_active_c1_Robot_Control == 0) {
+      Robot_Control_DW.is_active_c1_Robot_Control = 1U;
       Robot_Control_B.Auto_Path_Counter = 1.0;
-      Robot_Control_DW.is_c6_Robot_Control = Robot_Control_IN_Start_Action;
+      Robot_Control_DW.is_c1_Robot_Control = Robot_Control_IN_Start_Action;
       Robot_Control_B.Auto_Spline_Enable = false;
       Robot_Control_B.Auto_Desired_Static_Action =
         Robot_Control_DW.UnitDelay1_DSTATE_iz[((int32_T)rtb_Switch1_m) + 39];
       Robot_Control_B.Auto_Desired_Dynamic_Action = 0.0;
       Robot_Control_DW.counter = 0.0;
     } else {
-      switch (Robot_Control_DW.is_c6_Robot_Control) {
+      switch (Robot_Control_DW.is_c1_Robot_Control) {
        case Robot_Control_IN_End_Action:
         Robot_Control_B.Auto_Spline_Enable = false;
         if (((Robot_Control_B.Auto_Desired_Static_Action == 0.0) ||
@@ -1916,7 +1916,7 @@ void Robot_Control_step(void)
 
         if (rtb_Shooter_Active_prev) {
           Robot_Control_B.Auto_Path_Counter++;
-          Robot_Control_DW.is_c6_Robot_Control = Robot_Control_IN_Start_Action;
+          Robot_Control_DW.is_c1_Robot_Control = Robot_Control_IN_Start_Action;
           Robot_Control_B.Auto_Desired_Static_Action =
             Robot_Control_DW.UnitDelay1_DSTATE_iz[((int32_T)rtb_Switch1_m) + 39];
           Robot_Control_B.Auto_Desired_Dynamic_Action = 0.0;
@@ -1927,13 +1927,13 @@ void Robot_Control_step(void)
        case Robot_Control_IN_Follow_Path:
         Robot_Control_B.Auto_Spline_Enable = true;
         if (Robot_Control_DW.UnitDelay_DSTATE_ll) {
-          Robot_Control_DW.is_c6_Robot_Control = Robot_Control_IN_End_Action;
+          Robot_Control_DW.is_c1_Robot_Control = Robot_Control_IN_End_Action;
           Robot_Control_B.Auto_Spline_Enable = false;
           Robot_Control_B.Auto_Desired_Static_Action =
             Robot_Control_DW.UnitDelay1_DSTATE_iz[((int32_T)rtb_Switch1_m) + 39];
           Robot_Control_B.Auto_Desired_Dynamic_Action = 0.0;
         } else if (rtb_Switch1_m > Robot_Control_DW.UnitDelay_DSTATE_e3) {
-          Robot_Control_DW.is_c6_Robot_Control = Robot_Control_IN_Follow_Path;
+          Robot_Control_DW.is_c1_Robot_Control = Robot_Control_IN_Follow_Path;
           Robot_Control_B.Auto_Desired_Static_Action = 0.0;
           Robot_Control_B.Auto_Desired_Dynamic_Action =
             Robot_Control_DW.UnitDelay1_DSTATE_iz[((int32_T)rtb_Switch1_m) + 49];
@@ -1946,7 +1946,7 @@ void Robot_Control_step(void)
         if ((Robot_Control_DW.counter > 1.0) &&
             ((Robot_Control_B.Auto_Desired_Static_Action == 0.0) ||
              rtb_Shooter_Active_prev)) {
-          Robot_Control_DW.is_c6_Robot_Control = Robot_Control_IN_Follow_Path;
+          Robot_Control_DW.is_c1_Robot_Control = Robot_Control_IN_Follow_Path;
           Robot_Control_B.Auto_Spline_Enable = true;
           Robot_Control_B.Auto_Desired_Static_Action = 0.0;
           Robot_Control_B.Auto_Desired_Dynamic_Action =
@@ -6355,15 +6355,15 @@ void Robot_Control_step(void)
   rtb_Switch2_g = fabs(Robot_Control_B.Steering_Heading_PID);
 
   /* Chart: '<S384>/Add dither' */
-  if (Robot_Control_DW.is_active_c8_Robot_Control == 0) {
-    Robot_Control_DW.is_active_c8_Robot_Control = 1U;
-    Robot_Control_DW.is_c8_Robot_Control = Robot_Control_IN_No_Dither;
+  if (Robot_Control_DW.is_active_c7_Robot_Control == 0) {
+    Robot_Control_DW.is_active_c7_Robot_Control = 1U;
+    Robot_Control_DW.is_c7_Robot_Control = Robot_Control_IN_No_Dither;
     Robot_Control_B.abs_Cmd_Out = rtb_Switch2_g;
-  } else if (Robot_Control_DW.is_c8_Robot_Control == Robot_Control_IN_Dither) {
+  } else if (Robot_Control_DW.is_c7_Robot_Control == Robot_Control_IN_Dither) {
     if ((!rtb_Button_Spinup_Enable) || (rtb_Init_o <
          Steering_Heading_Dither_Thresh_Off)) {
       Robot_Control_DW.is_Dither = Robot_Contro_IN_NO_ACTIVE_CHILD;
-      Robot_Control_DW.is_c8_Robot_Control = Robot_Control_IN_No_Dither;
+      Robot_Control_DW.is_c7_Robot_Control = Robot_Control_IN_No_Dither;
       Robot_Control_B.abs_Cmd_Out = rtb_Switch2_g;
     } else if (Robot_Control_DW.is_Dither == Robot_Control_IN_High) {
       if (Robot_Control_DW.timer >= Steering_Heading_Dither_Period) {
@@ -6388,7 +6388,7 @@ void Robot_Control_step(void)
     /* case IN_No_Dither: */
   } else if (rtb_Button_Spinup_Enable && (rtb_Init_o >
               Steering_Heading_Dither_Thresh_On)) {
-    Robot_Control_DW.is_c8_Robot_Control = Robot_Control_IN_Dither;
+    Robot_Control_DW.is_c7_Robot_Control = Robot_Control_IN_Dither;
     Robot_Control_DW.is_Dither = Robot_Control_IN_High;
     Robot_Control_B.abs_Cmd_Out = rtb_Switch2_g * Steering_Heading_Dither_Gain;
     Robot_Control_DW.timer = 0.0;
@@ -8659,17 +8659,17 @@ void Robot_Control_step(void)
     Robot_Control_DW.temporalCounter_i1++;
   }
 
-  if (Robot_Control_DW.is_active_c1_Robot_Control == 0) {
-    Robot_Control_DW.is_active_c1_Robot_Control = 1U;
-    Robot_Control_DW.is_c1_Robot_Control = Robot_Con_IN_if_reverse_or_zero;
+  if (Robot_Control_DW.is_active_c6_Robot_Control == 0) {
+    Robot_Control_DW.is_active_c6_Robot_Control = 1U;
+    Robot_Control_DW.is_c6_Robot_Control = Robot_Con_IN_if_reverse_or_zero;
     Robot_Control_B.Desired_Feeder_Speed_Out =
       Robot_Control_B.RB_Desired_Feeder_Speed;
-  } else if (Robot_Control_DW.is_c1_Robot_Control == Robot_Control_IN_if_forward)
+  } else if (Robot_Control_DW.is_c6_Robot_Control == Robot_Control_IN_if_forward)
   {
     if ((Robot_Control_B.RB_Desired_Feeder_Speed == 0.0) ||
         (!rtb_LogicalOperator1)) {
       Robot_Control_DW.is_if_forward = Robot_Contro_IN_NO_ACTIVE_CHILD;
-      Robot_Control_DW.is_c1_Robot_Control = Robot_Con_IN_if_reverse_or_zero;
+      Robot_Control_DW.is_c6_Robot_Control = Robot_Con_IN_if_reverse_or_zero;
       Robot_Control_B.Desired_Feeder_Speed_Out =
         Robot_Control_B.RB_Desired_Feeder_Speed;
     } else if (Robot_Control_DW.is_if_forward == Robot_Control_IN_Backwards) {
@@ -8691,7 +8691,7 @@ void Robot_Control_step(void)
     /* case IN_if_reverse_or_zero: */
   } else if ((Robot_Control_B.RB_Desired_Feeder_Speed ==
               Rebuilt_Target_Feeder_Speed) && rtb_LogicalOperator1) {
-    Robot_Control_DW.is_c1_Robot_Control = Robot_Control_IN_if_forward;
+    Robot_Control_DW.is_c6_Robot_Control = Robot_Control_IN_if_forward;
     Robot_Control_DW.temporalCounter_i1 = 0U;
     Robot_Control_DW.is_if_forward = Robot_Control_IN_Forwards;
     Robot_Control_B.Desired_Feeder_Speed_Out = Rebuilt_Target_Feeder_Speed;
