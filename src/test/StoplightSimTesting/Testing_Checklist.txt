@@ -1,0 +1,20 @@
+Copy your block into a blank model
+
+Set up I/O
+    Input is generally a constant with button hooked up
+	Output Generally a Display or Scope
+
+Set Up Settings
+	Need to check
+		Stop Time - set to inf if running live, set to X seconds or loops if not
+		Run arrow - simulation pacing - slow down (if running live)
+		Model Settings - Solver - Solver Selection - Type (Fixed-Step) - Solver (Discrete)
+		Model Settings - Solver - Solver Details - Fixed-Step size (Generally TS, or clock time)
+Check that values work
+
+Unit Testing with MATLAB
+	Set up from workspace/to workspace blocks
+	run unit model
+	plot output (or multiple outputs!)
+
+Modify and Insert into System when done!
