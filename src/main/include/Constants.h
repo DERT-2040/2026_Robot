@@ -119,8 +119,7 @@ namespace Constants
     namespace HID
     {
         static constexpr int k_Gamepad_Port = 0;
-        static constexpr int k_Left_Joystick_Port = 1;
-        static constexpr int k_Right_Joystick_Port = 2;
+        static constexpr int k_DriverXbox_Port = 1;
     };
 
     namespace IMU

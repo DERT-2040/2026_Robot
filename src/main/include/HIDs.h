@@ -7,6 +7,7 @@
 //frc
 #include <frc/Joystick.h>
 #include <frc/GenericHID.h>
+#include <frc/XboxController.h>
 
 namespace nsHID = Constants::HID;
 
@@ -40,12 +41,8 @@ private:
     frc::GenericHID m_Gamepad{nsHID::k_Gamepad_Port};
 
     /**
-     * Joystick that is on the index of k_Drive_Joystick_Port
+     *Xbox Controller for the driver of the robot
      */
-    frc::Joystick m_Left_Joystick{nsHID::k_Right_Joystick_Port};
+    frc::XboxController m_DriverXbox{nsHID::k_DriverXbox_Port};
 
-    /**
-     * Joystick that is on the index of k_Steer_Joystick_Port
-     */
-    frc::Joystick m_Right_Joystick{nsHID::k_Left_Joystick_Port};
 };
