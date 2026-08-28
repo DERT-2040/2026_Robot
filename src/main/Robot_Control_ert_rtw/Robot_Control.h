@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 2.489
+ * Model version                  : 7.1
  * Simulink Coder version         : 26.1 (R2026a) 20-Nov-2025
- * C/C++ source code generated on : Wed Jun 24 22:38:02 2026
+ * C/C++ source code generated on : Thu Aug 27 19:04:22 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -101,9 +101,9 @@ typedef struct {
   real_T Relative_Error_Angle;         /* '<S441>/Switch4' */
   real_T Steering_Abs_Gyro_Latch;      /* '<S443>/Switch8' */
   real_T Steering_Abs_Gyro;            /* '<S443>/Switch2' */
-  real_T Steering_Abs_Angle;           /* '<S443>/Switch3' */
   real_T Relative_Error_Y;             /* '<S441>/Switch2' */
   real_T Relative_Error_X;             /* '<S441>/Unary Minus1' */
+  real_T Steering_Abs_Angle;           /* '<S443>/Switch3' */
   real_T Auto_Path_ID;                 /* '<S20>/1-D Lookup Table1' */
   real_T Auto_Desired_Static_Action;   /* '<S20>/Chart' */
   real_T Auto_Desired_Dynamic_Action;  /* '<S20>/Chart' */
@@ -216,10 +216,10 @@ typedef struct {
   real_T UD_DSTATE_jd;                 /* '<S77>/UD' */
   real_T UnitDelay_DSTATE_dl;          /* '<S76>/Unit Delay' */
   real_T UnitDelay3_DSTATE;            /* '<S443>/Unit Delay3' */
+  real_T UnitDelay1_DSTATE_l;          /* '<S458>/Unit Delay1' */
+  real_T UnitDelay_DSTATE_p;           /* '<S458>/Unit Delay' */
   real_T UnitDelay1_DSTATE_j2;         /* '<S443>/Unit Delay1' */
-  real_T UnitDelay1_DSTATE_l;          /* '<S457>/Unit Delay1' */
-  real_T UnitDelay_DSTATE_p;           /* '<S457>/Unit Delay' */
-  real_T FixPtUnitDelay1_DSTATE_f;     /* '<S461>/FixPt Unit Delay1' */
+  real_T FixPtUnitDelay1_DSTATE_f;     /* '<S462>/FixPt Unit Delay1' */
   real_T UnitDelay1_DSTATE_iz[60];     /* '<S20>/Unit Delay1' */
   real_T UnitDelay1_DSTATE_k;          /* '<S19>/Unit Delay1' */
   real_T UnitDelay_DSTATE_b;           /* '<S19>/Unit Delay' */
@@ -256,7 +256,7 @@ typedef struct {
   uint8_T FixPtUnitDelay2_DSTATE_cc;   /* '<S391>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_f;    /* '<S143>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_b;    /* '<S73>/FixPt Unit Delay2' */
-  uint8_T FixPtUnitDelay2_DSTATE_a;    /* '<S461>/FixPt Unit Delay2' */
+  uint8_T FixPtUnitDelay2_DSTATE_a;    /* '<S462>/FixPt Unit Delay2' */
   boolean_T UnitDelay1_DSTATE_nl;      /* '<S7>/Unit Delay1' */
   boolean_T UnitDelay_DSTATE_ll;       /* '<S7>/Unit Delay' */
   boolean_T UnitDelay_5_DSTATE;        /* '<S12>/Unit Delay' */
@@ -266,12 +266,12 @@ typedef struct {
   boolean_T DelayInput1_DSTATE_c;      /* '<S58>/Delay Input1' */
   boolean_T UnitDelay_DSTATE_n;        /* '<S62>/Unit Delay' */
   boolean_T UnitDelay_DSTATE_ir;       /* '<S16>/Unit Delay' */
-  boolean_T DelayInput1_DSTATE_jp;     /* '<S451>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_f;      /* '<S450>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_m;      /* '<S446>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_k;      /* '<S447>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_g;      /* '<S448>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_g2;     /* '<S449>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_jp;     /* '<S452>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_f;      /* '<S451>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_m;      /* '<S447>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_k;      /* '<S448>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_g;      /* '<S449>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_g2;     /* '<S450>/Delay Input1' */
   boolean_T UnitDelay2_DSTATE_l;       /* '<S443>/Unit Delay2' */
   boolean_T UnitDelay4_DSTATE;         /* '<S443>/Unit Delay4' */
   boolean_T DelayInput1_DSTATE_kb;     /* '<S29>/Delay Input1' */
@@ -516,19 +516,19 @@ extern real_T Blue_Hub_RightY;         /* Variable: Blue_Hub_RightY
                                         */
 extern real_T Boost_Trigger_Decreasing_Limit;
                                      /* Variable: Boost_Trigger_Decreasing_Limit
-                                      * Referenced by: '<S458>/Constant1'
+                                      * Referenced by: '<S459>/Constant1'
                                       */
 extern real_T Boost_Trigger_High_Speed;/* Variable: Boost_Trigger_High_Speed
                                         * Referenced by:
-                                        *   '<S454>/Constant'
-                                        *   '<S454>/Saturation'
+                                        *   '<S455>/Constant'
+                                        *   '<S455>/Saturation'
                                         */
 extern real_T Boost_Trigger_Increasing_Limit;
                                      /* Variable: Boost_Trigger_Increasing_Limit
-                                      * Referenced by: '<S458>/Constant3'
+                                      * Referenced by: '<S459>/Constant3'
                                       */
 extern real_T Boost_Trigger_Low_Speed; /* Variable: Boost_Trigger_Low_Speed
-                                        * Referenced by: '<S454>/Constant1'
+                                        * Referenced by: '<S455>/Constant1'
                                         */
 extern real_T Drive_Motor_Control_D;   /* Variable: Drive_Motor_Control_D
                                         * Referenced by:
@@ -1487,11 +1487,11 @@ extern RT_MODEL_Robot_Control_T *const Robot_Control_M;
  * Block '<S406>/Data Type Duplicate' : Unused code path elimination
  * Block '<S406>/Data Type Propagation' : Unused code path elimination
  * Block '<S401>/Scope' : Unused code path elimination
- * Block '<S453>/Data Type Duplicate' : Unused code path elimination
- * Block '<S453>/Data Type Propagation' : Unused code path elimination
- * Block '<S460>/Data Type Duplicate' : Unused code path elimination
- * Block '<S460>/Data Type Propagation' : Unused code path elimination
- * Block '<S461>/FixPt Data Type Duplicate1' : Unused code path elimination
+ * Block '<S454>/Data Type Duplicate' : Unused code path elimination
+ * Block '<S454>/Data Type Propagation' : Unused code path elimination
+ * Block '<S461>/Data Type Duplicate' : Unused code path elimination
+ * Block '<S461>/Data Type Propagation' : Unused code path elimination
+ * Block '<S462>/FixPt Data Type Duplicate1' : Unused code path elimination
  * Block '<S1>/Data Type Conversion' : Eliminate redundant data type conversion
  * Block '<S1>/Data Type Conversion1' : Eliminate redundant data type conversion
  * Block '<S3>/Signal Copy' : Eliminate redundant signal conversion block
@@ -2028,36 +2028,37 @@ extern RT_MODEL_Robot_Control_T *const Robot_Control_M;
  * '<S442>' : 'Robot_Control/Control_System/Teleop/Subsystem'
  * '<S443>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering'
  * '<S444>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation'
- * '<S445>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Compare To Zero2'
- * '<S446>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase'
- * '<S447>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase1'
- * '<S448>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase2'
- * '<S449>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase3'
- * '<S450>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase4'
- * '<S451>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase5'
- * '<S452>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Previous active game state was not Teleop'
- * '<S453>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Saturation Dynamic'
- * '<S454>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit'
- * '<S455>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero'
- * '<S456>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero1'
- * '<S457>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero'
- * '<S458>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit'
- * '<S459>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter'
- * '<S460>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Saturation Dynamic'
- * '<S461>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Unit Delay External IC'
- * '<S462>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero'
- * '<S463>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero1'
- * '<S464>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Constant'
- * '<S465>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Constant1'
- * '<S466>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Constant2'
- * '<S467>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero6'
- * '<S468>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero7'
- * '<S469>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero8'
- * '<S470>' : 'Robot_Control/Control_System/Vision_Corrections/Area Percentage to Distance'
- * '<S471>' : 'Robot_Control/Control_System/Vision_Corrections/Degrees to Radians'
- * '<S472>' : 'Robot_Control/Control_System/Vision_Corrections/Polar to Cartesian1'
- * '<S473>' : 'Robot_Control/Control_System/Vision_Corrections/Area Percentage to Distance/Prevent raising 0 to a negative exponent'
- * '<S474>' : 'Robot_Control/Control_System/Vision_Corrections/Area Percentage to Distance/Subsystem'
+ * '<S445>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Compare To Zero'
+ * '<S446>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Compare To Zero2'
+ * '<S447>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase'
+ * '<S448>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase1'
+ * '<S449>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase2'
+ * '<S450>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase3'
+ * '<S451>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase4'
+ * '<S452>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase5'
+ * '<S453>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Previous active game state was not Teleop'
+ * '<S454>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Saturation Dynamic'
+ * '<S455>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit'
+ * '<S456>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero'
+ * '<S457>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero1'
+ * '<S458>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero'
+ * '<S459>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit'
+ * '<S460>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter'
+ * '<S461>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Saturation Dynamic'
+ * '<S462>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Unit Delay External IC'
+ * '<S463>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero'
+ * '<S464>' : 'Robot_Control/Control_System/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero1'
+ * '<S465>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Constant'
+ * '<S466>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Constant1'
+ * '<S467>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Constant2'
+ * '<S468>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero6'
+ * '<S469>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero7'
+ * '<S470>' : 'Robot_Control/Control_System/Teleop/Relative Errors/Compare To Zero8'
+ * '<S471>' : 'Robot_Control/Control_System/Vision_Corrections/Area Percentage to Distance'
+ * '<S472>' : 'Robot_Control/Control_System/Vision_Corrections/Degrees to Radians'
+ * '<S473>' : 'Robot_Control/Control_System/Vision_Corrections/Polar to Cartesian1'
+ * '<S474>' : 'Robot_Control/Control_System/Vision_Corrections/Area Percentage to Distance/Prevent raising 0 to a negative exponent'
+ * '<S475>' : 'Robot_Control/Control_System/Vision_Corrections/Area Percentage to Distance/Subsystem'
  */
 #endif                                 /* Robot_Control_h_ */
 
