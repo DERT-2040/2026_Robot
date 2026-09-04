@@ -9,7 +9,7 @@
  *
  * Model version                  : 7.1
  * Simulink Coder version         : 26.1 (R2026a) 20-Nov-2025
- * C/C++ source code generated on : Thu Aug 27 19:04:22 2026
+ * C/C++ source code generated on : Thu Sep  3 20:19:26 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -219,6 +219,7 @@ typedef struct {
   real_T UnitDelay1_DSTATE_l;          /* '<S458>/Unit Delay1' */
   real_T UnitDelay_DSTATE_p;           /* '<S458>/Unit Delay' */
   real_T UnitDelay1_DSTATE_j2;         /* '<S443>/Unit Delay1' */
+  real_T Previous_Abs_Offset_DSTATE;   /* '<S443>/Previous_Abs_Offset' */
   real_T FixPtUnitDelay1_DSTATE_f;     /* '<S462>/FixPt Unit Delay1' */
   real_T UnitDelay1_DSTATE_iz[60];     /* '<S20>/Unit Delay1' */
   real_T UnitDelay1_DSTATE_k;          /* '<S19>/Unit Delay1' */
