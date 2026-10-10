@@ -396,7 +396,6 @@ private:
         nt::NetworkTableEntry T__Gyro_Angle_SPF__Entry;
         nt::NetworkTableEntry T__Is_Absolute_Steering_SPF__Entry;
         nt::NetworkTableEntry T__Is_Absolute_Translation_SPF__Entry;
-        nt::NetworkTableEntry T__Is_Boosting__Entry;
         nt::NetworkTableEntry T__Is_Outside_Alliance_Zone__Entry;
         nt::NetworkTableEntry T__KF_Position_X__Entry;
         nt::NetworkTableEntry T__KF_Position_Y__Entry;

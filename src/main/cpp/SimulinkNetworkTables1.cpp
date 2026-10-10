@@ -761,7 +761,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Steering_Relative_Gain__Entry = NTtable_Tune->GetEntry("Steering_Relative_Gain");
     NTinst.AddListener(P__Steering_Relative_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Relative_Gain = event.GetValueEventData()->value.GetDouble();});
-    P__Steering_Relative_Gain__Entry.SetDouble(5);
+    P__Steering_Relative_Gain__Entry.SetDouble(2.5);
  
     P__Steering_Twist_Gain__Entry = NTtable_Tune->GetEntry("Steering_Twist_Gain");
     NTinst.AddListener(P__Steering_Twist_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Twist_Gain = event.GetValueEventData()->value.GetDouble();});
@@ -1059,7 +1059,6 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__Gyro_Angle_SPF__Entry = NTtable_TPoint->GetEntry("Gyro_Angle_SPF");
     T__Is_Absolute_Steering_SPF__Entry = NTtable_TPoint->GetEntry("Is_Absolute_Steering_SPF");
     T__Is_Absolute_Translation_SPF__Entry = NTtable_TPoint->GetEntry("Is_Absolute_Translation_SPF");
-    T__Is_Boosting__Entry = NTtable_TPoint->GetEntry("Is_Boosting");
     T__Is_Outside_Alliance_Zone__Entry = NTtable_TPoint->GetEntry("Is_Outside_Alliance_Zone");
     T__KF_Position_X__Entry = NTtable_TPoint->GetEntry("KF_Position_X");
     T__KF_Position_Y__Entry = NTtable_TPoint->GetEntry("KF_Position_Y");
@@ -1523,7 +1522,6 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__Gyro_Angle_SPF__Entry.SetDouble(Robot_Control_B.Gyro_Angle_SPF);
     T__Is_Absolute_Steering_SPF__Entry.SetDouble(Robot_Control_B.Is_Absolute_Steering_SPF);
     T__Is_Absolute_Translation_SPF__Entry.SetDouble(Robot_Control_B.Is_Absolute_Translation_SPF);
-    T__Is_Boosting__Entry.SetDouble(Robot_Control_B.Is_Boosting);
     T__Is_Outside_Alliance_Zone__Entry.SetDouble(Robot_Control_B.Is_Outside_Alliance_Zone);
     T__KF_Position_X__Entry.SetDouble(Robot_Control_B.KF_Position_X);
     T__KF_Position_Y__Entry.SetDouble(Robot_Control_B.KF_Position_Y);
