@@ -9,7 +9,7 @@
  *
  * Model version                  : 7.0
  * Simulink Coder version         : 26.1 (R2026a) 20-Nov-2025
- * C/C++ source code generated on : Fri Oct  9 19:43:07 2026
+ * C/C++ source code generated on : Tue Oct 13 19:05:48 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -28,9 +28,7 @@ extern const real_T rtCP_pooled_INwGxsZyA2TK[4];
 extern const real_T rtCP_pooled_Rjm7j3rS18VE[1500];
 extern const real_T rtCP_pooled_8H9wYQ5Cr7gD[1500];
 extern const real_T rtCP_pooled_qv7wsteWw1rp[25];
-extern const real_T rtCP_pooled_MtklTCiS35sn[21];
 extern const real_T rtCP_pooled_pwqtSNbEs40J[21];
-extern const real_T rtCP_pooled_mVxns4hAKRNf[21];
 extern const real_T rtCP_pooled_wsH2dcaSihoN[21];
 extern const real_T rtCP_pooled_O4lHSDP8vPjo[2];
 extern const real_T rtCP_pooled_Ha5Ct2ozjCBu[2];
@@ -56,13 +54,13 @@ extern const real_T rtCP_pooled_Ha5Ct2ozjCBu[2];
 #define rtCP_uDLookupTable_tableData   rtCP_pooled_qv7wsteWw1rp  /* Expression: All_Paths_Num_Poses
                                                                   * Referenced by: '<S20>/1-D Lookup Table'
                                                                   */
-#define rtCP_Modulation_Drv_tableData  rtCP_pooled_MtklTCiS35sn  /* Expression: Steering_Mod_Drv_out
+#define rtCP_Modulation_Drv_tableData  rtCP_pooled_pwqtSNbEs40J  /* Expression: Steering_Mod_Drv_out
                                                                   * Referenced by: '<S443>/Modulation_Drv'
                                                                   */
 #define rtCP_Modulation_Drv_bp01Data   rtCP_pooled_pwqtSNbEs40J  /* Expression: Steering_Mod_Drv_in
                                                                   * Referenced by: '<S443>/Modulation_Drv'
                                                                   */
-#define rtCP_Modulation_Str_Y_Rel_table rtCP_pooled_mVxns4hAKRNf /* Expression: Steering_Mod_Str_Rel_out
+#define rtCP_Modulation_Str_Y_Rel_table rtCP_pooled_wsH2dcaSihoN /* Expression: Steering_Mod_Str_Rel_out
                                                                   * Referenced by: '<S442>/Modulation_Str_Y_Rel'
                                                                   */
 #define rtCP_Modulation_Str_Y_Rel_bp01D rtCP_pooled_wsH2dcaSihoN /* Expression: Steering_Mod_Str_Rel_in

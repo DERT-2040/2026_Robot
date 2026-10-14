@@ -12,7 +12,8 @@ clear gear_ratio wheel_diameter
 
 % modulation curve 
 temp_x = [0.3 0.35  0.4 0.45 0.5  0.6  0.7  0.8 0.9  1.0];
-temp_y = [0.0 0.01 0.04 0.06 0.09 0.14 0.18 0.31 0.58 1.0];
+temp_y = [0.3 0.35  0.4 0.45 0.5  0.6  0.7  0.8 0.9  1.0];
+%temp_y = [0.0 0.01 0.04 0.06 0.09 0.14 0.18 0.31 0.58 1.0];
 %figure(1), clf, plot(temp_x,temp_y,'-o'), grid on
 % figure(2), clf, plot([-fliplr(temp_x) 0 temp_x],[-fliplr(temp_y) 0 temp_y],'-o'), grid on
 
@@ -20,7 +21,8 @@ Steering_Mod_Drv_in = [-fliplr(temp_x) 0 temp_x];
 Steering_Mod_Drv_out = [-fliplr(temp_y) 0 temp_y];
 
 temp_x = [0.05 0.15  0.25 0.4 0.5  0.6  0.7  0.8 0.9  1.0];
-temp_y = [0.0 0.015 0.04 0.10 0.17 0.27 0.40 0.55 0.75 1.0];
+%temp_y = [0.0 0.015 0.04 0.10 0.17 0.27 0.40 0.55 0.75 1.0];
+temp_y = [0.05 0.15  0.25 0.4 0.5  0.6  0.7  0.8 0.9  1.0];
 % figure(1), clf, plot(temp_x,temp_y,'-o'), grid on
 % figure(2), clf, plot([-fliplr(temp_x) 0 temp_x],[-fliplr(temp_y) 0 temp_y],'-o'), grid on
 
@@ -30,7 +32,7 @@ Steering_Mod_Str_Rel_out = [-fliplr(temp_y) 0 temp_y];
 clear temp_x temp_y
 
 % Steering Relative Gain
-Steering_Relative_Gain = 2.5; %% tuning for X box Controller
+Steering_Relative_Gain = 3.5; %% tuning for X box Controller
 
 % Boost Trigger
 Boost_Trigger_High_Speed = 5.0; % 3.658; % m/s

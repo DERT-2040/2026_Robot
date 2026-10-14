@@ -3,8 +3,8 @@
 
 void HIDs::PreStepCallback() {
     // Steer and Drive Joysticks
-    Robot_Control_U.Joystick_Left_X = m_DriverXbox.GetLeftY(); 
-    Robot_Control_U.Joystick_Left_Y = m_DriverXbox.GetLeftX();
+    Robot_Control_U.Joystick_Left_X = -m_DriverXbox.GetLeftY(); 
+    Robot_Control_U.Joystick_Left_Y = -m_DriverXbox.GetLeftX();
     Robot_Control_U.Joystick_Left_Z = 0;
 
     Robot_Control_U.Joystick_Right_X = -m_DriverXbox.GetRightY();
