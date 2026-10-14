@@ -15,11 +15,11 @@ void HIDs::PreStepCallback() {
 // B3 is to X button (side wall)
 // B4 is to B button (side wall)
     // Joystick Buttons
-    Robot_Control_U.Joystick_Left_B1 = m_DriverXbox.GetLeftTriggerAxis(); //m_Left_Joystick.GetRawButton(1);
+    Robot_Control_U.Joystick_Left_B1 = m_DriverXbox.GetRightTriggerAxis(); //m_Left_Joystick.GetRawButton(1);
     Robot_Control_U.Joystick_Left_B2 = m_DriverXbox.GetYButton(); //m_Left_Joystick.GetRawButton(2);            
     Robot_Control_U.Joystick_Left_B3 = m_DriverXbox.GetXButton(); //m_Left_Joystick.GetRawButton(3);           
     Robot_Control_U.Joystick_Left_B4 = m_DriverXbox.GetBButton(); //m_Left_Joystick.GetRawButton(4);   
-    Robot_Control_U.Joystick_Left_B5 = 0; //m_Left_Joystick.GetRawButton(5);
+    Robot_Control_U.Joystick_Left_B5 = m_DriverXbox.GetAButton();; //m_Left_Joystick.GetRawButton(5);
     Robot_Control_U.Joystick_Left_B6 = 0; //m_Left_Joystick.GetRawButton(6);
     Robot_Control_U.Joystick_Left_B7 = 0; //m_Left_Joystick.GetRawButton(7); 
     Robot_Control_U.Joystick_Left_B8 = 0; //m_Left_Joystick.GetRawButton(8);    
@@ -33,10 +33,10 @@ void HIDs::PreStepCallback() {
     Robot_Control_U.Joystick_Left_B16 = 0; //m_Left_Joystick.GetRawButton(16);
     Robot_Control_U.Joystick_Left_POV = 0; //m_Left_Joystick.GetPOV();    
 
-    Robot_Control_U.Joystick_Right_B1 = m_DriverXbox.GetRightTriggerAxis(); //m_Right_Joystick.GetRawButton(1);         
-    Robot_Control_U.Joystick_Right_B2 = m_DriverXbox.GetYButton(); //m_Right_Joystick.GetRawButton(2);    
-    Robot_Control_U.Joystick_Right_B3 = m_DriverXbox.GetXButton(); //m_Right_Joystick.GetRawButton(3);        
-    Robot_Control_U.Joystick_Right_B4 = m_DriverXbox.GetBButton(); //m_Right_Joystick.GetRawButton(4);   
+    Robot_Control_U.Joystick_Right_B1 = m_DriverXbox.GetLeftTriggerAxis(); //m_Right_Joystick.GetRawButton(1);         
+    Robot_Control_U.Joystick_Right_B2 = 0; //m_Right_Joystick.GetRawButton(2);    
+    Robot_Control_U.Joystick_Right_B3 = 0; //m_Right_Joystick.GetRawButton(3);        
+    Robot_Control_U.Joystick_Right_B4 = 0; //m_Right_Joystick.GetRawButton(4);   
     Robot_Control_U.Joystick_Right_B5 = 0; //m_Right_Joystick.GetRawButton(5);
     Robot_Control_U.Joystick_Right_B6 = 0; //m_Right_Joystick.GetRawButton(6);
     Robot_Control_U.Joystick_Right_B7 = 0; //m_Right_Joystick.GetRawButton(7);

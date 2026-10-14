@@ -9,7 +9,7 @@
  *
  * Model version                  : 7.0
  * Simulink Coder version         : 26.1 (R2026a) 20-Nov-2025
- * C/C++ source code generated on : Tue Oct 13 19:05:48 2026
+ * C/C++ source code generated on : Tue Oct 13 21:49:47 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -341,7 +341,7 @@ typedef struct {
   boolean_T Joystick_Left_B2;          /* '<Root>/Joystick_Left_B2' */
   boolean_T Joystick_Left_B3;          /* '<Root>/Joystick_Left_B3' */
   boolean_T Joystick_Left_B4;          /* '<Root>/Joystick_Left_B4' */
-  real_T Joystick_Left_B5;             /* '<Root>/Joystick_Left_B5' */
+  boolean_T Joystick_Left_B5;          /* '<Root>/Joystick_Left_B5' */
   real_T Joystick_Left_B6;             /* '<Root>/Joystick_Left_B6' */
   real_T Joystick_Left_B7;             /* '<Root>/Joystick_Left_B7' */
   real_T Joystick_Left_B8;             /* '<Root>/Joystick_Left_B8' */
