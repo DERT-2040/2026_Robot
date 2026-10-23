@@ -1,9 +1,9 @@
 
-call "setup_mingw.bat"
+call ".\setup_mingw.bat"
 
 cd .
 
-if "%1"=="" ("%MINGW_ROOT%\mingw32-make.exe"  -f Robot_Control.mk all) else ("%MINGW_ROOT%\mingw32-make.exe"  -f Robot_Control.mk %1)
+if "%1"=="" ("%MINGW_ROOT%\mingw32-make.exe"  -j 8 -l 8 -Oline -f Robot_Control.mk all) else ("%MINGW_ROOT%\mingw32-make.exe"  -j 8 -l 8 -Oline -f Robot_Control.mk %1)
 @if errorlevel 1 goto error_exit
 
 exit /B 0

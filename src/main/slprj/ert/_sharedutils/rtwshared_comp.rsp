@@ -1,0 +1,7 @@
+-IC:/GitHub/2026_Robot/src/main
+-IC:/GitHub/2026_Robot/src/main/slprj/ert/_sharedutils
+-I"C:/Program Files/MATLAB/R2026a/extern/include"
+-I"C:/Program Files/MATLAB/R2026a/simulink/include"
+-I"C:/Program Files/MATLAB/R2026a/rtw/c/src"
+-I"C:/Program Files/MATLAB/R2026a/rtw/c/src/ext_mode/common"
+-I"C:/Program Files/MATLAB/R2026a/rtw/c/ert"
