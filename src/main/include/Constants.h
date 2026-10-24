@@ -244,7 +244,7 @@ namespace Constants
         static const TalonFX::MotorCreateInfo Intake_Arm = defaultIntakeCreateInfo.Clone() 
                 .SetCanID(15)
                 .SetIsReversed(true)
-                .SetSupplyCurrentLimit(60)                
+                .SetSupplyCurrentLimit(20)                
                 .SetDutyCycleCallback(&Robot_Control_Y.Intake_Arm_Motor_DC)
                 .SetDisplayName("Intake Arm")
                 .SetMotorType(TalonFX::MotorType::KrakenX44);                
@@ -261,7 +261,7 @@ namespace Constants
     namespace IntakeArmAngle{
         //Arm Angle 
         static constexpr int armThroughBoreEncoderID = 0;
-        static constexpr int armThroughBoreEncoderOffset = 255.9; // degrees
+        static constexpr int armThroughBoreEncoderOffset = 195.9; // degrees
     }
 
 };
