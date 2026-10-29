@@ -5,7 +5,6 @@
 #include "Robot_Control_ert_rtw\Robot_Control.h"
 #include "DertLib/include/Component.h"
 //frc
-#include <frc/Joystick.h>
 #include <frc/GenericHID.h>
 #include <frc/XboxController.h>
 
