@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 7.4
+ * Model version                  : 7.6
  * Simulink Coder version         : 26.1 (R2026a) 20-Nov-2025
- * C/C++ source code generated on : Fri Oct 30 20:22:18 2026
+ * C/C++ source code generated on : Fri Oct 30 21:51:34 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -5908,6 +5908,20 @@ void Robot_Control_step(void)
   }
 
   /* End of Chart: '<S8>/Chart' */
+
+  /* Outport: '<Root>/Wrist_Motor_Left_DC' incorporates:
+   *  Gain: '<Root>/Gain'
+   *  Inport: '<Root>/Wrist_Motor_Left_Revs'
+   */
+  Robot_Control_Y.Wrist_Motor_Left_DC = 2.0 *
+    Robot_Control_U.Wrist_Motor_Left_Revs;
+
+  /* Outport: '<Root>/Wrist_Motor_Right_DC' incorporates:
+   *  Gain: '<Root>/Gain1'
+   *  Inport: '<Root>/Wrist_Motor_Right_Revs'
+   */
+  Robot_Control_Y.Wrist_Motor_Right_DC = 2.0 *
+    Robot_Control_U.Wrist_Motor_Right_Revs;
 
   /* Update for UnitDelay: '<S22>/Delay Input1' incorporates:
    *  Inport: '<Root>/Gamepad_B3_X'

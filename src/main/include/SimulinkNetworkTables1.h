@@ -152,6 +152,8 @@ private:
         nt::NetworkTableEntry I__Vision_c1_Object_Hor_deg__Entry;
         nt::NetworkTableEntry I__Vision_c1_Object_Valid__Entry;
         nt::NetworkTableEntry I__Vision_c1_Object_Ver_deg__Entry;
+        nt::NetworkTableEntry I__Wrist_Motor_Left_Revs__Entry;
+        nt::NetworkTableEntry I__Wrist_Motor_Right_Revs__Entry;
         nt::NetworkTableEntry I__Xbox_Driver_Bumper_Left__Entry;
         nt::NetworkTableEntry I__Xbox_Driver_Bumper_Right__Entry;
         nt::NetworkTableEntry I__Xbox_Driver_ButtonA__Entry;
@@ -179,6 +181,8 @@ private:
         nt::NetworkTableEntry O__Reset_Wheel_Offsets__Entry;
         nt::NetworkTableEntry O__Swerve_Motors_Disabled__Entry;
         nt::NetworkTableEntry O__Vision_Desired_Pipeline__Entry;
+        nt::NetworkTableEntry O__Wrist_Motor_Left_DC__Entry;
+        nt::NetworkTableEntry O__Wrist_Motor_Right_DC__Entry;
  
         // Test Points
         nt::NetworkTableEntry T__Active_GameState__Entry;

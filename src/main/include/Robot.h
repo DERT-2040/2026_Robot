@@ -74,13 +74,13 @@ private:
   HIDs m_HIDs;
   
   /** Component Object for the IMU pigeon2 */
-  IMU m_IMU;
+  //IMU m_IMU;
   
   /** Component Object for Limelight Vision */
-  Limelight m_Limelight;
+  //Limelight m_Limelight;
 
   /** Component Object for all Swerve Drive objects such as sensors and motors*/
-  SwerveDrive m_SwerveDrive;
+  //SwerveDrive m_SwerveDrive;
 
   /* Component Object for all season specific objects such as sensors and motors*/
   SeasonSpecific m_SeasonSpecific;
@@ -90,6 +90,6 @@ private:
   SimulinkNetworkTables2 m_SimulinkNetworkTables2;
 
   /** FMSInfo */
-  FMSInfo m_FMSInfo;
+  //FMSInfo m_FMSInfo;
   
 };

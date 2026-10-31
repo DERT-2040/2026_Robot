@@ -5,7 +5,10 @@
 #include "DertLib/include/Component.h"
 #include "Robot_Control_ert_rtw/Robot_Control.h"
 // #include "DertLib/include/TalonFX/TalonFXMotorGroup.h"
+#include "DertLib/include/SparkMaxMotorGroup.h"
 #include "DertLib/include/Chooser.h"
+
+namespace nsSS = Constants::SeasonSpecific;
 
 class SeasonSpecific : public dlib::Component
 {
@@ -33,5 +36,7 @@ private:
       },
     &Auto_Path_Chooser //Simulink parameter name
   };
+
+  SparkMaxMotorGroup Wrist_Motors{nsSS::Wrist_Motor_Left, nsSS::Wrist_Motor_Right};
 };
 

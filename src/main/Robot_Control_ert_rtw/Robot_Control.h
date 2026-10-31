@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 7.4
+ * Model version                  : 7.6
  * Simulink Coder version         : 26.1 (R2026a) 20-Nov-2025
- * C/C++ source code generated on : Fri Oct 30 20:22:18 2026
+ * C/C++ source code generated on : Fri Oct 30 21:51:34 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -288,6 +288,8 @@ typedef struct {
   real_T Vision_c1_Object_Area_pct;    /* '<Root>/Vision_c1_Object_Area_pct' */
   real_T Vision_c1_Object_Hor_deg;     /* '<Root>/Vision_c1_Object_Hor_deg' */
   real_T Vision_c1_Object_Ver_deg;     /* '<Root>/Vision_c1_Object_Ver_deg' */
+  real_T Wrist_Motor_Left_Revs;        /* '<Root>/Wrist_Motor_Left_Revs' */
+  real_T Wrist_Motor_Right_Revs;       /* '<Root>/Wrist_Motor_Right_Revs' */
 } ExtU_Robot_Control_T;
 
 /* External outputs (root outports fed by signals with default storage) */
@@ -306,6 +308,8 @@ typedef struct {
   boolean_T Swerve_Motors_Disabled;    /* '<Root>/Swerve_Motors_Disabled' */
   uint8_T Vision_Desired_Pipeline;     /* '<Root>/Vision_Desired_Pipeline' */
   real_T Auto_Initial_Gyro_Angle;      /* '<Root>/Auto_Initial_Gyro_Angle' */
+  real_T Wrist_Motor_Left_DC;          /* '<Root>/Wrist_Motor_Left_DC' */
+  real_T Wrist_Motor_Right_DC;         /* '<Root>/Wrist_Motor_Right_DC' */
 } ExtY_Robot_Control_T;
 
 /* Real-time Model Data Structure */

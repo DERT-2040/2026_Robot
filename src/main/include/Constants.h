@@ -154,4 +154,23 @@ namespace Constants
             0              // Yaw (degrees)
         };
     };
+
+    namespace SeasonSpecific
+    {
+        static SparkMaxMotorCreateInfo defaultWristCreateInfo = SparkMaxMotorCreateInfo::getDefaultCreateInfo()
+            .SetSmartCurrentLimit(20)
+            .SetSecondaryCurrentLimit(20);
+        static const SparkMaxMotorCreateInfo Wrist_Motor_Left = defaultWristCreateInfo
+            .SetCanID(0)
+            .SetIsReversed(false)
+            .SetDutyCycleCallback(&Robot_Control_Y.Wrist_Motor_Left_DC)
+            .SetPositionCallback(&Robot_Control_U.Wrist_Motor_Left_Revs)
+            .SetDisplayName("Wrist Motor Left");
+        static const SparkMaxMotorCreateInfo Wrist_Motor_Right = defaultWristCreateInfo
+            .SetCanID(1)
+            .SetIsReversed(false)
+            .SetDutyCycleCallback(&Robot_Control_Y.Wrist_Motor_Right_DC)
+            .SetPositionCallback(&Robot_Control_U.Wrist_Motor_Right_Revs)
+            .SetDisplayName("Wrist Motor Right");
+    };
 };
