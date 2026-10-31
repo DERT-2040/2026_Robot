@@ -6,12 +6,7 @@ field_width  = 317.69 * 0.0254;
 field_length = 651.22 * 0.0254;
 
 %Chooser
-
 Auto_Path_Chooser = 3; % default chooser path sequence number
-Auto_Deploy_Intake_Time = 1.0; % seconds (part 1 of auto)
-Auto_Deploy_Intake_Time2 = 0;  % seconds (part 2 of auto)
-Auto_Shoot_Time = 4.5;   % seconds
-Auto_Intake_Arm_Cycle_Delay_Time = 2.0;  % seconds
 
 % [x, y, velocity, angle, action at path point, action during path segment]
 %     Column 5 action defined in the current row is the action taken

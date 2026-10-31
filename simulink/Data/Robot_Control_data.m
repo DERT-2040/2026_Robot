@@ -37,12 +37,7 @@ Common_data  % common to Robot_Controls and Odometry
 Swerve_Drive
 Spline_Path_Following
 Vision_data
-Rebuilt_data
-Rebuilt_Auto_Paths
-
-%Rate Limit for Shooting
-Rate_Limit_X =  1000;
-Rate_Limit_Y =  1000;
+Auto_Paths
 
 
 
