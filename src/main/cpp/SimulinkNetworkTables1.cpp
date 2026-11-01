@@ -31,6 +31,22 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     NTinst.AddListener(P__Boost_Trigger_Low_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Low_Speed = event.GetValueEventData()->value.GetDouble();});
     P__Boost_Trigger_Low_Speed__Entry.SetDouble(2);
  
+    P__Desired_Pitch_Angle_LL__Entry = NTtable_Tune->GetEntry("Desired_Pitch_Angle_LL");
+    NTinst.AddListener(P__Desired_Pitch_Angle_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Desired_Pitch_Angle_LL = event.GetValueEventData()->value.GetDouble();});
+    P__Desired_Pitch_Angle_LL__Entry.SetDouble(-45);
+ 
+    P__Desired_Pitch_Angle_UL__Entry = NTtable_Tune->GetEntry("Desired_Pitch_Angle_UL");
+    NTinst.AddListener(P__Desired_Pitch_Angle_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Desired_Pitch_Angle_UL = event.GetValueEventData()->value.GetDouble();});
+    P__Desired_Pitch_Angle_UL__Entry.SetDouble(45);
+ 
+    P__Desired_Roll_Angle_LL__Entry = NTtable_Tune->GetEntry("Desired_Roll_Angle_LL");
+    NTinst.AddListener(P__Desired_Roll_Angle_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Desired_Roll_Angle_LL = event.GetValueEventData()->value.GetDouble();});
+    P__Desired_Roll_Angle_LL__Entry.SetDouble(-180);
+ 
+    P__Desired_Roll_Angle_UL__Entry = NTtable_Tune->GetEntry("Desired_Roll_Angle_UL");
+    NTinst.AddListener(P__Desired_Roll_Angle_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Desired_Roll_Angle_UL = event.GetValueEventData()->value.GetDouble();});
+    P__Desired_Roll_Angle_UL__Entry.SetDouble(180);
+ 
     P__Drive_Motor_Control_D__Entry = NTtable_Tune->GetEntry("Drive_Motor_Control_D");
     NTinst.AddListener(P__Drive_Motor_Control_D__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Motor_Control_D = event.GetValueEventData()->value.GetDouble();});
     P__Drive_Motor_Control_D__Entry.SetDouble(0.0001);
@@ -67,9 +83,25 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     NTinst.AddListener(P__Field_Translation_Speed_Max__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Field_Translation_Speed_Max = event.GetValueEventData()->value.GetDouble();});
     P__Field_Translation_Speed_Max__Entry.SetDouble(5);
  
+    P__Gamepad_Pitch_Gain__Entry = NTtable_Tune->GetEntry("Gamepad_Pitch_Gain");
+    NTinst.AddListener(P__Gamepad_Pitch_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Gamepad_Pitch_Gain = event.GetValueEventData()->value.GetDouble();});
+    P__Gamepad_Pitch_Gain__Entry.SetDouble(1);
+ 
+    P__Gamepad_Roll_Gain__Entry = NTtable_Tune->GetEntry("Gamepad_Roll_Gain");
+    NTinst.AddListener(P__Gamepad_Roll_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Gamepad_Roll_Gain = event.GetValueEventData()->value.GetDouble();});
+    P__Gamepad_Roll_Gain__Entry.SetDouble(1);
+ 
     P__KF_Enable__Entry = NTtable_Tune->GetEntry("KF_Enable");
     NTinst.AddListener(P__KF_Enable__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {KF_Enable = event.GetValueEventData()->value.GetDouble();});
     P__KF_Enable__Entry.SetDouble(1);
+ 
+    P__Kp_motor_angle__Entry = NTtable_Tune->GetEntry("Kp_motor_angle");
+    NTinst.AddListener(P__Kp_motor_angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Kp_motor_angle = event.GetValueEventData()->value.GetDouble();});
+    P__Kp_motor_angle__Entry.SetDouble(0.0001);
+ 
+    P__R_motor_gearbox__Entry = NTtable_Tune->GetEntry("R_motor_gearbox");
+    NTinst.AddListener(P__R_motor_gearbox__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {R_motor_gearbox = event.GetValueEventData()->value.GetDouble();});
+    P__R_motor_gearbox__Entry.SetDouble(49);
  
     P__Relative_Steering_Error_Angle_Gain__Entry = NTtable_Tune->GetEntry("Relative_Steering_Error_Angle_Gain");
     NTinst.AddListener(P__Relative_Steering_Error_Angle_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Relative_Steering_Error_Angle_Gain = event.GetValueEventData()->value.GetDouble();});
@@ -406,6 +438,8 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     I__Vision_c1_Object_Hor_deg__Entry = NTtable_Inport->GetEntry("Vision_c1_Object_Hor_deg");
     I__Vision_c1_Object_Valid__Entry = NTtable_Inport->GetEntry("Vision_c1_Object_Valid");
     I__Vision_c1_Object_Ver_deg__Entry = NTtable_Inport->GetEntry("Vision_c1_Object_Ver_deg");
+    I__Wrist_Motor_Left_Revs__Entry = NTtable_Inport->GetEntry("Wrist_Motor_Left_Revs");
+    I__Wrist_Motor_Right_Revs__Entry = NTtable_Inport->GetEntry("Wrist_Motor_Right_Revs");
     I__Xbox_Driver_Bumper_Left__Entry = NTtable_Inport->GetEntry("Xbox_Driver_Bumper_Left");
     I__Xbox_Driver_Bumper_Right__Entry = NTtable_Inport->GetEntry("Xbox_Driver_Bumper_Right");
     I__Xbox_Driver_ButtonA__Entry = NTtable_Inport->GetEntry("Xbox_Driver_ButtonA");
@@ -434,6 +468,8 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     O__Reset_Wheel_Offsets__Entry = NTtable_Outport->GetEntry("Reset_Wheel_Offsets");
     O__Swerve_Motors_Disabled__Entry = NTtable_Outport->GetEntry("Swerve_Motors_Disabled");
     O__Vision_Desired_Pipeline__Entry = NTtable_Outport->GetEntry("Vision_Desired_Pipeline");
+    O__Wrist_Motor_Left_DC__Entry = NTtable_Outport->GetEntry("Wrist_Motor_Left_DC");
+    O__Wrist_Motor_Right_DC__Entry = NTtable_Outport->GetEntry("Wrist_Motor_Right_DC");
  
 // Test Points
     T__Active_GameState__Entry = NTtable_TPoint->GetEntry("Active_GameState");
@@ -517,6 +553,10 @@ void SimulinkNetworkTables1::PostStepCallback()
     P__Boost_Trigger_High_Speed__Entry.SetDouble(Boost_Trigger_High_Speed);
     P__Boost_Trigger_Increasing_Limit__Entry.SetDouble(Boost_Trigger_Increasing_Limit);
     P__Boost_Trigger_Low_Speed__Entry.SetDouble(Boost_Trigger_Low_Speed);
+    P__Desired_Pitch_Angle_LL__Entry.SetDouble(Desired_Pitch_Angle_LL);
+    P__Desired_Pitch_Angle_UL__Entry.SetDouble(Desired_Pitch_Angle_UL);
+    P__Desired_Roll_Angle_LL__Entry.SetDouble(Desired_Roll_Angle_LL);
+    P__Desired_Roll_Angle_UL__Entry.SetDouble(Desired_Roll_Angle_UL);
     P__Drive_Motor_Control_D__Entry.SetDouble(Drive_Motor_Control_D);
     P__Drive_Motor_Control_D_FilterCoeff__Entry.SetDouble(Drive_Motor_Control_D_FilterCoeff);
     P__Drive_Motor_Control_D_LL__Entry.SetDouble(Drive_Motor_Control_D_LL);
@@ -526,7 +566,11 @@ void SimulinkNetworkTables1::PostStepCallback()
     P__Drive_Motor_Control_Sign_Change_Deadband__Entry.SetDouble(Drive_Motor_Control_Sign_Change_Deadband);
     P__Field_Translation_Control_Gain__Entry.SetDouble(Field_Translation_Control_Gain);
     P__Field_Translation_Speed_Max__Entry.SetDouble(Field_Translation_Speed_Max);
+    P__Gamepad_Pitch_Gain__Entry.SetDouble(Gamepad_Pitch_Gain);
+    P__Gamepad_Roll_Gain__Entry.SetDouble(Gamepad_Roll_Gain);
     P__KF_Enable__Entry.SetDouble(KF_Enable);
+    P__Kp_motor_angle__Entry.SetDouble(Kp_motor_angle);
+    P__R_motor_gearbox__Entry.SetDouble(R_motor_gearbox);
     P__Relative_Steering_Error_Angle_Gain__Entry.SetDouble(Relative_Steering_Error_Angle_Gain);
     P__Relative_Steering_Error_Angle_Gain_Object_Factor__Entry.SetDouble(Relative_Steering_Error_Angle_Gain_Object_Factor);
     P__Relative_Steering_Speed_Max__Entry.SetDouble(Relative_Steering_Speed_Max);
@@ -646,6 +690,8 @@ void SimulinkNetworkTables1::PostStepCallback()
     I__Vision_c1_Object_Hor_deg__Entry.SetDouble(Robot_Control_U.Vision_c1_Object_Hor_deg);
     I__Vision_c1_Object_Valid__Entry.SetDouble(Robot_Control_U.Vision_c1_Object_Valid);
     I__Vision_c1_Object_Ver_deg__Entry.SetDouble(Robot_Control_U.Vision_c1_Object_Ver_deg);
+    I__Wrist_Motor_Left_Revs__Entry.SetDouble(Robot_Control_U.Wrist_Motor_Left_Revs);
+    I__Wrist_Motor_Right_Revs__Entry.SetDouble(Robot_Control_U.Wrist_Motor_Right_Revs);
     I__Xbox_Driver_Bumper_Left__Entry.SetDouble(Robot_Control_U.Xbox_Driver_Bumper_Left);
     I__Xbox_Driver_Bumper_Right__Entry.SetDouble(Robot_Control_U.Xbox_Driver_Bumper_Right);
     I__Xbox_Driver_ButtonA__Entry.SetDouble(Robot_Control_U.Xbox_Driver_ButtonA);
@@ -673,6 +719,8 @@ void SimulinkNetworkTables1::PostStepCallback()
     O__Reset_Wheel_Offsets__Entry.SetDouble(Robot_Control_Y.Reset_Wheel_Offsets);
     O__Swerve_Motors_Disabled__Entry.SetDouble(Robot_Control_Y.Swerve_Motors_Disabled);
     O__Vision_Desired_Pipeline__Entry.SetDouble(Robot_Control_Y.Vision_Desired_Pipeline);
+    O__Wrist_Motor_Left_DC__Entry.SetDouble(Robot_Control_Y.Wrist_Motor_Left_DC);
+    O__Wrist_Motor_Right_DC__Entry.SetDouble(Robot_Control_Y.Wrist_Motor_Right_DC);
     // Test Points
     T__Active_GameState__Entry.SetDouble(Robot_Control_B.Active_GameState);
     T__Auto_Desired_Dynamic_Action__Entry.SetDouble(Robot_Control_B.Auto_Desired_Dynamic_Action);
