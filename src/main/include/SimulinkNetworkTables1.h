@@ -208,6 +208,8 @@ private:
         nt::NetworkTableEntry T__Button_Disable_Wheels__Entry;
         nt::NetworkTableEntry T__Button_Enable_Wheels__Entry;
         nt::NetworkTableEntry T__Button_Reset_Wheel_Offsets__Entry;
+        nt::NetworkTableEntry T__Desired_Pitch_Angle__Entry;
+        nt::NetworkTableEntry T__Desired_Roll_Angle__Entry;
         nt::NetworkTableEntry T__Drive_Joystick_X__Entry;
         nt::NetworkTableEntry T__Drive_Joystick_Y__Entry;
         nt::NetworkTableEntry T__FL_Desired_Module_Angle__Entry;
@@ -221,6 +223,8 @@ private:
         nt::NetworkTableEntry T__Is_Absolute_Translation_SPF__Entry;
         nt::NetworkTableEntry T__KF_Position_X__Entry;
         nt::NetworkTableEntry T__KF_Position_Y__Entry;
+        nt::NetworkTableEntry T__Meas_Motor_Angle_Left__Entry;
+        nt::NetworkTableEntry T__Meas_Motor_Angle_Right__Entry;
         nt::NetworkTableEntry T__Relative_Enable__Entry;
         nt::NetworkTableEntry T__Relative_Error_Angle__Entry;
         nt::NetworkTableEntry T__Relative_Error_X__Entry;
@@ -246,6 +250,8 @@ private:
         nt::NetworkTableEntry T__Steering_Localized_Cmd__Entry;
         nt::NetworkTableEntry T__Steering_Rel_Cmd__Entry;
         nt::NetworkTableEntry T__Steering_Rel_Cmd_SPF__Entry;
+        nt::NetworkTableEntry T__Target_Motor_Angle_Left__Entry;
+        nt::NetworkTableEntry T__Target_Motor_Angle_Right__Entry;
         nt::NetworkTableEntry T__Test_Mode__Entry;
         nt::NetworkTableEntry T__Translation_Angle__Entry;
         nt::NetworkTableEntry T__Translation_Angle_SPF__Entry;

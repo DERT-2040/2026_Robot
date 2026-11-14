@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 7.4
+ * Model version                  : 7.10
  * Simulink Coder version         : 26.1 (R2026a) 20-Nov-2025
- * C/C++ source code generated on : Sat Oct 31 16:19:21 2026
+ * C/C++ source code generated on : Sat Nov 14 11:34:33 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -81,6 +81,12 @@ typedef struct {
   real_T BL_Desired_Module_Angle;      /* '<S290>/Switch' */
   real_T Spline_Index;                 /* '<S10>/Merge6' */
   real_T loop_counter_robot_control;   /* '<S1>/Sum' */
+  real_T Desired_Roll_Angle;           /* '<S336>/Saturation' */
+  real_T Desired_Pitch_Angle;          /* '<S337>/Saturation' */
+  real_T Target_Motor_Angle_Left;      /* '<S335>/Product' */
+  real_T Meas_Motor_Angle_Left;        /* '<S2>/Gain' */
+  real_T Target_Motor_Angle_Right;     /* '<S335>/Product1' */
+  real_T Meas_Motor_Angle_Right;       /* '<S2>/Gain1' */
   real_T Steer_Joystick_X;             /* '<S5>/Signal Copy4' */
   real_T Relative_Error_Y;             /* '<S301>/Switch2' */
   real_T Relative_Error_X;             /* '<S301>/Unary Minus1' */
@@ -151,8 +157,6 @@ typedef struct {
   real_T UnitDelay1_DSTATE_nw;         /* '<S214>/Unit Delay1' */
   real_T UD_DSTATE_k;                  /* '<S213>/UD' */
   real_T UnitDelay_DSTATE_k;           /* '<S199>/Unit Delay' */
-  real_T UnitDelay_DSTATE_id;          /* '<S336>/Unit Delay' */
-  real_T UnitDelay_DSTATE_n;           /* '<S337>/Unit Delay' */
   real_T FixPtUnitDelay1_DSTATE_f;     /* '<S321>/FixPt Unit Delay1' */
   real_T UnitDelay1_DSTATE_l;          /* '<S317>/Unit Delay1' */
   real_T UnitDelay_DSTATE_p;           /* '<S317>/Unit Delay' */

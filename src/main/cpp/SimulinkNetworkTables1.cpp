@@ -487,6 +487,8 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__Button_Disable_Wheels__Entry = NTtable_TPoint->GetEntry("Button_Disable_Wheels");
     T__Button_Enable_Wheels__Entry = NTtable_TPoint->GetEntry("Button_Enable_Wheels");
     T__Button_Reset_Wheel_Offsets__Entry = NTtable_TPoint->GetEntry("Button_Reset_Wheel_Offsets");
+    T__Desired_Pitch_Angle__Entry = NTtable_TPoint->GetEntry("Desired_Pitch_Angle");
+    T__Desired_Roll_Angle__Entry = NTtable_TPoint->GetEntry("Desired_Roll_Angle");
     T__Drive_Joystick_X__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_X");
     T__Drive_Joystick_Y__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Y");
     T__FL_Desired_Module_Angle__Entry = NTtable_TPoint->GetEntry("FL_Desired_Module_Angle");
@@ -500,6 +502,8 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__Is_Absolute_Translation_SPF__Entry = NTtable_TPoint->GetEntry("Is_Absolute_Translation_SPF");
     T__KF_Position_X__Entry = NTtable_TPoint->GetEntry("KF_Position_X");
     T__KF_Position_Y__Entry = NTtable_TPoint->GetEntry("KF_Position_Y");
+    T__Meas_Motor_Angle_Left__Entry = NTtable_TPoint->GetEntry("Meas_Motor_Angle_Left");
+    T__Meas_Motor_Angle_Right__Entry = NTtable_TPoint->GetEntry("Meas_Motor_Angle_Right");
     T__Relative_Enable__Entry = NTtable_TPoint->GetEntry("Relative_Enable");
     T__Relative_Error_Angle__Entry = NTtable_TPoint->GetEntry("Relative_Error_Angle");
     T__Relative_Error_X__Entry = NTtable_TPoint->GetEntry("Relative_Error_X");
@@ -525,6 +529,8 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__Steering_Localized_Cmd__Entry = NTtable_TPoint->GetEntry("Steering_Localized_Cmd");
     T__Steering_Rel_Cmd__Entry = NTtable_TPoint->GetEntry("Steering_Rel_Cmd");
     T__Steering_Rel_Cmd_SPF__Entry = NTtable_TPoint->GetEntry("Steering_Rel_Cmd_SPF");
+    T__Target_Motor_Angle_Left__Entry = NTtable_TPoint->GetEntry("Target_Motor_Angle_Left");
+    T__Target_Motor_Angle_Right__Entry = NTtable_TPoint->GetEntry("Target_Motor_Angle_Right");
     T__Test_Mode__Entry = NTtable_TPoint->GetEntry("Test_Mode");
     T__Translation_Angle__Entry = NTtable_TPoint->GetEntry("Translation_Angle");
     T__Translation_Angle_SPF__Entry = NTtable_TPoint->GetEntry("Translation_Angle_SPF");
@@ -737,6 +743,8 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__Button_Disable_Wheels__Entry.SetDouble(Robot_Control_B.Button_Disable_Wheels);
     T__Button_Enable_Wheels__Entry.SetDouble(Robot_Control_B.Button_Enable_Wheels);
     T__Button_Reset_Wheel_Offsets__Entry.SetDouble(Robot_Control_B.Button_Reset_Wheel_Offsets);
+    T__Desired_Pitch_Angle__Entry.SetDouble(Robot_Control_B.Desired_Pitch_Angle);
+    T__Desired_Roll_Angle__Entry.SetDouble(Robot_Control_B.Desired_Roll_Angle);
     T__Drive_Joystick_X__Entry.SetDouble(Robot_Control_B.Drive_Joystick_X);
     T__Drive_Joystick_Y__Entry.SetDouble(Robot_Control_B.Drive_Joystick_Y);
     T__FL_Desired_Module_Angle__Entry.SetDouble(Robot_Control_B.FL_Desired_Module_Angle);
@@ -750,6 +758,8 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__Is_Absolute_Translation_SPF__Entry.SetDouble(Robot_Control_B.Is_Absolute_Translation_SPF);
     T__KF_Position_X__Entry.SetDouble(Robot_Control_B.KF_Position_X);
     T__KF_Position_Y__Entry.SetDouble(Robot_Control_B.KF_Position_Y);
+    T__Meas_Motor_Angle_Left__Entry.SetDouble(Robot_Control_B.Meas_Motor_Angle_Left);
+    T__Meas_Motor_Angle_Right__Entry.SetDouble(Robot_Control_B.Meas_Motor_Angle_Right);
     T__Relative_Enable__Entry.SetDouble(Robot_Control_B.Relative_Enable);
     T__Relative_Error_Angle__Entry.SetDouble(Robot_Control_B.Relative_Error_Angle);
     T__Relative_Error_X__Entry.SetDouble(Robot_Control_B.Relative_Error_X);
@@ -775,6 +785,8 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__Steering_Localized_Cmd__Entry.SetDouble(Robot_Control_B.Steering_Localized_Cmd);
     T__Steering_Rel_Cmd__Entry.SetDouble(Robot_Control_B.Steering_Rel_Cmd);
     T__Steering_Rel_Cmd_SPF__Entry.SetDouble(Robot_Control_B.Steering_Rel_Cmd_SPF);
+    T__Target_Motor_Angle_Left__Entry.SetDouble(Robot_Control_B.Target_Motor_Angle_Left);
+    T__Target_Motor_Angle_Right__Entry.SetDouble(Robot_Control_B.Target_Motor_Angle_Right);
     T__Test_Mode__Entry.SetDouble(Robot_Control_B.Test_Mode);
     T__Translation_Angle__Entry.SetDouble(Robot_Control_B.Translation_Angle);
     T__Translation_Angle_SPF__Entry.SetDouble(Robot_Control_B.Translation_Angle_SPF);
