@@ -89,7 +89,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Gamepad_Roll_Gain__Entry = NTtable_Tune->GetEntry("Gamepad_Roll_Gain");
     NTinst.AddListener(P__Gamepad_Roll_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Gamepad_Roll_Gain = event.GetValueEventData()->value.GetDouble();});
-    P__Gamepad_Roll_Gain__Entry.SetDouble(1);
+    P__Gamepad_Roll_Gain__Entry.SetDouble(4);
  
     P__KF_Enable__Entry = NTtable_Tune->GetEntry("KF_Enable");
     NTinst.AddListener(P__KF_Enable__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {KF_Enable = event.GetValueEventData()->value.GetDouble();});
@@ -97,7 +97,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
  
     P__Kp_motor_angle__Entry = NTtable_Tune->GetEntry("Kp_motor_angle");
     NTinst.AddListener(P__Kp_motor_angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Kp_motor_angle = event.GetValueEventData()->value.GetDouble();});
-    P__Kp_motor_angle__Entry.SetDouble(0.0001);
+    P__Kp_motor_angle__Entry.SetDouble(0.0002);
  
     P__R_motor_gearbox__Entry = NTtable_Tune->GetEntry("R_motor_gearbox");
     NTinst.AddListener(P__R_motor_gearbox__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {R_motor_gearbox = event.GetValueEventData()->value.GetDouble();});

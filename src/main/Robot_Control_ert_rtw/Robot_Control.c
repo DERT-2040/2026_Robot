@@ -9,7 +9,7 @@
  *
  * Model version                  : 7.10
  * Simulink Coder version         : 26.1 (R2026a) 20-Nov-2025
- * C/C++ source code generated on : Sat Nov 14 11:34:33 2026
+ * C/C++ source code generated on : Sat Nov 14 11:54:38 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -138,7 +138,7 @@ real_T Field_Translation_Speed_Max = 5.0;/* Variable: Field_Translation_Speed_Ma
 real_T Gamepad_Pitch_Gain = 1.0;       /* Variable: Gamepad_Pitch_Gain
                                         * Referenced by: '<S337>/Gain'
                                         */
-real_T Gamepad_Roll_Gain = 1.0;        /* Variable: Gamepad_Roll_Gain
+real_T Gamepad_Roll_Gain = 4.0;        /* Variable: Gamepad_Roll_Gain
                                         * Referenced by: '<S336>/Gain'
                                         */
 real_T KF_Enable = 1.0;                /* Variable: KF_Enable
@@ -146,7 +146,7 @@ real_T KF_Enable = 1.0;                /* Variable: KF_Enable
                                         *   '<S7>/Constant1'
                                         *   '<S7>/Constant2'
                                         */
-real_T Kp_motor_angle = 0.0001;        /* Variable: Kp_motor_angle
+real_T Kp_motor_angle = 0.0002;        /* Variable: Kp_motor_angle
                                         * Referenced by:
                                         *   '<S335>/Gain'
                                         *   '<S335>/Gain1'
