@@ -112,6 +112,7 @@ private:
         nt::NetworkTableEntry P__Vision_Tag_Target_Y__Entry;
         nt::NetworkTableEntry P__Vision_Tag_X_Offset__Entry;
         nt::NetworkTableEntry P__Vision_Tag_Y_Offset__Entry;
+        nt::NetworkTableEntry P__pitch_rate__Entry;
  
         // Inports
         nt::NetworkTableEntry I__BL_Steer_Module_Angle__Entry;
@@ -268,4 +269,5 @@ private:
         nt::NetworkTableEntry T__WhileIterator__Entry;
         nt::NetworkTableEntry T__abs_Cmd_Out__Entry;
         nt::NetworkTableEntry T__loop_counter_robot_control__Entry;
+        nt::NetworkTableEntry T__pitch__Entry;
 };

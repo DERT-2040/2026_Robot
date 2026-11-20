@@ -391,6 +391,10 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     NTinst.AddListener(P__Vision_Tag_Y_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Vision_Tag_Y_Offset = event.GetValueEventData()->value.GetDouble();});
     P__Vision_Tag_Y_Offset__Entry.SetDouble(0);
  
+    P__pitch_rate__Entry = NTtable_Tune->GetEntry("pitch_rate");
+    NTinst.AddListener(P__pitch_rate__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {pitch_rate = event.GetValueEventData()->value.GetDouble();});
+    P__pitch_rate__Entry.SetDouble(0.1);
+ 
 // Inports
     I__BL_Steer_Module_Angle__Entry = NTtable_Inport->GetEntry("BL_Steer_Module_Angle");
     I__BR_Steer_Module_Angle__Entry = NTtable_Inport->GetEntry("BR_Steer_Module_Angle");
@@ -547,6 +551,7 @@ SimulinkNetworkTables1::SimulinkNetworkTables1()
     T__WhileIterator__Entry = NTtable_TPoint->GetEntry("WhileIterator");
     T__abs_Cmd_Out__Entry = NTtable_TPoint->GetEntry("abs_Cmd_Out");
     T__loop_counter_robot_control__Entry = NTtable_TPoint->GetEntry("loop_counter_robot_control");
+    T__pitch__Entry = NTtable_TPoint->GetEntry("pitch");
 }
  
 void SimulinkNetworkTables1::PreStepCallback() {}
@@ -649,6 +654,7 @@ void SimulinkNetworkTables1::PostStepCallback()
     P__Vision_Tag_Target_Y__Entry.SetDouble(Vision_Tag_Target_Y);
     P__Vision_Tag_X_Offset__Entry.SetDouble(Vision_Tag_X_Offset);
     P__Vision_Tag_Y_Offset__Entry.SetDouble(Vision_Tag_Y_Offset);
+    P__pitch_rate__Entry.SetDouble(pitch_rate);
     // Inports
     I__BL_Steer_Module_Angle__Entry.SetDouble(Robot_Control_U.BL_Steer_Module_Angle);
     I__BR_Steer_Module_Angle__Entry.SetDouble(Robot_Control_U.BR_Steer_Module_Angle);
@@ -803,6 +809,7 @@ void SimulinkNetworkTables1::PostStepCallback()
     T__WhileIterator__Entry.SetDouble(Robot_Control_B.WhileIterator);
     T__abs_Cmd_Out__Entry.SetDouble(Robot_Control_B.abs_Cmd_Out);
     T__loop_counter_robot_control__Entry.SetDouble(Robot_Control_B.loop_counter_robot_control);
+    T__pitch__Entry.SetDouble(Robot_Control_B.pitch);
 }
 // Why are you reading to the bottom of an autogen file?
 // Get a life...

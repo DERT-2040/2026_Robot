@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Robot_Control'.
  *
- * Model version                  : 7.10
+ * Model version                  : 7.11
  * Simulink Coder version         : 26.1 (R2026a) 20-Nov-2025
- * C/C++ source code generated on : Sat Nov 14 11:54:38 2026
+ * C/C++ source code generated on : Thu Nov 19 20:20:05 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -81,13 +81,14 @@ typedef struct {
   real_T BL_Desired_Module_Angle;      /* '<S290>/Switch' */
   real_T Spline_Index;                 /* '<S10>/Merge6' */
   real_T loop_counter_robot_control;   /* '<S1>/Sum' */
-  real_T Desired_Roll_Angle;           /* '<S336>/Saturation' */
   real_T Desired_Pitch_Angle;          /* '<S337>/Saturation' */
+  real_T Desired_Roll_Angle;           /* '<S336>/Saturation' */
   real_T Target_Motor_Angle_Left;      /* '<S335>/Product' */
   real_T Meas_Motor_Angle_Left;        /* '<S2>/Gain' */
   real_T Target_Motor_Angle_Right;     /* '<S335>/Product1' */
   real_T Meas_Motor_Angle_Right;       /* '<S2>/Gain1' */
   real_T Steer_Joystick_X;             /* '<S5>/Signal Copy4' */
+  real_T pitch;                        /* '<S337>/Chart' */
   real_T Relative_Error_Y;             /* '<S301>/Switch2' */
   real_T Relative_Error_X;             /* '<S301>/Unary Minus1' */
   real_T Relative_Error_Angle;         /* '<S301>/Switch4' */
@@ -198,6 +199,9 @@ typedef struct {
   int8_T If_ActiveSubsystem_h;         /* '<S93>/If' */
   int8_T If_ActiveSubsystem_o;         /* '<S96>/If' */
   int8_T If_ActiveSubsystem_d;         /* '<S98>/If' */
+  uint8_T is_active_c3_Robot_Control;  /* '<S337>/Chart' */
+  uint8_T is_c3_Robot_Control;         /* '<S337>/Chart' */
+  uint8_T is_On;                       /* '<S337>/Chart' */
   uint8_T is_active_c6_Robot_Control;  /* '<S17>/Chart' */
   uint8_T is_c6_Robot_Control;         /* '<S17>/Chart' */
   uint8_T is_active_c7_Robot_Control;  /* '<S251>/Add dither' */
@@ -745,6 +749,9 @@ extern real_T Vision_Tag_X_Offset;     /* Variable: Vision_Tag_X_Offset
                                         */
 extern real_T Vision_Tag_Y_Offset;     /* Variable: Vision_Tag_Y_Offset
                                         * Referenced by: '<S14>/Constant7'
+                                        */
+extern real_T pitch_rate;              /* Variable: pitch_rate
+                                        * Referenced by: '<S337>/Chart'
                                         */
 extern uint8_T TEST_Pipeline;          /* Variable: TEST_Pipeline
                                         * Referenced by:
@@ -1299,6 +1306,8 @@ extern RT_MODEL_Robot_Control_T *const Robot_Control_M;
  * '<S335>' : 'Robot_Control/Subsystem/Controller'
  * '<S336>' : 'Robot_Control/Subsystem/Subsystem'
  * '<S337>' : 'Robot_Control/Subsystem/Subsystem1'
+ * '<S338>' : 'Robot_Control/Subsystem/Subsystem1/Chart'
+ * '<S339>' : 'Robot_Control/Subsystem/Subsystem1/Compare To Zero'
  */
 #endif                                 /* Robot_Control_h_ */
 

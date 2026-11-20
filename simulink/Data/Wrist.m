@@ -8,3 +8,5 @@ Desired_Pitch_Angle_LL = -45;
 
 R_motor_gearbox = 49; 
 Kp_motor_angle = 0.0002;
+
+pitch_rate = 0.1;
