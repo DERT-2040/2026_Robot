@@ -22,6 +22,10 @@ private:
         nt::NetworkTableEntry P__Boost_Trigger_High_Speed__Entry;
         nt::NetworkTableEntry P__Boost_Trigger_Increasing_Limit__Entry;
         nt::NetworkTableEntry P__Boost_Trigger_Low_Speed__Entry;
+        nt::NetworkTableEntry P__Desired_Pitch_Angle_LL__Entry;
+        nt::NetworkTableEntry P__Desired_Pitch_Angle_UL__Entry;
+        nt::NetworkTableEntry P__Desired_Roll_Angle_LL__Entry;
+        nt::NetworkTableEntry P__Desired_Roll_Angle_UL__Entry;
         nt::NetworkTableEntry P__Drive_Motor_Control_D__Entry;
         nt::NetworkTableEntry P__Drive_Motor_Control_D_FilterCoeff__Entry;
         nt::NetworkTableEntry P__Drive_Motor_Control_D_LL__Entry;
@@ -31,7 +35,11 @@ private:
         nt::NetworkTableEntry P__Drive_Motor_Control_Sign_Change_Deadband__Entry;
         nt::NetworkTableEntry P__Field_Translation_Control_Gain__Entry;
         nt::NetworkTableEntry P__Field_Translation_Speed_Max__Entry;
+        nt::NetworkTableEntry P__Gamepad_Pitch_Gain__Entry;
+        nt::NetworkTableEntry P__Gamepad_Roll_Gain__Entry;
         nt::NetworkTableEntry P__KF_Enable__Entry;
+        nt::NetworkTableEntry P__Kp_motor_angle__Entry;
+        nt::NetworkTableEntry P__R_motor_gearbox__Entry;
         nt::NetworkTableEntry P__Relative_Steering_Error_Angle_Gain__Entry;
         nt::NetworkTableEntry P__Relative_Steering_Error_Angle_Gain_Object_Factor__Entry;
         nt::NetworkTableEntry P__Relative_Steering_Speed_Max__Entry;
@@ -152,6 +160,8 @@ private:
         nt::NetworkTableEntry I__Vision_c1_Object_Hor_deg__Entry;
         nt::NetworkTableEntry I__Vision_c1_Object_Valid__Entry;
         nt::NetworkTableEntry I__Vision_c1_Object_Ver_deg__Entry;
+        nt::NetworkTableEntry I__Wrist_Motor_Left_Revs__Entry;
+        nt::NetworkTableEntry I__Wrist_Motor_Right_Revs__Entry;
         nt::NetworkTableEntry I__Xbox_Driver_Bumper_Left__Entry;
         nt::NetworkTableEntry I__Xbox_Driver_Bumper_Right__Entry;
         nt::NetworkTableEntry I__Xbox_Driver_ButtonA__Entry;
@@ -179,6 +189,8 @@ private:
         nt::NetworkTableEntry O__Reset_Wheel_Offsets__Entry;
         nt::NetworkTableEntry O__Swerve_Motors_Disabled__Entry;
         nt::NetworkTableEntry O__Vision_Desired_Pipeline__Entry;
+        nt::NetworkTableEntry O__Wrist_Motor_Left_DC__Entry;
+        nt::NetworkTableEntry O__Wrist_Motor_Right_DC__Entry;
  
         // Test Points
         nt::NetworkTableEntry T__Active_GameState__Entry;
